@@ -120,7 +120,9 @@ body {
 // ------------------- Main Header -------------------
 .main-header {
   background-color: $primary-color;
-
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   .container {
     @include container;
     @include flex-between;
@@ -1265,7 +1267,7 @@ body {
 .reviews-section {
   text-align: center;
   padding:px-to-rem(90) px-to-rem(20) px-to-rem(90);
-  background-color: #F8F8F8;
+  background-color: $light-gray;
 
   h2 {
     font-size: 2.5rem;
