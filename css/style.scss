@@ -160,7 +160,7 @@ body {
 
   .icons {
     display: flex;
-    gap: px-to-rem(16);
+    gap: px-to-rem(30);
     font-size: px-to-rem(18);
   }
 
@@ -173,7 +173,8 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    font-weight: bold;
+    font-weight: 500;
+    letter-spacing: px-to-rem(1);
     & > li {
       font-size: px-to-rem(16);
       a{
@@ -473,6 +474,7 @@ body {
         border-radius: px-to-rem(6);
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         text-align: center;
+        width: px-to-rem(90);
 
         .time {
           font-size: px-to-rem(24);
@@ -587,17 +589,19 @@ body {
     .overlay {
       background: rgba(255, 255, 255, 0.85);
       padding: px-to-rem(20);
-      text-align: left;
+      text-align: center;
       margin: 0 auto;
+      max-width: px-to-rem(280);
 
       h3 {
-        font-size: px-to-rem(20);
+        font-size: px-to-rem(24);
         margin-bottom: px-to-rem(4);
+        font-weight: 400;
       }
 
       p {
-        font-size: px-to-rem(18);
-        font-weight: 700;
+        font-size: px-to-rem(24);
+        font-weight: 900;
         margin-bottom: px-to-rem(6);
       }
 
@@ -658,9 +662,7 @@ body {
     .product-card {
       display: grid;
       grid-template-rows: auto 1fr;
-      background-color: #fff;
-      border-radius: px-to-rem(3);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      
       overflow: hidden;
       transition: transform 0.3s ease;
       height: 100%;
@@ -682,6 +684,9 @@ body {
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
+  background-color: #f2f2f2;
+      border-radius: px-to-rem(3);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
   img {
     width: 100%;
@@ -904,6 +909,7 @@ body {
         padding: px-to-rem(12) px-to-rem(20);
         border-radius: px-to-rem(6);
         text-align: center;
+         width: px-to-rem(90);
 
         .time {
           font-size: px-to-rem(24);
@@ -1258,7 +1264,8 @@ body {
 
 .reviews-section {
   text-align: center;
-  padding:px-to-rem(10) px-to-rem(20) px-to-rem(90);
+  padding:px-to-rem(90) px-to-rem(20) px-to-rem(90);
+  background-color: #F8F8F8;
 
   h2 {
     font-size: 2.5rem;
@@ -1278,7 +1285,7 @@ body {
     }
 
     .review-card {
-      border-radius: 10px;
+      border-radius: px-to-rem(3);
       padding: 2rem;
       
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
@@ -1323,11 +1330,11 @@ body {
 
           strong {
             display: block;
-            color: #333;
+            color: $text-color;
           }
 
           small {
-            color: #666;
+            color: $text-color;
           }
         }
       }
@@ -1387,7 +1394,7 @@ body {
     justify-content: center;
     gap: 2rem;
     padding: 3rem 2rem;
-    background: #f7f7f7;
+    background: #FFFFFF;
     color: #4E4E4E;
     flex-wrap: wrap;
 

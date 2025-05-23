@@ -110,7 +110,7 @@ body {
 }
 .main-header .icons {
   display: flex;
-  gap: 0.8888888889rem;
+  gap: 1.6666666667rem;
   font-size: 1rem;
 }
 .main-header .nav-links {
@@ -122,7 +122,8 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  font-weight: bold;
+  font-weight: 500;
+  letter-spacing: 0.0555555556rem;
 }
 .main-header .nav-links > li {
   font-size: 0.8888888889rem;
@@ -385,6 +386,7 @@ body {
   border-radius: 0.3333333333rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  width: 5rem;
 }
 .deal-of-the-day article.deal-text .countdown .time-box .time {
   font-size: 1.3333333333rem;
@@ -487,16 +489,18 @@ body {
 .shop-category .category-card .overlay {
   background: rgba(255, 255, 255, 0.85);
   padding: 1.1111111111rem;
-  text-align: left;
+  text-align: center;
   margin: 0 auto;
+  max-width: 15.5555555556rem;
 }
 .shop-category .category-card .overlay h3 {
-  font-size: 1.1111111111rem;
+  font-size: 1.3333333333rem;
   margin-bottom: 0.2222222222rem;
+  font-weight: 400;
 }
 .shop-category .category-card .overlay p {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.3333333333rem;
+  font-weight: 900;
   margin-bottom: 0.3333333333rem;
 }
 .shop-category .category-card .overlay span {
@@ -548,9 +552,6 @@ body {
 .new-arrivals .products-grid .product-card, .best-selling .products-grid .product-card {
   display: grid;
   grid-template-rows: auto 1fr;
-  background-color: #fff;
-  border-radius: 0.1666666667rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   transition: transform 0.3s ease;
   height: 100%;
@@ -570,6 +571,9 @@ body {
   width: 100%;
   aspect-ratio: 4/5;
   overflow: hidden;
+  background-color: #f2f2f2;
+  border-radius: 0.1666666667rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 .new-arrivals .products-grid .product-card .card-image img, .best-selling .products-grid .product-card .card-image img {
   width: 100%;
@@ -766,6 +770,7 @@ body {
   padding: 0.6666666667rem 1.1111111111rem;
   border-radius: 0.3333333333rem;
   text-align: center;
+  width: 5rem;
 }
 .promo-banner article.promo-content .countdown .time-box .time {
   font-size: 1.3333333333rem;
@@ -1053,7 +1058,8 @@ body {
 
 .reviews-section {
   text-align: center;
-  padding: 0.5555555556rem 1.1111111111rem 5rem;
+  padding: 5rem 1.1111111111rem 5rem;
+  background-color: #F8F8F8;
 }
 .reviews-section h2 {
   font-size: 2.5rem;
@@ -1073,7 +1079,7 @@ body {
   align-items: stretch;
 }
 .reviews-section .reviews-carousel .review-card {
-  border-radius: 10px;
+  border-radius: 0.1666666667rem;
   padding: 2rem;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   text-align: left;
@@ -1113,10 +1119,10 @@ body {
 }
 .reviews-section .reviews-carousel .review-card figure figcaption strong {
   display: block;
-  color: #333;
+  color: #4E4E4E;
 }
 .reviews-section .reviews-carousel .review-card figure figcaption small {
-  color: #666;
+  color: #4E4E4E;
 }
 .reviews-section .reviews-carousel .swiper-btn-grp {
   display: flex;
@@ -1165,7 +1171,7 @@ body {
   justify-content: center;
   gap: 2rem;
   padding: 3rem 2rem;
-  background: #f7f7f7;
+  background: #FFFFFF;
   color: #4E4E4E;
   flex-wrap: wrap;
 }
