@@ -2,7 +2,7 @@ fetch('./products.json')
   .then(response => response.json())
   .then(data => {
     const menGrid = document.getElementById('men');
-    menGrid.innerHTML = ''; // Clear existing static cards
+    menGrid.innerHTML = ''; 
 
     data.products
       .filter(product => product.gender === "Men")

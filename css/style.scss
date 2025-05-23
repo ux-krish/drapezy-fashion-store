@@ -1,4 +1,4 @@
-/* ------------------- CSS Reset ------------------- */
+/*rest css*/
 *,
 *::before,
 *::after {
@@ -39,7 +39,7 @@ ul, ol {
   list-style: none;
 }
 
-// ------------------- Variables -------------------
+//  Variables 
 $primary-color: #FFF0C7;
 $secondary-color: #D1EAF5;
 $secondary-color-dark: #81B6CE;
@@ -52,7 +52,7 @@ $text-secondary-color: #DF6262;
 $font-base: 18;
 $font-family: 'Jost', sans-serif;
 
-// ------------------- Functions -------------------
+// Functions 
 @function px-to-rem($px) {
   @return #{$px / $font-base}rem;
 }
@@ -67,7 +67,7 @@ $font-family: 'Jost', sans-serif;
   $vw: #{($px / $base-vw) * 100}vw;
   @return max(#{$rem}, #{$vw});
 }
-// ------------------- Mixins -------------------
+// Mixins 
 @mixin flex-between {
   display: flex;
   justify-content: space-between;
@@ -82,7 +82,7 @@ $font-family: 'Jost', sans-serif;
 :root {
     --swiper-navigation-size: 18px !important;
 }
-// ------------------- Base Styles -------------------
+
 body {
   font-family: $font-family;
   margin: 0;
@@ -766,7 +766,7 @@ body {
       }
 
       &:last-child {
-        border-radius: px-to-rem(4); // make the "View" button square
+        border-radius: px-to-rem(4);
         padding: px-to-rem(6) px-to-rem(10);
       }
     }
@@ -989,10 +989,7 @@ body {
           align-items: center;
           gap: px-to-rem(6);
 
-          // &::before {
-          //   content: '⭐';
-          //   font-size: px-to-rem(14);
-          // }
+        
         }
 
         .price {
@@ -1130,7 +1127,6 @@ body {
   grid-gap: 24px;
       grid-template-rows: 1fr;
 
-  // Medium cards on the left (span 2 rows), small cards on the right (each in one row)
   .card-medium:nth-of-type(1) {
     grid-column: 1;
     grid-row: 1 / span 2;

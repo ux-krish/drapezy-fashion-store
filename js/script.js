@@ -1,11 +1,7 @@
 function showTab(tabId, group) {
-  // Hide all grids in this group
   document.querySelectorAll(`.products-grid[data-group="${group}"]`).forEach(el => el.classList.add('hidden'));
   document.querySelector(`#${tabId}`).classList.remove('hidden');
-
-  // Remove active from all tabs in this group
   document.querySelectorAll(`.tab[data-group="${group}"]`).forEach(tab => tab.classList.remove('active'));
-  // Add active to the clicked tab
   document.querySelector(`[onclick="showTab('${tabId}', '${group}')"]`).classList.add('active');
 }
 
