@@ -1,3 +1,49 @@
+@use "sass:math";
+
+
+//  Variables 
+$primary-color: #FFF0C7;
+$secondary-color: #D1EAF5;
+$secondary-color-dark: #81B6CE;
+$tertiary-color: #F6C9D3;
+$accent-color: #92FB99;
+$light-gray:#F5F5F5;
+$light-gray-stroke:#EFEFEF;
+$text-color: #4E4E4E;
+$text-secondary-color: #DF6262;
+$font-base: 18;
+$font-family: 'Jost', sans-serif;
+
+
+// Functions 
+@function px-to-rem($px) {
+  @return #{math.div($px, $font-base)}rem;
+}
+@function px-to-vw($px, $base-vw: 1920) {
+  @return #{math.div($px, $base-vw) * 100}vw;
+}
+@function px-to-vh($px, $base-vh: 1080) {
+  @return #{math.div($px, $base-vh) * 100}vh;
+}
+@function px-to-max($px, $base-vw: 1920) {
+  $rem: #{math.div($px, $font-base)}rem;
+  $vw: #{math.div($px, $base-vw) * 100}vw;
+  @return max(#{$rem}, #{$vw});
+}
+// Mixins 
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 px-to-rem(16);
+}
+
+
 /*rest css*/
 *,
 *::before,
@@ -39,46 +85,7 @@ ul, ol {
   list-style: none;
 }
 
-//  Variables 
-$primary-color: #FFF0C7;
-$secondary-color: #D1EAF5;
-$secondary-color-dark: #81B6CE;
-$tertiary-color: #F6C9D3;
-$accent-color: #92FB99;
-$light-gray:#F5F5F5;
-$light-gray-stroke:#EFEFEF;
-$text-color: #4E4E4E;
-$text-secondary-color: #DF6262;
-$font-base: 18;
-$font-family: 'Jost', sans-serif;
 
-// Functions 
-@function px-to-rem($px) {
-  @return #{$px / $font-base}rem;
-}
-@function px-to-vw($px, $base-vw: 1920) {
-  @return #{($px / $base-vw) * 100}vw;
-}
-@function px-to-vh($px, $base-vh: 1080) {
-  @return #{($px / $base-vh) * 100}vh;
-}
-@function px-to-max($px, $base-vw: 1920) {
-  $rem: #{$px / $font-base}rem;
-  $vw: #{($px / $base-vw) * 100}vw;
-  @return max(#{$rem}, #{$vw});
-}
-// Mixins 
-@mixin flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@mixin container {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 px-to-rem(16);
-}
 :root {
     --swiper-navigation-size: 18px !important;
 }
@@ -223,9 +230,10 @@ body {
           li {
             padding: px-to-rem(6) 0;
             font-size: px-to-rem(14);
-            color: #333;
+            color: $text-color;
             cursor: pointer;
             transition: color 0.3s ease;
+            font-weight: 400;
 
             &:hover {
               color: $primary-color;
@@ -385,11 +393,11 @@ body {
 }
 
 .blur-left {
-  left: px-to-rem(-7);
+  left: px-to-rem(-150);
 }
 
 .blur-right {
-  right: px-to-rem(-7);
+  right: px-to-rem(-150);
 }
 
 
@@ -580,6 +588,7 @@ body {
       background: rgba(255, 255, 255, 0.85);
       padding: px-to-rem(20);
       text-align: left;
+      margin: 0 auto;
 
       h3 {
         font-size: px-to-rem(20);
@@ -594,7 +603,7 @@ body {
 
       span {
         font-size: px-to-rem(14);
-        color: #555;
+        color: $text-color;
       }
     }
   }
@@ -797,7 +806,7 @@ body {
           margin-top: px-to-rem(8);
           .rating {
             font-size: px-to-rem(14);
-            color: #999;
+            color: $text-color;
             display: flex;
             gap:px-to-rem(3);
             padding: px-to-rem(2);
@@ -951,7 +960,7 @@ body {
 
   p {
     font-size: px-to-rem(16);
-    color: #555;
+    color: $text-color;
     margin-bottom: px-to-rem(32);
   }
 
@@ -1206,6 +1215,7 @@ body {
         font-size: 1.5rem;
         margin: 0;
         transition: transform 0.3s ease;
+        text-align: left;
         span {
           font-weight: bold;
         }
