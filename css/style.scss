@@ -473,7 +473,7 @@ body {
         border-radius: px-to-rem(6);
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         text-align: center;
-
+        width: px-to-rem(80);
         .time {
           font-size: px-to-rem(24);
           font-weight: 700;
@@ -904,6 +904,7 @@ body {
         padding: px-to-rem(12) px-to-rem(20);
         border-radius: px-to-rem(6);
         text-align: center;
+        width: px-to-rem(80);
 
         .time {
           font-size: px-to-rem(24);
