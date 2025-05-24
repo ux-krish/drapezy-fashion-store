@@ -53,17 +53,20 @@
           gap: px-to-rem(6);
           z-index: 2;
           span {
-            color: #333;
-            padding: px-to-rem(4) px-to-rem(8);
+            color: $text-color;
+            padding: px-to-rem(6) px-to-rem(14);
             border-radius: px-to-rem(20);
             font-size: px-to-rem(12);
-            font-weight: bold;
+            font-weight: 900;
+            height: px-to-rem(29);
+            align-items: center;
+            justify-content: center;
             &.discount {
-              background-color: $tertiary-color;
-              color: #fff;
+              background-color: $accent-color;
+              color: $text-color;
             }
             &.new {
-              background-color: $accent-color;
+              background-color: $tertiary-color;
             }
           }
         }
@@ -103,9 +106,7 @@
             }
             &.add-to-wishlist:hover {
               background-color: #FBADB5;
-              svg path {
-                fill: #fff;
-              }
+              
             }
             &.view-product:hover {
               background-color: $accent-color;

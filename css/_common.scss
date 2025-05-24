@@ -16,6 +16,8 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent; 
+    -webkit-touch-callout: none; 
 }
 
 img,
@@ -42,6 +44,12 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+a, button, input, textarea, select {
+    -webkit-tap-highlight-color: transparent; 
+    -webkit-touch-callout: none; 
+}
+
 
 ul,
 ol {
@@ -105,3 +113,4 @@ body {
     transform: scale(0.95);
   }
 }
+

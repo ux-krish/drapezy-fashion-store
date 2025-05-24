@@ -15,6 +15,11 @@
   justify-content: flex-start;
   align-items: center;
 }
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @mixin container {
   max-width: 1320px;

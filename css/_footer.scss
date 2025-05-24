@@ -1,6 +1,6 @@
 .site-footer {
-  background: #444;
-  color: #fff;
+  background: $text-color;
+  color: $text-white;
   font-family: inherit;
   .footer-top {
     display: flex;
@@ -19,7 +19,10 @@
       align-items: center;
       gap: px-to-rem(16);
       max-width: px-to-rem(300);
-
+      @media (max-width: 767px) {
+        width: 100%;
+        max-width: none;
+      }
       img {
         width: px-to-rem(40);
         height: px-to-rem(40);
@@ -59,30 +62,34 @@
         }
 
         p {
-          color: #444;
+          color: $text-color;
         }
       }
 
       .newsletter-form {
         display: flex;
-        background: #444;
+        background: $text-color;
         border-radius: px-to-rem(4);
         overflow: hidden;
-
+        justify-content: space-between;
+        width: 35%;
+        @media(max-width:767px){
+          width: 100%;
+        }
         input {
           padding: px-to-rem(16);
           border: none;
           outline: none;
-          color: #fff;
-          background: #444;
-          min-width: px-to-rem(280);
+          color: $text-white;
+          background: $text-color;
+          
         }
 
         button {
           background: transparent;
           border: none;
           padding: 0 0 0 px-to-rem(20);
-          color: #fff;
+          color: $text-white;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -92,7 +99,7 @@
   }
 
   .footer-main {
-    background: #444;
+    background: $text-color;
     padding: px-to-rem(48) px-to-rem(32);
 
     .footer-columns {
@@ -118,7 +125,7 @@
           margin-bottom: 0;
 
           a {
-            color: #fff;
+            color: $text-white;
             text-decoration: none;
 
             &:hover {

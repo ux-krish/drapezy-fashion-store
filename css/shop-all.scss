@@ -17,32 +17,34 @@
     position: relative;
     overflow-x: hidden;
     aside.sidebar {
-        flex: 0 0 px-to-rem(250);
+        flex: 0 0 px-to-rem(300);
         background: white;
-        padding: px-to-rem(16);
         border-right: 1px solid $light-gray-stroke;
 
         .filter-section {
-            margin-bottom: px-to-rem(24);
 
             h4 {
-                font-size: px-to-rem(18);
-                margin-bottom: px-to-rem(12);
+                font-size: px-to-rem(24);
                 font-weight: 600;
+                padding: px-to-rem(12) px-to-rem(20);
+                border-bottom: 1px solid $light-gray-stroke;
             }
 
             ul {
                 list-style: none;
-                padding: 0;
+                padding: px-to-rem(40) px-to-rem(20);
+                border-bottom: 1px solid $light-gray-stroke;
 
                 li {
-                    margin-bottom: px-to-rem(8);
-
+                    margin-bottom: px-to-rem(10);
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
                     label {
                         display: flex;
                         align-items: center;
                         cursor: pointer;
-                        font-size: px-to-rem(14);
+                        font-size: px-to-rem(20);
                         gap: px-to-rem(8);
 
                         input[type="checkbox"] {
@@ -85,6 +87,7 @@
 
             .price {
                 font-size: px-to-rem(14);
+                padding: px-to-rem(12) px-to-rem(20);
 
                 input[type="range"] {
                     width: 100%;
@@ -196,7 +199,7 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: px-to-rem(24);
             padding: px-to-rem(20);
             border-bottom: 1px solid $light-gray-stroke;
