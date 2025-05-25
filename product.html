@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.0.0/swiper-bundle.min.css"
     integrity="sha512-vpQAOKfr8GW8/rT4BzGQKPYmEP7tlOe7xuSPGdAoxMktG2qE0OHdd91vPpHmFMVKFBVod3oQCPPTQQ82u+F9hw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.3/dist/lenis.css">
 </head>
 
 <body>
@@ -154,6 +155,8 @@
                 <div class="swiper-slide"><img src="images/whitedress.png" alt="White Dress" /></div>
                 <div class="swiper-slide"><img src="images/tops.png" alt="Skirt" /></div>
                 <div class="swiper-slide"><img src="images/women1.png" alt="Main Product 2" /></div>
+                <div class="swiper-slide"><img src="images/women1.png" alt="Main Product 2" /></div>
+                <div class="swiper-slide"><img src="images/women1.png" alt="Main Product 2" /></div>
               </div>
             </div>
             <!-- Thumbnail slider -->
@@ -163,6 +166,8 @@
                 <div class="swiper-slide"><img src="images/red-dress.png" /></div>
                 <div class="swiper-slide"><img src="images/whitedress.png" /></div>
                 <div class="swiper-slide"><img src="images/tops.png" /></div>
+                <div class="swiper-slide"><img src="images/women1.png" /></div>
+                <div class="swiper-slide"><img src="images/women1.png" /></div>
                 <div class="swiper-slide"><img src="images/women1.png" /></div>
               </div>
             </div>
@@ -406,24 +411,36 @@
 
 
   <script src="js/script.js"></script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.0.0/swiper-bundle.min.js"
     integrity="sha512-YmW5V9HDaGHx0Aao1SNObo0PHtU64Au8L59yLQlYo+6R8wOqVyo0AO5vm93A/vgOeHBWEsNbsyoXiBy3wz3z2Q=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script> 
+      <script src="js/common.js"></script>
   <script>
-
     const thumbSwiper = new Swiper('.thumbnail-slider.swiper', {
       slidesPerView: 5,
-      spaceBetween: 10,
+      spaceBetween: 24,
       watchSlidesProgress: true,
-      autoHeight: true,
       loop: true,
+      direction: "vertical",
+      
     });
 
     const mainSwiper = new Swiper('.main-slider.swiper', {
       slidesPerView: 1,
       spaceBetween: 20,
-      autoHeight: true,
       loop: true,
+      effect: "fade",
+      // creativeEffect: {
+      //   prev: {
+      //     shadow: true,
+      //     translate: [0, 0, -400],
+      //   },
+      //   next: {
+      //     translate: ["100%", 0, 0],
+      //   },
+      // },
       thumbs: {
         swiper: thumbSwiper,
       },

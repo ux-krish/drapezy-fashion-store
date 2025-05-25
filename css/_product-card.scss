@@ -1,6 +1,6 @@
 .product-card {
       display: grid;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: auto 1fr ;
 
       overflow: hidden;
       transition: transform 0.3s ease;
@@ -133,8 +133,9 @@
         height: 100%;
 
         h3 {
-          font-size: px-to-rem(18);
+          font-size: px-to-rem(20);
           margin: 0;
+          font-weight: 500;
         }
 
         .rating-price {
@@ -144,16 +145,16 @@
           margin-top: px-to-rem(8);
           .rating {
             font-size: px-to-rem(14);
-            color: $text-color;
+            color: $light-gray-stroke;
             display: flex;
             gap: px-to-rem(3);
-            padding: px-to-rem(2);
-            background-color: $light-gray;
+            padding: px-to-rem(3) px-to-rem(4);
+            background-color: $text-color;
             border: px-to-rem(1) solid $light-gray-stroke;
             border-radius: px-to-rem(3);
             span {
               font-weight: 700;
-              color: $text-color;
+              color: $light-gray-stroke;
             }
           }
 

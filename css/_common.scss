@@ -10,6 +10,7 @@
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -18,8 +19,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent; 
     -webkit-touch-callout: none; 
+     scrollbar-width: none; 
+  -ms-overflow-style: none;  
+  overflow: hidden; 
 }
-
+body::-webkit-scrollbar {
+  display: none; 
+}
 img,
 picture,
 video,
@@ -60,13 +66,18 @@ ol {
 :root {
   --swiper-navigation-size: px-to-rem(18) !important;
 }
-
+html{overflow-x: hidden;}
 body {
   font-family: $font-family;
   margin: 0;
   color: $text-color;
+  overflow-x: hidden;
 }
-
+section::after, section::before {
+    content: '';
+    clear: both;
+    display: block;
+}
 
 .cta-button {
   position: relative;

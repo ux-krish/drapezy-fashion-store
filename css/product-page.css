@@ -10,6 +10,7 @@
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -18,6 +19,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 img,
@@ -59,10 +67,21 @@ ol {
   --swiper-navigation-size: px-to-rem(18) !important;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Jost", sans-serif;
   margin: 0;
   color: #4E4E4E;
+  overflow-x: hidden;
+}
+
+section::after, section::before {
+  content: "";
+  clear: both;
+  display: block;
 }
 
 .cta-button {
@@ -432,6 +451,10 @@ body {
 }
 .product-details .product-wrapper .product-gallery {
   width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  gap: 24px;
 }
 @media (max-width: 900px) {
   .product-details .product-wrapper .product-gallery {
@@ -441,10 +464,21 @@ body {
 .product-details .product-wrapper .product-gallery .main-slider {
   border: 0.0555555556rem solid #D1EAF5;
   padding: 1.1111111111rem;
+  width: 72%;
+  flex: 1;
+  margin: 0;
+  height: 33.3333333333rem;
   border-radius: 0.1666666667rem;
+}
+@media (max-width: 900px) {
+  .product-details .product-wrapper .product-gallery .main-slider {
+    width: calc(100% - 124px);
+  }
 }
 .product-details .product-wrapper .product-gallery .main-slider .swiper-wrapper {
   align-items: center;
+  overflow: hidden;
+  border-radius: 0.1666666667rem;
 }
 .product-details .product-wrapper .product-gallery .main-slider .swiper-slide {
   display: flex;
@@ -452,10 +486,11 @@ body {
   align-items: center;
   overflow: hidden;
   border-radius: 0.1666666667rem;
+  height: 100%;
+  background-color: #f7f7f7;
 }
 .product-details .product-wrapper .product-gallery .main-slider .swiper-slide img {
   width: 100%;
-  max-height: 450px;
   -o-object-fit: contain;
      object-fit: contain;
   display: block;
@@ -464,31 +499,38 @@ body {
 .product-details .product-wrapper .product-gallery .thumbnail-slider {
   margin-top: 1.3333333333rem;
   flex-wrap: wrap;
+  margin: 0;
+  height: 33.3333333333rem;
 }
-.product-details .product-wrapper .product-gallery .thumbnail-slider .swiper-slide {
-  width: 100px;
+.product-details .product-wrapper .product-gallery .thumbnail-slider .swiper-wrapper {
+  width: 90px;
+}
+.product-details .product-wrapper .product-gallery .thumbnail-slider .swiper-wrapper .swiper-slide {
   box-sizing: border-box;
   opacity: 0.6;
   border: 0.0555555556rem solid #EFEFEF;
   cursor: pointer;
   transition: border 0.2s, opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  background-color: #F5F5F5;
   border-radius: 0.1666666667rem;
   overflow: hidden;
+  padding: 0rem;
+  display: flex;
+  align-items: center;
 }
-.product-details .product-wrapper .product-gallery .thumbnail-slider .swiper-slide.swiper-slide-thumb-active {
+.product-details .product-wrapper .product-gallery .thumbnail-slider .swiper-wrapper .swiper-slide.swiper-slide-thumb-active {
   opacity: 1;
   border-color: #D1EAF5;
 }
-.product-details .product-wrapper .product-gallery .thumbnail-slider .swiper-slide img {
-  width: 100%;
-  height: 7.2222222222rem;
-  -o-object-fit: cover;
-     object-fit: cover;
+.product-details .product-wrapper .product-gallery .thumbnail-slider .swiper-wrapper .swiper-slide img {
+  width: 100px;
+  height: 5.5555555556rem;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
+  background: #f7f7f7;
 }
 @media (max-width: 33.3333333333rem) {
-  .product-details .product-wrapper .product-gallery .thumbnail-slider .swiper-slide img {
+  .product-details .product-wrapper .product-gallery .thumbnail-slider .swiper-wrapper .swiper-slide img {
     height: 20vw;
   }
 }
@@ -507,9 +549,9 @@ body {
   border-radius: 0.1666666667rem;
 }
 .product-details .product-wrapper .product-info h2 {
-  font-size: 1.5rem;
+  font-size: 1.7777777778rem;
   margin: 0.5rem 0;
-  font-weight: 600;
+  font-weight: 900;
 }
 .product-details .product-wrapper .product-info .ratings {
   font-size: 1rem;
