@@ -102,9 +102,11 @@
   .carousel-texts {
     display: flex;
     white-space: nowrap;
-    animation: scroll-text 30s linear infinite;
+    animation: scroll-text 25s linear infinite;
     gap: px-to-rem(70);
-
+    @media (max-width:900px){
+      animation: scroll-text 10s linear infinite;
+    }
     .scroll-content {
       display: flex;
       gap: px-to-rem(60);
@@ -377,7 +379,7 @@
   .products-grid {
     @include container;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(px-to-max(160), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(px-to-max(210), 1fr));
     gap: px-to-rem(24);
     margin: px-to-rem(50) auto;
     &.hidden {
@@ -534,7 +536,7 @@
     figure {
       margin: 0;
       overflow: hidden;
-      border-radius: px-to-vw(3);
+      border-radius: px-to-rem(3);
 
       img {
         width: 100%;
@@ -549,11 +551,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: px-to-max(32);
+      padding: px-to-max(64) px-to-max(20);
 
       figcaption {
         padding: px-to-max(32);
-        border-radius: px-to-max(8);
+        border-radius: px-to-rem(8);
         max-width: px-to-max(500);
 
         article {
@@ -568,7 +570,7 @@
               background: #4E4E4E;
               color: $primary-color-dark;
               padding: px-to-max(4) px-to-max(8);
-              border-radius: px-to-max(4);
+              border-radius: px-to-rem(4);
               display: inline-block;
             }
           }
