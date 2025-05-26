@@ -88,6 +88,42 @@ function showProduct(product) {
       featuresUl.innerHTML += `<li>${f}</li>`;
     });
   }
+
+  // GSAP animation for product info and product slider (ensure DOM is updated)
+  if (window.gsap) {
+    requestAnimationFrame(() => {
+      // Animate product info
+      const info = document.querySelector('.product-info');
+      if (info) {
+        gsap.fromTo(
+          Array.from(info.children).filter(el => el.nodeType === 1),
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power2.out"
+          }
+        );
+      }
+      // Animate product slider images
+      const mainSliderImgs = document.querySelectorAll('.main-slider .swiper-slide img');
+      if (mainSliderImgs.length) {
+        gsap.fromTo(
+          mainSliderImgs,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.08,
+            ease: "power2.out"
+          }
+        );
+      }
+    });
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {

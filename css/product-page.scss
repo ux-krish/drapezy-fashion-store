@@ -26,7 +26,7 @@
             color: $text-color;
             text-decoration: none;
             &:hover {
-                color: $secondary-color;
+                color:$text-dark;
             }
         }
         span {
@@ -38,42 +38,48 @@
 .product-details {
     padding: px-to-rem(20) 0;
     overflow: hidden;
-
-    .product-wrapper {
+    .container {
         @include container;
+         gap: px-to-rem(24);
+    }
+    .product-wrapper {
+       
         display: flex;
         justify-content: center;
-        gap: 2rem;
-
+        align-items: flex-start;
+       gap: px-to-rem(24);
+        
         @media (max-width: 900px) {
             flex-direction: column;
         }
 
         .product-gallery {
-            width: 50%;;
-           
-            @media (max-width: 900px) {
-                width: 100%;
-            }
+            width: 50%;
             display: flex;
             flex-wrap: wrap;
             flex-direction: row-reverse;
-            gap: 24px;
+            gap: px-to-rem(24);
+            @media (max-width: 900px) {
+                width: 100%;
+                gap: px-to-rem(12);
+            }
             .main-slider {
                 border: px-to-rem(1) solid $secondary-color;
                 padding: px-to-rem(20);
                 width: 72%;
                 flex: 1;
                 margin: 0;
-                height: px-to-rem(600);
                 border-radius: px-to-rem(3);
-                 @media (max-width: 900px) {
-                    width: calc(100% - 124px);
+                 @media (max-width: 600px) {
+                    width: calc(100% - 25vw);
+                    padding: px-to-rem(10);
                  }
                 .swiper-wrapper {
                     align-items: center;
                     overflow: hidden;
                     border-radius: px-to-rem(3);
+                    height: auto;
+                    background-color: #f7f7f7;
                 }
 
                 .swiper-slide {
@@ -82,13 +88,12 @@
                     align-items: center;
                     overflow: hidden;
                     border-radius: px-to-rem(3);
-                    height: 100%;
                     background-color: #f7f7f7;
                     img {
-                        width: 100%;
                         object-fit: contain;
                         display: block;
                         background-color: $light-gray;
+                        height: 100%;
                     }
                 }
             }
@@ -97,9 +102,11 @@
                 margin-top: px-to-rem(24);
                 flex-wrap: wrap;    
                 margin: 0;
-                 height: px-to-rem(600);
                 .swiper-wrapper{
                      width: 90px;
+                     @media (max-width: 600px) {
+                        width: 18vw;
+                    }
                     .swiper-slide {
                         box-sizing: border-box;
                         opacity: 0.6;
@@ -111,6 +118,7 @@
                         padding: px-to-rem(0);
                         display: flex;
                         align-items: center;
+                        height: auto !important;
                         &.swiper-slide-thumb-active {
                             opacity: 1;
                             border-color: $secondary-color;
@@ -122,9 +130,9 @@
                             object-fit: contain;
                             display: block;
                             background: #f7f7f7;
-                            @media (max-width: px-to-rem(600)) {
-                                height: 20vw;
-                            }
+                            // @media (max-width: px-to-rem(600)) {
+                            //     height: 20vw;
+                            // }
                         }
                     }
                 }
@@ -236,16 +244,16 @@
                         display: inline-flex;
                         align-items: center;
                         cursor: pointer;
-                        width: px-to-rem(30);
-                        height: px-to-rem(30);
+                        width: px-to-rem(50);
+                        height: px-to-rem(50);
                         border: px-to-rem(1) solid $light-gray-stroke;
                         background: $text-white;
                         color: $text-color;
                         border-radius: px-to-rem(3);
                         @include flex-center;
-                        font-size: px-to-rem(14);
+                        font-size: px-to-rem(18);
                         transition: background 0.2s, color 0.2s, border-color 0.2s;
-                        font-weight: 400;
+                        font-weight: 500;
                         input[type="radio"] {
                             position: absolute;
                             opacity: 0;
@@ -295,19 +303,19 @@
                         font-weight: 500;
                         border-radius: px-to-rem(3);
                         background-color: $light-gray;
-                        font-size: px-to-rem(14);
+                        font-size: px-to-rem(18);
                     }
                     button{
-                        width: px-to-rem(30);
-                        height: px-to-rem(30);
+                        width: px-to-rem(50);
+                        height: px-to-rem(50);
                         border: px-to-rem(1) solid $light-gray-stroke;
                         background-color: $secondary-color;
                         border-radius: px-to-rem(3);
                         @include flex-center;
                         cursor: pointer;
                         svg{
-                            width: px-to-rem(16);
-                            height: px-to-rem(16);
+                            width: px-to-rem(20);
+                            height: px-to-rem(20);
                         }
                     }
                 }

@@ -913,16 +913,13 @@
 .hero-carousel{
   .hero-swiper{ 
     position: relative;
-    width: 100%;
     overflow: hidden;
     // height: calc(200vw - px-to-rem(170));
     .swiper-wrapper{
-      width: 100vw;
-      height: calc(200vw - px-to-rem(170));
       .swiper-slide {
-        width: 100vw;
+        width: 100% !important;
         // height:calc(200vw - px-to-rem(170));
-        margin: 0;
+        margin-right: 0 !important;
         background-size: cover;
         background-position: center center;
         display: flex;
@@ -930,14 +927,20 @@
         justify-content: flex-start;
         .container{
           @include container;
-          
-          padding: px-to-rem(60) px-to-rem(40);
+          padding: px-to-max(240) px-to-max(40);
           width: 100%;
           height:calc(100vh - px-to-rem(170));
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           gap: px-to-rem(10);
+           @media (max-width: 900px) {
+            padding: px-to-max(120) px-to-max(20);
+             height:calc(100vh - px-to-rem(300));
+          }
+          @media (max-width: 600px) {
+            padding: px-to-max(60) px-to-max(20);
+          }
           h2{
             font-size:px-to-rem(48);
             font-weight: 800;

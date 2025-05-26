@@ -22,7 +22,7 @@
 }
 
 @mixin container {
-  max-width: 1320px;
+  max-width: px-to-rem(1320);
   margin: 0 auto;
   padding: 0 px-to-rem(16);
 }

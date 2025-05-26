@@ -129,7 +129,7 @@ section::after, section::before {
   padding: 0.4444444444rem 0;
 }
 .top-bar .container {
-  max-width: 1320px;
+  max-width: 73.3333333333rem;
   margin: 0 auto;
   padding: 0 0.8888888889rem;
   display: flex;
@@ -153,7 +153,7 @@ section::after, section::before {
   z-index: 1000;
 }
 .main-header .container {
-  max-width: 1320px;
+  max-width: 73.3333333333rem;
   margin: 0 auto;
   padding: 0 0.8888888889rem;
   display: flex;
@@ -569,7 +569,7 @@ section::after, section::before {
   padding: 3.8888888889rem 0;
 }
 .text-carousel .carousel-wrapper {
-  max-width: 1320px;
+  max-width: 73.3333333333rem;
   margin: 0 auto;
   padding: 0 0.8888888889rem;
   position: relative;
@@ -833,7 +833,7 @@ section::after, section::before {
   border-bottom: 0.0555555556rem solid #4E4E4E;
 }
 .new-arrivals .products-grid, .best-selling .products-grid {
-  max-width: 1320px;
+  max-width: 73.3333333333rem;
   margin: 0 auto;
   padding: 0 0.8888888889rem;
   display: grid;
@@ -857,7 +857,7 @@ section::after, section::before {
   }
 }
 .promo-banner .container {
-  max-width: 1320px;
+  max-width: 73.3333333333rem;
   margin: 0 auto;
   padding: 0 0.8888888889rem;
 }
@@ -1204,7 +1204,7 @@ section::after, section::before {
   color: #4E4E4E;
 }
 .reviews-section .reviews-carousel {
-  max-width: 1320px;
+  max-width: 73.3333333333rem;
   margin: 0 auto;
   padding: 0 0.8888888889rem;
   position: relative;
@@ -1460,16 +1460,11 @@ section::after, section::before {
 
 .hero-carousel .hero-swiper {
   position: relative;
-  width: 100%;
   overflow: hidden;
 }
-.hero-carousel .hero-swiper .swiper-wrapper {
-  width: 100vw;
-  height: calc(200vw - 9.4444444444rem);
-}
 .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide {
-  width: 100vw;
-  margin: 0;
+  width: 100% !important;
+  margin-right: 0 !important;
   background-size: cover;
   background-position: center center;
   display: flex;
@@ -1477,16 +1472,27 @@ section::after, section::before {
   justify-content: flex-start;
 }
 .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container {
-  max-width: 1320px;
+  max-width: 73.3333333333rem;
   margin: 0 auto;
   padding: 0 0.8888888889rem;
-  padding: 3.3333333333rem 2.2222222222rem;
+  padding: max(13.3333333333rem, 12.5vw) max(2.2222222222rem, 2.0833333333vw);
   width: 100%;
   height: calc(100vh - 9.4444444444rem);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5555555556rem;
+}
+@media (max-width: 900px) {
+  .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container {
+    padding: max(6.6666666667rem, 6.25vw) max(1.1111111111rem, 1.0416666667vw);
+    height: calc(100vh - 16.6666666667rem);
+  }
+}
+@media (max-width: 600px) {
+  .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container {
+    padding: max(3.3333333333rem, 3.125vw) max(1.1111111111rem, 1.0416666667vw);
+  }
 }
 .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container h2 {
   font-size: 2.6666666667rem;

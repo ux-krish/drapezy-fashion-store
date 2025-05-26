@@ -129,7 +129,7 @@ section::after, section::before {
   padding: 0.4444444444rem 0;
 }
 .top-bar .container {
-  max-width: 1320px;
+  max-width: 73.3333333333rem;
   margin: 0 auto;
   padding: 0 0.8888888889rem;
   display: flex;
@@ -153,7 +153,7 @@ section::after, section::before {
   z-index: 1000;
 }
 .main-header .container {
-  max-width: 1320px;
+  max-width: 73.3333333333rem;
   margin: 0 auto;
   padding: 0 0.8888888889rem;
   display: flex;
@@ -563,7 +563,7 @@ section::after, section::before {
 }
 
 .product-listing {
-  max-width: 1320px;
+  max-width: 73.3333333333rem;
   margin: 0 auto;
   padding: 0 0.8888888889rem;
   display: flex;
@@ -733,7 +733,7 @@ section::after, section::before {
 }
 .product-listing .grid-section .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(12.6666666667rem, 1fr));
   gap: 1.3333333333rem;
   padding: 1.1111111111rem;
   border-bottom: 1px solid #EFEFEF;

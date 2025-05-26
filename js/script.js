@@ -8,9 +8,8 @@ const heroSwiper = new Swiper('.hero-swiper', {
     spaceBetween: 0,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false,
     },
-    speed: 600,
+    draggable: true,
     on: {
       autoplayTimeLeft(s, time, progress) {
         if (progressCircle && progressContent) {

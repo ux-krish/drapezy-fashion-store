@@ -199,7 +199,7 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(px-to-rem(228), 1fr));
             gap: px-to-rem(24);
             padding: px-to-rem(20);
             border-bottom: 1px solid $light-gray-stroke;
