@@ -42,20 +42,31 @@ hamburger.addEventListener('click', () => {
   if (!(window.gsap && window.ScrollTrigger)) return;
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: "nav, header",
-      start: "top top",
+
+  lenis.on('scroll', ScrollTrigger.update);
+ScrollTrigger.scrollerProxy(document.body, {
+  scrollTop(value) {
+    return arguments.length ? lenis.scrollTo(value) : lenis.scroll.instance.scroll.y;
+  },
+  getBoundingClientRect() {
+    return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+  },
+  pinType: document.body.style.transform ? 'transform' : 'fixed'
+});
+  // gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: "nav, header",
+  //     start: "top top",
       
-    }
-  })
-    .from("nav,header", {
-      opacity: 0,
-      y: -100,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out"
-    })
+  //   }
+  // })
+  //   .from("nav,header", {
+  //     opacity: 0,
+  //     y: -100,
+  //     duration: 1,
+  //     stagger: 0.2,
+  //     ease: "power3.out"
+  //   })
     
     
 

@@ -16,11 +16,11 @@
       "description": "Elegant lace cocktail dress with soft fabric and comfortable fit. Ideal for parties and evening events.",
       "fabric": "Polyester & Lace",
       "color": "Yellow",
-      "image": "images/women-ethnic1.png",
+      "image": "images/women1.png",
       "thumbnails": [
-        "https://yourdomain.com/images/product-001-1.jpg",
-        "https://yourdomain.com/images/product-001-2.jpg",
-        "https://yourdomain.com/images/product-001-3.jpg"
+        "images/women1.png",
+        "images/whitedress.png",
+        "images/tops.png"
       ],
       "tags": ["Partywear", "Cocktail", "Lace"],
       "features": [
@@ -47,6 +47,9 @@
       "color": "Navy Blue",
       "image": "images/men1.png",
       "thumbnails": [
+        "images/men1.png",
+        "images/men1.png",
+        "images/men1.png",
         "images/men1.png"
       ],
       "tags": ["Casual", "Printed", "T-Shirt"],
@@ -122,8 +125,8 @@
       "description": "Lightweight floral dress perfect for summer outings.",
       "fabric": "Rayon",
       "color": "Pink",
-      "image": "images/women-dress1.png",
-      "thumbnails": ["images/women-dress1.png"],
+      "image": "images/red-dress.png",
+      "thumbnails": ["images/red-dress.png", "images/whitedress.png"],
       "tags": ["Summer", "Floral", "Dress"],
       "features": [
         "100% Original Products",
@@ -172,8 +175,8 @@
       "description": "Elegant kurta set with dupatta, perfect for festive occasions.",
       "fabric": "Cotton Blend",
       "color": "Green",
-      "image": "images/women-ethnic1.png",
-      "thumbnails": ["images/women-ethnic1.png"],
+      "image": "images/whitedress.png",
+      "thumbnails": ["images/whitedress.png", "images/whitedress.png", "images/whitedress.png"],
       "tags": ["Ethnic", "Kurta", "Festive"],
       "features": [
         "100% Original Products",
@@ -208,7 +211,7 @@
     },
     {
       "id": "009",
-      "title": "Women's Denim Skirt",
+      "title": "Women's Tops",
       "category": "Skirt & Shorts",
       "gender": "Women",
       "price": 799,
@@ -222,8 +225,8 @@
       "description": "Trendy denim skirt for a chic summer look.",
       "fabric": "Denim",
       "color": "Blue",
-      "image": "images/women-skirt1.png",
-      "thumbnails": ["images/women-skirt1.png"],
+      "image": "images/tops.png",
+      "thumbnails": ["images/tops.png", "images/tops.png", "images/tops.png"],
       "tags": ["Skirt", "Denim", "Summer"],
       "features": [
         "100% Original Products",
@@ -572,8 +575,8 @@
       "description": "Beautiful embroidered kurti for festive and daily wear.",
       "fabric": "Cotton",
       "color": "Orange",
-      "image": "images/women-kurti1.png",
-      "thumbnails": ["images/women-kurti1.png"],
+      "image": "images/anh-tuan-to-kjp6FfucRiU-unsplash1.png",
+      "thumbnails": ["images/anh-tuan-to-kjp6FfucRiU-unsplash1.png"],
       "tags": ["Kurti", "Embroidered", "Ethnic"],
       "features": [
         "100% Original Products",
