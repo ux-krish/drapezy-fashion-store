@@ -1,24 +1,21 @@
-
-  (function () {
-  let currentSlide = 0;
-      let bannerCarouselSlide = document.querySelectorAll('.carousel-slide');
-      let bannerCarouselDot = document.querySelectorAll('.dot');
-      function showSlide(index) {
-        bannerCarouselSlide.forEach((slide, i) => {
-          slide.style.display = i === index ? 'flex' : 'none';
-          bannerCarouselDot[i].classList.toggle('active', i === index);
-        });
-        currentSlide = index;
+new Swiper('.hero-swiper', {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      bulletClass: 'dot',
+      bulletActiveClass: 'active',
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '"></span>';
       }
-      function goToSlide(index) {
-        showSlide(index);
-      }
-      setInterval(() => {
-        let nextIndex = (currentSlide + 1) % bannerCarouselSlide.length;
-        showSlide(nextIndex);
-      }, 5000);
-      showSlide(0);
-  })();
+    },
+    effect: 'slide',
+    speed: 600,
+  });
   
 
 

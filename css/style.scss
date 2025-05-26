@@ -6,75 +6,103 @@
 @import "header";
 @import "product-card";
 
-.hero-section {
-  background: linear-gradient(to right, #d4edf7 40%, #fff3cd 100%);
-  padding: px-to-rem(60) 0 0; 
+// .hero-section {
+//   background: linear-gradient(to right, #d4edf7 40%, #fff3cd 100%);
+//   padding: px-to-rem(60) 0 0; 
 
-  .hero-container {
-    @include container;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: px-to-rem(40);
-  }
+//   .hero-container {
+//     @include container;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     flex-wrap: wrap;
+//     gap: px-to-rem(40);
+//   }
 
-  article.hero-text {
-    flex: 1 1 px-to-rem(500);
-    max-width: px-to-rem(600);
+//   article.hero-text {
+//     flex: 1 1 px-to-rem(500);
+//     max-width: px-to-rem(600);
 
-    h1 {
-      font-size: px-to-rem(48);
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: px-to-rem(16);
-    }
+//     h1 {
+//       font-size: px-to-rem(48);
+//       font-weight: 700;
+//       line-height: 1.3;
+//       margin-bottom: px-to-rem(16);
+//     }
 
-    p {
-      font-size: px-to-rem(18);
-      margin-bottom: px-to-rem(12);
-    }
+//     p {
+//       font-size: px-to-rem(18);
+//       margin-bottom: px-to-rem(12);
+//     }
 
-    .offer {
-      font-weight: 600;
-      font-size: px-to-rem(18);
+//     .offer {
+//       font-weight: 600;
+//       font-size: px-to-rem(18);
 
-      .highlight {
-        color: #f96f84;
-        font-weight: 700;
-      }
-    }
+//       .highlight {
+//         color: #f96f84;
+//         font-weight: 700;
+//       }
+//     }
 
-    .shop-btn {
-      margin-top: px-to-rem(20);
-      padding: px-to-rem(12) px-to-rem(24);
-      font-size: px-to-rem(16);
-      font-weight: 600;
-      background-color: white;
-      border: none;
-      border-radius: px-to-rem(6);
-      box-shadow: 0 px-to-rem(4) px-to-rem(8) rgba(0, 0, 0, 0.15);
-      cursor: pointer;
-      transition: all 0.3s ease;
+//     .shop-btn {
+//       margin-top: px-to-rem(20);
+//       padding: px-to-rem(12) px-to-rem(24);
+//       font-size: px-to-rem(16);
+//       font-weight: 600;
+//       background-color: white;
+//       border: none;
+//       border-radius: px-to-rem(6);
+//       box-shadow: 0 px-to-rem(4) px-to-rem(8) rgba(0, 0, 0, 0.15);
+//       cursor: pointer;
+//       transition: all 0.3s ease;
 
-      &:hover {
-        background-color: #f3f3f3;
-        transform: translateY(-2px);
-      }
-    }
-  }
+//       &:hover {
+//         background-color: #f3f3f3;
+//         transform: translateY(-2px);
+//       }
+//     }
+//   }
 
-  figure.hero-image {
-    flex: 1 1 px-to-rem(400);
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-    img {
+//   figure.hero-image {
+//     flex: 1 1 px-to-rem(400);
+//     margin: 0;
+//     display: flex;
+//     justify-content: flex-end;
+//     img {
+//       width: 100%;
+//       max-width: px-to-rem(400);
+//       border-radius: px-to-rem(12);
+//     }
+//   }
+// }
+
+.hero-carousel{
+  .hero-swiper{
+      position: relative;
       width: 100%;
-      max-width: px-to-rem(400);
-      border-radius: px-to-rem(12);
+      height: 70vh;
+      min-height: px-to-rem(500);
+      overflow: hidden;
+    .swiper-slider{
+       position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        display: none;
+        align-items: center;
+       &.slide-1 {
+        background-image: url('../images/banner-slide1.jpg');
+      }
+      &.slide-2 {
+        background-image: url('../images/banner-slide2.jpg');
+      }
+      &.slide-3 {
+        background-image: url('../images/banner-slide3.jpg');
+      }
     }
-  }
+}
 }
 
 .text-carousel {
@@ -900,85 +928,7 @@
 
 
 
-.hero-carousel {
-  position: relative;
-  width: 100%;
-  height: 70vh;
-  min-height: px-to-rem(500);
-  overflow: hidden;
 
-  .carousel-slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    display: none;
-    align-items: center;
-
-    &.slide-1 {
-      background-image: url('../images/banner-slide1.jpg');
-    }
-    &.slide-2 {
-      background-image: url('../images/banner-slide2.jpg');
-    }
-    &.slide-3 {
-      background-image: url('../images/banner-slide3.jpg');
-    }
-
-    .container {
-      @include container;
-      flex-wrap: wrap;
-      gap: px-to-rem(20);
-      color: $text-color;
-      width: 100%;
-      padding: 0 px-to-rem(40);
-
-      h2 {
-        font-size: px-to-rem(40);
-        font-weight: 700;
-        margin-bottom: px-to-rem(16);
-      }
-
-      .highlight {
-        font-size: px-to-rem(20);
-        color: $text-color;
-        margin-top: px-to-rem(16);
-        font-weight: 600;
-        span {
-          font-weight: 700;
-          color: $text-secondary-color;
-        }
-      }
-
-      .subtext {
-        font-size: px-to-rem(14);
-        color: #777;
-      }
-    }
-  }
-
-  .carousel-dots {
-    position: absolute;
-    bottom: px-to-rem(20);
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: px-to-rem(12);
-
-    .dot {
-      width: px-to-rem(12);
-      height: px-to-rem(12);
-      background-color: #bbb;
-      border-radius: 50%;
-      cursor: pointer;
-
-      &.active {
-        background-color: #333;
-      }
-    }
-  }
-}
 
 
 

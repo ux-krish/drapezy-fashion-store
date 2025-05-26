@@ -126,8 +126,10 @@
   </nav>
 
   <main>
-    <section class="hero-carousel">
-      <div class="carousel-slide slide-1">
+   <section class="hero-carousel">
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide slide-1">
         <div class="container">
           <h2>Look Good. Feel Better.</h2>
           <p>New drops, all-season fits, and killer prices. Style up before it’s gone.</p>
@@ -136,8 +138,7 @@
           <button class="cta-button" onclick="window.location.href='shop-all.html'">Steal the Look</button>
         </div>
       </div>
-
-      <div class="carousel-slide slide-2">
+      <div class="swiper-slide slide-2">
         <div class="container">
           <h2>Your Wardrobe Needs This</h2>
           <p>Must-have picks are flying fast. Don’t miss your chance to elevate your style.</p>
@@ -145,8 +146,7 @@
           <button class="cta-button" onclick="window.location.href='shop-all.html'">Shop Now</button>
         </div>
       </div>
-
-      <div class="carousel-slide slide-3">
+      <div class="swiper-slide slide-3">
         <div class="container">
           <h2>You’ll Love. Prices You’ll Crave.</h2>
           <p>Unleash your fashion game with trending outfits for Him & Her.</p>
@@ -154,13 +154,11 @@
           <button class="cta-button" onclick="window.location.href='shop-all.html'">Shop Now</button>
         </div>
       </div>
-
-      <div class="carousel-dots">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
-      </div>
-    </section>
+    </div>
+    <!-- Swiper Pagination (dots) -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
 
 
     <section class="text-carousel">

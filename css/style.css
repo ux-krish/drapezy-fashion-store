@@ -562,68 +562,30 @@ section::after, section::before {
   color: #4E4E4E;
 }
 
-.hero-section {
-  background: linear-gradient(to right, #d4edf7 40%, #fff3cd 100%);
-  padding: 3.3333333333rem 0 0;
-}
-.hero-section .hero-container {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 0.8888888889rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2.2222222222rem;
-}
-.hero-section article.hero-text {
-  flex: 1 1 27.7777777778rem;
-  max-width: 33.3333333333rem;
-}
-.hero-section article.hero-text h1 {
-  font-size: 2.6666666667rem;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 0.8888888889rem;
-}
-.hero-section article.hero-text p {
-  font-size: 1rem;
-  margin-bottom: 0.6666666667rem;
-}
-.hero-section article.hero-text .offer {
-  font-weight: 600;
-  font-size: 1rem;
-}
-.hero-section article.hero-text .offer .highlight {
-  color: #f96f84;
-  font-weight: 700;
-}
-.hero-section article.hero-text .shop-btn {
-  margin-top: 1.1111111111rem;
-  padding: 0.6666666667rem 1.3333333333rem;
-  font-size: 0.8888888889rem;
-  font-weight: 600;
-  background-color: white;
-  border: none;
-  border-radius: 0.3333333333rem;
-  box-shadow: 0 0.2222222222rem 0.4444444444rem rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.hero-section article.hero-text .shop-btn:hover {
-  background-color: #f3f3f3;
-  transform: translateY(-2px);
-}
-.hero-section figure.hero-image {
-  flex: 1 1 22.2222222222rem;
-  margin: 0;
-  display: flex;
-  justify-content: flex-end;
-}
-.hero-section figure.hero-image img {
+.hero-carousel .hero-swiper {
+  position: relative;
   width: 100%;
-  max-width: 22.2222222222rem;
-  border-radius: 0.6666666667rem;
+  height: 70vh;
+  min-height: 27.7777777778rem;
+  overflow: hidden;
+}
+.hero-carousel .hero-swiper .swiper-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: none;
+  align-items: center;
+}
+.hero-carousel .hero-swiper .swiper-slider.slide-1 {
+  background-image: url("../images/banner-slide1.jpg");
+}
+.hero-carousel .hero-swiper .swiper-slider.slide-2 {
+  background-image: url("../images/banner-slide2.jpg");
+}
+.hero-carousel .hero-swiper .swiper-slider.slide-3 {
+  background-image: url("../images/banner-slide3.jpg");
 }
 
 .text-carousel {
@@ -1357,79 +1319,6 @@ section::after, section::before {
 }
 .reviews-section .reviews-carousel .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   opacity: 1;
-}
-
-.hero-carousel {
-  position: relative;
-  width: 100%;
-  height: 70vh;
-  min-height: 27.7777777778rem;
-  overflow: hidden;
-}
-.hero-carousel .carousel-slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  display: none;
-  align-items: center;
-}
-.hero-carousel .carousel-slide.slide-1 {
-  background-image: url("../images/banner-slide1.jpg");
-}
-.hero-carousel .carousel-slide.slide-2 {
-  background-image: url("../images/banner-slide2.jpg");
-}
-.hero-carousel .carousel-slide.slide-3 {
-  background-image: url("../images/banner-slide3.jpg");
-}
-.hero-carousel .carousel-slide .container {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 0.8888888889rem;
-  flex-wrap: wrap;
-  gap: 1.1111111111rem;
-  color: #4E4E4E;
-  width: 100%;
-  padding: 0 2.2222222222rem;
-}
-.hero-carousel .carousel-slide .container h2 {
-  font-size: 2.2222222222rem;
-  font-weight: 700;
-  margin-bottom: 0.8888888889rem;
-}
-.hero-carousel .carousel-slide .container .highlight {
-  font-size: 1.1111111111rem;
-  color: #4E4E4E;
-  margin-top: 0.8888888889rem;
-  font-weight: 600;
-}
-.hero-carousel .carousel-slide .container .highlight span {
-  font-weight: 700;
-  color: #DF6262;
-}
-.hero-carousel .carousel-slide .container .subtext {
-  font-size: 0.7777777778rem;
-  color: #777;
-}
-.hero-carousel .carousel-dots {
-  position: absolute;
-  bottom: 1.1111111111rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.6666666667rem;
-}
-.hero-carousel .carousel-dots .dot {
-  width: 0.6666666667rem;
-  height: 0.6666666667rem;
-  background-color: #bbb;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.hero-carousel .carousel-dots .dot.active {
-  background-color: #333;
 }
 
 .site-footer {
