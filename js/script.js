@@ -1,22 +1,51 @@
-new Swiper('.hero-swiper', {
+// Autoplay progress elements (if you use them)
+const progressCircle = document.querySelector('.autoplay-progress svg circle');
+const progressContent = document.querySelector('.autoplay-progress span');
+
+const heroSwiper = new Swiper('.hero-swiper', {
     loop: true,
+    slidesPerView: 1,
+    spaceBetween: 0,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
     },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      bulletClass: 'dot',
-      bulletActiveClass: 'active',
-      renderBullet: function (index, className) {
-        return '<span class="' + className + '"></span>';
-      }
-    },
-    effect: 'slide',
     speed: 600,
+    on: {
+      autoplayTimeLeft(s, time, progress) {
+        if (progressCircle && progressContent) {
+          progressCircle.style.setProperty("--progress", 1 - progress);
+          progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+        }
+      },
+      init: function () {
+        const currentSlide = this.slides[this.activeIndex];
+        const content = currentSlide.querySelector('.container');
+        if (content) {
+          gsap.fromTo(content.children,
+            { y: 60, opacity: 0 },
+            {
+              y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: "power2.out",
+              delay: 0.15
+            }
+          );
+        }
+      },
+      slideChangeTransitionStart: function () {
+        const currentSlide = this.slides[this.activeIndex];
+        const content = currentSlide.querySelector('.container');
+        if (content) {
+          gsap.fromTo(content.children,
+            { y: 60, opacity: 0 },
+            {
+              y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: "power2.out",
+              delay: 0.15
+            }
+          );
+        }
+      }
+    }
   });
-  
 
 
 function showTab(tabId, group) {
@@ -42,50 +71,21 @@ hamburger.addEventListener('click', () => {
   if (!(window.gsap && window.ScrollTrigger)) return;
   gsap.registerPlugin(ScrollTrigger);
 
-
-  lenis.on('scroll', ScrollTrigger.update);
-ScrollTrigger.scrollerProxy(document.body, {
-  scrollTop(value) {
-    return arguments.length ? lenis.scrollTo(value) : lenis.scroll.instance.scroll.y;
-  },
-  getBoundingClientRect() {
-    return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-  },
-  pinType: document.body.style.transform ? 'transform' : 'fixed'
-});
+  // Hero carousel animation (fade in the whole swiper on scroll)
   // gsap.timeline({
   //   scrollTrigger: {
-  //     trigger: "nav, header",
-  //     start: "top top",
-      
+  //     trigger: ".hero-carousel",
+  //     start: "top 90%",
+  //     toggleActions: "play none none reverse",
+  //     scrub: 2
   //   }
   // })
-  //   .from("nav,header", {
+  //   .from(".hero-carousel .hero-swiper", {
   //     opacity: 0,
-  //     y: -100,
-  //     duration: 1,
-  //     stagger: 0.2,
+  //     y: -60,
+  //     duration: 1.2,
   //     ease: "power3.out"
-  //   })
-    
-    
-
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: ".hero-carousel",
-      start: "top 80%",
-      toggleActions: "play none none reverse",
-      scrub:2
-      
-    }
-  })
-    .from(".hero-carousel .carousel-slide", {
-      opacity: 0,
-      y: 0,
-      duration: 4,
-      stagger: 10,
-      ease: "power3.out"
-    });
+  //   });
 
   gsap.timeline({
     scrollTrigger: {
@@ -102,7 +102,7 @@ ScrollTrigger.scrollerProxy(document.body, {
       ease: "power3.out"
     });
 
- gsap.timeline({
+  gsap.timeline({
     scrollTrigger: {
       trigger: ".deal-of-the-day .deal-container",
       start: "top 80%",
@@ -113,7 +113,7 @@ ScrollTrigger.scrollerProxy(document.body, {
       x: -200,
       opacity: 0,
       duration: 0.8,
-      stagger: 7,
+      stagger: 0.2,
       ease: "power2.out"
     })
     .from(".deal-of-the-day .deal-image", {
@@ -138,15 +138,15 @@ ScrollTrigger.scrollerProxy(document.body, {
       stagger: 0.2,
       duration: 0.7,
       ease: "power2.out"
-    })
-    gsap.timeline({
+    });
+
+  gsap.timeline({
     scrollTrigger: {
       trigger: ".shop-category .category-card .overlay",
       start: "top 100%",
       end: "bottom 50%",
       toggleActions: "play none none reverse",
-      scrub:2
-      
+      scrub: 2
     }
   })
     .from(".shop-category .category-card .overlay > *", {
@@ -164,13 +164,12 @@ ScrollTrigger.scrollerProxy(document.body, {
       toggleActions: "play none none reverse"
     }
   })
-    .from(" .new-arrivals .products-grid",{
+    .from(".new-arrivals .products-grid", {
       opacity: 0,
       x: -60,
-      duration:2,
+      duration: 2,
       ease: "power3.out"
-    })
-    
+    });
 
   gsap.timeline({
     scrollTrigger: {
@@ -223,10 +222,9 @@ ScrollTrigger.scrollerProxy(document.body, {
     scrollTrigger: {
       trigger: ".promo-section",
       start: "top 90%",
-      end : "botton 30%",
+      end: "bottom 30%",
       toggleActions: "play none none reverse",
-      scrub:1
-      
+      scrub: 1
     }
   })
     .from(".promo-section h2", {
@@ -249,8 +247,7 @@ ScrollTrigger.scrollerProxy(document.body, {
       start: "top 95%",
       end: "bottom 80%",
       toggleActions: "play none none reverse",
-      scrub:2
-      
+      scrub: 2
     }
   })
     .from(".reviews-section h2", {
@@ -270,7 +267,7 @@ ScrollTrigger.scrollerProxy(document.body, {
       x: -100,
       duration: 0.7,
       ease: "power3.out",
-      stagger: 0.2 
+      stagger: 0.2
     });
 
   gsap.timeline({

@@ -10,11 +10,12 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"
     integrity="sha512-rd0qOHVMOcez6pLWPVFIv7EfSdGKLt+eafXh4RO/12Fgr41hDQxfGvoi1Vy55QIVcQEujUE1LQrATCLl2Fs+ag=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.3/dist/lenis.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -126,7 +127,44 @@
   </nav>
 
   <main>
-   <section class="hero-carousel">
+    <section class="hero-carousel">
+      <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide-1">
+            <article class="container">
+              <h2>Look Good. Feel Better.</h2>
+              <p>New drops, all-season fits, and killer prices. Style up before it's gone.</p>
+              <p class="highlight"><span>Up to 50% OFF</span> — Shop Today!</p>
+              <p class="subtext">Free Shipping on Orders Above ₹999</p>
+              <button class="cta-button" onclick="window.location.href='shop-all.html'">Steal the Look</button>
+            </article>
+          </div>
+          <div class="swiper-slide slide-2">
+            <article class="container">
+              <h2>Your Wardrobe Needs This</h2>
+              <p>Must-have picks are flying fast. Don't miss your chance to elevate your style.</p>
+              <p class="highlight">Limited Stock <span>30-50% OFF</span></p>
+              <button class="cta-button" onclick="window.location.href='shop-all.html'">Shop Now</button>
+            </article>
+          </div>
+          <div class="swiper-slide slide-3">
+            <article class="container">
+              <h2>You'll Love. Prices You'll Crave.</h2>
+              <p>Unleash your fashion game with trending outfits for Him & Her.</p>
+              <p class="highlight"><span>Flat 40% OFF</span> — This Week Only!</p>
+              <button class="cta-button" onclick="window.location.href='shop-all.html'">Shop Now</button>
+            </article>
+          </div>
+        </div>
+        <div class="autoplay-progress">
+          <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span></span>
+        </div>
+      </div>
+    </section>
+   <!-- <section class="hero-carousel">
   <div class="swiper hero-swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide slide-1">
@@ -155,10 +193,10 @@
         </div>
       </div>
     </div>
-    <!-- Swiper Pagination (dots) -->
+  
     <div class="swiper-pagination"></div>
   </div>
-</section>
+</section> -->
 
 
     <section class="text-carousel">

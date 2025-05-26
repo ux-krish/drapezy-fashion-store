@@ -1,4 +1,4 @@
-function renderProducts({ selector, filterFn, sortFn, count = 4 }) {
+function showProducts({ selector, filterFn, sortFn, count = 4 }) {
   fetch('./products.json')
     .then(res => res.json())
     .then(data => {
@@ -71,7 +71,6 @@ function renderProducts({ selector, filterFn, sortFn, count = 4 }) {
         `;
       });
 
-      // Only the view button opens the product page and sets localStorage
       grid.querySelectorAll('.product-card').forEach(card => {
         const id = card.getAttribute('data-product-id');
         const prod = products.find(p => p.id === id);
@@ -87,30 +86,24 @@ function renderProducts({ selector, filterFn, sortFn, count = 4 }) {
     });
 }
 
-// New Arrivals - Women
-renderProducts({
+showProducts({
   selector: '#new-women',
   filterFn: p => p.gender === 'Women',
   count: 4
 });
 
-// New Arrivals - Men
-renderProducts({
+showProducts({
   selector: '#new-men',
   filterFn: p => p.gender === 'Men',
   count: 4
 });
-
-// Best Selling - Women (Top 4 by ratings_count)
-renderProducts({
+showProducts({
   selector: '#bestselling-womens-products',
   filterFn: p => p.gender === 'Women',
   sortFn: (a, b) => (b.ratings_count || 0) - (a.ratings_count || 0),
   count: 4
 });
-
-// Best Selling - Men (Top 4 by ratings_count)
-renderProducts({
+showProducts({
   selector: '#bestselling-mens-products',
   filterFn: p => p.gender === 'Men',
   sortFn: (a, b) => (b.ratings_count || 0) - (a.ratings_count || 0),
