@@ -89,39 +89,7 @@ function showProduct(product) {
     });
   }
 
-  // GSAP animation for product info
-  if (window.gsap) {
-    requestAnimationFrame(() => {
-      const info = document.querySelector('.product-info');
-      if (info) {
-        gsap.fromTo(
-          Array.from(info.children).filter(el => el.nodeType === 1),
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            stagger: 0.12,
-            ease: "power2.out"
-          }
-        );
-      }
-      const mainSliderImgs = document.querySelectorAll('.main-slider .swiper-slide img');
-      if (mainSliderImgs.length) {
-        gsap.fromTo(
-          mainSliderImgs,
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            stagger: 0.08,
-            ease: "power2.out"
-          }
-        );
-      }
-    });
-  }
+  // GSAP animation for product info and sliders moved to common.js
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -138,61 +106,5 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   }
 
-  // Animate page-header and its children with GSAP
-  if (window.gsap) {
-    requestAnimationFrame(() => {
-      // Animate header
-      const header = document.querySelector('header.top-bar');
-      if (header) {
-        gsap.fromTo(
-          header,
-          { y: -40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }
-        );
-        // Animate header children (container, contact-info, user-links)
-        const headerChildren = Array.from(header.querySelectorAll('.container > *'));
-        if (headerChildren.length) {
-          gsap.fromTo(
-            headerChildren,
-            { y: -20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, delay: 0.2, ease: "power2.out" }
-          );
-        }
-      }
-      // Animate nav/main-header
-      const nav = document.querySelector('nav.main-header');
-      if (nav) {
-        gsap.fromTo(
-          nav,
-          { y: -40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.7, delay: 0.1, ease: "power2.out" }
-        );
-        const navChildren = Array.from(nav.querySelectorAll('.container > *, .nav-links > *'));
-        if (navChildren.length) {
-          gsap.fromTo(
-            navChildren,
-            { y: -20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, delay: 0.25, ease: "power2.out" }
-          );
-        }
-      }
-      // Animate breadcrumb if present
-      const breadcrumb = document.querySelector('.breadcrumb');
-      if (breadcrumb) {
-        gsap.fromTo(
-          breadcrumb,
-          { y: -20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.7, delay: 0.2, ease: "power2.out" }
-        );
-        const bcChildren = Array.from(breadcrumb.querySelectorAll('.container > *'));
-        if (bcChildren.length) {
-          gsap.fromTo(
-            bcChildren,
-            { y: -10, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, delay: 0.3, ease: "power2.out" }
-          );
-        }
-      }
-    });
-  }
+  // GSAP animation for header/nav/page-header/breadcrumb moved to common.js
 });

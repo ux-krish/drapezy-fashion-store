@@ -1256,6 +1256,7 @@ section::after, section::before {
 .reviews-section .reviews-carousel .review-card p {
   font-size: max(1.1111111111rem, 1.0416666667vw);
   margin-bottom: max(1.3333333333rem, 1.25vw);
+  line-height: max(1.4444444444rem, 1.3541666667vw);
   color: #4E4E4E;
 }
 .reviews-section .reviews-carousel .review-card figure {
@@ -1285,37 +1286,21 @@ section::after, section::before {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.8888888889rem;
-  margin-top: 2.2222222222rem;
+  gap: max(0.8888888889rem, 0.8333333333vw);
+  margin-top: max(2.2222222222rem, 2.0833333333vw);
 }
 .reviews-section .reviews-carousel .swiper-btn-grp .swiper-button-next,
 .reviews-section .reviews-carousel .swiper-btn-grp .swiper-button-prev {
   background-color: #4E4E4E;
   color: white;
-  width: 2.2222222222rem;
-  height: 2.2222222222rem;
+  width: max(2.2222222222rem, 2.0833333333vw);
+  height: max(2.2222222222rem, 2.0833333333vw);
   border-radius: 50%;
-  font-size: 0.8888888889rem;
-  box-shadow: 0 0 0.4444444444rem rgba(0, 0, 0, 0.2);
+  font-size: max(0.8888888889rem, 0.8333333333vw);
+  box-shadow: 0 0 max(0.4444444444rem, 0.4166666667vw) rgba(0, 0, 0, 0.2);
   top: auto;
   bottom: 0;
   position: static;
-}
-.reviews-section .reviews-carousel .swiper-pagination {
-  margin-top: 1.7777777778rem;
-  text-align: center;
-  display: flex;
-  justify-content: flex-start;
-  position: absolute;
-  left: 1.7777777778rem;
-  bottom: 0.8888888889rem;
-}
-.reviews-section .reviews-carousel .swiper-pagination .swiper-pagination-bullet {
-  background: #4E4E4E;
-  opacity: 0.2;
-}
-.reviews-section .reviews-carousel .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  opacity: 1;
 }
 
 .site-footer {

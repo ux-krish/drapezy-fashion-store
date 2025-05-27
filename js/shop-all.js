@@ -302,27 +302,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   renderAll();
   setupFilterListeners();
 
-  // Animate page-header and its children with GSAP
-  if (window.gsap) {
-    requestAnimationFrame(() => {
-      const pageHeader = document.querySelector('.page-header');
-      if (pageHeader) {
-        gsap.fromTo(
-          pageHeader,
-          { y: -20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }
-        );
-        const headerChildren = Array.from(pageHeader.querySelectorAll('.container > *'));
-        if (headerChildren.length) {
-          gsap.fromTo(
-            headerChildren,
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, delay: 0.2, ease: "power2.out" }
-          );
-        }
-      }
-    });
-  }
+  // GSAP animation for page-header moved to common.js
 });
 
 
