@@ -7,7 +7,7 @@ const heroSwiper = new Swiper('.hero-swiper', {
     slidesPerView: 1,
     spaceBetween: 0,
     autoplay: {
-      delay: 5000,
+      delay: 15000,
     },
     draggable: true,
     on: {
@@ -287,8 +287,8 @@ hamburger.addEventListener('click', () => {
 
 
 const reviewSwiper = new Swiper('.reviewSwiper', {
-  autoHeight: true,
-    slidesPerView: 3,
+    autoHeight: true,
+    slidesPerView: 4.3,
     spaceBetween: 30,
     loop: true,
     pagination: {
@@ -300,8 +300,8 @@ const reviewSwiper = new Swiper('.reviewSwiper', {
       prevEl: '.swiper-button-prev',
     },
     breakpoints: {
-      1024: { slidesPerView: 3.2 },
-      768: { slidesPerView: 2.2 },
+      1024: { slidesPerView: 4.2 },
+      768: { slidesPerView: 3.2 },
       0: { slidesPerView: 1.2 },
     }
   });

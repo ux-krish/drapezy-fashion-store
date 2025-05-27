@@ -124,6 +124,26 @@ section::after, section::before {
   transform: scale(0.95);
 }
 
+.page-header {
+  background: #D1EAF5;
+  color: #4E4E4E;
+  padding: 1.1111111111rem 0;
+  min-height: 8.3333333333rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-header .container {
+  max-width: 73.3333333333rem;
+  margin: 0 auto;
+  padding: 0 0.8888888889rem;
+  padding: 0 1.1111111111rem;
+}
+.page-header .container h1 {
+  font-weight: 900;
+  text-align: center;
+}
+
 .top-bar {
   background-color: #D1EAF5;
   padding: 0.4444444444rem 0;
@@ -414,7 +434,7 @@ section::after, section::before {
   opacity: 1;
 }
 .product-card:hover .card-image .actions {
-  transform: translateY(0);
+  transform: translateY(-2.2222222222rem);
   opacity: 1;
 }
 .product-card .card-image {
@@ -480,6 +500,8 @@ section::after, section::before {
   transform: translateY(11.1111111111rem);
   opacity: 0;
   transition: all 0.4s ease;
+  max-width: 12.2222222222rem;
+  margin: auto;
 }
 .product-card .card-image .actions button {
   background: white;
@@ -583,11 +605,12 @@ section::after, section::before {
 .product-listing aside.sidebar .filter-section h4 {
   font-size: 1.3333333333rem;
   font-weight: 600;
-  padding: 0.6666666667rem 1.1111111111rem;
+  padding: 0rem 1.1111111111rem;
   border-bottom: 1px solid #EFEFEF;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 3.8888888889rem;
 }
 .product-listing aside.sidebar .filter-section ul {
   list-style: none;
@@ -722,11 +745,12 @@ section::after, section::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6666666667rem 1.3333333333rem;
+  padding: 0 1.3333333333rem;
   border-bottom: 1px solid #EFEFEF;
+  min-height: 3.8888888889rem;
 }
 .product-listing .grid-section .grid-header .results {
-  font-size: 0.7777777778rem;
+  font-size: 0.6666666667rem;
 }
 .product-listing .grid-section .grid-header select {
   padding: 0.3333333333rem 0.5555555556rem;
@@ -742,13 +766,19 @@ section::after, section::before {
   border-bottom: 1px solid #EFEFEF;
   min-height: calc(100vh - 19.4444444444rem);
 }
+.product-listing .grid-section .product-grid-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1.1111111111rem;
+  min-height: 3.8888888889rem;
+}
 .product-listing .grid-section .pagination {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 1.1111111111rem;
+  padding: 0 0;
   gap: 0.4444444444rem;
-  border-bottom: 1px solid #EFEFEF;
 }
 .product-listing .grid-section .pagination button {
   padding: 0.3333333333rem 0.6666666667rem;

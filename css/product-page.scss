@@ -69,6 +69,7 @@
                 width: 72%;
                 flex: 1;
                 margin: 0;
+                 height: 465px;
                 border-radius: px-to-rem(3);
                  @media (max-width: 600px) {
                     width: calc(100% - 25vw);
@@ -78,7 +79,7 @@
                     align-items: center;
                     overflow: hidden;
                     border-radius: px-to-rem(3);
-                    height: auto;
+                    
                     background-color: #f7f7f7;
                 }
 
@@ -89,11 +90,22 @@
                     overflow: hidden;
                     border-radius: px-to-rem(3);
                     background-color: #f7f7f7;
+                    &.swiper-slide-prev, &.swiper-slide-next{
+                        opacity: 0 !important;
+                    }
                     img {
                         object-fit: contain;
                         display: block;
                         background-color: $light-gray;
                         height: 100%;
+                        max-height: px-to-rem(465);
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                        width: 100%;
                     }
                 }
             }
@@ -104,6 +116,7 @@
                 margin: 0;
                 .swiper-wrapper{
                      width: 90px;
+                    
                      @media (max-width: 600px) {
                         width: 18vw;
                     }

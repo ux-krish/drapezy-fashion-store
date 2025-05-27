@@ -124,6 +124,26 @@ section::after, section::before {
   transform: scale(0.95);
 }
 
+.page-header {
+  background: #D1EAF5;
+  color: #4E4E4E;
+  padding: 1.1111111111rem 0;
+  min-height: 8.3333333333rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-header .container {
+  max-width: 73.3333333333rem;
+  margin: 0 auto;
+  padding: 0 0.8888888889rem;
+  padding: 0 1.1111111111rem;
+}
+.page-header .container h1 {
+  font-weight: 900;
+  text-align: center;
+}
+
 .top-bar {
   background-color: #D1EAF5;
   padding: 0.4444444444rem 0;
@@ -414,7 +434,7 @@ section::after, section::before {
   opacity: 1;
 }
 .product-card:hover .card-image .actions {
-  transform: translateY(0);
+  transform: translateY(-2.2222222222rem);
   opacity: 1;
 }
 .product-card .card-image {
@@ -480,6 +500,8 @@ section::after, section::before {
   transform: translateY(11.1111111111rem);
   opacity: 0;
   transition: all 0.4s ease;
+  max-width: 12.2222222222rem;
+  margin: auto;
 }
 .product-card .card-image .actions button {
   background: white;
@@ -670,6 +692,7 @@ section::after, section::before {
   font-size: max(2.3333333333rem, 2.1875vw);
   font-weight: 900;
   margin: max(0.4444444444rem, 0.4166666667vw) 0;
+  text-align: center;
 }
 .deal-of-the-day article.deal-text .discount-badge {
   background-color: #81B6CE;
@@ -740,16 +763,16 @@ section::after, section::before {
 }
 
 .shop-category {
-  padding: 3.3333333333rem 1.1111111111rem 1.6666666667rem;
+  padding: max(3.3333333333rem, 3.125vw) max(1.1111111111rem, 1.0416666667vw) max(1.6666666667rem, 1.5625vw);
   text-align: center;
 }
 .shop-category h2 {
-  font-size: 1.7777777778rem;
-  margin-bottom: 2.2222222222rem;
+  font-size: max(1.7777777778rem, 1.6666666667vw);
+  margin-bottom: max(2.2222222222rem, 2.0833333333vw);
 }
 .shop-category h2 strong {
   font-weight: 900;
-  border-bottom: 0.1111111111rem solid #333;
+  border-bottom: max(0.1111111111rem, 0.1041666667vw) solid #333;
 }
 .shop-category .category-grid {
   display: grid;
@@ -786,61 +809,58 @@ section::after, section::before {
 }
 .shop-category .category-card .overlay {
   background: rgba(255, 255, 255, 0.85);
-  padding: 1.1111111111rem;
+  padding: max(1.1111111111rem, 1.0416666667vw);
   text-align: center;
   margin: 0 auto;
-  max-width: 15.5555555556rem;
+  max-width: max(15.5555555556rem, 14.5833333333vw);
 }
 .shop-category .category-card .overlay h3 {
-  font-size: 1.3333333333rem;
-  margin-bottom: 0.2222222222rem;
+  font-size: max(1.3333333333rem, 1.25vw);
+  margin-bottom: max(0.2222222222rem, 0.2083333333vw);
   font-weight: 400;
 }
 .shop-category .category-card .overlay p {
-  font-size: 1.3333333333rem;
+  font-size: max(1.3333333333rem, 1.25vw);
   font-weight: 900;
-  margin-bottom: 0.3333333333rem;
+  margin-bottom: max(0.3333333333rem, 0.3125vw);
 }
 .shop-category .category-card .overlay span {
-  font-size: 0.7777777778rem;
+  font-size: max(0.7777777778rem, 0.7291666667vw);
   color: #4E4E4E;
 }
 
 .new-arrivals, .best-selling {
-  padding: 3.3333333333rem 1.1111111111rem;
+  padding: max(3.3333333333rem, 3.125vw) max(1.1111111111rem, 1.0416666667vw);
   text-align: center;
 }
 .new-arrivals h2, .best-selling h2 {
-  font-size: 1.7777777778rem;
-  margin-bottom: 2.2222222222rem;
+  font-size: max(1.7777777778rem, 1.6666666667vw);
+  margin-bottom: max(2.2222222222rem, 2.0833333333vw);
 }
 .new-arrivals h2 strong, .best-selling h2 strong {
   font-weight: 900;
-  border-bottom: 0.1111111111rem solid #333;
+  border-bottom: max(0.1111111111rem, 0.1041666667vw) solid #333;
 }
 .new-arrivals .tabs, .best-selling .tabs {
   display: flex;
   justify-content: center;
-  gap: 0rem;
-  margin-bottom: 1.7777777778rem;
-  border-radius: 0.1666666667rem;
+  gap: max(0rem, 0vw);
+  margin-bottom: max(1.7777777778rem, 1.6666666667vw);
+  border-radius: max(0.1666666667rem, 0.15625vw);
 }
 .new-arrivals .tabs .tab, .best-selling .tabs .tab {
-  padding: 0.5555555556rem 1.1111111111rem;
-  font-size: 0.8888888889rem;
+  padding: max(0.5555555556rem, 0.5208333333vw) max(1.1111111111rem, 1.0416666667vw);
+  font-size: max(0.8888888889rem, 0.8333333333vw);
   background-color: white;
-  border-bottom: 0.0555555556rem solid transparent;
+  border-bottom: max(0.0555555556rem, 0.0520833333vw) solid transparent;
   cursor: pointer;
   font-weight: 500;
 }
 .new-arrivals .tabs .tab.active, .best-selling .tabs .tab.active {
   background-color: #FFF0C7;
-  border-bottom: 0.0555555556rem solid #4E4E4E;
+  border-bottom: max(0.0555555556rem, 0.0520833333vw) solid #4E4E4E;
 }
 .new-arrivals .products-grid, .best-selling .products-grid {
-  max-width: 73.3333333333rem;
-  margin: 0 auto;
-  padding: 0 0.8888888889rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(max(11.6666666667rem, 10.9375vw), 1fr));
   gap: 1.3333333333rem;
@@ -853,7 +873,6 @@ section::after, section::before {
 .promo-banner {
   background: linear-gradient(to right, #d4edf7 0 65.5%, #fff 65.5% 66.5%, #f6c9d3 66.5% 100%);
   padding: 1.6666666667rem 0 0;
-  margin: 2.7777777778rem 0 0;
 }
 @media (max-width: 900px) {
   .promo-banner {
@@ -862,9 +881,9 @@ section::after, section::before {
   }
 }
 .promo-banner .container {
-  max-width: 73.3333333333rem;
+  max-width: max(73.3333333333rem, 68.75vw);
   margin: 0 auto;
-  padding: 0 0.8888888889rem;
+  padding: 0 max(1.1111111111rem, 1.0416666667vw);
 }
 .promo-banner .promo-grid {
   display: grid;
@@ -889,8 +908,8 @@ section::after, section::before {
   width: 100%;
 }
 .promo-banner article.promo-content h1 {
-  font-size: 2.3333333333rem;
-  margin-bottom: 0.8888888889rem;
+  font-size: max(2.3333333333rem, 2.1875vw);
+  margin-bottom: max(0.8888888889rem, 0.8333333333vw);
   line-height: 1.2;
   font-weight: 900;
 }
@@ -898,52 +917,50 @@ section::after, section::before {
   color: #f5738d;
 }
 .promo-banner article.promo-content p {
-  font-size: 1rem;
-  margin: 0.4444444444rem 0;
+  font-size: max(1rem, 0.9375vw);
+  margin: max(0.4444444444rem, 0.4166666667vw) 0;
 }
 .promo-banner article.promo-content .sale-info {
   font-weight: bold;
-  margin: 1.1111111111rem 0 0.6666666667rem;
+  margin: max(1.1111111111rem, 1.0416666667vw) 0 max(0.6666666667rem, 0.625vw);
 }
 .promo-banner article.promo-content .countdown {
   display: flex;
   align-items: center;
-  gap: 0.8888888889rem;
+  gap: max(0.8888888889rem, 0.8333333333vw);
   justify-content: center;
   margin: 0 auto 1.3333333333rem;
 }
 .promo-banner article.promo-content .countdown .time-box {
   background: white;
-  box-shadow: 0 0.1111111111rem 0.5555555556rem rgba(0, 0, 0, 0.1);
-  padding: 0.8333333333rem 1.1111111111rem;
-  border-radius: 0.3333333333rem;
+  box-shadow: 0 max(0.1111111111rem, 0.1041666667vw) max(0.5555555556rem, 0.5208333333vw) rgba(0, 0, 0, 0.1);
+  padding: max(0.8333333333rem, 0.78125vw) max(1.1111111111rem, 1.0416666667vw);
+  border-radius: max(0.3333333333rem, 0.3125vw);
   text-align: center;
   width: auto;
 }
 .promo-banner article.promo-content .countdown .time-box .time {
-  font-size: 1.3333333333rem;
+  font-size: max(1.3333333333rem, 1.25vw);
   font-weight: bold;
   display: block;
-  line-height: 1.3333333333rem;
+  line-height: max(1.3333333333rem, 1.25vw);
 }
 .promo-banner article.promo-content .countdown .time-box .label {
-  font-size: 0.6666666667rem;
+  font-size: max(0.6666666667rem, 0.625vw);
   color: #666;
-  line-height: 0.6666666667rem;
+  line-height: max(0.6666666667rem, 0.625vw);
 }
 .promo-banner article.promo-content .countdown .colon {
-  font-size: 1.3333333333rem;
+  font-size: max(1.3333333333rem, 1.25vw);
   font-weight: bold;
 }
-.promo-banner article.promo-content .btn {
+.promo-banner article.promo-content .cta-button {
   display: inline-block;
-  padding: 0.6666666667rem 1.3333333333rem;
-  background: white;
-  color: #333;
-  font-weight: bold;
-  border-radius: 0.3333333333rem;
-  box-shadow: 0 0.1111111111rem 0.2777777778rem rgba(0, 0, 0, 0.1);
+  padding: max(0.6666666667rem, 0.625vw) max(1.3333333333rem, 1.25vw);
+  border-radius: max(0.1666666667rem, 0.15625vw);
+  box-shadow: 0 max(0.1111111111rem, 0.1041666667vw) max(0.2777777778rem, 0.2604166667vw) rgba(0, 0, 0, 0.1);
   text-decoration: none;
+  font-size: max(0.8888888889rem, 0.8333333333vw);
 }
 .promo-banner figure.promo-image img {
   max-width: 100%;
@@ -1036,17 +1053,17 @@ section::after, section::before {
 }
 
 .promo-section {
-  margin: 2.7777777778rem 0;
-  padding: 1.7777777778rem;
+  margin: max(2.7777777778rem, 2.6041666667vw) 0;
+  padding: max(1.7777777778rem, 1.6666666667vw);
 }
 .promo-section h2 {
-  font-size: 1.7777777778rem;
-  margin-bottom: 2.2222222222rem;
+  font-size: max(1.7777777778rem, 1.6666666667vw);
+  margin-bottom: max(2.2222222222rem, 2.0833333333vw);
   text-align: center;
 }
 .promo-section h2 strong {
   font-weight: 900;
-  border-bottom: 0.1111111111rem solid #333;
+  border-bottom: max(0.1111111111rem, 0.1041666667vw) solid #333;
 }
 
 .promo-grid {
@@ -1209,9 +1226,6 @@ section::after, section::before {
   color: #4E4E4E;
 }
 .reviews-section .reviews-carousel {
-  max-width: 73.3333333333rem;
-  margin: 0 auto;
-  padding: 0 0.8888888889rem;
   position: relative;
   margin: 0 auto;
 }
@@ -1221,7 +1235,7 @@ section::after, section::before {
 }
 .reviews-section .reviews-carousel .review-card {
   border-radius: 0.1666666667rem;
-  padding: 1.7777777778rem;
+  padding: max(1.7777777778rem, 1.6666666667vw);
   box-shadow: 0 0.2777777778rem 1.1111111111rem rgba(0, 0, 0, 0.05);
   text-align: left;
   display: flex;
@@ -1230,30 +1244,29 @@ section::after, section::before {
   box-sizing: border-box;
 }
 .reviews-section .reviews-carousel .review-card h3 {
-  font-size: 1.3333333333rem;
+  font-size: max(1.7777777778rem, 1.6666666667vw);
   font-weight: 700;
-  margin-bottom: 0.4444444444rem;
+  margin-bottom: max(0.4444444444rem, 0.4166666667vw);
 }
 .reviews-section .reviews-carousel .review-card .stars {
   color: gold;
-  font-size: 1.0555555556rem;
-  margin-bottom: 0.8888888889rem;
+  font-size: max(1.0555555556rem, 0.9895833333vw);
+  margin-bottom: max(0.8888888889rem, 0.8333333333vw);
 }
 .reviews-section .reviews-carousel .review-card p {
-  font-size: 0.8888888889rem;
-  margin-bottom: 1.3333333333rem;
+  font-size: max(1.1111111111rem, 1.0416666667vw);
+  margin-bottom: max(1.3333333333rem, 1.25vw);
   color: #4E4E4E;
 }
 .reviews-section .reviews-carousel .review-card figure {
   display: flex;
   align-items: center;
-  gap: 0.6666666667rem;
+  gap: max(0.6666666667rem, 0.625vw);
 }
-.reviews-section .reviews-carousel .review-card figure img {
-  width: 2.2222222222rem;
-  height: 2.2222222222rem;
-  border-radius: 50%;
-  background: #eee;
+.reviews-section .reviews-carousel .review-card figure svg {
+  width: max(2.2222222222rem, 2.0833333333vw);
+  height: max(2.2222222222rem, 2.0833333333vw);
+  border-radius: 0.1666666667rem;
 }
 .reviews-section .reviews-carousel .review-card figure figcaption {
   font-size: 0.7777777778rem;
@@ -1261,9 +1274,12 @@ section::after, section::before {
 .reviews-section .reviews-carousel .review-card figure figcaption strong {
   display: block;
   color: #4E4E4E;
+  font-weight: 600;
+  font-size: max(1.1111111111rem, 1.0416666667vw);
 }
 .reviews-section .reviews-carousel .review-card figure figcaption small {
   color: #4E4E4E;
+  font-size: max(0.8333333333rem, 0.78125vw);
 }
 .reviews-section .reviews-carousel .swiper-btn-grp {
   display: flex;
@@ -1477,20 +1493,21 @@ section::after, section::before {
   justify-content: flex-start;
 }
 .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container {
-  max-width: 73.3333333333rem;
+  max-width: max(73.3333333333rem, 68.75vw);
   margin: 0 auto;
-  padding: 0 0.8888888889rem;
-  padding: max(13.3333333333rem, 12.5vw) max(2.2222222222rem, 2.0833333333vw);
+  padding: 0 max(2.2222222222rem, 2.0833333333vw);
   width: 100%;
   height: calc(100vh - 9.4444444444rem);
+  min-height: 180vw;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 0.5555555556rem;
+  justify-content: center;
+  gap: max(0.5555555556rem, 0.5208333333vw);
 }
 @media (max-width: 900px) {
   .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container {
-    padding: max(6.6666666667rem, 6.25vw) max(1.1111111111rem, 1.0416666667vw);
+    padding: 0 max(1.1111111111rem, 1.0416666667vw);
     height: calc(100vh - 16.6666666667rem);
   }
 }
@@ -1500,23 +1517,26 @@ section::after, section::before {
   }
 }
 .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container h2 {
-  font-size: 2.6666666667rem;
+  font-size: max(2.6666666667rem, 2.5vw);
   font-weight: 800;
+  line-height: max(3.3333333333rem, 3.125vw);
 }
 .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container p {
-  font-size: 1rem;
+  font-size: max(1rem, 0.9375vw);
   font-weight: 400;
 }
 .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container p.highlight {
   color: #4E4E4E;
   font-weight: 900;
-  font-size: 1.3333333333rem;
+  font-size: max(1.3333333333rem, 1.25vw);
 }
 .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container p.highlight span {
   color: #DF6262;
 }
 .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide .container button {
-  max-width: 9.4444444444rem;
+  max-width: max(9.4444444444rem, 8.8541666667vw);
+  padding: max(0.6666666667rem, 0.625vw) max(1.3333333333rem, 1.25vw);
+  font-size: max(0.8888888889rem, 0.8333333333vw);
 }
 .hero-carousel .hero-swiper .swiper-wrapper .swiper-slide.slide-1 {
   background-image: url("../images/banner-slide1.jpg");

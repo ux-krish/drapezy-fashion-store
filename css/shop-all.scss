@@ -26,11 +26,12 @@
             h4 {
                 font-size: px-to-rem(24);
                 font-weight: 600;
-                padding: px-to-rem(12) px-to-rem(20);
+                padding: px-to-rem(0) px-to-rem(20);
                 border-bottom: 1px solid $light-gray-stroke;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                min-height: px-to-rem(70);
             }
 
             ul {
@@ -185,11 +186,11 @@
         
         .grid-header {
             @include flex-between;
-            
-            padding:px-to-rem(12) px-to-rem(24);
+            padding:0 px-to-rem(24);
             border-bottom: 1px solid $light-gray-stroke;
+            min-height: px-to-rem(70);
             .results {
-                font-size: px-to-rem(14);
+                font-size: px-to-rem(12);
             }
 
             select {
@@ -208,13 +209,16 @@
             border-bottom: 1px solid $light-gray-stroke;
             min-height: calc(100vh - px-to-rem(350));
         }
-
+        .product-grid-footer{
+            @include flex-between;
+            padding: px-to-rem(0) px-to-rem(20);
+            min-height: px-to-rem(70);
+        }
 
         .pagination {
             @include flex-end;
-            padding: px-to-rem(20);
+            padding: 0 0;
             gap: px-to-rem(8);
-            border-bottom: 1px solid $light-gray-stroke;
             button {
                 padding: px-to-rem(6) px-to-rem(12);
                 border: 1px solid #ccc;
