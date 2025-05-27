@@ -28,6 +28,9 @@
                 font-weight: 600;
                 padding: px-to-rem(12) px-to-rem(20);
                 border-bottom: 1px solid $light-gray-stroke;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
             ul {
@@ -164,9 +167,9 @@
                 }
             }
 
-            .apply-btn {
+            .clear-btn {
                 margin-top: px-to-rem(12);
-                padding: px-to-rem(8) px-to-rem(12);
+                padding: px-to-rem(4) px-to-rem(12);
                 background-color: $text-color;
                 color: #fff;
                 border: none;
@@ -203,6 +206,7 @@
             gap: px-to-rem(24);
             padding: px-to-rem(20);
             border-bottom: 1px solid $light-gray-stroke;
+            min-height: calc(100vh - px-to-rem(350));
         }
 
 

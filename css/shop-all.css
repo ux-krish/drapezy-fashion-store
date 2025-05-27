@@ -585,6 +585,9 @@ section::after, section::before {
   font-weight: 600;
   padding: 0.6666666667rem 1.1111111111rem;
   border-bottom: 1px solid #EFEFEF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .product-listing aside.sidebar .filter-section ul {
   list-style: none;
@@ -702,9 +705,9 @@ section::after, section::before {
 .product-listing aside.sidebar .filter-section .price p {
   margin-top: 0.4444444444rem;
 }
-.product-listing aside.sidebar .filter-section .apply-btn {
+.product-listing aside.sidebar .filter-section .clear-btn {
   margin-top: 0.6666666667rem;
-  padding: 0.4444444444rem 0.6666666667rem;
+  padding: 0.2222222222rem 0.6666666667rem;
   background-color: #4E4E4E;
   color: #fff;
   border: none;
@@ -737,6 +740,7 @@ section::after, section::before {
   gap: 1.3333333333rem;
   padding: 1.1111111111rem;
   border-bottom: 1px solid #EFEFEF;
+  min-height: calc(100vh - 19.4444444444rem);
 }
 .product-listing .grid-section .pagination {
   display: flex;

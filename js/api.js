@@ -11,21 +11,27 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-
-
+/**
+ * Fetch all products from products.json
+ * @returns {Promise<Array>} products array
+ */
+function fetchAllProducts() {
+  return fetch('./products.json')
+    .then(res => res.json())
+    .then(data => data.products || []);
+}
 
 function showProducts({ selector, filterFn, sortFn, count = 4 }) {
-  fetch('./products.json')
-    .then(res => res.json())
-    .then(data => {
-      let products = data.products.filter(filterFn);
-      if (sortFn) products = products.sort(sortFn);
-      products = products.slice(0, count);
+  fetchAllProducts()
+    .then(products => {
+      let filteredProducts = products.filter(filterFn);
+      if (sortFn) filteredProducts = filteredProducts.sort(sortFn);
+      filteredProducts = filteredProducts.slice(0, count);
 
       const grid = document.querySelector(selector);
       if (!grid) return;
       grid.innerHTML = '';
-      products.forEach(product => {
+      filteredProducts.forEach(product => {
         grid.innerHTML += `
           <div class="product-card" data-product-id="${product.id}">
             <div class="card-image">
@@ -89,7 +95,7 @@ function showProducts({ selector, filterFn, sortFn, count = 4 }) {
 
       grid.querySelectorAll('.product-card').forEach(card => {
         const id = card.getAttribute('data-product-id');
-        const prod = products.find(p => p.id === id);
+        const prod = filteredProducts.find(p => p.id === id);
         const viewBtn = card.querySelector('[data-view-btn]');
         if (viewBtn && prod) {
           viewBtn.addEventListener('click', function (e) {

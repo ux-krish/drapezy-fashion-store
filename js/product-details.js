@@ -15,7 +15,6 @@ function loadProductDetail() {
 }
 
 function showProduct(product) {
-  // Gallery
   const mainSlider = document.querySelector('.main-slider .swiper-wrapper');
   const thumbSlider = document.querySelector('.thumbnail-slider .swiper-wrapper');
   if (mainSlider && thumbSlider) {
@@ -89,10 +88,9 @@ function showProduct(product) {
     });
   }
 
-  // GSAP animation for product info and product slider (ensure DOM is updated)
+  // GSAP animation for product info
   if (window.gsap) {
     requestAnimationFrame(() => {
-      // Animate product info
       const info = document.querySelector('.product-info');
       if (info) {
         gsap.fromTo(
@@ -107,7 +105,6 @@ function showProduct(product) {
           }
         );
       }
-      // Animate product slider images
       const mainSliderImgs = document.querySelectorAll('.main-slider .swiper-slide img');
       if (mainSliderImgs.length) {
         gsap.fromTo(
@@ -128,8 +125,6 @@ function showProduct(product) {
 
 document.addEventListener('DOMContentLoaded', function() {
   loadProductDetail();
-
-  // Quantity increment/decrement logic
   const qtyInput = document.getElementById("qty");
   const incBtn = document.getElementById("inc");
   const decBtn = document.getElementById("dec");
