@@ -744,6 +744,7 @@ input[type=radio]:checked ~ .product-details .product-wrapper .product-info .sel
   display: flex;
   align-items: center;
   gap: 0.5555555556rem;
+  border: 0.0555555556rem solid #4E4E4E;
   border-radius: 0.1666666667rem;
   border: none;
   cursor: pointer;
@@ -757,12 +758,27 @@ input[type=radio]:checked ~ .product-details .product-wrapper .product-info .sel
   color: #fff;
 }
 .product-details .product-wrapper .product-info .actions .btn.dark:hover {
-  background: #92FB99;
+  background: #D1EAF5;
   color: #4E4E4E;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 .product-details .product-wrapper .product-info .actions .btn.dark:active {
-  background: #09eb18;
+  background: #81B6CE;
+  color: #4E4E4E;
+  transform: translateY(0.0555555556rem);
+}
+.product-details .product-wrapper .product-info .actions .btn.alpha {
+  background: #fff;
+  color: #4E4E4E;
+  border: 0.0555555556rem solid #4E4E4E;
+}
+.product-details .product-wrapper .product-info .actions .btn.alpha:hover {
+  background: #92FB99;
+  color: #4E4E4E;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.product-details .product-wrapper .product-info .actions .btn.alpha:active {
+  background: #5BCF6A;
   color: #4E4E4E;
   transform: translateY(0.0555555556rem);
 }
@@ -770,16 +786,21 @@ input[type=radio]:checked ~ .product-details .product-wrapper .product-info .sel
   background: #fff;
   color: #4E4E4E;
   border: 0.0555555556rem solid #4E4E4E;
+  padding: 0rem 0.8333333333rem;
+}
+.product-details .product-wrapper .product-info .actions .btn.light svg {
+  fill: #DF6262;
+  color: #FBADB5;
 }
 .product-details .product-wrapper .product-info .actions .btn.light:hover {
-  background: #DF6262;
-  color: #fff;
+  background: #F6C9D3;
+  color: #4E4E4E;
   border-color: #DF6262;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 .product-details .product-wrapper .product-info .actions .btn.light:active {
-  background: #F6C9D3;
-  color: #fff;
+  background: #FBADB5;
+  color: #4E4E4E;
   border-color: #F6C9D3;
   transform: translateY(0.0555555556rem);
 }

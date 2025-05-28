@@ -345,6 +345,7 @@
                     display: flex;
                     align-items: center;
                     gap: px-to-rem(10);
+                     border: px-to-rem(1) solid $text-color;
                     border-radius: px-to-rem(3);
                     border: none;
                     cursor: pointer;
@@ -357,31 +358,50 @@
                         color: $text-white;
 
                         &:hover{
+                            background: $secondary-color;
+                            color: $text-color;
+                            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                        }
+                        &:active {
+                            background: $secondary-color-dark;
+                            color: $text-color;
+                             transform: translateY(px-to-rem(1));
+                        }
+                    }
+                    &.alpha{
+                        background: $text-white;
+                        color: $text-color;
+                         border: px-to-rem(1) solid $text-color;
+                        &:hover{
                             background: $accent-color;
                             color: $text-color;
                             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
                         }
                         &:active {
-                            background: darken($accent-color, 30%);
+                            background: $accent-color-dark;
                             color: $text-color;
                              transform: translateY(px-to-rem(1));
                         }
                     }
-
                     &.light {
                         background: $text-white;
                         color: $text-color;
                         border: px-to-rem(1) solid $text-color;
+                        padding: px-to-rem(0) px-to-rem(15);
+                        svg{
+                            fill: $text-secondary-color;
+                            color: $text-secondary-color-light;
+                        }
                         &:hover{
                            
-                            background: $text-secondary-color;
-                            color: $text-white;
+                            background:$tertiary-color;
+                            color: $text-color;
                              border-color:$text-secondary-color;
                             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
                         }
                         &:active {
-                             background: $tertiary-color;
-                            color: $text-white;
+                             background: $text-secondary-color-light;
+                            color: $text-color;
                             border-color:$tertiary-color;
                             transform: translateY(px-to-rem(1));
                         }
