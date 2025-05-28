@@ -10,7 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/shop-all.css" />
+  <link rel="stylesheet" href="css/wishlist.css" />
    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.3/dist/lenis.css">
 </head>
 
@@ -122,67 +122,49 @@
     </ul>
   </nav>
   <main>
-    <section class="page-header">
-      <div class="container">
-        <h1>Shop All</h1>
-        
-      </div>
-    </section>
-    <section class="product-listing">
-      <aside class="sidebar">
-        <div class="filter-section">
-          <h4>Category <button class="clear-btn clear-all-btn">Clear</button></h4>
-          <ul>
-            <li><label><input type="checkbox" /> Tshirts</label></li>
-            <li><label><input type="checkbox" /> Jeans</label></li>
-            <li><label><input type="checkbox" /> Jackets & Coats</label></li>
-            <li><label><input type="checkbox" /> Dresses</label></li>
-            <li><label><input type="checkbox" /> Skirts and Shorts</label></li>
-            <li><label><input type="checkbox" /> Ethnic Wear</label></li>
-          </ul>
+
+    <section class="wishlist-section">
+  <div class="container">
+    <h2 class="wishlist-title">Wishlists</h2>
+    <div class="wishlist-wrapper">
+      <!-- Filters -->
+      <aside class="wishlist-filters">
+        <div class="filters-header">
+          <span>Filters</span>
+          <button class="clear-btn">Clear</button>
         </div>
 
-        <div class="filter-section">
-          <h4>Sizes</h4>
-          <ul>
-            <li><label><input type="checkbox" /> XS</label></li>
-            <li><label><input type="checkbox" /> S</label></li>
-            <li><label><input type="checkbox" /> M</label></li>
-            <li><label><input type="checkbox" /> L</label></li>
-            <li><label><input type="checkbox" /> XL</label></li>
-            <li><label><input type="checkbox" /> XXL</label></li>
-          </ul>
+        <div class="filter-group">
+          <h4>Gender</h4>
+          <label><input type="checkbox" /> For Him</label>
+          <label><input type="checkbox" /> For Her</label>
         </div>
 
-        <div class="filter-section">
-          <h4>Price</h4>
-          <div class="price">
-            <input type="range" min="100" max="5000" id="price-range" />
-            <p id="price-range-text">₹100 - ₹5000</p>
+        <div class="filter-group">
+          <h4>Category</h4>
+          <label><input type="checkbox" /> Tshirts</label>
+          <label><input type="checkbox" /> Jeans</label>
+          <label><input type="checkbox" /> Jackets & Coats</label>
+          <label><input type="checkbox" /> Dresses</label>
+          <label><input type="checkbox" /> Skirts and Shorts</label>
+          <label><input type="checkbox" /> Ethnic Wear</label>
+        </div>
+      </aside>
+
+      <!-- Products -->
+      <div class="wishlist-products">
+        <div class="wishlist-meta">
+          <p>Showing 1–6 of 18 results</p>
+          <div class="pagination-top">
+            <button>&lt; Prev</button>
+            <span class="page current">1</span>
+            <span class="page">2</span>
+            <button>Next &gt;</button>
           </div>
         </div>
 
-        <div class="filter-section">
-          <h4>Discount Range</h4>
-          <ul>
-            <li><label><input type="checkbox" /> 10% and above</label></li>
-            <li><label><input type="checkbox" /> 30% and above</label></li>
-            <li><label><input type="checkbox" /> 50% and above</label></li>
-          </ul>
-          
-        </div>
-      </aside>
-      <div class="grid-section">
-        <div class="grid-header">
-          
-          <select>
-            <option>Sort by: Newest</option>
-            <option>Price Low to High</option>
-            <option>Price High to Low</option>
-          </select>
-          <div class="pagination pagination-top"></div>
-        </div>
         <div class="product-grid">
+          <!-- Repeat product-card -->
           <div class="product-card">
             <div class="card-image">
               <img src="images/women1.png" alt="Product">
@@ -252,12 +234,24 @@
               </div>
             </div>
           </div>
+          <!-- Repeat product-card end -->
         </div>
-        <div class="product-grid-footer">
-          <div class="results">Showing 1–9 of 18 results</div><div class="pagination"></div>
+
+        <div class="pagination-bottom">
+          <p>Showing 1–6 of 18 results</p>
+          <div class="pagination">
+            <button>&lt; Prev</button>
+            <span class="page current">1</span>
+            <span class="page">2</span>
+            <button>Next &gt;</button>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
 
   </main>
 
@@ -398,7 +392,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
   <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script> 
   <script src="js/common.js"></script>
-  <script src="js/shop-all.js"></script>
   <script src="js/api.js"></script>
 </body>
 </html>

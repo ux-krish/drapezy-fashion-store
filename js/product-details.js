@@ -65,15 +65,17 @@ function showProduct(product) {
   // Sizes
   const sizesDiv = document.querySelector('.product-info .sizes');
   if (sizesDiv && product.sizes) {
-    sizesDiv.innerHTML = '';
-    product.sizes.forEach(size => {
-      sizesDiv.innerHTML += `
-        <label>
-          <input type="radio" name="size" value="${size}" ${size === product.available_size ? 'checked' : ''}>
-          ${size}
-        </label>
-      `;
-    });
+    // Use the global renderProductSizes from common.js
+    renderProductSizes(
+      sizesDiv,
+      product.sizes,
+      product.available_size,
+      function(selected) {
+        // You can handle size change here if needed
+        // e.g., update product.available_size = selected;
+      },
+      'size' // group name
+    );
   }
 
   // Category

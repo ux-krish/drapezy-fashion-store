@@ -551,9 +551,30 @@ function runPageAnimations() {
   // --- End Home page GSAP ---
 }
 
-// Remove loader and just run page animations on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function () {
-  if (window.gsap) {
-    runPageAnimations();
-  }
-});
+/**
+ * Render and handle product size selection as radio buttons.
+ * @param {HTMLElement} container - The element where size options will be rendered.
+ * @param {Array<string>} sizes - Array of available sizes (e.g., ['S', 'M', 'L']).
+ * @param {string} [selectedSize] - The size to preselect (optional).
+ * @param {function} [onChange] - Callback when a size is selected (optional).
+ * @param {string} [name] - The radio group name (optional, default: 'size').
+ */
+function renderProductSizes(container, sizes, selectedSize, onChange, name = 'size') {
+  if (!container || !Array.isArray(sizes) || !sizes.length) return;
+  container.innerHTML = '';
+  sizes.forEach(size => {
+    const label = document.createElement('label');
+    label.className = 'size-radio-label';
+    const input = document.createElement('input');
+    input.type = 'radio';
+    input.name = name;
+    input.value = size;
+    if (size === selectedSize) input.checked = true;
+    input.addEventListener('change', () => {
+      if (typeof onChange === 'function') onChange(size);
+    });
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(size));
+    container.appendChild(label);
+  });
+}
