@@ -895,6 +895,15 @@ input[type=radio]:checked ~ .product-details .product-wrapper .product-info .sel
   display: flex;
   gap: 1.1111111111rem;
   flex-wrap: wrap;
+  padding: 1.3333333333rem 0;
+}
+.info-cards .container {
+  max-width: 73.3333333333rem;
+  margin: 0 auto;
+  padding: 0 0.8888888889rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.3333333333rem;
 }
 .info-cards .card {
   flex: 1;
@@ -925,13 +934,28 @@ input[type=radio]:checked ~ .product-details .product-wrapper .product-info .sel
   background-color: #F6C9D3;
 }
 
+.product-deal.container {
+  max-width: 73.3333333333rem;
+  margin: 0 auto;
+  padding: 0 0.8888888889rem;
+}
+.product-deal.container .deal-grid {
+  padding: 0rem;
+}
+
+.reviews .container {
+  max-width: 73.3333333333rem;
+  margin: 0 auto;
+  padding: 0 0.8888888889rem;
+  padding: 1.1111111111rem;
+}
 .reviews h2 {
   margin: 1.6666666667rem 0;
   font-size: 1.3333333333rem;
 }
 .reviews .review-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15.5555555556rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(22.2222222222rem, 1fr));
   gap: 0.8888888889rem;
 }
 .reviews .review-grid .review-card {

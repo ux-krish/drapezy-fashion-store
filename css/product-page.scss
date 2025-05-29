@@ -441,7 +441,13 @@
       display: flex;
       gap: px-to-rem(20);
       flex-wrap: wrap;
-
+      padding: px-to-rem(24) 0;
+        .container{
+            @include container;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap:px-to-rem(24);
+        }
       .card {
         flex: 1;
         background: #fff;
@@ -478,9 +484,22 @@
       }
     }
 
+
+    .product-deal{
+        &.container {
+            @include container;
+            .deal-grid{
+                padding: px-to-rem(0);
+            }
+        }
+    }
   
 
     .reviews {
+        .container {
+          @include container;
+          padding: px-to-rem(20);
+        }
       h2 {
         margin: px-to-rem(30) 0;
         font-size: px-to-rem(24);
@@ -488,7 +507,7 @@
 
       .review-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(px-to-rem(280), 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(px-to-rem(400), 1fr));
         gap: px-to-rem(16);
 
         .review-card {
