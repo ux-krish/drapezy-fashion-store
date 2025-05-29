@@ -551,6 +551,19 @@ function runPageAnimations() {
   // --- End Home page GSAP ---
 }
 
+// Ensure GSAP is loaded before running animations
+document.addEventListener('DOMContentLoaded', function () {
+  // Wait for GSAP to be available
+  function waitForGSAP(cb) {
+    if (window.gsap) {
+      cb();
+    } else {
+      setTimeout(() => waitForGSAP(cb), 30);
+    }
+  }
+  waitForGSAP(runPageAnimations);
+});
+
 /**
  * Render and handle product size selection as radio buttons.
  * @param {HTMLElement} container - The element where size options will be rendered.
