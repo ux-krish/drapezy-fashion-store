@@ -144,6 +144,75 @@ section::after, section::before {
   text-align: center;
 }
 
+.deal-banner {
+  width: 100%;
+  background: #fff;
+}
+.deal-banner .deal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
+  padding: 0 1.0416666667vw;
+  gap: 1.25vw;
+  margin: 0 auto;
+}
+.deal-banner .deal-grid figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.1666666667rem;
+}
+.deal-banner .deal-grid figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.deal-banner .deal-grid .deal-content {
+  background: url("../images/michael-rodichev-kUcsIdvXEYg-unsplash1.png") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(3.5555555556rem, 3.3333333333vw) max(1.1111111111rem, 1.0416666667vw);
+}
+.deal-banner .deal-grid .deal-content figcaption {
+  padding: max(1.7777777778rem, 1.6666666667vw);
+  border-radius: 0.4444444444rem;
+  max-width: max(27.7777777778rem, 26.0416666667vw);
+}
+.deal-banner .deal-grid .deal-content figcaption article {
+  text-align: center;
+}
+.deal-banner .deal-grid .deal-content figcaption article h2 {
+  font-size: max(1.7777777778rem, 1.6666666667vw);
+  font-weight: 900;
+  color: #4E4E4E;
+}
+.deal-banner .deal-grid .deal-content figcaption article h2 .highlight {
+  background: #4E4E4E;
+  color: #FABB05;
+  padding: max(0.2222222222rem, 0.2083333333vw) max(0.4444444444rem, 0.4166666667vw);
+  border-radius: 0.2222222222rem;
+  display: inline-block;
+}
+.deal-banner .deal-grid .deal-content figcaption article p {
+  margin-top: max(0.8888888889rem, 0.8333333333vw);
+  font-size: max(0.8888888889rem, 0.8333333333vw);
+  color: #4E4E4E;
+}
+.deal-banner .deal-grid .deal-content figcaption article p .limited {
+  color: red;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .deal-banner .deal-grid {
+    grid-template-columns: 1fr;
+  }
+  .deal-banner .deal-grid .deal-content figcaption {
+    padding: 1.25vw;
+  }
+}
+
 .top-bar {
   background-color: #D1EAF5;
   padding: 0.4444444444rem 0;
@@ -820,6 +889,82 @@ input[type=radio]:checked ~ .product-details .product-wrapper .product-info .sel
   margin-bottom: 0.5rem;
   color: #4E4E4E;
   list-style-type: disc;
+}
+
+.info-cards {
+  display: flex;
+  gap: 1.1111111111rem;
+  flex-wrap: wrap;
+}
+.info-cards .card {
+  flex: 1;
+  background: #fff;
+  padding: 1.1111111111rem;
+  border-radius: 0.4444444444rem;
+  border: 1px solid #EFEFEF;
+}
+.info-cards .card h3 {
+  color: #353535;
+  margin-bottom: 0.6666666667rem;
+}
+.info-cards .card ul {
+  padding: 0;
+  list-style: none;
+}
+.info-cards .card ul li {
+  font-size: 0.8888888889rem;
+  margin-bottom: 0.3333333333rem;
+}
+.info-cards .card.product-details {
+  background-color: #FFF0C7;
+}
+.info-cards .card.delivery-return {
+  background-color: #D1EAF5;
+}
+.info-cards .card.size-fit {
+  background-color: #F6C9D3;
+}
+
+.reviews h2 {
+  margin: 1.6666666667rem 0;
+  font-size: 1.3333333333rem;
+}
+.reviews .review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.5555555556rem, 1fr));
+  gap: 0.8888888889rem;
+}
+.reviews .review-grid .review-card {
+  border-radius: 0.4444444444rem;
+  padding: 0.8888888889rem;
+  background-color: #EFEFEF;
+  border: 1px solid #F5F5F5;
+}
+.reviews .review-grid .review-card.yellow {
+  background-color: #FFF0C7;
+}
+.reviews .review-grid .review-card.blue {
+  background-color: #D1EAF5;
+}
+.reviews .review-grid .review-card.pink {
+  background-color: #F6C9D3;
+}
+.reviews .review-grid .review-card .stars {
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 0.3333333333rem;
+}
+.reviews .review-grid .review-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4444444444rem;
+}
+.reviews .review-grid .review-card p {
+  font-size: 0.7777777778rem;
+  margin-bottom: 0.5555555556rem;
+}
+.reviews .review-grid .review-card .user {
+  font-size: 0.7222222222rem;
+  color: #AFAFAF;
 }
 
 .site-footer {

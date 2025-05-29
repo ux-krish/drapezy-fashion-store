@@ -431,4 +431,100 @@
     }
 }
 
+
+
+// product description
+
+
+ 
+    .info-cards {
+      display: flex;
+      gap: px-to-rem(20);
+      flex-wrap: wrap;
+
+      .card {
+        flex: 1;
+        background: #fff;
+        padding: px-to-rem(20);
+        border-radius: px-to-rem(8);
+        border: 1px solid $light-gray-stroke;
+
+        h3 {
+          color: $text-dark;
+          margin-bottom: px-to-rem(12);
+        }
+
+        ul {
+          padding: 0;
+          list-style: none;
+
+          li {
+            font-size: px-to-rem(16);
+            margin-bottom: px-to-rem(6);
+          }
+        }
+
+        &.product-details {
+          background-color: $primary-color;
+        }
+
+        &.delivery-return {
+          background-color: $secondary-color;
+        }
+
+        &.size-fit {
+          background-color: $tertiary-color;
+        }
+      }
+    }
+
+  
+
+    .reviews {
+      h2 {
+        margin: px-to-rem(30) 0;
+        font-size: px-to-rem(24);
+      }
+
+      .review-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(px-to-rem(280), 1fr));
+        gap: px-to-rem(16);
+
+        .review-card {
+          border-radius: px-to-rem(8);
+          padding: px-to-rem(16);
+          background-color: $light-gray-stroke;
+          border: 1px solid $light-gray;
+
+          &.yellow { background-color: $primary-color; }
+          &.blue { background-color: $secondary-color; }
+          &.pink { background-color: $tertiary-color; }
+
+          .stars {
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: px-to-rem(6);
+          }
+
+          h4 {
+            font-size: px-to-rem(18);
+            margin-bottom: px-to-rem(8);
+          }
+
+          p {
+            font-size: px-to-rem(14);
+            margin-bottom: px-to-rem(10);
+          }
+
+          .user {
+            font-size: px-to-rem(13);
+            color: $text-color-light;
+          }
+        }
+      }
+    }
+
+
+
 @import "footer";
