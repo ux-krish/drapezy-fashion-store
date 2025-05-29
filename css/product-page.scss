@@ -390,7 +390,12 @@
                         padding: px-to-rem(0) px-to-rem(15);
                         svg{
                             fill: $text-secondary-color;
-                            color: $text-secondary-color-light;
+                            color: $text-color;
+                        }
+                        &.wishlisted{
+                            svg{
+                                color:$text-secondary-color;
+                            }
                         }
                         &:hover{
                            

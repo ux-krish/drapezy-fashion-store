@@ -72,11 +72,26 @@
     
     .icon{
       cursor: pointer;
+      position: relative;
+       .count{
+          border-radius: px-to-rem(50);
+          width: px-to-rem(25); 
+          height: px-to-rem(25);
+          @include flex-center;
+          background-color:rgba(240, 103, 103, 0.4);
+          color: $text-color;
+          position: absolute;
+          top: px-to-rem(-15);
+          right: px-to-rem(-15);
+          font-size: px-to-rem(10);
+          font-weight: 500;
+        }
       svg{
         width: 100%;
-        height: px-to-rem(20);
+        height: px-to-rem(22);
         //fill: $text-color;
         transition: fill 0.3s ease;
+       
       }
     }
   }

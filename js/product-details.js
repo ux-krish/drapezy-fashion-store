@@ -14,6 +14,9 @@ function loadProductDetail() {
     });
 }
 
+let selectedSize = null;
+let selectedQty = 1;
+
 function showProduct(product) {
   const mainSlider = document.querySelector('.main-slider .swiper-wrapper');
   const thumbSlider = document.querySelector('.thumbnail-slider .swiper-wrapper');
@@ -64,18 +67,71 @@ function showProduct(product) {
 
   // Sizes
   const sizesDiv = document.querySelector('.product-info .sizes');
-  if (sizesDiv && product.sizes) {
-    // Use the global renderProductSizes from common.js
-    renderProductSizes(
+  if (sizesDiv && product.sizes && window.renderProductSizes) {
+    window.renderProductSizes(
       sizesDiv,
       product.sizes,
       product.available_size,
       function(selected) {
-        // You can handle size change here if needed
-        // e.g., update product.available_size = selected;
+        selectedSize = selected;
       },
-      'size' // group name
+      'size'
     );
+    selectedSize = product.available_size || product.sizes[0];
+  }
+
+  // Quantity
+  const qtyDiv = document.querySelector('.product-info .quantity');
+  if (qtyDiv && window.renderQuantitySelector) {
+    window.renderQuantitySelector(qtyDiv, 1, function(qty) {
+      selectedQty = qty;
+    });
+    selectedQty = 1;
+  }
+
+  // Add to Cart button logic
+  const addToCartBtn = document.querySelector('.product-info .actions .btn.dark');
+  if (addToCartBtn) {
+    addToCartBtn.onclick = function(e) {
+      e.preventDefault();
+      // Validate size selection
+      if (!selectedSize) {
+        alert('Please select a size.');
+        return;
+      }
+      // Validate quantity
+      if (!selectedQty || selectedQty < 1) {
+        alert('Please select a valid quantity.');
+        return;
+      }
+      // Prepare cart item
+      const cartItem = {
+        id: product.id,
+        title: product.title,
+        image: product.image,
+        price: product.price,
+        original_price: product.original_price,
+        discount: product.discount,
+        size: selectedSize,
+        qty: selectedQty,
+        total: product.price * selectedQty
+      };
+      // Save to localStorage cart
+      let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+      // If same product and size exists, increase qty
+      const existing = cart.find(
+        item => item.id === cartItem.id && item.size === cartItem.size
+      );
+      if (existing) {
+        existing.qty += cartItem.qty;
+        existing.total = existing.price * existing.qty;
+      } else {
+        cart.push(cartItem);
+      }
+      localStorage.setItem('cartProducts', JSON.stringify(cart));
+      // Redirect to cart page
+      window.location.href = 'cart.html';
+    };
   }
 
   // Category
@@ -91,22 +147,124 @@ function showProduct(product) {
     });
   }
 
+  // Handle wishlist button beside Buy Now
+  const wishlistBtn = document.querySelector('.product-info .actions .btn.light');
+  if (wishlistBtn) {
+    // Set initial state: not wishlisted (no fill)
+    let isWishlisted = false;
+    if (typeof isInWishlist === 'function') {
+      isWishlisted = isInWishlist(product.id);
+    } else {
+      let key = 'wishlistProducts';
+      let arr = JSON.parse(localStorage.getItem(key) || '[]');
+      isWishlisted = arr.includes(product.id);
+    }
+    if (isWishlisted) {
+      wishlistBtn.classList.add('wishlisted');
+      const svg = wishlistBtn.querySelector('svg path');
+      if (svg) svg.setAttribute('fill', '#e74c3c');
+    } else {
+      wishlistBtn.classList.remove('wishlisted');
+      const svg = wishlistBtn.querySelector('svg path');
+      if (svg) svg.setAttribute('fill', 'transparent');
+    }
+
+    wishlistBtn.onclick = function(e) {
+      e.preventDefault();
+      let wishlistedNow = false;
+      if (typeof isInWishlist === 'function' && typeof addToWishlist === 'function' && typeof removeFromWishlist === 'function') {
+        if (isInWishlist(product.id)) {
+          removeFromWishlist(product.id);
+          wishlistedNow = false;
+        } else {
+          addToWishlist(product.id);
+          wishlistedNow = true;
+        }
+      } else {
+        let key = 'wishlistProducts';
+        let arr = JSON.parse(localStorage.getItem(key) || '[]');
+        if (arr.includes(product.id)) {
+          arr = arr.filter(id => id !== product.id);
+          wishlistedNow = false;
+        } else {
+          arr.push(product.id);
+          wishlistedNow = true;
+        }
+        localStorage.setItem(key, JSON.stringify(arr));
+      }
+      // Update button state and SVG fill
+      if (wishlistedNow) {
+        wishlistBtn.classList.add('wishlisted');
+        const svg = wishlistBtn.querySelector('svg path');
+        if (svg) svg.setAttribute('fill', '#e74c3c');
+      } else {
+        wishlistBtn.classList.remove('wishlisted');
+        const svg = wishlistBtn.querySelector('svg path');
+        if (svg) svg.setAttribute('fill', 'transparent');
+      }
+    };
+  }
+
   // GSAP animation for product info and sliders moved to common.js
+
+  // Remember this product page as last visited product page for "Back" button
+  if (window.rememberProductPage) window.rememberProductPage();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   loadProductDetail();
-  const qtyInput = document.getElementById("qty");
-  const incBtn = document.getElementById("inc");
-  const decBtn = document.getElementById("dec");
-  if (qtyInput && incBtn && decBtn) {
-    incBtn.onclick = () => {
-      qtyInput.value = parseInt(qtyInput.value) + 1;
-    };
-    decBtn.onclick = () => {
-      if (parseInt(qtyInput.value) > 1) qtyInput.value = parseInt(qtyInput.value) - 1;
-    };
-  }
 
-  // GSAP animation for header/nav/page-header/breadcrumb moved to common.js
+  // Find the Add to Cart button (adjust selector if needed)
+  const addToCartBtn = document.querySelector('.actions .btn.dark');
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Get product info from the page or localStorage
+      const prod = JSON.parse(localStorage.getItem('selectedProduct') || '{}');
+      // Get selected size and quantity from the page
+      let selectedSize = '';
+      const sizeInput = document.querySelector('.sizes input[type="radio"]:checked');
+      if (sizeInput) selectedSize = sizeInput.value;
+      // Fallback: try to get from .sizes .active or similar if you use custom UI
+      if (!selectedSize) {
+        const activeSize = document.querySelector('.sizes .active');
+        if (activeSize) selectedSize = activeSize.textContent.trim();
+      }
+      // Get quantity
+      let qty = 1;
+      const qtyInput = document.getElementById('qty');
+      if (qtyInput && !isNaN(parseInt(qtyInput.value))) {
+        qty = parseInt(qtyInput.value);
+      }
+
+      // Prepare cart item
+      const cartItem = {
+        id: prod.id,
+        title: prod.title,
+        image: prod.image,
+        price: prod.price,
+        original_price: prod.original_price,
+        size: selectedSize,
+        qty: qty
+      };
+
+      // Check if already in cart (id + size)
+      let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+      const existing = cart.find(item => item.id === cartItem.id && item.size === cartItem.size);
+
+      if (existing) {
+        // If already in cart, just redirect to cart page (do not add again)
+        window.location.href = 'cart.html';
+        return;
+      } else {
+        // Add to cart and redirect
+        cart.push(cartItem);
+        localStorage.setItem('cartProducts', JSON.stringify(cart));
+        // Optionally update cart count in header if needed
+        if (typeof updateCartCount === 'function') updateCartCount();
+        window.location.href = 'cart.html';
+      }
+    });
+  }
 });

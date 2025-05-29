@@ -167,7 +167,7 @@ section::after, section::before {
     }
 
     .deal-content {
-      background: url('../images/michael-rodichev-kUcsIdvXEYg-unsplash1.png') no-repeat center center / cover;
+      background: url('../../images/michael-rodichev-kUcsIdvXEYg-unsplash1.png') no-repeat center center / cover;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -216,9 +216,234 @@ section::after, section::before {
         padding: px-to-vw(24);
       }
 
-      // h2 {
-      //   font-size: px-to-vw(24);
-      // }
     }
+  }
+}
+
+// filter checkbox style for all pages
+.filter-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: px-to-rem(24);
+  height: px-to-rem(24);
+  background-color: $secondary-color; 
+  border-radius: px-to-rem(3);
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+  transition: background-color 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+  &::before {
+    content: '';
+    display: block;
+    width: px-to-rem(14);
+    height: px-to-rem(14);
+    border-radius: px-to-rem(1.5);
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+
+  &:checked::before {
+    background-color: $text-color; 
+  }
+}
+
+.filter-checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: px-to-rem(18);
+  color: $text-color;
+  gap: px-to-rem(12);
+  margin-bottom: px-to-rem(16);
+  cursor: pointer;
+}
+
+// --- Product Card Component Styles (moved from _product-card.scss) ---
+.product-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  height: 100%;
+  &:hover {
+    transform: translateY(-5px);
+    .card-image .image-overlay {
+      opacity: 1;
+    }
+    .card-image .actions {
+      transform: translateY(px-to-rem(-40));
+      opacity: 1;
+    }
+  }
+  .card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background-color: #f2f2f2;
+    border-radius: px-to-rem(3);
+    box-shadow: 0 px-to-rem(2) px-to-rem(8) rgba(0, 0, 0, 0.05);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.25));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+    .badges {
+      position: absolute;
+      top: px-to-rem(10);
+      left: px-to-rem(10);
+      right: px-to-rem(10);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: px-to-rem(6);
+      z-index: 2;
+      span {
+        color: $text-color;
+        padding: px-to-rem(6) px-to-rem(14);
+        border-radius: px-to-rem(20);
+        font-size: px-to-rem(12);
+        font-weight: 900;
+        height: px-to-rem(29);
+        align-items: center;
+        justify-content: center;
+        &.discount {
+          background-color: $accent-color;
+          color: $text-color;
+        }
+        &.new {
+          background-color: $tertiary-color;
+        }
+      }
+    }
+    .actions {
+      position: absolute;
+      bottom: px-to-rem(10);
+      right: px-to-rem(24);
+      left: px-to-rem(24);
+      display: flex;
+      gap: px-to-rem(8);
+      z-index: 2;
+      transform: translateY(px-to-rem(200));
+      opacity: 0;
+      transition: all 0.4s ease;
+      max-width: px-to-rem(220);
+      margin: auto;
+      button {
+        background: white;
+        border: none;
+        padding: px-to-rem(6);
+        border-radius: px-to-rem(3);
+        box-shadow: 0 px-to-rem(2) px-to-rem(5) rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.cirle-icon-btn {
+          width: px-to-rem(55);
+          height: px-to-rem(55);
+        }
+        &.icon-text-btn {
+          flex: 1;
+        }
+        &.add-to-cart:hover {
+          background-color: $primary-color;
+        }
+        &.add-to-wishlist:hover {
+          background-color: #FBADB5;
+        }
+        &.view-product:hover {
+          background-color: $accent-color;
+        }
+        i {
+          font-size: px-to-rem(14);
+        }
+        &:last-child {
+          border-radius: px-to-rem(4);
+          padding: px-to-rem(6) px-to-rem(10);
+        }
+      }
+    }
+  }
+  .card-content {
+    padding: px-to-rem(16);
+    text-align: left;
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    gap: px-to-rem(8);
+    height: 100%;
+    h3 {
+      font-size: px-to-rem(20);
+      margin: 0;
+      font-weight: 500;
+    }
+    .rating-price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: px-to-rem(8);
+      .rating {
+        font-size: px-to-rem(14);
+        color: $light-gray-stroke;
+        display: flex;
+        gap: px-to-rem(3);
+        padding: px-to-rem(3) px-to-rem(4);
+        background-color: $text-color;
+        border: px-to-rem(1) solid $light-gray-stroke;
+        border-radius: px-to-rem(3);
+        span {
+          font-weight: 700;
+          color: $light-gray-stroke;
+        }
+      }
+      .price {
+        display: flex;
+        align-items: center;
+        gap: px-to-rem(8);
+        del {
+          color: $text-secondary-color;
+          font-size: px-to-rem(14);
+        }
+        strong {
+          font-size: px-to-rem(18);
+          color: $text-color;
+        }
+      }
+    }
+  }
+}
+
+.product-grid {
+  @include product-grid();
+  // min-height: calc(100vh - px-to-rem(350)); // default for shop-all
+}
+
+// Responsive overrides
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: px-to-rem(16);
+    padding: px-to-rem(10);
+  }
+}
+@media (max-width: 500px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: px-to-rem(10);
+    padding: px-to-rem(6);
   }
 }

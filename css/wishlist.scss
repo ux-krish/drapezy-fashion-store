@@ -4,7 +4,6 @@
 @import "mixins";
 @import "common";
 @import "header";
-@import "product-card";
 
 .wishlist-section {
   background-color: #e1f5fd;
@@ -52,48 +51,10 @@
         margin-bottom: px-to-rem(10);
       }
 
+      // Use global filter label style
       label {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        font-size: px-to-rem(20);
-        gap: px-to-rem(8);
-        margin-bottom: px-to-rem(10);
-
-        input[type="checkbox"] {
-          appearance: none;
-          -webkit-appearance: none;
-          width: px-to-rem(18);
-          height: px-to-rem(18);
-          border: px-to-rem(2) solid $secondary-color;
-          border-radius: px-to-rem(4);
-          background: #fff;
-          vertical-align: middle;
-          position: relative;
-          cursor: pointer;
-          transition: border-color 0.2s;
-          margin: 0;
-
-          &:checked {
-            background-color: $secondary-color;
-            border-color: $secondary-color;
-          }
-
-          &::before {
-            content: '';
-            display: block;
-            width: px-to-rem(10);
-            height: px-to-rem(10);
-            margin: px-to-rem(2) auto;
-            border-radius: px-to-rem(2);
-            background: transparent;
-            transition: background 0.2s;
-          }
-
-          &:checked::before {
-            background: $secondary-color;
-          }
-        }
+        @extend .filter-checkbox-label;
+        // Remove local styles, rely on global
       }
     }
 
@@ -133,14 +94,7 @@
       }
     }
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(px-to-rem(228), 1fr));
-      gap: px-to-rem(24);
-      padding: px-to-rem(20);
-      border-bottom: 1px solid $light-gray-stroke;
-      min-height: calc(100vh - px-to-rem(350));
-    }
+    // .product-grid styles moved to _common.scss and replaced by global component
 
     .pagination-bottom {
       @include flex-between;
@@ -160,10 +114,6 @@
           padding: px-to-rem(2) px-to-rem(6);
         }
       }
-    }
-
-    .prdoduct-card{
-        //
     }
   }
 }

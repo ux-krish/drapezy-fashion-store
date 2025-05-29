@@ -26,3 +26,16 @@
   margin: 0 auto;
   padding: 0 px-to-rem(16);
 }
+
+@mixin product-grid($columns: auto-fill, $min: 228, $gap: 24, $padding: 20, $border: true, $minHeight: null) {
+  display: grid;
+  grid-template-columns: repeat(#{$columns}, minmax(px-to-rem($min), 1fr));
+  gap: px-to-rem($gap);
+  padding: px-to-rem($padding);
+  @if $border {
+    border-bottom: 1px solid $light-gray-stroke;
+  }
+  @if $minHeight != null {
+    min-height: $minHeight;
+  }
+}
