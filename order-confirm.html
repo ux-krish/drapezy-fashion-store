@@ -128,9 +128,21 @@
   <section class="thank-you-section">
     <div class="container">
       <!-- Order Summary Header -->
-      <div id="order-summary-header"></div>
+      <div id="order-summary-header">
+      </div>
       <!-- Product Table -->
-      <div id="order-summary-table"></div>
+      <div id="order-summary-table">
+      <div class="product-table">
+      <div class="table-head">
+        <span>Product</span>
+        <span>Price</span>
+        <span>Quantity</span>
+        <span>Subtotal</span>
+        <span>Discount</span>
+        <span>Status</span>
+      </div>
+    </div>
+      </div>
       <!-- Shipping & Billing Details -->
       <div id="order-details-grid"></div>
       <!-- Continue Shopping Button -->
@@ -327,26 +339,38 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="product-table">
         <div class="table-head">
           <span>Product</span>
-          <span>Quantity</span>
-          <span>Size</span>
-          <span>Discount</span>
-          <span>Subtotal</span>
           <span>Price</span>
+          <span>Quantity</span>
+          <span>Subtotal</span>
+          <span>Discount</span>
+          <span>Status</span>
         </div>
     `;
     summary.items.forEach(item => {
       const itemDiscount = (item.original_price - item.price) * item.qty;
       tableHtml += `
         <div class="table-row">
-          <div class="product-info">
-            <img src="${item.image}" alt="${item.title}" />
-            <p>${item.title}</p>
+          <div data-label="Product" class="product-info">
+            <span>
+              <img src="${item.image}" alt="${item.title}" />
+            <p>${item.title}</p>  
+            </span>
           </div>
-          <span>${item.qty}</span>
-          <span>${item.size || '-'}</span>
-          <span>${itemDiscount > 0 ? '₹' + itemDiscount.toLocaleString() : '-'}</span>
-          <span>₹${(item.original_price * item.qty).toLocaleString()}</span>
-          <span>₹${(item.price * item.qty).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+          <div data-label="Price">
+            <span>₹${(item.original_price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+          </div>
+          <div data-label="Quantity">
+            <span>${item.qty}</span>
+          </div>
+          <div data-label="Subtotal">
+            <span>₹${(item.original_price * item.qty).toLocaleString()}</span>
+          </div>
+          <div data-label="Discount">
+            <span>${itemDiscount > 0 ? '₹' + itemDiscount.toLocaleString() : '-'}</span>
+          </div>
+          <div data-label="Status">
+            <span>${orderStatus}</span>
+          </div>
         </div>
       `;
     });

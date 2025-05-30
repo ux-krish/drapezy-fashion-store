@@ -1,6 +1,6 @@
 const lenis = new Lenis({
   smooth: true,
-  lerp: 0.08, // Adjust this value to slow down or speed up the scroll
+  lerp: 0.04, // Adjust this value to slow down or speed up the scroll
   wheelMultiplier: 1,
   infinite: false
 });

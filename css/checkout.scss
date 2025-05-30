@@ -275,4 +275,94 @@
   color: #000;
 }
 
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .checkout-section {
+    .checkout-wrapper {
+      flex-direction: column;
+      gap: px-to-rem(32);
+    }
+    .checkout-form,
+    .checkout-summary {
+      width: 100%;
+      max-width: 100%;
+    }
+    .checkout-summary {
+      margin-top: px-to-rem(24);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-section {
+    padding: px-to-rem(24) 0;
+    .container {
+      padding: 0 px-to-rem(8);
+    }
+    .checkout-wrapper {
+      gap: px-to-rem(20);
+    }
+    .checkout-form,
+    .checkout-summary {
+      width: 100%;
+      max-width: 100%;
+    }
+    .checkout-summary {
+      margin-top: px-to-rem(20);
+    }
+    .checkout-info-strip {
+      flex-direction: column;
+      gap: px-to-rem(12);
+      .info-box {
+        font-size: px-to-rem(13);
+      }
+    }
+  }
+  .checkout-section .checkout-form .form-block .form-grid {
+    grid-template-columns: 1fr;
+    gap: px-to-rem(14);
+  }
+  .checkout-section .checkout-summary .summary-box {
+    padding: px-to-rem(16);
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-section {
+    padding: px-to-rem(12) 0;
+    .checkout-wrapper {
+      gap: px-to-rem(12);
+    }
+    .checkout-form .form-block,
+    .checkout-summary .summary-box {
+      padding: px-to-rem(10);
+    }
+    .checkout-summary .summary-box h3 {
+      font-size: px-to-rem(16);
+    }
+    .checkout-summary .summary-box .summary-item img {
+      width: px-to-rem(48);
+      height: px-to-rem(48);
+    }
+    .checkout-summary .summary-box .summary-item > div > p {
+      font-size: px-to-rem(12);
+    }
+    .checkout-summary .summary-box .summary-item span {
+      font-size: px-to-rem(12);
+    }
+    .checkout-summary .summary-box .checkout-btn {
+      font-size: px-to-rem(13);
+      padding: px-to-rem(10);
+    }
+    .checkout-info-strip .info-box {
+      font-size: px-to-rem(12);
+      padding: px-to-rem(10);
+    }
+    .back-to-cart-btn {
+      font-size: 14px;
+      height: 40px;
+    }
+  }
+}
+
 @import "footer";
