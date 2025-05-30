@@ -396,7 +396,7 @@ section::after, section::before {
       align-items: center;
       justify-content: space-between;
       margin-top: px-to-rem(8);
-      .rating {
+      @at-root .rating {
         font-size: px-to-rem(14);
         color: $light-gray-stroke;
         display: flex;

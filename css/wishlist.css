@@ -390,7 +390,7 @@ section::after, section::before {
   justify-content: space-between;
   margin-top: 0.4444444444rem;
 }
-.product-card .card-content .rating-price .rating {
+.rating {
   font-size: 0.7777777778rem;
   color: #EFEFEF;
   display: flex;
@@ -400,10 +400,11 @@ section::after, section::before {
   border: 0.0555555556rem solid #EFEFEF;
   border-radius: 0.1666666667rem;
 }
-.product-card .card-content .rating-price .rating span {
+.rating span {
   font-weight: 700;
   color: #EFEFEF;
 }
+
 .product-card .card-content .rating-price .price {
   display: flex;
   align-items: center;

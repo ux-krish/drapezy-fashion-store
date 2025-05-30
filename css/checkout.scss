@@ -92,21 +92,47 @@
       .summary-item {
         @include flex-between;
         align-items: center;
-        margin-bottom: px-to-rem(16);
 
+        margin-bottom: px-to-rem(16);
+        position: relative;
+        gap:px-to-rem(12);
         img {
-          width: px-to-rem(50);
-          border-radius: 6px;
+          width: px-to-rem(70);
+          height:px-to-rem(70);
+          object-fit: cover;
+          border:px-to-rem(1) solid $light-gray-stroke;
+          border-radius: px-to-rem(3);
         }
 
-        p {
+        div {
+          margin-left: 0;
+          margin-right: auto;
+          & > p {
           font-size: px-to-rem(14);
           font-weight: 500;
+        }
         }
 
         span {
           font-size: px-to-rem(14);
           font-weight: 600;
+          display: flex;
+          flex-direction: column;
+          text-align: right;
+        }
+        .remove-product-summary{
+          background-color: $text-secondary-color;
+          color: $text-white;
+          width: px-to-rem(24);
+          height: px-to-rem(24);
+          border-radius: 50%;
+          font-size: px-to-rem(13);
+          @include flex-center;
+          position: absolute;
+          top: px-to-rem(-10);
+          left:px-to-rem(-11);
+          text-transform: uppercase;
+          cursor: pointer;
         }
       }
 
@@ -188,6 +214,65 @@
   }
 }
 
-
+/* Styled checkbox like shop-all page */
+.styled-checkbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #bbb;
+  border-radius: 4px;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s;
+  vertical-align: middle;
+  margin-right: 6px;
+  display: inline-block;
+}
+.styled-checkbox:checked {
+  border-color: #222;
+  background: #222;
+}
+.styled-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: block;
+}
+.styled-checkbox-label {
+  font-size: 16px;
+  color: #222;
+  user-select: none;
+}
+.ship-diff {
+  margin-top: 16px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.back-to-cart-btn {
+    width: 100%;
+    max-width: 141px;
+    padding: 0px 0;
+    background: $secondary-color;
+    color: #222;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    height: 50px;
+}
+.back-to-cart-btn:hover {
+  background: #eee;
+  color: #000;
+}
 
 @import "footer";

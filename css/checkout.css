@@ -390,7 +390,7 @@ section::after, section::before {
   justify-content: space-between;
   margin-top: 0.4444444444rem;
 }
-.product-card .card-content .rating-price .rating {
+.rating {
   font-size: 0.7777777778rem;
   color: #EFEFEF;
   display: flex;
@@ -400,10 +400,11 @@ section::after, section::before {
   border: 0.0555555556rem solid #EFEFEF;
   border-radius: 0.1666666667rem;
 }
-.product-card .card-content .rating-price .rating span {
+.rating span {
   font-weight: 700;
   color: #EFEFEF;
 }
+
 .product-card .card-content .rating-price .price {
   display: flex;
   align-items: center;
@@ -846,18 +847,47 @@ section::after, section::before {
   align-items: center;
   align-items: center;
   margin-bottom: 0.8888888889rem;
+  position: relative;
+  gap: 0.6666666667rem;
 }
 .checkout-section .checkout-summary .summary-box .summary-item img {
-  width: 2.7777777778rem;
-  border-radius: 6px;
+  width: 3.8888888889rem;
+  height: 3.8888888889rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 0.0555555556rem solid #EFEFEF;
+  border-radius: 0.1666666667rem;
 }
-.checkout-section .checkout-summary .summary-box .summary-item p {
+.checkout-section .checkout-summary .summary-box .summary-item div {
+  margin-left: 0;
+  margin-right: auto;
+}
+.checkout-section .checkout-summary .summary-box .summary-item div > p {
   font-size: 0.7777777778rem;
   font-weight: 500;
 }
 .checkout-section .checkout-summary .summary-box .summary-item span {
   font-size: 0.7777777778rem;
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+.checkout-section .checkout-summary .summary-box .summary-item .remove-product-summary {
+  background-color: #DF6262;
+  color: #fff;
+  width: 1.3333333333rem;
+  height: 1.3333333333rem;
+  border-radius: 50%;
+  font-size: 0.7222222222rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -0.5555555556rem;
+  left: -0.6111111111rem;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 .checkout-section .checkout-summary .summary-box .summary-list {
   font-size: 0.7777777778rem;
@@ -924,6 +954,77 @@ section::after, section::before {
 }
 .checkout-section .checkout-info-strip .info-box.pink {
   background: #ffcdd2;
+}
+
+/* Styled checkbox like shop-all page */
+.styled-checkbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #bbb;
+  border-radius: 4px;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s;
+  vertical-align: middle;
+  margin-right: 6px;
+  display: inline-block;
+}
+
+.styled-checkbox:checked {
+  border-color: #222;
+  background: #222;
+}
+
+.styled-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: block;
+}
+
+.styled-checkbox-label {
+  font-size: 16px;
+  color: #222;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.ship-diff {
+  margin-top: 16px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.back-to-cart-btn {
+  width: 100%;
+  max-width: 141px;
+  padding: 0px 0;
+  background: #D1EAF5;
+  color: #222;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  height: 50px;
+}
+
+.back-to-cart-btn:hover {
+  background: #eee;
+  color: #000;
 }
 
 .site-footer {

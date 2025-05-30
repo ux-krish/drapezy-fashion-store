@@ -10,16 +10,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
   }
 
-  allProducts = await fetchAllProducts();
-  filteredProducts = allProducts;
+  // Use the global renderShopAllProducts for consistent product card logic
   currentPage = 1;
   renderAll();
   setupFilterListeners();
   // GSAP animation for page-header moved to common.js
 });
 
-let allProducts = [];
-let filteredProducts = [];
 let currentPage = 1;
 const PRODUCTS_PER_PAGE = 9;
 
@@ -65,24 +62,25 @@ function renderResultsText(total, page) {
 function renderAll() {
   const filters = getSelectedFilters();
   const sortKey = getSelectedSortValue('sort-by');
-  showProductsPaginated({
-    selector: '.product-grid',
-    filters,
-    sortFn: (a, b) => {
-      // Use sortProducts logic from api.js
-      const sorted = sortProducts([a, b], sortKey);
-      // If a comes before b, return -1; if after, return 1; else 0
-      if (sorted[0] === a) return -1;
-      if (sorted[0] === b) return 1;
-      return 0;
-    },
-    page: currentPage,
-    perPage: PRODUCTS_PER_PAGE,
-    onRendered: ({ total }) => {
-      renderPagination(total, currentPage);
-      renderResultsText(total, currentPage);
-    }
-  });
+  // Use the global renderShopAllProducts for consistent product card logic
+  if (window.renderShopAllProducts) {
+    window.renderShopAllProducts({
+      selector: '#shop-all-product-grid',
+      filters,
+      sortFn: (a, b) => {
+        const sorted = sortProducts([a, b], sortKey);
+        if (sorted[0] === a) return -1;
+        if (sorted[0] === b) return 1;
+        return 0;
+      },
+      page: currentPage,
+      perPage: PRODUCTS_PER_PAGE,
+      onRendered: ({ total }) => {
+        renderPagination(total, currentPage);
+        renderResultsText(total, currentPage);
+      }
+    });
+  }
   // Listen for sort select changes
   const sortSelect = document.querySelector('select[name="sort-by"]');
   if (sortSelect) {

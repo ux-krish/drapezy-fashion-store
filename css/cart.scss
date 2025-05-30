@@ -9,6 +9,7 @@
 .cart-summary-section {
   display: flex;
   gap: px-to-rem(32);
+  padding: px-to-rem(24) 0;
   @include container;
 
   .cart-summary {
@@ -261,12 +262,26 @@
 
       .back-btn,
       .wishlist-btn {
-        padding: px-to-rem(12) px-to-rem(16);
+        padding: px-to-rem(0) px-to-rem(16);
+        min-height: px-to-rem(50);
         border: 1px solid $light-gray-stroke;
         font-size: px-to-rem(16);
-        border-radius: px-to-rem(6);
+        border-radius: px-to-rem(3);
         cursor: pointer;
-        background-color: $secondary-color;
+       
+        
+      }
+      .back-btn{
+        flex: 0 0 100px;
+        @include flex-center;
+        gap: px-to-rem(8);
+         background-color: $secondary-color;
+      }
+      .wishlist-btn {
+        flex: 0 0 px-to-rem(180);
+        @include flex-center;
+        gap: px-to-rem(8);
+         background-color: $tertiary-color;
       }
     }
 
@@ -281,7 +296,8 @@
         border-radius: px-to-rem(6);
         border: 1px solid $light-gray-stroke;
         text-align: center;
-
+        @include flex-column;
+        @include flex-center;
         .icon {
           font-size: px-to-rem(28);
           margin-bottom: px-to-rem(8);
@@ -375,16 +391,19 @@
 
     .checkout-note {
       text-align: center;
-      margin-top: px-to-rem(16);
-      font-size: px-to-rem(12);
-      color: $text-color-light;
-
-      img {
+      margin: px-to-rem(16) 0 px-to-rem(8);
+      font-size: px-to-rem(15);
+      color: $text-color;
+      @include flex-center;
+      svg {
+        width: px-to-rem(20);
         height: px-to-rem(20);
         margin: 0 px-to-rem(4);
       }
     }
-
+    .secure-card{
+      @include flex-center;
+    }
     @media (max-width: 700px) {
       padding: px-to-rem(14);
       h2 {

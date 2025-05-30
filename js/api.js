@@ -60,7 +60,7 @@ function showProducts({ selector, filterFn, sortFn, count = 4 }) {
                   <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.196 1.5C14.152 1.5 12.387 2.697 11.5 4.443C10.613 2.697 8.848 1.5 6.804 1.5C3.874 1.5 1.5 3.957 1.5 6.981C1.5 10.005 3.317 12.777 5.665 15.054C8.013 17.331 11.5 19.5 11.5 19.5C11.5 19.5 14.874 17.367 17.335 15.054C19.96 12.588 21.5 10.014 21.5 6.981C21.5 3.948 19.126 1.5 16.196 1.5Z"
                       stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="${isWishlisted ? '#e74c3c' : 'transparent'}" />
-                  </svg>
+                </svg>
                 </button>
                 <button class="icon-text-btn view-product" type="button" data-view-btn>
                   <!-- View SVG -->
@@ -545,7 +545,7 @@ document.addEventListener('visibilitychange', () => {
 // If shop-all.js or shop-all.html uses a custom product rendering, ensure after rendering:
 // setupWishlistButtons(document);
 // Or, if using showProducts, it will work automatically.
-// No further code changes needed here if shop-all uses showProducts and setupWishlistButtons.
+// No further code changes needed here if shop-all uses showProducts and setupWishlist.
 
 /**
  * Render all available sizes as radio buttons and allow changing size in cart.
@@ -684,6 +684,7 @@ function renderCartSummaryTableRows(tbodySelector = '#cart-tbody', totalSelector
           localStorage.setItem('cartProducts', JSON.stringify(cartArr));
           tr.remove();
           renderCartSummaryTableRows(tbodySelector, totalSelector);
+          updateCartCount(); // <-- update header cart count instantly
         };
       }
     });
@@ -807,15 +808,16 @@ function renderCheckoutSummaryBox() {
     const itemDiscount = (item.original_price - item.price) * item.qty;
     itemsHtml += `
       <div class="summary-item">
+        
         <img src="${item.image}" alt="${item.title}" />
         <div>
           <p>${item.title}${item.size ? ' (' + item.size + ')' : ''} × ${item.qty}</p>
-          <span>
+         
+        </div>
+         <span>
             <del style="color:#888;font-size:13px;">₹${(item.original_price * item.qty).toLocaleString()}</del>
             <strong style="margin-left:5px;">₹${(item.price * item.qty).toLocaleString()}</strong>
-            ${itemDiscount > 0 ? `<span style="color:#e74c3c;font-size:13px;display:block;">You save ₹${itemDiscount.toLocaleString()}</span>` : ''}
           </span>
-        </div>
       </div>
     `;
   });
@@ -856,5 +858,80 @@ function renderCheckoutSummaryBox() {
 // Expose globally for checkout.html
 window.renderCheckoutSummaryBox = renderCheckoutSummaryBox;
 
-// Expose storeCheckoutSummary globally for cart.html checkout button
-window.storeCheckoutSummary = storeCheckoutSummary;
+/**
+ * Update only the size value in localStorage for the cart item, without updating or rerendering the DOM/UI.
+ * This ensures the selected size is stored and used in checkout and order-confirm pages.
+ * @param {HTMLElement} sizeEl - The clicked size element.
+ */
+window.updateCartItemSize = function(sizeEl) {
+  var cartRow = sizeEl.closest('tr.cart-summary__item');
+  if (!cartRow) return;
+
+  // Get product id or title (adjust selector as per your markup)
+  var productTitle = cartRow.querySelector('.product-title')?.textContent?.trim();
+  var newSize = sizeEl.textContent.trim();
+
+  // Update localStorage cartProducts only (do not update UI or rerender cart-tbody)
+  let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+  let updated = false;
+  cart.forEach(item => {
+    if (item.title === productTitle) {
+      item.size = newSize;
+      updated = true;
+    }
+  });
+  if (updated) {
+    localStorage.setItem('cartProducts', JSON.stringify(cart));
+  }
+  // No UI update or rerender here!
+};
+
+/**
+ * Attach event listeners for size changes in cart rows.
+ * This will only update the active state and localStorage, not rerender the cart-tbody.
+ */
+window.attachCartSizeListeners = function() {
+  document.querySelectorAll('#cart-tbody .sizes button, #cart-tbody .sizes a, #cart-tbody .sizes span').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      if (el.tagName === 'A' || el.tagName === 'BUTTON') {
+        e.preventDefault();
+      }
+      // Remove active from all siblings
+      var parent = el.parentElement;
+      if (parent) {
+        parent.querySelectorAll('.active').forEach(function(activeEl) {
+          activeEl.classList.remove('active');
+        });
+      }
+      el.classList.add('active');
+      // Update only the size for this cart item in localStorage
+      window.updateCartItemSize(el);
+    });
+  });
+};
+
+/**
+ * Store the cart products as checkout summary for the checkout page.
+ * This will include the selected sizes from localStorage.
+ */
+window.storeCheckoutSummary = function() {
+  let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+  if (!cart.length) return;
+  let subtotal = cart.reduce((sum, item) => sum + (item.original_price * item.qty), 0);
+  let totalDiscount = cart.reduce((sum, item) => sum + ((item.original_price - item.price) * item.qty), 0);
+  let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0) + 5;
+  let platformFees = 5;
+  // Ensure each item has size
+  cart.forEach(item => {
+    if (!item.size) item.size = '-';
+  });
+  let summary = {
+    items: cart,
+    subtotal,
+    totalDiscount,
+    platformFees,
+    total
+  };
+  localStorage.setItem('checkoutSummary', JSON.stringify(summary));
+  window.location.href = 'checkout.html';
+};

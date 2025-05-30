@@ -390,7 +390,7 @@ section::after, section::before {
   justify-content: space-between;
   margin-top: 0.4444444444rem;
 }
-.product-card .card-content .rating-price .rating {
+.rating {
   font-size: 0.7777777778rem;
   color: #EFEFEF;
   display: flex;
@@ -400,10 +400,11 @@ section::after, section::before {
   border: 0.0555555556rem solid #EFEFEF;
   border-radius: 0.1666666667rem;
 }
-.product-card .card-content .rating-price .rating span {
+.rating span {
   font-weight: 700;
   color: #EFEFEF;
 }
+
 .product-card .card-content .rating-price .price {
   display: flex;
   align-items: center;
@@ -1146,6 +1147,9 @@ section::after, section::before {
   display: block;
 }
 
+.best-selling {
+  margin: 0 auto 0;
+}
 .best-selling h2 {
   font-size: 2rem;
   font-weight: 700;
@@ -1162,7 +1166,7 @@ section::after, section::before {
 }
 
 .promo-section {
-  margin: max(2.7777777778rem, 2.6041666667vw) 0;
+  margin: 0 0 max(2.7777777778rem, 2.6041666667vw);
   padding: max(1.7777777778rem, 1.6666666667vw);
 }
 .promo-section h2 {
@@ -1341,6 +1345,7 @@ section::after, section::before {
 .reviews-section .reviews-carousel .swiper-wrapper {
   display: flex;
   align-items: stretch;
+  height: 100% !important;
 }
 .reviews-section .reviews-carousel .review-card {
   border-radius: 0.1666666667rem;

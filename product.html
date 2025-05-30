@@ -221,7 +221,7 @@
                 </svg>
 
                 Add to cart</button>
-                <button class="btn alpha" onclick="window.location.href='checkout.html'">
+                <button class="btn alpha buy-now" onclick="window.location.href='checkout.html'">
                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M14.1277 21.75V20.125C15.1536 20.125 16.1695 19.9148 17.1174 19.5065C18.0653 19.0982 18.9265 18.4997 19.652 17.7452C20.3774 16.9908 20.9529 16.0951 21.3455 15.1093C21.7381 14.1235 21.9402 13.067 21.9402 12H23.5027C23.5027 14.5859 22.515 17.0658 20.7568 18.8943C18.9987 20.7228 16.6141 21.75 14.1277 21.75Z" fill="#4E4E4E"/>
 <path d="M14.1277 17.6875V16.0625C14.6407 16.0625 15.1486 15.9574 15.6225 15.7533C16.0965 15.5491 16.5271 15.2499 16.8898 14.8726C17.2526 14.4954 17.5403 14.0475 17.7366 13.5547C17.9329 13.0618 18.0339 12.5335 18.0339 12H19.5964C19.5964 13.5084 19.0203 14.9551 17.9947 16.0217C16.9691 17.0883 15.5781 17.6875 14.1277 17.6875Z" fill="#4E4E4E"/>
@@ -518,6 +518,67 @@
   <script src="js/product-details.js"></script> 
   <script src="js/common.js"></script>
   <script src="js/api.js"></script>
+  <script>
+  // Buy Now button logic
+  document.addEventListener('DOMContentLoaded', function() {
+    var buyNowBtn = document.querySelector('.buy-now');
+    if (!buyNowBtn) return;
+    buyNowBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Get product info from DOM
+      var productInfo = document.querySelector('.product-info');
+      if (!productInfo) return;
+
+      // Get product details (assumes product-details.js renders these)
+      var title = productInfo.querySelector('h2')?.textContent || '';
+      var image = document.querySelector('.main-slider .swiper-slide img')?.src || '';
+      var price = parseFloat(productInfo.querySelector('.price strong')?.textContent.replace(/[^\d.]/g, '') || 0);
+      var original_price = parseFloat(productInfo.querySelector('.price del')?.textContent.replace(/[^\d.]/g, '') || price);
+      var size = productInfo.querySelector('.sizes .active')?.textContent || '';
+      var qty = parseInt(document.getElementById('qty')?.value || '1', 10);
+      var id = window.productId || document.body.dataset.productId || title.replace(/\s+/g, '-').toLowerCase();
+      var subtotal = price * qty;
+
+      // Build product object
+      var buyNowProduct = {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        original_price: original_price,
+        size: size,
+        qty: qty,
+        subtotal: subtotal
+      };
+
+      // Calculate summary
+      var totalDiscount = (original_price - price) * qty;
+      var subtotalAll = original_price * qty;
+      var platformFees = 5;
+      var total = subtotal + platformFees;
+
+      // Prepare checkout summary
+      var checkoutSummary = {
+        items: [buyNowProduct],
+        subtotal: subtotalAll,
+        totalDiscount: totalDiscount,
+        platformFees: platformFees,
+        total: total
+      };
+
+      // Reset cart and item count
+      localStorage.removeItem('cartProducts');
+      localStorage.setItem('cartCount', '0');
+
+      // Store checkout summary for buy-now
+      localStorage.setItem('checkoutSummary', JSON.stringify(checkoutSummary));
+
+      // Redirect to checkout
+      window.location.href = 'checkout.html';
+    });
+  });
+  </script>
 </body>
 
 </html>

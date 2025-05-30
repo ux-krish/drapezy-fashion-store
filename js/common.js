@@ -254,7 +254,7 @@ function runPageAnimations() {
 
   // Animate product info section (children)
   const productInfo = document.querySelector('.product-info');
-  if (productInfo) {
+  if (productInfo && productInfo.children.length) {
     gsap.fromTo(
       Array.from(productInfo.children).filter(el => el.nodeType === 1),
       { y: 40, opacity: 0 },
@@ -270,7 +270,7 @@ function runPageAnimations() {
 
   // Animate all product-card elements (on all pages) from y axis with stagger
   const productCards = document.querySelectorAll('.product-card');
-  if (productCards.length) {
+  if (productCards && productCards.length) {
     gsap.fromTo(
       productCards,
       { y: 60, opacity: 0 },
@@ -286,7 +286,7 @@ function runPageAnimations() {
 
   // Animate Swiper slide backgrounds in .hero-swiper on window load (fade effect)
   const heroSlides = document.querySelectorAll('.hero-swiper .swiper-slide');
-  if (heroSlides.length) {
+  if (heroSlides && heroSlides.length) {
     gsap.fromTo(
       heroSlides,
       { opacity: 0 },
@@ -512,8 +512,8 @@ function runPageAnimations() {
     gsap.timeline({
       scrollTrigger: {
         trigger: ".promo-section",
-        start: "top 90%",
-        end: "bottom 30%",
+        start: "top 95%",
+        end: "bottom 50%",
         toggleActions: "play none none reverse",
         scrub: 1
       }
@@ -587,100 +587,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   waitForGSAP(runPageAnimations);
 });
-
-/**
- * Render and handle product size selection as radio buttons.
- * @param {HTMLElement} container - The element where size options will be rendered.
- * @param {Array<string>} sizes - Array of available sizes (e.g., ['S', 'M', 'L']).
- * @param {string} [selectedSize] - The size to preselect (optional).
- * @param {function} [onChange] - Callback when a size is selected (optional).
- * @param {string} [name] - The radio group name (optional, default: 'size').
- */
-function renderProductSizes(container, sizes, selectedSize, onChange, name = 'size') {
-  if (!container || !Array.isArray(sizes) || !sizes.length) return;
-  container.innerHTML = '';
-  sizes.forEach(size => {
-    const label = document.createElement('label');
-    label.className = 'size-radio-label';
-    const input = document.createElement('input');
-    input.type = 'radio';
-    input.name = name;
-    input.value = size;
-    if (size === selectedSize) input.checked = true;
-    input.addEventListener('change', () => {
-      if (typeof onChange === 'function') onChange(size);
-    });
-    label.appendChild(input);
-    label.appendChild(document.createTextNode(size));
-    container.appendChild(label);
-  });
-}
-
-/**
- * Render and handle quantity selector (with + and - buttons).
- * @param {HTMLElement} container - The element where quantity controls will be rendered.
- * @param {number} [qty] - Initial quantity.
- * @param {function} [onChange] - Callback when quantity changes.
- */
-function renderQuantitySelector(container, qty = 1, onChange) {
-  if (!container) return;
-  container.innerHTML = `
-    <button type="button" class="qty-dec">-</button>
-    <input type="number" min="1" value="${qty}" class="qty-input" style="width:40px;text-align:center;" />
-    <button type="button" class="qty-inc">+</button>
-  `;
-  const input = container.querySelector('.qty-input');
-  const incBtn = container.querySelector('.qty-inc');
-  const decBtn = container.querySelector('.qty-dec');
-  incBtn.onclick = () => {
-    input.value = parseInt(input.value) + 1;
-    if (typeof onChange === 'function') onChange(parseInt(input.value));
-  };
-  decBtn.onclick = () => {
-    if (parseInt(input.value) > 1) input.value = parseInt(input.value) - 1;
-    if (typeof onChange === 'function') onChange(parseInt(input.value));
-  };
-  input.oninput = () => {
-    if (parseInt(input.value) < 1) input.value = 1;
-    if (typeof onChange === 'function') onChange(parseInt(input.value));
-  };
-}
-
-/**
- * Go back to product page for a given product id.
- * @param {string} productId
- */
-function goToProductPage(productId) {
-  if (productId) {
-    window.location.href = `product.html?id=${productId}`;
-  }
-}
-
-/**
- * Go back to the last visited product page (before cart/checkout).
- * Stores last product page in localStorage as 'lastProductPage'.
- */
-function goToLastProductPage() {
-  const lastProductPage = localStorage.getItem('lastProductPage');
-  if (lastProductPage) {
-    window.location.href = lastProductPage;
-  } else {
-    window.location.href = 'shop-all.html';
-  }
-}
-
-/**
- * Call this on every product page load to remember last product page.
- */
-function rememberProductPage() {
-  if (window.location.pathname.endsWith('product.html')) {
-    localStorage.setItem('lastProductPage', window.location.href);
-  }
-}
-
-// Expose globally
-window.goToLastProductPage = goToLastProductPage;
-window.rememberProductPage = rememberProductPage;
 
 /**
  * Render and handle product size selection as radio buttons.
@@ -852,58 +758,66 @@ window.addEventListener('DOMContentLoaded', updateWishlistCount);
 
 /**
  * Extract selected filters from a filter sidebar container.
+ * All filter sections are merged into a single filter object with each section as a different criteria.
  * @param {HTMLElement} container - The sidebar/filter container.
  * @returns {Object} filters
  */
 function getSelectedFiltersFromContainer(container) {
   if (!container) return {};
-  // Category
-  const catChecks = container.querySelectorAll('.filter-group h4, .filter-section h4');
-  let categories = [];
-  let sizes = [];
-  let gender = [];
-  let minPrice = 100, maxPrice = 10000, minDiscount = 0;
-  // Gender (works for wishlist page filter-group)
-  const genderGroup = Array.from(container.querySelectorAll('.filter-group')).find(
-    g => g.querySelector('h4') && /gender/i.test(g.querySelector('h4').textContent)
-  );
-  if (genderGroup) {
-    gender = Array.from(genderGroup.querySelectorAll('input[type="checkbox"]:checked'))
-      .map(cb => cb.parentElement.textContent.trim().toLowerCase());
-  }
-  // Category
-  const catInputs = Array.from(container.querySelectorAll('label input[type="checkbox"]')).filter(cb => {
-    const label = cb.parentElement;
-    return /tshirts|jeans|jackets|dresses|skirts|ethnic/i.test(label.textContent);
-  });
-  categories = catInputs.filter(cb => cb.checked).map(cb => cb.parentElement.textContent.trim().toLowerCase());
-  // Sizes
-  const sizeInputs = Array.from(container.querySelectorAll('label input[type="checkbox"]')).filter(cb => {
-    const label = cb.parentElement;
-    return /xs|s|m|l|xl|xxl/i.test(label.textContent);
-  });
-  sizes = sizeInputs.filter(cb => cb.checked).map(cb => cb.parentElement.textContent.trim());
-  // Price
-  const priceRange = container.querySelector('input[type="range"]');
-  if (priceRange) minPrice = parseInt(priceRange.value) || 100;
-  // Discount
-  const discountInputs = Array.from(container.querySelectorAll('label input[type="checkbox"]')).filter(cb => {
-    const label = cb.parentElement;
-    return /%/.test(label.textContent);
-  });
-  discountInputs.forEach(cb => {
-    if (cb.checked) {
-      const txt = cb.parentElement.textContent;
-      if (txt.includes('50%')) minDiscount = Math.max(minDiscount, 50);
-      else if (txt.includes('30%')) minDiscount = Math.max(minDiscount, 30);
-      else if (txt.includes('10%')) minDiscount = Math.max(minDiscount, 10);
+  const filters = {
+    categories: [],
+    sizes: [],
+    gender: [],
+    minPrice: 100,
+    maxPrice: 10000,
+    minDiscount: 0
+  };
+
+  // Loop through each filter-section and assign to the correct filter property
+  container.querySelectorAll('.filter-section').forEach(section => {
+    const title = section.querySelector('h4')?.textContent?.toLowerCase() || '';
+    // Category
+    if (/category/.test(title)) {
+      filters.categories = Array.from(section.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(cb => cb.parentElement.textContent.trim().toLowerCase());
+    }
+    // Size
+    else if (/size/.test(title)) {
+      filters.sizes = Array.from(section.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(cb => cb.parentElement.textContent.trim());
+    }
+    // Gender
+    else if (/gender/.test(title)) {
+      filters.gender = Array.from(section.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(cb => cb.parentElement.textContent.trim().toLowerCase());
+    }
+    // Price
+    else if (/price/.test(title)) {
+      const priceRange = section.querySelector('input[type="range"]');
+      if (priceRange) filters.minPrice = parseInt(priceRange.value) || 100;
+      // Optionally, add maxPrice if you have a max range input
+      const maxRange = section.querySelector('input[type="range"].max');
+      if (maxRange) filters.maxPrice = parseInt(maxRange.value) || 10000;
+    }
+    // Discount
+    else if (/discount/.test(title)) {
+      let minDiscount = 0;
+      Array.from(section.querySelectorAll('input[type="checkbox"]:checked')).forEach(cb => {
+        const txt = cb.parentElement.textContent;
+        if (txt.includes('50%')) minDiscount = Math.max(minDiscount, 50);
+        else if (txt.includes('30%')) minDiscount = Math.max(minDiscount, 30);
+        else if (txt.includes('10%')) minDiscount = Math.max(minDiscount, 10);
+      });
+      filters.minDiscount = minDiscount;
     }
   });
-  return { categories, sizes, gender, minPrice, maxPrice, minDiscount };
+
+  return filters;
 }
 
 /**
  * Filter and render products in a grid container with filters, sort, and pagination.
+ * Uses unified filter object from getSelectedFiltersFromContainer.
  * @param {Object} options
  *   container: HTMLElement for grid
  *   products: Array of products
@@ -928,7 +842,7 @@ function filterAndRenderProducts({
   let filtered = products.filter(p => {
     // Gender
     if (filters.gender && filters.gender.length) {
-      if (!filters.gender.some(g => (g === 'for him' && p.gender === 'Men') || (g === 'for her' && p.gender === 'Women'))) return false;
+      if (!filters.gender.some(g => (g === 'for him' && p.gender === 'Men') || (g === 'for her' && p.gender === 'Women') || (g === (p.gender || '').toLowerCase()))) return false;
     }
     // Category
     if (filters.categories && filters.categories.length) {
@@ -1040,3 +954,102 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// GSAP animation for sections (cleaned up, no index.html-specific logic)
+// Animates any section (product grid, promo, reviews, etc.) regardless of data source
+
+if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+  document.addEventListener("DOMContentLoaded", function () {
+    // Helper for shoom animation (scale+fade+up or left)
+    function shoomAnim(target, childSelector, opts = {}) {
+      const {
+        stagger = 0.08,
+        y = 40,
+        x = null,
+        scale = 0.92,
+        triggerStart = "top 85%",
+        once = false // allow animation to play again on reverse scroll
+      } = opts;
+      const children = childSelector ? target.querySelectorAll(childSelector) : target.children;
+      if (!children.length) return;
+      // Remove any previous ScrollTriggers for this target to ensure re-animation works
+      gsap.utils.toArray(children).forEach(child => {
+        ScrollTrigger.getAll().forEach(trigger => {
+          if (trigger.trigger === target || trigger.trigger === child) trigger.kill();
+        });
+      });
+      const animProps = {
+        opacity: 0,
+        stagger,
+        duration: 0.7,
+        ease: "power3.out",
+        clearProps: "all",
+        scrollTrigger: {
+          trigger: target,
+          start: triggerStart,
+          once,
+          toggleActions: "play none none reset"
+        }
+      };
+      if (x !== null) animProps.x = x;
+      else animProps.y = y;
+      animProps.scale = scale;
+      gsap.from(children, animProps);
+    }
+
+    // Animate product grids (shop, best-selling, new-arrivals, etc.)
+    document.querySelectorAll('.products-grid').forEach(grid => {
+      shoomAnim(grid, ':scope > *');
+    });
+
+    // Animate promo-section cards (from top 50%)
+    document.querySelectorAll('.promo-section .promo-card').forEach(card => {
+      shoomAnim(card, null, { y: 60, scale: 0.90, stagger: 0, triggerStart: "top 50%" });
+    });
+
+    // Animate promo-banner grid
+    document.querySelectorAll('.promo-banner .promo-grid').forEach(grid => {
+      shoomAnim(grid, ':scope > *', { y: 60, scale: 0.90, stagger: 0.15 });
+    });
+
+    // Animate review carousel (static grid, e.g. product.html)
+    document.querySelectorAll('.reviews-carousel .swiper-wrapper, .review-grid').forEach(wrapper => {
+      shoomAnim(wrapper, ':scope > *', { x: -60, scale: 0.92, stagger: 0.12 });
+    });
+  });
+}
+
+// Animate reviewSwiper slides after they are rendered (from API/localStorage/anywhere)
+function animateReviewSwiperSlides() {
+  const slides = document.querySelectorAll('.reviewSwiper .swiper-slide');
+  if (!slides.length || typeof gsap === "undefined") return;
+  slides.forEach((slide, i) => {
+    // Remove previous triggers for re-animation
+    ScrollTrigger.getAll().forEach(trigger => {
+      if (trigger.trigger === slide) trigger.kill();
+    });
+    gsap.fromTo(
+      slide,
+      { opacity: 0, x: -60 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.7,
+        delay: i * 0.12,
+        ease: "power3.out",
+        overwrite: "auto"
+      }
+    );
+  });
+}
+
+document.addEventListener('reviewsRendered', animateReviewSwiperSlides);
+
+if (window.reviewSwiperInstance && window.reviewSwiperInstance.on) {
+  window.reviewSwiperInstance.on('slideChangeTransitionStart', function () {
+    animateReviewSwiperSlides();
+  });
+}
+
+// All GSAP animation for the selection chat (e.g. product size/qty/color selector, etc.) is removed.
+// No GSAP animation will be applied to selection chat elements.

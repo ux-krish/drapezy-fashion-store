@@ -134,6 +134,56 @@ function showProduct(product) {
     };
   }
 
+  // Buy Now button logic: bring selected size to checkout page
+  const buyNowBtn = document.querySelector('.product-info .actions .buy-now');
+  if (buyNowBtn) {
+    buyNowBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Validate size selection
+      if (!selectedSize) {
+        alert('Please select a size.');
+        return;
+      }
+      // Validate quantity
+      if (!selectedQty || selectedQty < 1) {
+        alert('Please select a valid quantity.');
+        return;
+      }
+      // Prepare buy-now product
+      const buyNowProduct = {
+        id: product.id,
+        title: product.title,
+        image: product.image,
+        price: product.price,
+        original_price: product.original_price,
+        discount: product.discount,
+        size: selectedSize,
+        qty: selectedQty,
+        subtotal: product.price * selectedQty
+      };
+      // Calculate summary
+      const totalDiscount = (product.original_price - product.price) * selectedQty;
+      const subtotalAll = product.original_price * selectedQty;
+      const platformFees = 5;
+      const total = buyNowProduct.subtotal + platformFees;
+      // Prepare checkout summary
+      const checkoutSummary = {
+        items: [buyNowProduct],
+        subtotal: subtotalAll,
+        totalDiscount: totalDiscount,
+        platformFees: platformFees,
+        total: total
+      };
+      // Reset cart and item count
+      localStorage.removeItem('cartProducts');
+      localStorage.setItem('cartCount', '0');
+      // Store checkout summary for buy-now
+      localStorage.setItem('checkoutSummary', JSON.stringify(checkoutSummary));
+      // Redirect to checkout
+      window.location.href = 'checkout.html';
+    });
+  }
+
   // Category
   document.querySelector('.product-info .category').innerHTML =
     `<strong>Category:</strong> ${product.gender || ''}${product.category ? ', ' + product.category : ''}${product.color ? ', ' + product.color : ''}`;
@@ -267,4 +317,48 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Size selection logic (prevent page jump and update only the changed element, not the whole cart-tbody)
+  document.querySelectorAll('.sizes button, .sizes a, .sizes span').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      // Only preventDefault if the element is a link or button
+      if (el.tagName === 'A' || el.tagName === 'BUTTON') {
+        e.preventDefault();
+      }
+      // Remove active from all siblings
+      var parent = el.parentElement;
+      if (parent) {
+        parent.querySelectorAll('.active').forEach(function(activeEl) {
+          activeEl.classList.remove('active');
+        });
+      }
+      el.classList.add('active');
+      // ...any other logic for size selection...
+
+      // If on cart page, update only the relevant row/element, not the whole cart-tbody
+      if (window.location.pathname.includes('cart.html')) {
+        // Example: update the size in localStorage for this cart item
+        // Find the cart row and get product id (assumes data-id or similar is set)
+        var cartRow = el.closest('tr.cart-summary__item');
+        if (cartRow) {
+          var productTitle = cartRow.querySelector('.product-title')?.textContent?.trim();
+          var newSize = el.textContent.trim();
+          let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+          // Find by title and update size (adjust if you have id/size in DOM)
+          let updated = false;
+          cart.forEach(item => {
+            if (item.title === productTitle) {
+              item.size = newSize;
+              updated = true;
+            }
+          });
+          if (updated) {
+            localStorage.setItem('cartProducts', JSON.stringify(cart));
+          }
+          // Optionally update the size display in the row (if needed)
+          // No need to rerender the whole tbody
+        }
+      }
+    });
+  });
 });

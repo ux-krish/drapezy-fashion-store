@@ -29,7 +29,22 @@
         "100% Original Products",
         "Pay on delivery might be available",
         "Easy 14 days returns and exchanges"
-      ]
+      ],
+      "reviews": [
+        {
+          "user": "Aarushi M.",
+          "location": "Delhi",
+          "rating": 5,
+          "comment": "Loved the fabric and fit. Looks exactly like the picture. Will definitely shop again!"
+        },
+        {
+          "user": "Priya S.",
+          "location": "Mumbai",
+          "rating": 4,
+          "comment": "Beautiful dress, but the lace is a bit delicate. Handle with care."
+        }
+      ],
+      "star_distribution": { "5": 60, "4": 25, "3": 10, "2": 3, "1": 2 }
     },
     {
       "id": "002",
@@ -59,7 +74,22 @@
         "100% Original Products",
         "Free Delivery for orders above ₹500",
         "7-day return policy"
-      ]
+      ],
+      "reviews": [
+        {
+          "user": "Rohit K.",
+          "location": "Bangalore",
+          "rating": 4,
+          "comment": "Nice t-shirt, comfortable for daily wear."
+        },
+        {
+          "user": "Sandeep P.",
+          "location": "Hyderabad",
+          "rating": 5,
+          "comment": "Great quality and print. Value for money."
+        }
+      ],
+      "star_distribution": { "5": 50, "4": 30, "3": 10, "2": 5, "1": 5 }
     },
     {
       "id": "003",
@@ -84,7 +114,22 @@
         "100% Original Products",
         "COD Available",
         "15-day return policy"
-      ]
+      ],
+      "reviews": [
+        {
+          "user": "Amit S.",
+          "location": "Pune",
+          "rating": 5,
+          "comment": "Perfect fit and very comfortable jeans."
+        },
+        {
+          "user": "Vikram D.",
+          "location": "Delhi",
+          "rating": 4,
+          "comment": "Good quality but color faded a bit after wash."
+        }
+      ],
+      "star_distribution": { "5": 65, "4": 25, "3": 5, "2": 3, "1": 2 }
     },
     {
       "id": "004",
@@ -109,7 +154,22 @@
         "100% Original Products",
         "Free Delivery",
         "10-day return policy"
-      ]
+      ],
+      "reviews": [
+        {
+          "user": "Manish T.",
+          "location": "Chennai",
+          "rating": 5,
+          "comment": "Stylish and warm, perfect for winters."
+        },
+        {
+          "user": "Rahul G.",
+          "location": "Kolkata",
+          "rating": 4,
+          "comment": "Nice jacket, fits well."
+        }
+      ],
+      "star_distribution": { "5": 60, "4": 30, "3": 6, "2": 2, "1": 2 }
     },
     {
       "id": "005",
@@ -134,7 +194,22 @@
         "100% Original Products",
         "Easy 14 days returns",
         "Free Delivery"
-      ]
+      ],
+      "reviews": [
+        {
+          "user": "Sneha R.",
+          "location": "Delhi",
+          "rating": 5,
+          "comment": "Lovely dress, perfect for summer outings."
+        },
+        {
+          "user": "Ankita B.",
+          "location": "Pune",
+          "rating": 4,
+          "comment": "Nice fabric and print, but a bit loose."
+        }
+      ],
+      "star_distribution": { "5": 55, "4": 30, "3": 10, "2": 3, "1": 2 }
     },
     {
       "id": "006",

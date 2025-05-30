@@ -390,7 +390,7 @@ section::after, section::before {
   justify-content: space-between;
   margin-top: 0.4444444444rem;
 }
-.product-card .card-content .rating-price .rating {
+.rating {
   font-size: 0.7777777778rem;
   color: #EFEFEF;
   display: flex;
@@ -400,10 +400,11 @@ section::after, section::before {
   border: 0.0555555556rem solid #EFEFEF;
   border-radius: 0.1666666667rem;
 }
-.product-card .card-content .rating-price .rating span {
+.rating span {
   font-weight: 700;
   color: #EFEFEF;
 }
+
 .product-card .card-content .rating-price .price {
   display: flex;
   align-items: center;
@@ -770,48 +771,63 @@ section::after, section::before {
   margin: 0 auto;
   padding: 0 0.8888888889rem;
 }
-.thank-you-section .order-summary-header {
+.thank-you-section #order-summary-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #e3f2fd;
   padding: 0.8888888889rem;
-  border-radius: 6px;
-  margin-bottom: 1.3333333333rem;
+  border-radius: 0.1666666667rem 0.1666666667rem 0 0;
   font-size: 0.7777777778rem;
+  gap: 1.3333333333rem;
 }
-.thank-you-section .order-summary-header .status {
-  color: #007bff;
+.thank-you-section #order-summary-header .status {
+  color: #DF6262;
   font-weight: bold;
+  margin-left: 0.2222222222rem;
 }
-.thank-you-section .order-summary-header > div {
+.thank-you-section #order-summary-header > div {
   flex: 1;
   text-align: center;
+  background-color: #fff;
+  min-height: 2.7777777778rem;
+  border-radius: 0.1666666667rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.thank-you-section .order-summary-header > div strong {
+.thank-you-section #order-summary-header > div strong {
   font-weight: 600;
+  margin-right: 0.2222222222rem;
 }
 .thank-you-section .product-table {
   background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #EFEFEF;
+  border-radius: 0 0 0.1666666667rem 0.1666666667rem;
   overflow: hidden;
-  margin-bottom: 1.7777777778rem;
+  margin-bottom: 1.3333333333rem;
 }
 .thank-you-section .product-table .table-head,
 .thank-you-section .product-table .table-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
   padding: 0.6666666667rem 0.8888888889rem;
   font-size: 0.7777777778rem;
 }
+.thank-you-section .product-table .table-head span,
+.thank-you-section .product-table .table-row span {
+  text-align: center;
+}
 .thank-you-section .product-table .table-head {
-  background-color: #f5f5f5;
   font-weight: bold;
 }
 .thank-you-section .product-table .table-row {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #EFEFEF;
+}
+.thank-you-section .product-table .table-row .discounted {
+  color: #DF6262;
+  text-decoration: line-through;
 }
 .thank-you-section .product-table .table-row .product-info {
   display: flex;
@@ -819,9 +835,13 @@ section::after, section::before {
   gap: 0.6666666667rem;
 }
 .thank-you-section .product-table .table-row .product-info img {
-  width: 2.7777777778rem;
-  height: 2.7777777778rem;
-  border-radius: 6px;
+  width: 5rem;
+  height: 5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.1666666667rem;
+  border: 1px solid #EFEFEF;
+  background-color: #D1EAF5;
 }
 .thank-you-section .product-table .table-row .product-info p {
   font-weight: 500;
@@ -833,15 +853,15 @@ section::after, section::before {
 }
 .thank-you-section .details-grid .info-box {
   flex: 1;
-  background-color: #f1f8fe;
-  border: 1px solid #ccc;
+  background-color: #fff;
+  border: 1px solid #EFEFEF;
   border-radius: 6px;
-  padding: 1.1111111111rem;
 }
 .thank-you-section .details-grid .info-box h3 {
   font-size: 0.8888888889rem;
   font-weight: 600;
-  margin-bottom: 0.8888888889rem;
+  padding: 0.8888888889rem;
+  background-color: #D1EAF5;
 }
 .thank-you-section .details-grid .info-box .info-row {
   display: flex;
@@ -850,6 +870,10 @@ section::after, section::before {
   font-size: 0.7777777778rem;
   padding: 0.3333333333rem 0;
   border-bottom: 1px solid #e0e0e0;
+  padding: 0.8888888889rem;
+}
+.thank-you-section .details-grid .info-box .info-row span:first-child {
+  font-weight: 600;
 }
 .thank-you-section .details-grid .info-box .info-row a {
   color: #007bff;
