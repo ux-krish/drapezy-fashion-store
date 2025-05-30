@@ -766,10 +766,20 @@ section::after, section::before {
 .order-history-section {
   padding: 40px 0;
 }
+.order-history-section .container {
+  max-width: 73.3333333333rem;
+  margin: 0 auto;
+  padding: 0 0.8888888889rem;
+}
 .order-history-section h1 {
   font-size: 2rem;
   margin-bottom: 32px;
   text-align: center;
+}
+.order-history-section #order-history-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(27.7777777778rem, 1fr));
+  grid-gap: 1.3333333333rem;
 }
 
 .order-history-card {
@@ -809,6 +819,7 @@ section::after, section::before {
   padding: 8px 16px;
   background: #fafafa;
   min-width: 220px;
+  width: 100%;
 }
 .order-item img {
   width: 48px;
@@ -828,6 +839,8 @@ section::after, section::before {
   gap: 32px;
   border-top: 1px solid #eee;
   padding-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.5555555556rem, 1fr));
 }
 
 .clear-order-btn {
