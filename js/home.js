@@ -4,3 +4,4 @@ function showTab(tabId, group) {
   document.querySelectorAll(`.tab[data-group="${group}"]`).forEach(tab => tab.classList.remove('active'));
   document.querySelector(`[onclick="showTab('${tabId}', '${group}')"]`).classList.add('active');
 }
+

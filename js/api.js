@@ -855,3 +855,6 @@ function renderCheckoutSummaryBox() {
 
 // Expose globally for checkout.html
 window.renderCheckoutSummaryBox = renderCheckoutSummaryBox;
+
+// Expose storeCheckoutSummary globally for cart.html checkout button
+window.storeCheckoutSummary = storeCheckoutSummary;

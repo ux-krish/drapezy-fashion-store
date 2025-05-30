@@ -121,93 +121,43 @@
       <li><a href="shop-all.html">SHOP ALL</a></li>
       <li><a href="javascript:void()">NEW ARRIVALS</a></li>
       <li><a href="javascript:void()">CONTACT</a></li>
+      <li><a href="order-history.html">ORDERED LIST</a></li>
     </ul>
   </nav>
   <main>
-    <section class="thank-you-section">
-  <div class="container">
-    <!-- Order Summary Header -->
-    <div class="order-summary-header">
-      <div><strong>Order Id:</strong> XXX-CFSDDCC–2311</div>
-      <div><strong>Payment Method:</strong> COD</div>
-      <div><strong>Order Status:</strong> <span class="status">Processing</span></div>
-      <div><strong>Order Date:</strong> May 29, 2025</div>
-    </div>
-
-    <!-- Product Table -->
-    <div class="product-table">
-      <div class="table-head">
-        <span>Product</span>
-        <span>Price</span>
-        <span>Quantity</span>
-        <span>Discount</span>
-        <span>Subtotal</span>
+  <section class="thank-you-section">
+    <div class="container">
+      <!-- Order Summary Header -->
+      <div id="order-summary-header"></div>
+      <!-- Product Table -->
+      <div id="order-summary-table"></div>
+      <!-- Shipping & Billing Details -->
+      <div id="order-details-grid"></div>
+      <!-- Continue Shopping Button -->
+      <div class="continue-btn">
+        <button onclick="window.location.href='shop-all.html'">Continue shopping</button>
       </div>
-      <div class="table-row">
-        <div class="product-info">
-          <img src="product.jpg" alt="Elegant Lace Cocktail Dress" />
-          <p>Elegant Lace Coktail Dress</p>
+      <!-- Info Strip -->
+      <div class="info-strip">
+        <div class="info-box yellow">
+          <i class="icon">🔒</i>
+          <p class="title">Secure Payment</p>
+          <p>Your payment information is processed securely. We don't store credit card details nor have access to your card information.</p>
         </div>
-        <span>₹10998</span>
-        <span>2</span>
-        <span>4000</span>
-        <span>₹7003.00</span>
+        <div class="info-box blue">
+          <i class="icon">🚚</i>
+          <p class="title">Fast & Free Shipping</p>
+          <p>Enjoy fast, free delivery on all orders. Orders are processed within 24 hours and shipped with real-time tracking.</p>
+        </div>
+        <div class="info-box pink">
+          <i class="icon">↩️</i>
+          <p class="title">Easy Returns</p>
+          <p>Not satisfied with your purchase? No worries! Return within 7 days — no questions asked.</p>
+        </div>
       </div>
     </div>
-
-    <!-- Shipping & Billing Details -->
-    <div class="details-grid">
-      <div class="info-box">
-        <h3>Shipping Information</h3>
-        <div class="info-row"><span>Full Name</span><span>John Doe</span></div>
-        <div class="info-row"><span>Address</span><span>123 Main St, Apt 4B</span></div>
-        <div class="info-row"><span>City</span><span>Kolkata</span></div>
-        <div class="info-row"><span>State/Region</span><span>West Bengal</span></div>
-        <div class="info-row"><span>Postal Code</span><span>700005</span></div>
-        <div class="info-row"><span>Country</span><span>India</span></div>
-        <div class="info-row"><span>Phone</span><span>(555) 123-4567</span></div>
-        <div class="info-row"><span>Email</span><span><a href="mailto:john.doe@example.com">john.doe@example.com</a></span></div>
-        <div class="info-row"><span>Shipping Method</span><span>Express Delivery (2-3 Days)</span></div>
-      </div>
-      <div class="info-box">
-        <h3>Billing Information</h3>
-        <div class="info-row"><span>Full Name</span><span>John Doe</span></div>
-        <div class="info-row"><span>Address</span><span>123 Main St, Apt 4B</span></div>
-        <div class="info-row"><span>City</span><span>Kolkata</span></div>
-        <div class="info-row"><span>State/Region</span><span>West Bengal</span></div>
-        <div class="info-row"><span>Postal Code</span><span>700005</span></div>
-        <div class="info-row"><span>Country</span><span>India</span></div>
-        <div class="info-row"><span>Payment Method</span><span>Cash on delivery</span></div>
-      </div>
-    </div>
-
-    <!-- Continue Shopping Button -->
-    <div class="continue-btn">
-      <button>Continue shopping</button>
-    </div>
-
-    <!-- Info Strip -->
-    <div class="info-strip">
-      <div class="info-box yellow">
-        <i class="icon">🔒</i>
-        <p class="title">Secure Payment</p>
-        <p>Your payment information is processed securely. We don't store credit card details nor have access to your card information.</p>
-      </div>
-      <div class="info-box blue">
-        <i class="icon">🚚</i>
-        <p class="title">Fast & Free Shipping</p>
-        <p>Enjoy fast, free delivery on all orders. Orders are processed within 24 hours and shipped with real-time tracking.</p>
-      </div>
-      <div class="info-box pink">
-        <i class="icon">↩️</i>
-        <p class="title">Easy Returns</p>
-        <p>Not satisfied with your purchase? No worries! Return within 7 days — no questions asked.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-  </main>
+  </section>
+</main>
 
   <footer class="site-footer">
     <!-- 1. Footer Top (Info Boxes) -->
@@ -347,5 +297,115 @@
   <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script> 
   <script src="js/common.js"></script>
   <script src="js/api.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get orderData from localStorage
+  var orderData = JSON.parse(localStorage.getItem('orderData') || '{}');
+  var summary = orderData.summary || {};
+  var billing = orderData.billing || {};
+  var shipping = orderData.shipping || {};
+  var orderId = orderData.orderId || 'ORD-UNKNOWN';
+  var orderDate = orderData.orderDate ? new Date(orderData.orderDate) : new Date();
+  var paymentMethod = 'Cash on Delivery';
+  var orderStatus = 'Processing';
+
+  // Render order summary header
+  var headerDiv = document.getElementById('order-summary-header');
+  if (headerDiv) {
+    headerDiv.innerHTML = `
+      <div><strong>Order Id:</strong> ${orderId}</div>
+      <div><strong>Payment Method:</strong> ${paymentMethod}</div>
+      <div><strong>Order Status:</strong> <span class="status">${orderStatus}</span></div>
+      <div><strong>Order Date:</strong> ${orderDate.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+    `;
+  }
+
+  // Render product table
+  var tableDiv = document.getElementById('order-summary-table');
+  if (tableDiv && summary.items && summary.items.length) {
+    let tableHtml = `
+      <div class="product-table">
+        <div class="table-head">
+          <span>Product</span>
+          <span>Quantity</span>
+          <span>Discount</span>
+          <span>Subtotal</span>
+          <span>Price</span>
+        </div>
+    `;
+    summary.items.forEach(item => {
+      const itemDiscount = (item.original_price - item.price) * item.qty;
+      tableHtml += `
+        <div class="table-row">
+          <div class="product-info">
+            <img src="${item.image}" alt="${item.title}" />
+            <p>${item.title}${item.size ? ' (' + item.size + ')' : ''}</p>
+          </div>
+          <span>${item.qty}</span>
+          <span>${itemDiscount > 0 ? '₹' + itemDiscount.toLocaleString() : '-'}</span>
+          <span>₹${(item.price * item.qty).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+          <span>₹${(item.original_price * item.qty).toLocaleString()}</span>
+        </div>
+      `;
+    });
+    // Totals row
+    tableHtml += `
+      <div class="table-row" style="font-weight:bold;background:#fafafa;">
+        <div class="product-info">Total</div>
+        <span></span>
+        <span>- ₹${summary.totalDiscount ? summary.totalDiscount.toLocaleString() : ''}</span>
+        <span>₹${summary.total ? summary.total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : ''}</span>
+        <span>₹${summary.subtotal ? summary.subtotal.toLocaleString() : ''}</span>
+      </div>
+      </div>
+    `;
+    tableDiv.innerHTML = tableHtml;
+  } else if (tableDiv) {
+    tableDiv.innerHTML = '<div style="padding:24px;">No order found.</div>';
+  }
+
+  // Render shipping & billing info
+  function renderInfoBox(title, info, isBilling) {
+    return `
+      <div class="info-box">
+        <h3>${title}</h3>
+        <div class="info-row"><span>Full Name</span><span>${(info.firstName || '') + ' ' + (info.lastName || '')}</span></div>
+        <div class="info-row"><span>Address</span><span>${info.address || ''}${info.address2 ? ', ' + info.address2 : ''}</span></div>
+        <div class="info-row"><span>City</span><span>${info.city || ''}</span></div>
+        <div class="info-row"><span>State/Region</span><span>${info.state || ''}</span></div>
+        <div class="info-row"><span>Postal Code</span><span>${info.postcode || ''}</span></div>
+        <div class="info-row"><span>Country</span><span>${info.country || ''}</span></div>
+        ${isBilling ? `<div class="info-row"><span>Email</span><span>${billing.email || ''}</span></div>` : ''}
+        ${isBilling ? `<div class="info-row"><span>Payment Method</span><span>${paymentMethod}</span></div>` : ''}
+        ${!isBilling ? `<div class="info-row"><span>Shipping Method</span><span>Express Delivery (2-3 Days)</span></div>` : ''}
+      </div>
+    `;
+  }
+  var detailsDiv = document.getElementById('order-details-grid');
+  if (detailsDiv) {
+    detailsDiv.innerHTML = `
+      <div class="details-grid">
+        ${renderInfoBox('Shipping Information', shipping, false)}
+        ${renderInfoBox('Billing Information', billing, true)}
+      </div>
+    `;
+  }
+
+  // Store order in orderHistory array if not already present
+  if (orderData && orderData.orderId) {
+    let orderHistory = [];
+    try {
+      orderHistory = JSON.parse(localStorage.getItem('orderHistory') || '[]');
+    } catch (e) {}
+    // Prevent duplicate orderId in history
+    if (!orderHistory.some(o => o.orderId === orderData.orderId)) {
+      orderHistory.push(orderData);
+      localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+    }
+    // Remove cart items after order is completed
+    localStorage.removeItem('cartProducts');
+  }
+});
+</script>
 </body>
 </html>

@@ -1,3 +1,27 @@
+// Sticky main-header on scroll
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.querySelector('.main-header');
+  const body = document.querySelector('body');
+  const headerHeight = header.clientHeight;
+  if (!header) return;
+  const stickyOffset = header.offsetTop;
+
+  function handleStickyHeader() {
+    if (window.scrollY > stickyOffset) {
+      header.classList.add('sticky');
+      
+      body.classList.add('header-sticky');
+      body.style.paddingTop = `${headerHeight}px`;
+    } else {
+      header.classList.remove('sticky');
+      body.classList.remove('header-sticky');
+       body.style.paddingTop = `0px`;
+    }
+  }
+
+  window.addEventListener('scroll', handleStickyHeader);
+});
+
 const hamburger = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 

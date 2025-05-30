@@ -1,0 +1,95 @@
+@use "sass:math";
+@import "variables";
+@import "functions";
+@import "mixins";
+@import "common";
+@import "header";
+
+// --- Order History Page Styles ---
+
+.order-history-section {
+  padding: 40px 0;
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+}
+.order-history-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: #fff;
+  box-shadow: 0 2px 8px 0 #f5f5f5;
+}
+.order-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  .status {
+    color: #e67e22;
+    font-weight: bold;
+  }
+}
+.order-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  min-width: 220px;
+  img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #eee;
+  }
+}
+.order-summary {
+  margin-top: 8px;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+.clear-order-btn {
+  background: #ffeded;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 0.95em;
+  margin-left: auto;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    background: #e74c3c;
+    color: #fff;
+  }
+}
+@media (max-width: 600px) {
+  .order-header,
+  .order-summary {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .order-items {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

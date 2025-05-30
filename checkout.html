@@ -121,6 +121,7 @@
       <li><a href="shop-all.html">SHOP ALL</a></li>
       <li><a href="javascript:void()">NEW ARRIVALS</a></li>
       <li><a href="javascript:void()">CONTACT</a></li>
+      <li><a href="order-history.html">ORDERED LIST</a></li>
     </ul>
   </nav>
   <main>
@@ -163,13 +164,14 @@
                 <input type="text" placeholder="Enter zip code" />
               </label>
             </div>
-            <label class="ship-diff">
-              <input type="checkbox" /> Ship to a different address?
+            <label class="ship-diff" style="display: flex; align-items: center; gap: 8px;">
+              <input id="ship-diff-checkbox" type="checkbox" class="styled-checkbox" />
+              <span class="styled-checkbox-label">Ship to a different address?</span>
             </label>
           </div>
 
           <!-- Shipping Info -->
-          <div class="form-block shipping-info">
+          <div class="form-block shipping-info" style="display:none;">
             <h2>Shipping Information</h2>
             <div class="form-grid">
               <label>First Name *
@@ -197,39 +199,19 @@
                 <input type="text" placeholder="Enter zip code" />
               </label>
             </div>
-            <button type="button" class="back-btn">⬅ Back to Cart</button>
           </div>
+          <button type="button" class="back-to-cart-btn" onclick="window.location.href='cart.html'">⬅ Back to Cart</button>
         </form>
       </div>
 
       <!-- Order Summary -->
       <div class="checkout-summary">
         <div class="summary-box">
-          <h3>Order Summary</h3>
-          <div class="summary-item">
-            <img src="product.jpg" alt="Product" />
-            <div>
-              <p>Elegant Lace Coktail Dress × 2</p>
-              <span>₹10998</span>
-            </div>
-          </div>
-          <ul class="summary-list">
-            <li><span>Free shipping</span></li>
-            <li><span>Discount</span> <strong>- ₹4000</strong></li>
-            <li><span>Platform charge</span> ₹5</li>
-            <li><span>Cash on Delivery</span></li>
-          </ul>
-          <div class="summary-total">
-            <p>Total</p>
-            <strong>₹7003.00</strong>
-          </div>
-          <button class="checkout-btn" onclick="window.location.href='order-confirm.html'">Complete Checkout</button>
-          <div class="secure-note">
-            <span>🔒 Safe and Secure Checkout</span><br />
-            <img src="visa.png" alt="visa" />
-            <img src="mastercard.png" alt="mc" />
-            <img src="upi.png" alt="upi" />
-          </div>
+          <!-- Order summary will be rendered here by renderCheckoutSummaryBox() -->
+          <!-- The JS will render the summary, but we want to ensure the checkout button is present for non-JS fallback and for JS to clone if needed -->
+          <!-- The button will be rendered by JS, but for fallback, add here: -->
+          
+          <button class="checkout-btn" id="complete-checkout-btn" type="button">Complete Checkout</button>
         </div>
       </div>
     </div>
@@ -252,15 +234,95 @@
   </div>
 </section>
 
-<!-- Place this in your checkout.html where you want the summary to appear -->
-<div class="checkout-summary">
-  <div class="summary-box">
-    <!-- Order summary will be rendered here by renderCheckoutSummaryBox() -->
-  </div>
-</div>
+<!-- Remove the duplicate summary below, keep only the above .checkout-summary .summary-box -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     if (window.renderCheckoutSummaryBox) window.renderCheckoutSummaryBox();
+
+    // Shipping info toggle logic
+    var shipDiffCheckbox = document.getElementById('ship-diff-checkbox') || document.querySelector('.ship-diff input[type="checkbox"]');
+    var shippingInfoBlock = document.querySelector('.form-block.shipping-info');
+    if (shipDiffCheckbox && shippingInfoBlock) {
+      function toggleShippingInfo() {
+        shippingInfoBlock.style.display = shipDiffCheckbox.checked ? '' : 'none';
+      }
+      shipDiffCheckbox.addEventListener('change', toggleShippingInfo);
+      toggleShippingInfo();
+    }
+
+    // Attach checkout button handler after summary is rendered
+    function attachCheckoutHandler() {
+      var completeBtn = document.querySelector('.checkout-btn');
+      if (completeBtn) {
+        completeBtn.onclick = function(e) {
+          e.preventDefault();
+          var form = document.querySelector('.checkout-form form');
+          if (!form) return;
+
+          // Billing fields
+          var billing = {
+            email: form.querySelector('input[type="email"]')?.value || '',
+            firstName: form.querySelector('input[placeholder="Enter first name"]')?.value || '',
+            lastName: form.querySelector('input[placeholder="Enter last name"]')?.value || '',
+            address: form.querySelector('input[placeholder="Enter address"]')?.value || '',
+            address2: form.querySelector('input[placeholder="Enter address 2"]')?.value || '',
+            country: form.querySelector('select')?.value || '',
+            state: form.querySelector('input[placeholder="Enter state"]')?.value || '',
+            city: form.querySelector('input[placeholder="Enter city name"]')?.value || '',
+            postcode: form.querySelector('input[placeholder="Enter zip code"]')?.value || ''
+          };
+
+          // Shipping fields (if ship-diff checked)
+          var shipping = {};
+          if (shipDiffCheckbox && shipDiffCheckbox.checked) {
+            var shipBlock = form.querySelector('.form-block.shipping-info');
+            if (shipBlock) {
+              var shipInputs = shipBlock.querySelectorAll('input, select');
+              shipInputs.forEach(function(input) {
+                if (input.placeholder === "Enter first name") shipping.firstName = input.value;
+                else if (input.placeholder === "Enter last name") shipping.lastName = input.value;
+                else if (input.placeholder === "Enter address") shipping.address = input.value;
+                else if (input.placeholder === "Enter address 2") shipping.address2 = input.value;
+                else if (input.tagName === "SELECT") shipping.country = input.value;
+                else if (input.placeholder === "Enter state") shipping.state = input.value;
+                else if (input.placeholder === "Enter city name") shipping.city = input.value;
+                else if (input.placeholder === "Enter zip code") shipping.postcode = input.value;
+              });
+            }
+          } else {
+            shipping = { ...billing };
+          }
+
+          // Get summary from localStorage
+          var summary = JSON.parse(localStorage.getItem('checkoutSummary') || '{}');
+          // Generate order id and date
+          var orderId = 'ORD-' + Math.random().toString(36).substr(2, 8).toUpperCase();
+          var orderDate = new Date().toISOString();
+
+          // Store order data
+          var orderData = {
+            orderId: orderId,
+            orderDate: orderDate,
+            billing: billing,
+            shipping: shipping,
+            summary: summary
+          };
+          localStorage.setItem('orderData', JSON.stringify(orderData));
+          window.location.href = 'order-confirm.html';
+        };
+      }
+    }
+
+    // Attach handler initially and after summary is rendered (in case summary replaces the button)
+    attachCheckoutHandler();
+    // If renderCheckoutSummaryBox is async and replaces the button, use a MutationObserver
+    var summaryBox = document.querySelector('.checkout-summary .summary-box');
+    if (summaryBox) {
+      var observer = new MutationObserver(function() {
+        attachCheckoutHandler();
+      });
+      observer.observe(summaryBox, { childList: true, subtree: true });
+    }
   });
 </script>
 
@@ -436,5 +498,66 @@ function renderCheckoutSummary() {
 }
 document.addEventListener('DOMContentLoaded', renderCheckoutSummary);
 </script>
+<style>
+/* Styled checkbox like shop-all page */
+.styled-checkbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #bbb;
+  border-radius: 4px;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s;
+  vertical-align: middle;
+  margin-right: 6px;
+  display: inline-block;
+}
+.styled-checkbox:checked {
+  border-color: #222;
+  background: #222;
+}
+.styled-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: block;
+}
+.styled-checkbox-label {
+  font-size: 16px;
+  color: #222;
+  user-select: none;
+}
+.ship-diff {
+  margin-top: 16px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.back-to-cart-btn {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px 0;
+  background: #f5f5f5;
+  color: #222;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.back-to-cart-btn:hover {
+  background: #eee;
+  color: #000;
+}
+</style>
 </body>
 </html>
