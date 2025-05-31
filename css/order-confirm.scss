@@ -90,6 +90,12 @@
     .table-row {
       border-top: 1px solid $light-gray-stroke;
       background: #fff;
+      & > div {
+        text-align: center;
+        .text-secondary-dark{
+          color: $accent-color-dark;
+        }
+      }
       .discounted {
         color: $text-secondary-color;
         text-decoration: line-through;
@@ -98,7 +104,10 @@
         display: flex;
         align-items: center;
         gap: px-to-rem(12);
-
+        &  > span {
+          @include flex-center;
+          gap: px-to-rem(10);
+        }
         img {
           width: px-to-rem(60);
           height: px-to-rem(60);

@@ -857,6 +857,12 @@ section::after, section::before {
   border-top: 1px solid #EFEFEF;
   background: #fff;
 }
+.thank-you-section .product-table .table-row > div {
+  text-align: center;
+}
+.thank-you-section .product-table .table-row > div .text-secondary-dark {
+  color: #5BCF6A;
+}
 .thank-you-section .product-table .table-row .discounted {
   color: #DF6262;
   text-decoration: line-through;
@@ -865,6 +871,12 @@ section::after, section::before {
   display: flex;
   align-items: center;
   gap: 0.6666666667rem;
+}
+.thank-you-section .product-table .table-row .product-info > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5555555556rem;
 }
 .thank-you-section .product-table .table-row .product-info img {
   width: 3.3333333333rem;
