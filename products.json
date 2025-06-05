@@ -1,0 +1,1579 @@
+{
+  "products": [
+    {
+      "id": "tshirt-001",
+      "title": "Tommy Hilfiger",
+      "category": "Tshirts",
+      "gender": "Men",
+      "image": "images/products/tshirt1.webp",
+      "thumbs": [
+        "images/products/tshirt1.webp",
+        "images/products/tshirt1.webp",
+        "images/products/tshirt1.webp",
+        "images/products/tshirt1.webp",
+        "images/products/tshirt1.webp"
+      ],
+      "price": 1319,
+      "original_price": 2999,
+      "discount": "56%",
+      "rating": 4.6,
+      "ratings_count": 120,
+      "sizes": ["S", "M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Great quality!",
+          "name": "Amit Sharma",
+          "text": "Loved the fabric and fit. Highly recommended.",
+          "date": "2024-06-10"
+        },
+        {
+          "rating": 4,
+          "title": "Good value for money",
+          "name": "Priya Singh",
+          "text": "Nice t-shirt for daily wear.",
+          "date": "2024-06-08"
+        }
+      ],
+      "details": {
+        "fabric": "Premium Cotton",
+        "fit": "Regular",
+        "neck": "Neck",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L, XL",
+        "fit_type": "Regular Fit",
+        "model_info": "The model (height 6') is wearing a size M",
+        "tip": "For a relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Premium cotton t-shirt with a classic fit and subtle branding, perfect for everyday casual wear."
+    },
+    {
+      "id": "tshirt-002",
+      "title": "Powerlook",
+      "category": "Tshirts",
+      "gender": "Men",
+      "image": "images/products/powerlook-1.jpg",
+      "thumbs": [
+        "images/products/powerlook-1.jpg",
+        "images/products/powerlook-2.jpg",
+        "images/products/powerlook-3.jpg",
+        "images/products/powerlook-4.jpg",
+        "images/products/powerlook-5.jpg"
+      ],
+      "price": 1160,
+      "original_price": 2699,
+      "discount": "57%",
+      "rating": 4.0,
+      "ratings_count": 85,
+      "sizes": ["S", "M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Trendy and comfy",
+          "name": "Sneha Rao",
+          "text": "The print is cool and the material is soft.",
+          "date": "2024-06-05"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton Blend",
+        "fit": "Slim Fit",
+        "neck": "Round",
+        "pattern": "Graphic",
+        "length": "Waist",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "XS, S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'6\") is wearing size S",
+        "tip": "For a tighter fit, choose your regular size",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Men Striped Polo Collar T-shirt"
+    },
+    {
+      "id": "tshirt-003",
+      "title": "Manlino",
+      "category": "Tshirts",
+      "gender": "Men",
+      "image": "images/products/Manlino-1.jpg",
+      "thumbs": [
+        "images/products/Manlino-1.jpg",
+        "images/products/Manlino-2.jpg",
+        "images/products/Manlino-3.jpg",
+        "images/products/Manlino-4.jpg"
+      ],
+      "price": 483,
+      "original_price": 1099,
+      "discount": "56%",
+      "rating": 4.7,
+      "ratings_count": 60,
+      "sizes": ["M", "L", "XL", "XXL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Perfect for office",
+          "name": "Rahul Verma",
+          "text": "Looks smart and fits well.",
+          "date": "2024-06-01"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "Collar",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Office Wear",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL, XXL",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 6') is wearing size L",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Unisex Printed Applique T-shirt"
+    },
+    {
+      "id": "tshirt-004",
+      "title": "TheBTclub",
+      "category": "Tshirts",
+      "gender": "Men",
+      "image": "images/products/TheBTclub-1.jpg",
+      "thumbs": [
+        "images/products/TheBTclub-1.jpg",
+        "images/products/TheBTclub-2.jpg",
+        "images/products/TheBTclub-3.jpg"
+      ],
+      "price": 599,
+      "original_price": 1499,
+      "discount": "35%",
+      "rating": 4.3,
+      "ratings_count": 70,
+      "sizes": ["XXS", "S", "M", "L", "XL", "XXL"],  
+      "reviews": [
+        {
+          "rating": 4.2,
+          "title": "best and stylish",
+          "name": "Megha Jain",
+          "text": "Love the color and fit.",
+          "date": "2024-05-28"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton Blend",
+        "fit": "Regular",
+        "neck": "Round",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "XS, S, M",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'5\") is wearing size S",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Travis Scott Printed Activchill Pure Cotton Oversized T-shirt."
+    },
+    {
+      "id": "jeans-001",
+      "title": "Louis Philippe Jeans",
+      "category": "Jeans",
+      "gender": "Men",
+      "image": "images/products/Louis_Philippe_Jeans-1.jpg",
+      "thumbs": [
+        "images/products/Louis_Philippe_Jeans-1.jpg",
+        "images/products/Louis_Philippe_Jeans-2.jpg",
+        "images/products/Louis_Philippe_Jeans-3.jpg",
+        "images/products/Louis_Philippe_Jeans-4.jpg",
+        "images/products/Louis_Philippe_Jeans-5.jpg"
+      ],
+      "price": 1589,
+      "original_price": 2999,
+      "discount": "47%",
+      "rating": 4.6,
+      "ratings_count": 90,
+      "sizes": ["30", "32", "34", "36", "38"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Best jeans ever",
+          "name": "Sandeep Kumar",
+          "text": "Very comfortable and stylish.",
+          "date": "2024-06-11"
+        }
+      ],
+      "details": {
+        "fabric": "Denim",
+        "fit": "Slim Fit",
+        "neck": "",
+        "pattern": "Solid",
+        "length": "Full Length",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "30, 32, 34, 36",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 6') is wearing size 32",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Men Smart Skinny Tapered Fit Light Fade Stretchable Jeans."
+    },
+    {
+      "id": "jeans-002",
+      "title": "Roadster",
+      "category": "Jeans",
+      "gender": "Men",
+      "image": "images/products/roadstar-jeans-1.jpg",
+      "thumbs": [
+        "images/products/roadstar-jeans-1.jpg",
+        "images/products/roadstar-jeans-2.jpg",
+        "images/products/roadstar-jeans-3.jpg",
+        "images/products/roadstar-jeans-4.jpg",
+        "images/products/roadstar-jeans-5.jpg"
+      ],
+      "price": 649,
+      "original_price": 1299,
+      "discount": "50%",
+      "rating": 4.4,
+      "ratings_count": 75,
+      "sizes": ["28", "30", "32", "34"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Flattering fit",
+          "name": "Vinayak Patel",
+          "text": "Makes me look taller. Good stretch.",
+          "date": "2024-06-07"
+        }
+      ],
+      "details": {
+        "fabric": "Denim",
+        "fit": "High Waist",
+        "neck": "",
+        "pattern": "Solid",
+        "length": "Full Length",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "26, 28, 30, 32",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'7\") is wearing size 28",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "The Life Co. Men Regular Fit Jeans"
+    },
+    {
+      "id": "jeans-003",
+      "title": "Kotty",
+      "category": "Jeans",
+      "gender": "Men",
+      "image": "images/products/Kotty-1.jpg",
+      "thumbs": [
+        "images/products/Kotty-1.jpg",
+        "images/products/Kotty-2.jpg",
+        "images/products/Kotty-3.jpg",
+        "images/products/Kotty-4.jpg",
+        "images/products/Kotty-5.jpg"
+      ],
+      "price": 439,
+      "original_price": 1999,
+      "discount": "78%",
+      "rating": 4.1,
+      "ratings_count": 50,
+      "sizes": ["32", "34", "36", "38"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Trendy look",
+          "name": "Vikram Singh",
+          "text": "Nice for casual outings.",
+          "date": "2024-06-03"
+        }
+      ],
+      "details": {
+        "fabric": "Denim",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Distressed",
+        "length": "Full Length",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "32, 34, 36, 38",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 6') is wearing size 34",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Men Low-Rise Stretchable Jeans."
+    },
+    {
+      "id": "jeans-004",
+      "title": "Women Pure Cotton Straight Fit Jeans",
+      "category": "Jeans",
+      "gender": "Women",
+      "image": "images/products/mango-1.jpg",
+      "thumbs": [
+        "images/products/mango-1.jpg",
+        "images/products/mango-2.jpg",
+        "images/products/mango-3.jpg",
+        "images/products/mango-4.jpg",
+        "images/products/mango-5.jpg"
+      ],
+      "price": 1895,
+      "original_price": 3790,
+      "discount": "50%",
+      "rating": 4.3,
+      "ratings_count": 40,
+      "sizes": ["24", "26", "28", "30", "32", "34"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Good for daily wear",
+          "name": "Anjali Mehta",
+          "text": "Soft fabric and fits well.",
+          "date": "2024-05-30"
+        }
+      ],
+      "details": {
+        "fabric": "Denim",
+        "fit": "Straight",
+        "neck": "",
+        "pattern": "Solid",
+        "length": "Full Length",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "28, 30, 32, 34",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "The model (height 5'8) is wearing a size 28",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Medium shade, no fade blue jeans,Straight fit, mid-rise,Clean look,Non stretchable,5 pocket,Length: regular"
+    },
+    {
+      "id": "jacket-001",
+      "title": "RARE RABBIT",
+      "category": "Jackets & Coats",
+      "gender": "Men",
+      "image": "images/products/rare_rabbit-1.jpg",
+      "thumbs": [
+        "images/products/rare_rabbit-1.jpg",
+        "images/products/rare_rabbit-2.jpg",
+        "images/products/rare_rabbit-3.jpg",
+        "images/products/rare_rabbit-4.jpg",
+        "images/products/rare_rabbit-5.jpg"
+      ],
+      "price": 4875,
+      "original_price": 9199,
+      "discount": "47%",
+      "rating": 4.8,
+      "ratings_count": 16,
+      "sizes": ["M", "L", "XL", "XXL", "3XL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Stylish and warm",
+          "name": "Arjun Das",
+          "text": "Perfect for winter evenings.",
+          "date": "2024-06-09"
+        }
+      ],
+      "details": {
+        "fabric": "Denim",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 6') is wearing size L",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Navy blue geometric printed quilted jacket with faux fur trim, has a spread collar, 2 pockets ,has a zip closure, long sleeves, curved hemline, cotton lining"
+    },
+    {
+      "id": "jacket-002",
+      "title": "Washed Windcheater Cotton Denim Jacket",
+      "category": "Jackets & Coats",
+      "gender": "Women",
+      "image": "images/products/based-1.jpg",
+      "thumbs": [
+        "images/products/based-1.jpg",
+        "images/products/based-2.jpg",
+        "images/products/based-3.jpg",
+        "images/products/based-4.jpg",
+        "images/products/based-5.jpg"
+      ],
+      "price": 2499,
+      "original_price": 3499,
+      "discount": "29%",
+      "rating": 4.7,
+      "ratings_count": 60,
+      "sizes": ["S", "M", "L"],
+      "reviews": [
+        {
+          "rating": 5.0,
+          "title": "Elegant look",
+          "name": "Simran Kaur",
+          "text": "Looks classy and feels premium.",
+          "date": "2024-06-06"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "Spread Collar",
+        "pattern": "Solid",
+        "length": "Midi",
+        "occasion": "Formal",
+        "wash_care": "Hand Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "The model (height 5'8) is wearing a size S",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Blue washed windcheater denim jacket, has a spread collar, 2 pockets, has a button closure, three-quarter sleeves, straight hemline, cotton lining"
+    },
+    {
+      "id": "jacket-003",
+      "title": "HRX by Hrithik Roshan",
+      "category": "Jackets & Coats",
+      "gender": "Men",
+      "image": "images/products/hrx-1.jpg",
+      "thumbs": [
+        "images/products/hrx-1.jpg",
+        "images/products/hrx-2.jpg",
+        "images/products/hrx-3.jpg",
+        "images/products/hrx-4.jpg",
+        "images/products/hrx-5.jpg"
+      ],
+      "price": 781,
+      "original_price": 2299,
+      "discount": "66%",
+      "rating": 4.3,
+      "ratings_count": 45,
+      "sizes": ["M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Trendy and light",
+          "name": "Nikhil Joshi",
+          "text": "Good for mild winters.",
+          "date": "2024-06-02"
+        }
+      ],
+      "details": {
+        "fabric": "100% Polyester",
+        "fit": "Regular",
+        "neck": "Hooded",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "The model (height 6') is wearing a size M",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Teal green conversational solid lightweight bomber, has a hooded, 3 pockets ,has a zip closure, long sleeves, curved hemline, polyester lining engineered with rapid-dry"
+    },
+    {
+      "id": "jacket-004",
+      "title": "Trendyol",
+      "category": "Jackets & Coats",
+      "gender": "Women",
+      "image": "images/products/Trendyol-1.jpg",
+      "thumbs": [
+        "images/products/Trendyol-1.jpg",
+        "images/products/Trendyol-2.jpg",
+        "images/products/Trendyol-3.jpg",
+        "images/products/Trendyol-4.jpg",
+        "images/products/Trendyol-5.jpg"
+      ],
+      "price": 4899,
+      "original_price": 9799,
+      "discount": "28%",
+      "rating": 4.6,
+      "ratings_count": 50,
+      "sizes": ["S", "M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Very warm",
+          "name": "Pooja Sinha",
+          "text": "Keeps me cozy in cold weather.",
+          "date": "2024-05-29"
+        }
+      ],
+      "details": {
+        "fabric": "Nylon",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Solid",
+        "length": "Thigh",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L, XL",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'7\") is wearing size M",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Burgundy solid leather biker jacket, has lapel collar, button closure, long sleeves, straight hem, and two pockets"
+    },
+    {
+      "id": "dress-001",
+      "title": "Floral Print Fit & Flare Midi Dress",
+      "category": "Dresses",
+      "gender": "Women",
+      "image": "images/products/floraPrint-1.jpg",
+      "thumbs": [
+        "images/products/floraPrint-1.jpg",
+        "images/products/floraPrint-2.jpg",
+        "images/products/floraPrint-3.jpg",
+        "images/products/floraPrint-4.jpg",
+        "images/products/floraPrint-5.jpg"
+      ],
+      "price": 749,
+      "original_price": 2899,
+      "discount": "65%",
+      "rating": 4.5,
+      "ratings_count": 80,
+      "sizes": ["XS", "S", "M", "L"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Perfect for summer",
+          "name": "Neha Kapoor",
+          "text": "Lightweight and beautiful print.",
+          "date": "2024-06-12"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "V-Neck",
+        "pattern": "Floral",
+        "length": "Midi",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "XS, S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "The model (height 5'8) is wearing a size XS",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Pink floral print a-line dress, V-neck,Short, regular sleeves,Gathered or pleated detail, Midi length in flared hem, Cotton fabric"
+    },
+    {
+      "id": "dress-002",
+      "title": "Women Floral Printed Bodycon Dress",
+      "category": "Dresses",
+      "gender": "Women",
+      "image": "images/products/Bodycon-1.jpg",
+      "thumbs": [
+        "images/products/Bodycon-1.jpg",
+        "images/products/Bodycon-2.jpg",
+        "images/products/Bodycon-3.jpg",
+        "images/products/Bodycon-4.jpg",
+        "images/products/Bodycon-5.jpg"
+      ],
+      "price": 1449,
+      "original_price": 2899,
+      "discount": "50%",
+      "rating": 4.7,
+      "ratings_count": 95,
+      "sizes": ["S", "M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Elegant and chic",
+          "name": "Shweta Nair",
+          "text": "Fits perfectly and looks stunning.",
+          "date": "2024-06-08"
+        }
+      ],
+      "details": {
+        "fabric": "94% Polyester, 6% Elastane",
+        "fit": "Bodycon",
+        "neck": "Round neck",
+        "pattern": "Solid",
+        "length": "Midi",
+        "occasion": "Party",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L, XL",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'7\") is wearing size M",
+        "tip": "For a tighter fit, choose your regular size",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Floral print sheath dress,Round neck, Long, regular sleeves, Midi length in straight hem"
+    },
+    {
+      "id": "dress-003",
+      "title": "Floral Printed Mandarin Collar Cuffed Sleeves Maxi Dress",
+      "category": "Dresses",
+      "gender": "Women",
+      "image": "images/products/maxidress-1.jpg",
+      "thumbs": [
+        "images/products/maxidress-1.jpg",
+        "images/products/maxidress-2.jpg",
+        "images/products/maxidress-3.jpg",
+        "images/products/maxidress-4.jpg",
+        "images/products/maxidress-5.jpg"
+      ],
+      "price": 679,
+      "original_price": 3999,
+      "discount": "83%",
+      "rating": 4.4,
+      "ratings_count": 60,
+      "sizes": ["M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Lovely color",
+          "name": "Aarti Mishra",
+          "text": "Great for parties and events.",
+          "date": "2024-06-04"
+        }
+      ],
+      "details": {
+        "fabric": "Georgette",
+        "fit": "Regular",
+        "neck": "Round",
+        "pattern": "Solid",
+        "length": "Maxi",
+        "occasion": "Party",
+        "wash_care": "Hand Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'8\") is wearing size L",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Red floral print maxi dress, Round neck,Three-quarter, regular sleeves, Belted detail, Maxi length in flared hem,Crepe fabric,Comes with a belt"
+    },
+    {
+      "id": "dress-004",
+      "title": "Shirt Collar Denim A-Line Dress",
+      "category": "Dresses",
+      "gender": "Women",
+      "image": "images/products/A-Line-1.jpg",
+      "thumbs": [
+        "images/products/A-Line-1.jpg",
+        "images/products/A-Line-2.jpg",
+        "images/products/A-Line-3.jpg",
+        "images/products/A-Line-4.jpg",
+        "images/products/A-Line-5.jpg"
+      ],
+      "price": 749,
+      "original_price": 3569,
+      "discount": "79%",
+      "rating": 4.2,
+      "ratings_count": 50,
+      "sizes": ["XS", "S", "M"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Cute and comfy",
+          "name": "Divya Reddy",
+          "text": "Nice fit and fabric.",
+          "date": "2024-05-31"
+        }
+      ],
+      "details": {
+        "fabric": "Polyester",
+        "fit": "Regular",
+        "neck": "Shirt Collar",
+        "pattern": "Solid",
+        "length": "Knee",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "XS, S, M",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "The model (height 5'8) is wearing a size S",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Blue solid a-line dress, Shirt collar, Short, roll up sleeves, Knee length in curved hem, Denim fabric, Button closure"
+    },
+    {
+      "id": "skirt-001",
+      "title": "Women Mini Flared Pleated Skirts",
+      "category": "Skirts and Shorts",
+      "gender": "Women",
+      "image": "images/products/PleatedSkirts-1.jpg",
+      "thumbs": [
+        "images/products/PleatedSkirts-1.jpg",
+        "images/products/PleatedSkirts-2.jpg",
+        "images/products/PleatedSkirts-3.jpg",
+        "images/products/PleatedSkirts-4.jpg"
+      ],
+      "price": 1679,
+      "original_price": 4199,
+      "discount": "60%",
+      "rating": 4.3,
+      "ratings_count": 45,
+      "sizes": ["XS", "S", "M", "L"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Trendy and cute",
+          "name": "Rashmi Desai",
+          "text": "Perfect for summer outings.",
+          "date": "2024-06-10"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton Blend",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Flared",
+        "length": "Mini",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "XS, S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "The model (height 5'8) is wearing a size S",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Blue solid pleated flared mini skirt, has elasticated waistband with button closure, and straight hem"
+    },
+    {
+      "id": "skirt-002",
+      "title": "Denim Shorts",
+      "category": "Skirts and Shorts",
+      "gender": "Women",
+      "image": "images/products/denim-shorts-1.jpg",
+      "thumbs": [
+        "images/products/denim-shorts-1.jpg",
+        "images/products/denim-shorts-2.jpg",
+        "images/products/denim-shorts-3.jpg",
+        "images/products/denim-shorts-4.jpg",
+        "images/products/denim-shorts-5.jpg"
+      ],
+      "price": 339,
+      "original_price": 1699,
+      "discount": "80%",
+      "rating": 4.1,
+      "ratings_count": 38,
+      "sizes": ["S", "M", "L"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Comfortable fit",
+          "name": "Sneha Kulkarni",
+          "text": "Good for casual wear.",
+          "date": "2024-06-06"
+        }
+      ],
+      "details": {
+        "fabric": "Denim",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Solid",
+        "length": "Short",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'5\") is wearing size M",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Blue solid mid-rise denim shorts, has 5 pockets, button closure."
+    },
+    {
+      "id": "skirt-003",
+      "title": "Floral Printed Wrap Skirt",
+      "category": "Skirts and Shorts",
+      "gender": "Women",
+      "image": "images/products/printed-maxi-skirt-1.jpg",
+      "thumbs": [
+        "images/products/printed-maxi-skirt-1.jpg",
+        "images/products/printed-maxi-skirt-2.jpg",
+        "images/products/printed-maxi-skirt-3.jpg",
+        "images/products/printed-maxi-skirt-4.jpg",
+        "images/products/printed-maxi-skirt-5.jpg"
+      ],
+      "price": 1104,
+      "original_price": 1699,
+      "discount": "36%",
+      "rating": 4.5,
+      "ratings_count": 30,
+      "sizes": ["XS", "S", "M"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Beautiful print",
+          "name": "Ankita Joshi",
+          "text": "Love the wrap style.",
+          "date": "2024-06-02"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Printed",
+        "length": "Midi",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "XS, S, M",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'6\") is wearing size S",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Yellow floral printed maxi wrap skirt, has a tie-up closure at back and highlow hem."
+    },
+    {
+      "id": "skirt-004",
+      "title": "Women Washed High-Rise Shorts",
+      "category": "Skirts and Shorts",
+      "gender": "Women",
+      "image": "images/products/High-Rise-Shorts-1.jpg",
+      "thumbs": [
+        "images/products/High-Rise-Shorts-1.jpg",
+        "images/products/High-Rise-Shorts-2.jpg",
+        "images/products/High-Rise-Shorts-3.jpg",
+        "images/products/High-Rise-Shorts-4.jpg",
+        "images/products/High-Rise-Shorts-5.jpg"
+      ],
+      "price": 1104,
+      "original_price": 1699,
+      "discount": "35%",
+      "rating": 4.0,
+      "ratings_count": 25,
+      "sizes": ["S", "M", "L"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Nice for travel",
+          "name": "Kavya Menon",
+          "text": "Easy to pair with tops.",
+          "date": "2024-05-29"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Solid",
+        "length": "Below Knee",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "The model (height 5'8) is wearing a size 28",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Grey washed solid high-rise regular shorts, has 1 pockets, button closure"
+    },
+    {
+      "id": "ethnic-001",
+      "title": "Floral Printed Bell Sleeves Thread Work Pure Cotton A-Line Kurta With Palazzos",
+      "category": "Ethnic Wear",
+      "gender": "Women",
+      "image": "images/products/A-Line-Kurta-1.jpg",
+      "thumbs": [
+        "images/products/A-Line-Kurta-1.jpg",
+        "images/products/A-Line-Kurta-2.jpg",
+        "images/products/A-Line-Kurta-3.jpg",
+        "images/products/A-Line-Kurta-4.jpg",
+        "images/products/A-Line-Kurta-5.jpg"
+      ],
+      "price": 1214,
+      "original_price": 4499,
+      "discount": "73%",
+      "rating": 4.6,
+      "ratings_count": 60,
+      "sizes": ["S", "M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Festive look",
+          "name": "Pallavi Gupta",
+          "text": "Perfect for family gatherings.",
+          "date": "2024-06-11"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "Round",
+        "pattern": "Printed",
+        "length": "Knee",
+        "occasion": "Festive",
+        "wash_care": "Hand Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L, XL",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'6\") is wearing size M",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "White and navy blue printed kurta with palazzos."
+    },
+    {
+      "id": "ethnic-002",
+      "title": "Men Blue Pathani Kurta with Pyjamas",
+      "category": "Ethnic Wear",
+      "gender": "Men",
+      "image": "images/products/Blue-Kurta-Pyjamas-1.jpg",
+      "thumbs": [
+        "images/products/Blue-Kurta-Pyjamas-1.jpg",
+        "images/products/Blue-Kurta-Pyjamas-2.jpg",
+        "images/products/Blue-Kurta-Pyjamas-3.jpg",
+        "images/products/Blue-Kurta-Pyjamas-4.jpg",
+        "images/products/Blue-Kurta-Pyjamas-5.jpg"
+      ],
+      "price": 1619,
+      "original_price": 5399,
+      "discount": "29%",
+      "rating": 4.4,
+      "ratings_count": 40,
+      "sizes": ["M", "L", "XL", "XXL"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Traditional and stylish",
+          "name": "Rohit Yadav",
+          "text": "Good for festive occasions.",
+          "date": "2024-06-07"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "Mandarin",
+        "pattern": "Solid",
+        "length": "Knee",
+        "occasion": "Festive",
+        "wash_care": "Dry Clean Only",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL, XXL",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'8\") is wearing size L",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Blue solid Kurta with Pyjamas"
+    },
+    {
+      "id": "ethnic-003",
+      "title": "Bandhani Printed V-Neck Pure Cotton Angrakha Anarkali Short Kurti",
+      "category": "Ethnic Wear",
+      "gender": "Women",
+      "image": "images/products/Anarkali-1.jpg",
+      "thumbs": [
+        "images/products/Anarkali-1.jpg",
+        "images/products/Anarkali-2.jpg",
+        "images/products/Anarkali-3.jpg",
+        "images/products/Anarkali-4.jpg",
+        "images/products/Anarkali-5.jpg"
+      ],
+      "price": 683,
+      "original_price": 1899,
+      "discount": "64%",
+      "rating": 4.7,
+      "ratings_count": 55,
+      "sizes": ["S", "M", "L"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Elegant design",
+          "name": "Sonia Arora",
+          "text": "Very comfortable and pretty.",
+          "date": "2024-06-03"
+        }
+      ],
+      "details": {
+        "fabric": "Pure Cotton",
+        "fit": "Regular",
+        "neck": "V-Neck",
+        "pattern": "Solid",
+        "length": "Maxi",
+        "occasion": "Festive",
+        "wash_care": "Dry Clean",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "The model (height 5'8) is wearing a size S",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Pink anarkali kurti, Bandhani printed, V-neck, three-quarter, bell sleeves, Machine weave regular pure cotton"
+    },
+    {
+      "id": "ethnic-004",
+      "title": "Ombre Printed Mandarin Collar Sequinned Straight Kurta With Pyjamas",
+      "category": "Ethnic Wear",
+      "gender": "Men",
+      "image": "images/products/KurtawithPyjamas-1.jpg",
+      "thumbs": [
+        "images/products/KurtawithPyjamas-1.jpg",
+        "images/products/KurtawithPyjamas-2.jpg",
+        "images/products/KurtawithPyjamas-3.jpg",
+        "images/products/KurtawithPyjamas-4.jpg",
+        "images/products/KurtawithPyjamas-5.jpg"
+      ],
+      "price": 719,
+      "original_price": 3599,
+      "discount": "80%",
+      "rating": 4.3,
+      "ratings_count": 35,
+      "sizes": ["M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Good fit",
+          "name": "Deepak Singh",
+          "text": "Nice fabric and color.",
+          "date": "2024-05-30"
+        }
+      ],
+      "details": {
+        "fabric": "70% Cotton 30% Polyester",
+        "fit": "Regular",
+        "neck": "Mandarin",
+        "pattern": "Solid",
+        "length": "Knee Length",
+        "occasion": "Festive",
+        "wash_care": "Hand Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'8\") is wearing size L",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Yellow & black Ombre printed Kurta with Pyjamas"
+    },
+    {
+      "id": "shirt-001",
+      "title": "Pure Cotton Classic Fit Checked Casual Shirt",
+      "category": "Shirts",
+      "gender": "Men",
+      "image": "images/products/CottonShirt-1.jpg",
+      "thumbs": [
+        "images/products/CottonShirt-1.jpg",
+        "images/products/CottonShirt-2.jpg",
+        "images/products/CottonShirt-3.jpg",
+        "images/products/CottonShirt-4.jpg",
+        "images/products/CottonShirt-5.jpg"
+      ],
+      "price": 892,
+      "original_price": 1899,
+      "discount": "53%",
+      "rating": 4.4,
+      "ratings_count": 40,
+      "sizes": ["M", "L", "XL"],
+      "reviews": [],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Slim Fit",
+        "neck": "Collar",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Formal",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 6') is wearing size L",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Blue other checked opaque casual shirt ,has a spread collar, button placket, 1 patch pocket, long regular sleeves, curved hem"
+    },
+    {
+      "id": "top-001",
+      "title": "Schiffli Ruffles Cotton Off-Shoulder Bardot Top",
+      "category": "Tops & T-shirt",
+      "gender": "Women",
+      "image": "images/products/tops-1.jpg",
+      "thumbs": [
+        "images/products/tops-1.jpg",
+        "images/products/tops-2.jpg",
+        "images/products/tops-3.jpg",
+        "images/products/tops-4.jpg",
+        "images/products/tops-5.jpg"
+      ],
+      "price": 639,
+      "original_price": 1999,
+      "discount": "68%",
+      "rating": 4.3,
+      "ratings_count": 35,
+      "sizes": ["XS", "S", "M", "L"],
+      "reviews": [],
+      "details": {
+        "fabric": "Polyester",
+        "fit": "Regular",
+        "neck": "Round",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "XS, S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'6\") is wearing size S",
+        "tip": "For a relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "White bardot top, Schiffli embroidered, Off-shoulder, long, bell sleeves, Ruffles detail, Woven cotton"
+    },
+    {
+      "id": "skirt-005",
+      "title": "Women Solid Front Slit A-line Denim Knee Length Midi Skirt",
+      "category": "Skirts",
+      "gender": "Women",
+      "image": "images/products/mini-skirt-1.jpg",
+      "thumbs": [
+        "images/products/mini-skirt-1.jpg",
+        "images/products/mini-skirt-2.jpg",
+        "images/products/mini-skirt-3.jpg",
+        "images/products/mini-skirt-4.jpg",
+        "images/products/mini-skirt-5.jpg"
+      ],
+      "price": 1121,
+      "original_price": 2199,
+      "discount": "49%",
+      "rating": 4.2,
+      "ratings_count": 22,
+      "sizes": ["S", "M", "L"],
+      "reviews": [],
+      "details": {
+        "fabric": "Denim",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Printed",
+        "length": "Midi",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'5\") is wearing size M",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Blue solid A-line knee length midi skirt, has an waistband with button closure with belt loops, five pockets and front slit"
+    },
+    {
+      "id": "summer-001",
+      "title": "Women Mandarin Collar Puff Sleeves Lace Inserts Solid Fit & Flare Dress",
+      "category": "Summer Collection",
+      "gender": "Women",
+      "image": "images/products/summer-1.jpg",
+      "thumbs": [
+        "images/products/summer-1.jpg",
+        "images/products/summer-2.jpg",
+        "images/products/summer-3.jpg",
+        "images/products/summer-4.jpg",
+        "images/products/summer-5.jpg"
+      ],
+      "price": 937,
+      "original_price": 3749,
+      "discount": "75%",
+      "rating": 4.5,
+      "ratings_count": 28,
+      "sizes": ["S", "M", "L"],
+      "reviews": [],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Floral",
+        "length": "Knee Length",
+        "occasion": "Summer",
+        "wash_care": "Dry Clean",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "The model (height 5'8) is wearing a size S",
+        "tip": "For a breezy fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Yellow solid fit & flare dress, Mandarin Collar, Three-Quarter Sleeves, Puff Sleeves, lace inserts knee length in flared hem, Cotton fabric"
+    },
+    {
+      "id": "newarrivals-men-001",
+      "title": "Men Olive Green Slim Fit Printed Cargos",
+      "category": "New Arrivals",
+      "gender": "Men",
+      "image": "images/products/Cargos-1.jpg",
+      "thumbs": [
+        "images/products/Cargos-1.jpg",
+        "images/products/Cargos-2.jpg",
+        "images/products/Cargos-3.jpg",
+        "images/products/Cargos-4.jpg",
+        "images/products/Cargos-5.jpg"
+      ],
+      "price": 699,
+      "original_price": 1899,
+      "discount": "45%",
+      "rating": 4.6,
+      "ratings_count": 18,
+      "sizes": ["30", "32", "34", "36"],
+      "reviews": [],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Solid",
+        "length": "Full Length",
+        "occasion": "Casual",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "30, 32, 34, 36",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 6') is wearing size 32",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Olive Green printed mid-rise cargos, has a button closure, six pockets"
+    },
+    {
+      "id": "newarrivals-women-001",
+      "title": "Shawl Collar Open Front Formal Blazer",
+      "category": "New Arrivals",
+      "gender": "Women",
+      "image": "images/products/Regular-FitFront-blazer-1.jpg",
+      "thumbs": [
+        "images/products/Regular-FitFront-blazer-1.jpg",
+        "images/products/Regular-FitFront-blazer-2.jpg",
+        "images/products/Regular-FitFront-blazer-3.jpg",
+        "images/products/Regular-FitFront-blazer-4.jpg",
+        "images/products/Regular-FitFront-blazer-5.jpg"
+      ],
+      "price": 2550,
+      "original_price": 4250,
+      "discount": "40%",
+      "rating": 4.7,
+      "ratings_count": 12,
+      "sizes": ["S", "M", "L"],
+      "reviews": [],
+      "details": {
+        "fabric": "Polyester Blend",
+        "fit": "Regular",
+        "neck": "Collar",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Formal",
+        "wash_care": "Dry Clean Only",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "Model (height 5'8\") is wearing size M",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Pink solid Regular-Fit Front open blazer, has a Shawl collar, long sleeves, Single Vent, curved hem with two Pockets."
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+@use "sass:math";
+@import "variables";
+@import "functions";
+@import "mixins";
+@import "common";
+@import "header";
+
+
+.section-newarrival-deals {
+  margin-top: px-to-rem(24);
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: px-to-rem(24);
+    padding: 0 px-to-rem(20);
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.newarrival-banner {
+  position: relative;
+  border-radius: px-to-rem(3);
+  overflow: hidden;
+  color: $text-white;
+  min-height: px-to-max(680);
+  background-size: cover;
+  background-position: center;
+  padding: px-to-rem(32);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+
+  &--him {
+    background-image: url('../images/new-arrival-men.jpg'); // Update path
+  }
+
+  &--her {
+    background-image: url('../images/new-arrival-women.jpg'); // Update path
+  }
+
+  &__labels {
+    position: absolute;
+    top: px-to-rem(16);
+    left: px-to-rem(16);
+    right: px-to-rem(16);
+    @include flex-between;
+    gap: px-to-rem(12);
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    font-size: px-to-rem(24);
+    font-weight: 700;
+    font-family: $font-family;
+    margin-bottom: px-to-rem(8);
+  }
+
+  &__subtitle {
+    font-size: px-to-rem(16);
+    font-family: $font-family;
+    margin-bottom: px-to-rem(20);
+  }
+
+  &__btn {
+    background-color: $text-white;
+    color: $text-dark;
+    font-family: $font-family;
+    font-weight: 600;
+    padding: px-to-rem(10) px-to-rem(20);
+    border-radius: px-to-rem(4);
+    font-size: px-to-rem(14);
+    display: inline-block;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}
+
+// Reusable Label Styles
+.label {
+  font-size: px-to-rem(12);
+  padding: px-to-rem(6) px-to-rem(12);
+  border-radius: px-to-rem(4);
+  font-weight: 600;
+  font-family: $font-family;
+  display: inline-block;
+
+  &--new {
+    background-color: $primary-color-dark;
+    color: $text-dark;
+  }
+
+  &--limited {
+    background-color: $text-secondary-color-light;
+    color: $text-white;
+  }
+}
+
+
+.section-deals {
+  padding: px-to-rem(40) px-to-rem(20);
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: px-to-rem(24);
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Left Banner
+.deals-banner {
+  background-image: url('../images/new-arrival-men.jpg'); // Replace with your image
+  background-size: cover;
+  background-position: center;
+  border-radius: px-to-rem(8);
+  padding: px-to-rem(24);
+  color: $text-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: px-to-rem(16);
+  text-align: center;
+  &__tag {
+    background-color: $accent-color;
+    color: $text-dark;
+    font-weight: 400;
+    font-size: px-to-rem(20);
+    padding: px-to-rem(6) px-to-rem(12);
+    border-radius: px-to-rem(4);
+    display: inline-flex;
+    width: fit-content;
+    letter-spacing: px-to-rem(1);
+  }
+
+  &__title {
+    font-size: px-to-max(40);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__desc {
+    font-size: px-to-rem(32);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  &__stock {
+    background-color: $text-secondary-color;
+    font-weight: 700;
+    font-size: px-to-rem(24);
+    padding: px-to-rem(6) px-to-rem(12);
+    border-radius: px-to-rem(4);
+    display: inline-block;
+    width: fit-content;
+  }
+
+  &__note {
+    font-size: px-to-rem(24);
+    color: $text-white;
+  }
+
+  &__arrow {
+    font-size: px-to-rem(18);
+    color: $text-white;
+  }
+}
+
+// Right Product Grid
+.deals-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: px-to-rem(24);
+  background-color: $text-secondary-color;
+  padding: px-to-rem(24);
+  border-radius: px-to-rem(3);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-card {
+  background-color: $text-white;
+  border-radius: px-to-rem(3);
+  overflow: hidden;
+}
+
+.badge {
+  font-size: px-to-rem(10);
+  font-weight: 600;
+  padding: px-to-rem(4) px-to-rem(8);
+  border-radius: px-to-rem(4);
+  color: $text-white;
+
+  &--green {
+    background-color: $accent-color-dark;
+  }
+
+  &--pink {
+    background-color: $tertiary-color;
+    color: $text-dark;
+  }
+}
+
+.rating {
+  background-color: $text-dark;
+  color: $text-white;
+  font-size: px-to-rem(12);
+  padding: px-to-rem(2) px-to-rem(6);
+  border-radius: px-to-rem(4);
+
+  .star {
+    color: $accent-color;
+    margin-right: px-to-rem(4);
+  }
+}
+
+.price {
+  font-size: px-to-rem(14);
+  font-weight: 600;
+  color: $text-dark;
+
+  del {
+    color: $text-secondary-color;
+    margin-right: px-to-rem(6);
+  }
+}
+
+
+@import "footer";

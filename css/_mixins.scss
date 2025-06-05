@@ -1,0 +1,53 @@
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-column-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin container {
+  max-width: px-to-rem(1320);
+  margin: 0 auto;
+  padding: 0 px-to-rem(16);
+}
+
+@mixin product-grid($columns: auto-fill, $min: 228, $gap: 24, $padding: 20, $border: true, $minHeight: null) {
+  display: grid;
+  grid-template-columns: repeat(#{$columns}, minmax(px-to-rem($min), 1fr));
+  gap: px-to-rem($gap);
+  padding: px-to-rem($padding);
+  @if $border {
+    border-bottom: 1px solid $light-gray-stroke;
+  }
+  @if $minHeight != null {
+    min-height: $minHeight;
+  }
+}

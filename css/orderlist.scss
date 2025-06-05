@@ -1,0 +1,242 @@
+@use "sass:math";
+@import "variables";
+@import "functions";
+@import "mixins";
+@import "common";
+@import "header";
+
+// --- Order History Page Styles ---
+
+.order-history-section {
+  padding: 40px 0;
+  .container {
+    @include container;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  #order-history-list{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: px-to-rem(24);
+  }
+}
+
+
+.order-history-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: #fff;
+  box-shadow: 0 2px 8px 0 #f5f5f5;
+}
+.order-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  .status {
+    color: #e67e22;
+    font-weight: bold;
+  }
+}
+.order-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 16px;
+ 
+}
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 8px 16px;
+  background: #fafafa;
+  min-width: 220px;
+   width: 100%;
+  img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #eee;
+  }
+}
+.order-summary {
+  margin-top: 8px;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(px-to-rem(100), 1fr));
+}
+.clear-order-btn {
+  background: #ffeded;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 0.95em;
+  margin-left: auto;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    background: #e74c3c;
+    color: #fff;
+  }
+}
+
+.order-delivered-section{
+  width: 100%;
+
+ .container{
+    @include container;
+  }
+ }
+
+.product-table {
+  border: 1px solid $light-gray-stroke;
+  border-radius: 8px;
+  background: #fff;
+  margin-bottom: 18px;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px 0 #f5f5f5;
+  width: 100%;
+
+  .table-head, .table-row {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    padding: 0 0;
+    min-height: 48px;
+  }
+
+  .table-head {
+    background: #f7fafc;
+    font-weight: 700;
+    border-bottom: 2px solid $light-gray-stroke;
+    color: $text-dark;
+    font-size: 1rem;
+    border-radius: 8px 8px 0 0;
+    letter-spacing: 0.01em;
+    span {
+      padding: 14px 16px;
+      flex: 1;
+      &:first-child { flex: 2; }
+      text-align: left;
+    }
+  }
+
+  .table-row {
+    border-bottom: 1px solid $light-gray-stroke;
+    font-size: 0.98rem;
+    background: #fff;
+    transition: background 0.2s;
+    &:hover {
+      background: #f6f7fa;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+    > div, > span {
+      padding: 14px 16px;
+      flex: 1;
+      min-width: 0;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+    }
+    .product-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 2;
+      img {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 4px;
+        border: 1px solid $light-gray-stroke;
+        background: #fff;
+        margin-right: 10px;
+      }
+      span {
+        font-weight: 500;
+        font-size: 1rem;
+        color: $text-dark;
+      }
+    }
+    .text-secondary-dark {
+      color: #e67e22;
+      font-weight: 600;
+    }
+    .discounted {
+      color: #e74c3c;
+      font-weight: 600;
+    }
+  }
+}
+
+
+
+
+// Responsive for mobile
+@media (max-width: 700px) {
+  .product-table {
+    border-radius: 0;
+    box-shadow: none;
+    .table-head, .table-row {
+      display: block;
+      padding: 0;
+    }
+    .table-head {
+      display: none;
+    }
+    .table-row {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border: 1px solid $light-gray-stroke;
+      background: #fff;
+      > div, > span {
+        display: flex;
+        align-items: center;
+        padding: 10px 14px;
+        border-bottom: none;
+        font-size: 0.98rem;
+        width: 100%;
+        &:before {
+          content: attr(data-label);
+          min-width: 40%;
+          font-weight: 600;
+          color: $text-dark;
+          font-size: 0.95rem;
+          margin-right: 10px;
+        }
+      }
+      .product-info {
+        flex-direction: row;
+        align-items: flex-start;
+        img { width: 40px; height: 40px; }
+        span { font-size: 0.97rem; }
+      }
+    }
+  }
+}
+
+@import "footer";
