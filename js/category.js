@@ -297,9 +297,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.deals-banner').forEach(banner => {
       gsap.from(banner, {
         opacity: 0,
+        scale: 0.5,
         y: 60,
         duration: 1,
-        ease: 'power2.out',
+        ease: 'power3.out',
         scrollTrigger: {
           trigger: banner,
           start: 'top 80%',
@@ -311,6 +312,7 @@ document.addEventListener('DOMContentLoaded', function () {
         gsap.from(badges, {
           opacity: 0,
           y: 20,
+          scale: 0.5,
           stagger: 0.1,
           duration: 0.5,
           delay: 0.1,
@@ -324,8 +326,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const title = banner.querySelector('.deals-title');
       if (title) {
         gsap.from(title, {
-          opacity: 0,
           y: -40,
+          scale: 0.5,
           duration: 0.7,
           delay: 0.2,
           scrollTrigger: {
@@ -340,6 +342,7 @@ document.addEventListener('DOMContentLoaded', function () {
         gsap.from(subtitle, {
           opacity: 0,
           y: 40,
+          scale: 0.5,
           duration: 0.7,
           delay: 0.3,
           scrollTrigger: {
@@ -354,6 +357,7 @@ document.addEventListener('DOMContentLoaded', function () {
         gsap.from(ctas, {
           opacity: 0,
           scale: 0.8,
+          scale: 0.5,
           duration: 0.5,
           delay: 0.4,
           scrollTrigger: {
@@ -366,19 +370,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Animate: Product Listing Section
-    const productListing = document.querySelector('.product-listing');
-    if (productListing) {
-      gsap.from(productListing, {
-        opacity: 0,
-        y: 60,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: productListing,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        }
-      });
+    //const productListing = document.querySelector('.product-listing');
+
+      // gsap.from(productListing, {
+      //   opacity: 0,
+      //   y: 60,
+      //   duration: 0.8,
+      //   ease: 'power2.out',
+      //   scrollTrigger: {
+      //     trigger: productListing,
+      //     start: 'top 80%',
+      //     toggleActions: 'play none none reverse'
+      //   }
+      // });
       const gridHeader = productListing.querySelector('.grid-header');
       if (gridHeader) {
         gsap.from(gridHeader, {
@@ -393,21 +397,21 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
       }
-      const grid = productListing.querySelector('.product-grid');
-      if (grid) {
-        gsap.from(grid, {
-          opacity: 0,
-          y: 40,
-          duration: 0.7,
-          delay: 0.2,
-          scrollTrigger: {
-            trigger: grid,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          }
-        });
-      }
-    } 
+      // const grid = productListing.querySelector('.product-grid');
+      // if (grid) {
+      //   gsap.from(grid, {
+      //     opacity: 0,
+      //     y: 40,
+      //     duration: 0.7,
+      //     delay: 0.2,
+      //     scrollTrigger: {
+      //       trigger: grid,
+      //       start: 'top 85%',
+      //       toggleActions: 'play none none reverse'
+      //     }
+      //   });
+      // }
+    
 
     // Animate: Best Selling Section
     // const bestSelling = document.querySelector('.best-selling');
@@ -461,7 +465,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (offerBanner) {
         gsap.from(offerBanner, {
           opacity: 0,
-          x: -60,
+          scale: 0.5,
+          y: -60,
+          scale: 0.6,
           duration: 0.8,
           scrollTrigger: {
             trigger: offerSection,
@@ -471,7 +477,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         gsap.from(offerBanner.querySelectorAll('.tag, .headline, .subtext, .limited-btn, .small-note, .arrow-link'), {
           opacity: 0,
-          y: 30,
+          x: 60,
+          scale: 0.5,
           stagger: 0.12,
           duration: 0.5,
           delay: 0.2,
@@ -502,20 +509,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Animate: Reviews Section
-    const reviewsSection = document.querySelector('.reviews-section');
-    if (reviewsSection) {
-      gsap.from(reviewsSection, {
-        opacity: 0,
-        y: 60,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: reviewsSection,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    }
+    // const reviewsSection = document.querySelector('.reviews-section');
+    // if (reviewsSection) {
+    //   gsap.from(reviewsSection, {
+    //     opacity: 0,
+    //     y: 60,
+    //     duration: 0.8,
+    //     ease: 'power2.out',
+    //     scrollTrigger: {
+    //       trigger: reviewsSection,
+    //       start: 'top 85%',
+    //       toggleActions: 'play none none reverse'
+    //     }
+    //   });
+    // }
 
     // Animate: Newsletter Section
     const newsletter = document.querySelector('.newsletter');

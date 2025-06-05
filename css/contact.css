@@ -95,6 +95,41 @@ section::after, section::before {
   display: block;
 }
 
+nav .logo div {
+  font-size: 10px;
+  color: #4E4E4E;
+  letter-spacing: 10px;
+  text-align: center;
+  margin-top: -8px;
+  font-weight: 700;
+  padding: 0 2px;
+}
+nav .logo div span {
+  color: #81B6CE;
+}
+
+footer .logo div {
+  font-size: 10px;
+  color: #fff;
+  letter-spacing: 10px;
+  text-align: center;
+  margin-top: -8px;
+  font-weight: 700;
+  padding: 0 2px;
+}
+footer .logo div span {
+  color: #81B6CE;
+}
+
+.logo {
+  font-size: 1.5555555556rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1.1111111111rem;
+  text-transform: uppercase;
+}
+
 .cta-button {
   display: inline-flex;
   justify-content: center;
@@ -1095,13 +1130,6 @@ section::after, section::before {
   flex-wrap: wrap;
   gap: 5.5555555556rem;
   padding: 1.1111111111rem 1.1111111111rem;
-}
-.main-header .logo {
-  font-size: 1.5555555556rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 1.1111111111rem;
 }
 .main-header .search-box {
   flex: 1;

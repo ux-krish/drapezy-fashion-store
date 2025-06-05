@@ -92,7 +92,44 @@ section::after, section::before {
     clear: both;
     display: block;
 }
-
+nav{
+  .logo div{
+    font-size: 10px;
+    color: $text-color;
+    letter-spacing: 10px;
+    text-align: center;
+    margin-top: -8px;
+    font-weight: 700;
+    padding: 0 2px;
+    span{
+      color: $secondary-color-dark;
+    }
+  }
+}
+footer{
+  .logo div{
+    font-size: 10px;
+    color: #fff;
+    letter-spacing: 10px;
+    text-align: center;
+    margin-top: -8px;
+    font-weight: 700;
+    padding: 0 2px;
+    span{
+      color: $secondary-color-dark;
+    }
+   
+  }
+}
+.logo {
+    font-size: px-to-rem(28);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: px-to-rem(20);
+    text-transform: uppercase;
+    
+  }
 .cta-button {
   display: inline-flex;
   justify-content: center;

@@ -229,71 +229,71 @@ function runPageAnimations() {
     }
   }
   // Animate page-header
-  const pageHeader = document.querySelector('.page-header');
-  if (pageHeader) {
-    gsap.fromTo(
-      pageHeader,
-      { y: -20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }
-    );
-    const headerChildren = Array.from(pageHeader.querySelectorAll('.container > *'));
-    if (headerChildren.length) {
-      gsap.fromTo(
-        headerChildren,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, delay: 0.2, ease: "power2.out" }
-      );
-    }
-  }
+  // const pageHeader = document.querySelector('.page-header');
+  // if (pageHeader) {
+  //   gsap.fromTo(
+  //     pageHeader,
+  //     { y: -20, opacity: 0 },
+  //     { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }
+  //   );
+  //   const headerChildren = Array.from(pageHeader.querySelectorAll('.container > *'));
+  //   if (headerChildren.length) {
+  //     gsap.fromTo(
+  //       headerChildren,
+  //       { y: 20, opacity: 0 },
+  //       { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, delay: 0.2, ease: "power2.out" }
+  //     );
+  //   }
+  // }
 
   // Animate all all element inside filter aside
-  const filterSections = document.querySelectorAll('.sidebar .filter-section');
-  if (filterSections.length) {
-    gsap.fromTo(
-      filterSections,
-      { y: 40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, stagger: 0.10, delay: 0.25, ease: "power2.out" }
-    );
-    filterSections.forEach(section => {
-      const children = Array.from(section.children).filter(
-        el => el.tagName !== 'H4'
-      );
-      if (children.length) {
-        gsap.fromTo(
-          children,
-          { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 0.45, ease: "power2.out" }
-        );
-      }
+  // const filterSections = document.querySelectorAll('.sidebar .filter-section');
+  // if (filterSections.length) {
+  //   gsap.fromTo(
+  //     filterSections,
+  //     { y: 40, opacity: 0 },
+  //     { y: 0, opacity: 1, duration: 0.6, stagger: 0.10, delay: 0.25, ease: "power2.out" }
+  //   );
+  //   filterSections.forEach(section => {
+  //     const children = Array.from(section.children).filter(
+  //       el => el.tagName !== 'H4'
+  //     );
+  //     if (children.length) {
+  //       gsap.fromTo(
+  //         children,
+  //         { y: 30, opacity: 0 },
+  //         { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 0.45, ease: "power2.out" }
+  //       );
+  //     }
 
-      const inputs = section.querySelectorAll('input, label, select, button, ul, li, p, .price');
-      if (inputs.length) {
-        gsap.fromTo(
-          inputs,
-          { y: 15, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.4, stagger: 0.04, delay: 0.55, ease: "power2.out" }
-        );
-      }
-    });
-  }
+  //     const inputs = section.querySelectorAll('input, label, select, button, ul, li, p, .price');
+  //     if (inputs.length) {
+  //       gsap.fromTo(
+  //         inputs,
+  //         { y: 15, opacity: 0 },
+  //         { y: 0, opacity: 1, duration: 0.4, stagger: 0.04, delay: 0.55, ease: "power2.out" }
+  //       );
+  //     }
+  //   });
+  // }
 
   // Animate grid-header for shop all page
-  const gridHeader = document.querySelector('.grid-header');
-  if (gridHeader) {
-    gsap.fromTo(
-      gridHeader,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", delay: 0.3 }
-    );
-    const gridHeaderChildren = Array.from(gridHeader.children);
-    if (gridHeaderChildren.length) {
-      gsap.fromTo(
-        gridHeaderChildren,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 0.4, ease: "power2.out" }
-      );
-    }
-  }
+  // const gridHeader = document.querySelector('.grid-header');
+  // if (gridHeader) {
+  //   gsap.fromTo(
+  //     gridHeader,
+  //     { y: 30, opacity: 0 },
+  //     { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", delay: 0.3 }
+  //   );
+  //   const gridHeaderChildren = Array.from(gridHeader.children);
+  //   if (gridHeaderChildren.length) {
+  //     gsap.fromTo(
+  //       gridHeaderChildren,
+  //       { y: 20, opacity: 0 },
+  //       { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 0.4, ease: "power2.out" }
+  //     );
+  //   }
+  // }
 
   // Animate breadcrumb and its children
   const breadcrumb = document.querySelector('.breadcrumb');
@@ -363,21 +363,6 @@ function runPageAnimations() {
     );
   }
 
-  // Animate all product-card elements (on all pages) from y axis with stagger
-  // const productCards = document.querySelectorAll('.product-card');
-  // if (productCards && productCards.length) {
-  //   gsap.fromTo(
-  //     productCards,
-  //     { y: 60 },
-  //     {
-  //       y: 0,
-  //       duration: 0.7,
-  //       stagger: 0.12,
-  //       ease: "power3.out"
-  //     }
-  //   );
-  // }
-
   // Animate Swiper slide backgrounds in .hero-swiper on window load (fade effect)
   const heroSlides = document.querySelectorAll('.hero-swiper .swiper-slide');
   if (heroSlides && heroSlides.length) {
@@ -392,272 +377,112 @@ function runPageAnimations() {
       }
     );
   }
+}
 
-  // --- Home page GSAP animations ---
-  if (document.querySelector('.hero-swiper')) {
-    // Autoplay progress elements (if you use them)
-    const progressCircle = document.querySelector('.autoplay-progress svg circle');
-    const progressContent = document.querySelector('.autoplay-progress span');
+// GSAP Animations for sections and elements
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
 
-    // Hero Swiper with GSAP animation for slide article content
-    window.heroSwiper = new Swiper('.hero-swiper', {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 0,
-      autoplay: {
-        delay: 15000,
-      },
-      draggable: true,
-      on: {
-        autoplayTimeLeft(s, time, progress) {
-          if (progressCircle && progressContent) {
-            progressCircle.style.setProperty("--progress", 1 - progress);
-            progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-          }
-        },
-        init: function () {
-          const currentSlide = this.slides[this.activeIndex];
-          const content = currentSlide && currentSlide.querySelector('.container');
-          if (content) {
-            gsap.fromTo(content.children,
-              { y: 60, opacity: 0 },
-              {
-                y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: "power2.out",
-                delay: 0.15
-              }
-            );
-          }
-        },
-        slideChangeTransitionStart: function () {
-          const currentSlide = this.slides[this.activeIndex];
-          const content = currentSlide && currentSlide.querySelector('.container');
-          if (content) {
-            gsap.fromTo(content.children,
-              { y: 60, opacity: 0 },
-              {
-                y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: "power2.out",
-                delay: 0.15
-              }
-            );
-          }
-        }
+  // Animate each section
+  gsap.utils.toArray('section').forEach(section => {
+    gsap.from(section, {
+      opacity: 0,
+      scale: 2,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: section,
+        strat: "top top",
+        toggleActions: "play none none reverse"
       }
     });
+  });
 
-    // Review Swiper (if present)
-    // if (document.querySelector('.reviewSwiper')) {
-    //   window.reviewSwiper = new Swiper('.reviewSwiper', {
-    //     autoHeight: true,
-    //     slidesPerView: 4.3,
-    //     spaceBetween: 30,
-    //     loop: true,
-    //     pagination: {
-    //       el: '.swiper-pagination',
-    //       clickable: true,
-    //     },
-    //     navigation: {
-    //       nextEl: '.swiper-button-next',
-    //       prevEl: '.swiper-button-prev',
-    //     },
-    //     breakpoints: {
-    //       1024: { slidesPerView: 4.2 },
-    //       768: { slidesPerView: 3.2 },
-    //       0: { slidesPerView: 1.2 },
-    //     }
-    //   });
-    // }
-  }
+  // Animate banners in section-newarrival-deals from opposite X sides
+  // const himBanner = document.querySelector('.section-newarrival-deals .newarrival-banner--him');
+  // const herBanner = document.querySelector('.section-newarrival-deals .newarrival-banner--her');
+  // if (himBanner) {
+  //   gsap.from(himBanner, {
+  //     opacity: 0,
+  //     x: -100,
+  //     duration: 0.8,
+  //     ease: "power3.out",
+  //     scrollTrigger: {
+  //       trigger: himBanner,
+  //       end: "bottom 90%",
+  //       toggleActions: "play none none reverse"
+  //     }
+  //   });
+  // }
+  // if (herBanner) {
+  //   gsap.from(herBanner, {
+  //     opacity: 0,
+  //     x: 100,
+  //     duration: 0.8,
+  //     ease: "power3.out",
+  //     scrollTrigger: {
+  //       trigger: herBanner,
+  //       end: "bottom 90%",
+  //       toggleActions: "play none none reverse"
+  //     }
+  //   });
+  // }
 
-  // ScrollTrigger animations for home page sections
-  if (window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
+  // Animate other banners (deals-banner, but not newarrival-banner)
+  // gsap.utils.toArray('.deals-banner:not(.newarrival-banner--him):not(.newarrival-banner--her)').forEach(banner => {
+  //   gsap.from(banner, {
+      
+  //     y: 200,
+  //     scale:0.6,
+  //     duration: 1,
+  //     ease: "power2.out",
+  //     scrollTrigger: {
+  //       trigger: banner,
+  //       end: "bottom 90%",
+  //       toggleActions: "play none none reverse"
+  //     }
+  //   });
+  // });
 
-    gsap.timeline({
+  // Animate product grids (products-grid and deals-products)
+  gsap.utils.toArray('.products-grid, .deals-products').forEach(grid => {
+    gsap.from(grid, {
+      opacity: 0,
+      x: 200,
+      duration: 1,
+      ease: "power3.out",
       scrollTrigger: {
-        trigger: ".text-carousel",
-        start: "top 90%",
+        trigger: grid,
+        end: "bottom 85%",
         toggleActions: "play none none reverse"
       }
-    })
-      .from(".text-carousel .carousel-texts", {
-        opacity: 0,
-        x: -500,
-        duration: 3,
-        stagger: 0.5,
-        ease: "power3.out"
-      });
+    });
+  });
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".deal-of-the-day .deal-container",
-        bottom: "bottom 80%",
-        toggleActions: "play none none reverse"
-      }
-    })
-      .from(".deal-of-the-day .deal-text", {
-        x: -200,
+  // Animate product cards inside grids (after products are rendered)
+  function animateProductCards() {
+    gsap.utils.toArray(' .deals-products .product-card').forEach((card, i) => {
+      gsap.from(card, {
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power2.out"
-      })
-      .from(".deal-of-the-day .deal-image", {
-        x: 200,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power2.out"
-      }, "<");
-
-    // gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: ".shop-category",
-    //     end: "bottom 90%",
-    //     toggleActions: "play none none reverse"
-    //   }
-    // })
-    //   .from(".shop-category ", {
-    //     opacity: 0,
-    //     y: -200,
-    //     stagger: 0.2,
-    //     duration: 2,
-    //     ease: "power3.out"
-    //   });
-
-    // Use a simple scrollTrigger for .shop-category .category-card (no scrub, just play on enter)
-      gsap.timeline({
+        y: 30,
+        duration: 0.5,
+        delay: i * 0.08,
+        ease: "power2.out",
         scrollTrigger: {
-          trigger: ".shop-category",
-          bottom: "bottom 80%",
+          trigger: card,
+          end: "bottom 90%",
           toggleActions: "play none none reverse"
         }
-      })
-      .from(".shop-category .category-card", {
-          opacity: 0,
-          x: -200,
-      })
-      .to(".shop-category .category-card", {
-        opacity: 1,
-        x: 0,
-        duration: 0.7,
-        ease: "power3.out"
-      })
-    .from(".shop-category .category-card > *", {
-        opacity: 0,
-        y: 200,
-    })
-      .to(".shop-category .category-card > *", {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        stagger: 0.8,
-        ease: "power3.out"
       });
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".new-arrivals",
-        bottom: "bottom 80%",
-        toggleActions: "play none none reverse"
-      }
-    })
-      .from(".new-arrivals .products-grid", {
-        opacity: 0,
-        x: 200,
-        duration: 2,
-        ease: "power3.out"
-      });
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".deal-banner",
-        start: "top 90%",
-        toggleActions: "play none none reverse"
-      }
-    })
-      .from([
-        ".deal-banner .deal-grid > *:first-child",
-        ".deal-banner .deal-grid > *:last-child"
-      ], {
-        opacity: 0,
-        x: (i) => i === 0 ? -100 : 100,
-        duration: 2,
-        ease: "power3.out"
-      });
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".best-selling",
-        start: "top 85%",
-        toggleActions: "play none none reverse"
-      }
-    })
-      .from(".best-selling h2, .best-selling p, .best-selling .tabs, .best-selling .products-grid", {
-        opacity: 0,
-        x: -200,
-        duration: 0.7,
-        stagger: 0.15,
-        ease: "power2.out"
-      });
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".promo-banner",
-        bottom: "bottom 80%",
-        toggleActions: "play none none reverse"
-      }
-    })
-      .from(".promo-banner .promo-grid > *", {
-        opacity: 0,
-        y: 60,
-        duration: 2,
-        stagger: 0.4,
-        ease: "power3.out"
-      })
-      // Animate each child of .promo-content inside .promo-banner
-      .from(".promo-banner .promo-content > *", {
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power2.out"
-      }, "<+0.2")
-      // Animate .promo-image inside .promo-banner from x:200
-      .from(".promo-banner .promo-image", {
-        x: 200,
-        duration: 2,
-        ease: "power3.out"
-      }, "<+0.1");
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".promo-section",
-        end: "bottom 80%",
-        toggleActions: "play none none reverse",
-        scrub: 1
-      }
-    })
-      .from(".promo-section h2", {
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        ease: "power3.out"
-      })
-      .from(".promo-section .promo-grid .promo-card", {
-        opacity: 0,
-        y: 100,
-        duration: 2,
-        stagger: 2,
-        ease: "power3.out"
-      });
-
+    });
+  }
+  if (document.querySelector('.reviews-section')) {
     gsap.timeline({
       scrollTrigger: {
         trigger: ".reviews-section",
-        start: "top 95%",
+        start: "top 80%",
         end: "bottom 80%",
-        toggleActions: "play none none reverse",
-        scrub: 2
+        toggleActions: "play none none reverse"
       }
     })
       .from(".reviews-section h2", {
@@ -668,57 +493,67 @@ function runPageAnimations() {
       })
       .from(".reviews-section .reviews-carousel", {
         opacity: 0,
-        x: 200,
+        y: 200,
         duration: 0.7,
         ease: "power3.out"
-      });
-    // Animate each .review-card inside .reviews-section (not just Swiper slides)
-    // const reviewCards = document.querySelectorAll('.reviews-section .review-card');
-    // if (reviewCards.length) {
-    //   gsap.fromTo(
-    //     reviewCards,
-    //     {  x: 100 },
-    //     {
-    //       x: 0,
-    //       duration: 0.7,
-    //       ease: "power3.out",
-    //       stagger: 0.2
-    //     }
-    //   );
-    // }
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: "footer",
-        start: "top 90%",
-        end: "bottom 50%",
-        toggleActions: "play none none reverse"
-      }
-    })
-      .from("footer", { y: 50, opacity: 0, duration: 0.5, ease: "power3.out" })
-      .from("footer .info-box", { y: 50, opacity: 0, duration: 0.5, ease: "power3.out", stagger: 0.2 })
-      // Animate newsletter section in footer
-      .from("footer .newsletter", {
-        opacity: 0,
-        y: 100,
-        duration: 0.5,
-        ease: "power2.out"
       }, "<+0.1")
-      // Animate each footer menu item (li or a) with stagger
-      .from("footer h3,footer h4,footer p, footer ul li a, footer svg", {
+      .from(".reviews-section .review-card", {
         opacity: 0,
-        y: 30,
-        duration: 0.3,
-        stagger: 0.12,
+        y: 60,
+        duration: 0.5,
+        stagger: 0.15,
         ease: "power2.out"
       }, "<+0.1");
-    // Fix: Ensure all footer animations play and reverse correctly by using a single .fromTo with toggleActions
-    // (If you want all footer children to reverse, use .fromTo and set toggleActions to "play reverse play reverse")
-    // Example:
-    // gsap.fromTo("footer .newsletter", {opacity:0, y:40}, {opacity:1, y:0, duration:0.7, ease:"power2.out", scrollTrigger:{...}});
-    // gsap.fromTo("footer .footer-menu li, footer .footer-menu a", {opacity:0, y:30}, {opacity:1, y:0, duration:0.5, stagger:0.12, ease:"power2.out", scrollTrigger:{...}});
   }
-  // --- End Home page GSAP ---
+
+  // Animate review section
+  // gsap.utils.toArray('.reviews-section').forEach(section => {
+  //   gsap.from(section, {
+  //     opacity: 0,
+  //     y: 60,
+  //     duration: 0.8,
+  //     ease: "power2.out",
+  //     scrollTrigger: {
+  //       trigger: section,
+  //       end: "bottom 90%",
+  //       toggleActions: "play none none reverse"
+  //     }
+  //   });
+  // });
+
+  // Animate headings
+  gsap.utils.toArray('h2, h3').forEach(heading => {
+    gsap.from(heading, {
+      opacity: 0,
+      y: 20,
+      duration: 0.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: heading,
+        end: "bottom 90%",
+        toggleActions: "play none none reverse"
+      }
+    });
+  });
+
+  // Re-animate product cards after products are rendered/refreshed
+  if (typeof showProducts === 'function') {
+    const origShowProducts = showProducts;
+    window.showProducts = function(opts) {
+      origShowProducts({
+        ...opts,
+        onRendered: function() {
+          animateProductCards();
+          if (typeof opts.onRendered === 'function') opts.onRendered();
+        }
+      });
+    };
+    // Initial call for first render
+    setTimeout(animateProductCards, 500);
+  } else {
+    // Fallback: animate on DOMContentLoaded
+    setTimeout(animateProductCards, 500);
+  }
 }
 
 // Ensure GSAP is loaded before running animations
@@ -884,56 +719,56 @@ window.addEventListener('DOMContentLoaded', updateWishlistCount);
     }
   }
 
-  runWhenGSAPReady(function () {
-    const lastAnimated = new WeakMap();
-    const ANIMATION_DEBOUNCE_MS = 300;
+  // runWhenGSAPReady(function () {
+  //   const lastAnimated = new WeakMap();
+  //   const ANIMATION_DEBOUNCE_MS = 300;
 
-    const animateCards = (container) => {
-      // Only animate if container is visible and has product cards
-      if (!container.offsetParent) return;
-      const now = Date.now();
-      // Debounce: only animate if enough time has passed since last animation
-      if (lastAnimated.has(container) && now - lastAnimated.get(container) < ANIMATION_DEBOUNCE_MS) return;
-      lastAnimated.set(container, now);
+  //   const animateCards = (container) => {
+  //     // Only animate if container is visible and has product cards
+  //     if (!container.offsetParent) return;
+  //     const now = Date.now();
+  //     // Debounce: only animate if enough time has passed since last animation
+  //     if (lastAnimated.has(container) && now - lastAnimated.get(container) < ANIMATION_DEBOUNCE_MS) return;
+  //     lastAnimated.set(container, now);
 
-      const cards = container.querySelectorAll('.product-card');
-      if (cards.length) {
-        window.gsap.fromTo(cards,
-          { y: 100 },
-          {
-            y: 0,
-            duration: 0.5,
-            stagger: 0.3,
-            ease: "power3.out"
-          }
-        );
-      }
-    };
+  //     const cards = container.querySelectorAll('.product-card');
+  //     if (cards.length) {
+  //       window.gsap.fromTo(cards,
+  //         { y: 100 },
+  //         {
+  //           y: 0,
+  //           duration: 0.5,
+  //           stagger: 0.3,
+  //           ease: "power3.out"
+  //         }
+  //       );
+  //     }
+  //   };
 
-    // Only allow one observer per grid and only one animation per render
-    const observeGrids = () => {
-      document.querySelectorAll('.product-grid').forEach(grid => {
-        // Only attach one observer per grid
-        if (grid._observerAttached) return;
-        grid._observerAttached = true;
-        // Initial animation
-        animateCards(grid);
-        const observer = new MutationObserver((mutations) => {
-          // Only animate if nodes were added (not just removed)
-          if (mutations.some(m => m.addedNodes && m.addedNodes.length)) {
-            animateCards(grid);
-          }
-        });
-        observer.observe(grid, { childList: true, subtree: false });
-      });
-    };
+  //   // Only allow one observer per grid and only one animation per render
+  //   const observeGrids = () => {
+  //     document.querySelectorAll('.product-grid').forEach(grid => {
+  //       // Only attach one observer per grid
+  //       if (grid._observerAttached) return;
+  //       grid._observerAttached = true;
+  //       // Initial animation
+  //       animateCards(grid);
+  //       const observer = new MutationObserver((mutations) => {
+  //         // Only animate if nodes were added (not just removed)
+  //         if (mutations.some(m => m.addedNodes && m.addedNodes.length)) {
+  //           animateCards(grid);
+  //         }
+  //       });
+  //       observer.observe(grid, { childList: true, subtree: false });
+  //     });
+  //   };
 
-    // Run on DOMContentLoaded and whenever new .product-grid appears
-    document.addEventListener('DOMContentLoaded', observeGrids);
-    // Also observe for new .product-grid containers (e.g., SPA navigation)
-    const bodyObserver = new MutationObserver(observeGrids);
-    bodyObserver.observe(document.body, { childList: true, subtree: true });
-  });
+  //   // Run on DOMContentLoaded and whenever new .product-grid appears
+  //   document.addEventListener('DOMContentLoaded', observeGrids);
+  //   // Also observe for new .product-grid containers (e.g., SPA navigation)
+  //   const bodyObserver = new MutationObserver(observeGrids);
+  //   bodyObserver.observe(document.body, { childList: true, subtree: true });
+  // });
 })();
 
 /**
@@ -1190,58 +1025,58 @@ function animateRelatedProductsSection() {
 }
 
 // Animate product cards in product deal section with ScrollTrigger
-function animateProductDealSection() {
-  const dealSection = document.querySelector('.product-deal');
-  if (dealSection && window.gsap && window.ScrollTrigger) {
-    const cards = dealSection.querySelectorAll('.product-card');
-    if (cards.length) {
-      gsap.fromTo(
-        cards,
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: dealSection,
-            start: "top 85%",
-            once: true
-          }
-        }
-      );
-    }
-  }
-}
+// function animateProductDealSection() {
+//   const dealSection = document.querySelector('.product-deal');
+//   if (dealSection && window.gsap && window.ScrollTrigger) {
+//     const cards = dealSection.querySelectorAll('.product-card');
+//     if (cards.length) {
+//       gsap.fromTo(
+//         cards,
+//         { y: 60, opacity: 0 },
+//         {
+//           y: 0,
+//           opacity: 1,
+//           duration: 0.7,
+//           stagger: 0.12,
+//           ease: "power2.out",
+//           scrollTrigger: {
+//             trigger: dealSection,
+//             start: "top 85%",
+//             once: true
+//           }
+//         }
+//       );
+//     }
+//   }
+// }
 
 // Observe related-products grid for new product cards and animate them
-(function observeRelatedProductsGrid() {
-  if (!window.MutationObserver) return;
-  const relatedSection = document.querySelector('.related-products');
-  if (!relatedSection) return;
-  const grid = relatedSection.querySelector('.product-grid');
-  if (!grid) return;
-  const observer = new MutationObserver(() => {
-    animateRelatedProductsSection();
-  });
-  observer.observe(grid, { childList: true });
-  animateRelatedProductsSection();
-})();
+// (function observeRelatedProductsGrid() {
+//   if (!window.MutationObserver) return;
+//   const relatedSection = document.querySelector('.related-products');
+//   if (!relatedSection) return;
+//   const grid = relatedSection.querySelector('.product-grid');
+//   if (!grid) return;
+//   const observer = new MutationObserver(() => {
+//     animateRelatedProductsSection();
+//   });
+//   observer.observe(grid, { childList: true });
+//   animateRelatedProductsSection();
+// })();
 
 // Observe product-deal grid for new product cards and animate them
-(function observeProductDealGrid() {
-  if (!window.MutationObserver) return;
-  const dealSection = document.querySelector('.product-deal');
-  if (!dealSection) return;
-  const grid = dealSection.querySelector('.product-grid');
-  if (!grid) return;
-  const observer = new MutationObserver(() => {
-    animateProductDealSection();
-  });
-  observer.observe(grid, { childList: true });
-  animateProductDealSection();
-})();
+// (function observeProductDealGrid() {
+//   if (!window.MutationObserver) return;
+//   const dealSection = document.querySelector('.product-deal');
+//   if (!dealSection) return;
+//   const grid = dealSection.querySelector('.product-grid');
+//   if (!grid) return;
+//   const observer = new MutationObserver(() => {
+//     animateProductDealSection();
+//   });
+//   observer.observe(grid, { childList: true });
+//   animateProductDealSection();
+// })();
 
 // --- Global Search Functionality for all .search-box elements ---
 // (This also supports #main-search-input for backward compatibility)
@@ -1463,6 +1298,12 @@ document.addEventListener('DOMContentLoaded', function () {
 // Menu structure object
 const NAV_MENU = [
   {
+    logo: {
+      text: `Drape<span style="color:#81B6CE">zy</span><div>FASHI<span>ON</span></div>`,
+      href: "index.html"
+    }
+  },
+  {
     label: "PRODUCTS",
     href: "shop-all.html",
     type: "mega",
@@ -1506,9 +1347,20 @@ const NAV_MENU = [
 // Render navigation menu and mega menu
 function renderNavMenu() {
   const navLinks = document.querySelector('.nav-links');
-  if (!navLinks) return;
+  const navContainer = document.querySelector('.main-header .container');
+  if (!navLinks || !navContainer) return;
 
-  navLinks.innerHTML = NAV_MENU.map(item => {
+  // Render logo dynamically if present in NAV_MENU
+  const logoItem = NAV_MENU.find(item => item.logo);
+  if (logoItem && !navContainer.querySelector('.logo')) {
+    const logoDiv = document.createElement('div');
+    logoDiv.className = 'logo';
+    logoDiv.innerHTML = `<a href="${logoItem.logo.href}">${logoItem.logo.text}</a>`;
+    navContainer.insertBefore(logoDiv, navContainer.firstChild);
+  }
+
+  // Render menu items (skip logo item)
+  navLinks.innerHTML = NAV_MENU.filter(item => !item.logo).map(item => {
     if (item.type === "mega") {
       // Mega menu
       return `
@@ -1542,6 +1394,15 @@ function renderNavMenu() {
       return `<li><a href="${item.href}">${item.label}</a></li>`;
     }
   }).join('');
+
+  // --- Footer logo injection ---
+  // Find .footer-about h3 and replace with logo HTML
+  const footerLogoItem = NAV_MENU.find(item => item.logo);
+  document.querySelectorAll('.footer-about h3').forEach(h3 => {
+    if (footerLogoItem) {
+      h3.innerHTML = footerLogoItem.logo.text;
+    }
+  });
 }
 
 // On DOMContentLoaded, render the nav menu
@@ -1709,6 +1570,26 @@ document.addEventListener('DOMContentLoaded', function () {
   if (orderItems.length) {
     const itemsList = orderItems.map(item => `<li>${item.title} - ₹${item.price.toLocaleString()}</li>`).join('');
     orderDetails.innerHTML += `<h4>Order Items:</h4><ul>${itemsList}</ul>`;
+  }
+});
+
+// Contact page GSAP animation for contact-left and contact-right
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof gsap !== 'undefined' && document.querySelector('.contact-left') && document.querySelector('.contact-right')) {
+    gsap.from('.contact-left', {
+      x: -120,
+      opacity: 0,
+      scale: 0.5,
+      duration: 0.8,
+      ease: "power3.out"
+    });
+    gsap.from('.contact-right', {
+      x: 120,
+      opacity: 0,
+      scale: 0.5,
+      duration: 0.8,
+      ease: "power3.out"
+    });
   }
 });
 

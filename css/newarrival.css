@@ -95,6 +95,41 @@ section::after, section::before {
   display: block;
 }
 
+nav .logo div {
+  font-size: 10px;
+  color: #4E4E4E;
+  letter-spacing: 10px;
+  text-align: center;
+  margin-top: -8px;
+  font-weight: 700;
+  padding: 0 2px;
+}
+nav .logo div span {
+  color: #81B6CE;
+}
+
+footer .logo div {
+  font-size: 10px;
+  color: #fff;
+  letter-spacing: 10px;
+  text-align: center;
+  margin-top: -8px;
+  font-weight: 700;
+  padding: 0 2px;
+}
+footer .logo div span {
+  color: #81B6CE;
+}
+
+.logo {
+  font-size: 1.5555555556rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1.1111111111rem;
+  text-transform: uppercase;
+}
+
 .cta-button {
   display: inline-flex;
   justify-content: center;
@@ -1096,13 +1131,6 @@ section::after, section::before {
   gap: 5.5555555556rem;
   padding: 1.1111111111rem 1.1111111111rem;
 }
-.main-header .logo {
-  font-size: 1.5555555556rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 1.1111111111rem;
-}
 .main-header .search-box {
   flex: 1;
   display: flex;
@@ -1698,7 +1726,7 @@ section::after, section::before {
   font-family: "Jost", sans-serif;
   font-weight: 600;
   padding: 0.5555555556rem 1.1111111111rem;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
   font-size: 0.7777777778rem;
   display: inline-block;
   transition: background 0.3s ease;
@@ -1710,7 +1738,7 @@ section::after, section::before {
 .label {
   font-size: 0.6666666667rem;
   padding: 0.3333333333rem 0.6666666667rem;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
   font-weight: 600;
   font-family: "Jost", sans-serif;
   display: inline-block;
@@ -1742,7 +1770,7 @@ section::after, section::before {
   background-image: url("../images/new-arrival-men.jpg");
   background-size: cover;
   background-position: center;
-  border-radius: 0.4444444444rem;
+  border-radius: 0.1666666667rem;
   padding: 1.3333333333rem;
   color: #fff;
   display: flex;
@@ -1758,7 +1786,7 @@ section::after, section::before {
   font-weight: 400;
   font-size: 1.1111111111rem;
   padding: 0.3333333333rem 0.6666666667rem;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
   display: inline-flex;
   width: -moz-fit-content;
   width: fit-content;
@@ -1779,7 +1807,7 @@ section::after, section::before {
   font-weight: 700;
   font-size: 1.3333333333rem;
   padding: 0.3333333333rem 0.6666666667rem;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
   display: inline-block;
   width: -moz-fit-content;
   width: fit-content;
@@ -1817,7 +1845,7 @@ section::after, section::before {
   font-size: 0.5555555556rem;
   font-weight: 600;
   padding: 0.2222222222rem 0.4444444444rem;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
   color: #fff;
 }
 .badge--green {
@@ -1833,7 +1861,7 @@ section::after, section::before {
   color: #fff;
   font-size: 0.6666666667rem;
   padding: 0.1111111111rem 0.3333333333rem;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
 }
 .rating .star {
   color: #92FB99;
