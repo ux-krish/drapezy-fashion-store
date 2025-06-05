@@ -1299,7 +1299,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const NAV_MENU = [
   {
     logo: {
-      text: `Drape<span style="color:#81B6CE">zy</span><div>FASHI<span>ON</span></div>`,
+      text: `Drape<span style="color:#81B6CE">zy</span><div>FASHION</div>`,
       href: "index.html"
     }
   },
@@ -1394,15 +1394,6 @@ function renderNavMenu() {
       return `<li><a href="${item.href}">${item.label}</a></li>`;
     }
   }).join('');
-
-  // --- Footer logo injection ---
-  // Find .footer-about h3 and replace with logo HTML
-  const footerLogoItem = NAV_MENU.find(item => item.logo);
-  document.querySelectorAll('.footer-about h3').forEach(h3 => {
-    if (footerLogoItem) {
-      h3.innerHTML = footerLogoItem.logo.text;
-    }
-  });
 }
 
 // On DOMContentLoaded, render the nav menu

@@ -1671,6 +1671,12 @@ footer .logo div span {
   margin: 0 auto;
   padding: 0 0.8888888889rem;
 }
+.thank-you-section .continue-shop-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.6666666667rem;
+}
 .thank-you-section #order-summary-header {
   display: flex;
   justify-content: space-between;

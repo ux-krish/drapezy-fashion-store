@@ -10,6 +10,10 @@
   .container {
       @include container;
   }
+  .continue-shop-wrapper{
+    @include flex-center;
+    margin-bottom: px-to-rem(48);
+  }
   #order-summary-header {
     @include flex-between;
     background-color: #e3f2fd;
