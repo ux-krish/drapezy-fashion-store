@@ -163,7 +163,6 @@ footer{
     pointer-events: none;
   }
 
-  // Text above the bar
   position: relative;
   z-index: 1;
 
@@ -477,7 +476,6 @@ footer{
   }
 
   .reviews-carousel {
-    // @include container;
     position: relative;
     margin: 0 auto;
 
@@ -629,10 +627,8 @@ footer{
                     &:last-child {
                         margin-bottom: 0;
                     }
-                    // Use global filter label style
                     label {
                         @extend .filter-checkbox-label;
-                        // Remove local styles, rely on global
                     }
                 }
             }
@@ -765,8 +761,6 @@ footer{
             }
         }
 
-        // .product-grid styles moved to _common.scss and replaced by global component
-
         .product-grid-footer{
             @include flex-between;
             padding: px-to-rem(0) px-to-rem(20);
@@ -850,7 +844,6 @@ footer{
       display: inline-flex;
     }
   }
-  // Hide top pagination on mobile
   .pagination.pagination-top {
     display: none !important;
   }
@@ -904,7 +897,6 @@ footer{
   cursor: pointer;
 }
 
-// --- Product Card Component Styles (moved from _product-card.scss) ---
 .product-card {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -962,7 +954,6 @@ footer{
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      //gap: px-to-rem(6);
       z-index: 2;
       span {
         color: $text-color;
@@ -1098,11 +1089,9 @@ footer{
 
 .product-grid {
   @include product-grid();
-  // min-height: calc(100vh - px-to-rem(350)); // default for shop-all
   
 }
 
-// Responsive overrides
 @media (max-width: 1023px) {
   .product-grid {
     grid-template-columns: 1fr 1fr;
