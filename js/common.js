@@ -392,7 +392,8 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       ease: "power3.out",
       scrollTrigger: {
         trigger: section,
-        end: "top top",
+        //start: "top center",
+        end: "bottom center",
         toggleActions: "play none none reverse"
       }
     });

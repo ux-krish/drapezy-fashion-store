@@ -222,11 +222,12 @@ function showToast(message, duration = 2000) {
     toast.style.bottom = '40px';
     toast.style.transform = 'translateX(-50%)';
     toast.style.zIndex = '9999';
-    toast.style.background = '#222';
-    toast.style.color = '#fff';
+    toast.style.background = '#D1EAF5';
+    toast.style.color = '#4E4E4E';
     toast.style.padding = '14px 28px';
     toast.style.borderRadius = '8px';
     toast.style.fontSize = '16px';
+    toast.style.fontWeight = '600';
     toast.style.boxShadow = '0 2px 16px rgba(0,0,0,0.15)';
     toast.style.opacity = '0';
     toast.style.pointerEvents = 'none';
@@ -277,7 +278,7 @@ function setupWishlistButtons(context=document) {
     btn.classList.remove('wishlisted');
     const svg = btn.querySelector('svg path');
     if(svg) svg.setAttribute('fill', 'transparent');
-    showToast('Removed from wishlist!');
+    showToast(`Removed from wishlist!`);
   } else {
     addToWishlist(productId);
     btn.classList.add('wishlisted');
@@ -1461,3 +1462,59 @@ function formatReviewDate(dateStr) {
   const year = date.getFullYear();
   return `${day} ${month} ${year}`;
 }
+
+
+// function attachCustomTooltips(context = document) {
+//   context.querySelectorAll('.product-card .actions button').forEach(btn => {
+//     // Remove any existing tooltip
+//     let tooltip = btn._customTooltip;
+//     if (tooltip) tooltip.remove();
+
+//     // Set tooltip text based on button type
+//     let text = '';
+//     if (btn.classList.contains('add-to-cart')) text = 'Add to Cart';
+//     else if (btn.classList.contains('add-to-wishlist')) text = btn.classList.contains('wishlisted') ? 'Remove from Wishlist' : 'Add to Wishlist';
+//     else if (btn.classList.contains('view-product')) text = 'View Product';
+//     if (!text) return;
+
+//     // Create tooltip element
+//     tooltip = document.createElement('span');
+//     tooltip.className = 'custom-tooltip';
+//     tooltip.textContent = text;
+//     tooltip.style.position = 'absolute';
+//     tooltip.style.left = '50%';
+//     tooltip.style.bottom = '110%';
+//     tooltip.style.transform = 'translateX(-50%)';
+//     tooltip.style.background = '#222';
+//     tooltip.style.color = '#fff';
+//     tooltip.style.padding = '5px 12px';
+//     tooltip.style.borderRadius = '5px';
+//     tooltip.style.fontSize = '13px';
+//     tooltip.style.whiteSpace = 'nowrap';
+//     tooltip.style.opacity = '0';
+//     tooltip.style.pointerEvents = 'none';
+//     tooltip.style.transition = 'opacity 0.2s';
+//     tooltip.style.zIndex = '1000';
+
+//     btn.style.position = 'relative';
+//     btn.appendChild(tooltip);
+//     btn._customTooltip = tooltip;
+
+//     btn.addEventListener('mouseenter', () => {
+//       tooltip.style.opacity = '1';
+//     });
+//     btn.addEventListener('mouseleave', () => {
+//       tooltip.style.opacity = '0';
+//     });
+//     btn.addEventListener('focus', () => {
+//       tooltip.style.opacity = '1';
+//     });
+//     btn.addEventListener('blur', () => {
+//       tooltip.style.opacity = '0';
+//     });
+//   });
+// }
+
+// // --- Call this after rendering product cards in showProducts, showProductsPaginated, showWishlistProducts, renderRelatedProducts, etc. ---
+// // For example, after setupWishlistButtons(grid); add:
+// attachCustomTooltips(grid);
