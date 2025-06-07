@@ -575,19 +575,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const disc = parseInt((p.discount || '').replace('%', ''), 10) || 0;
             if (disc < filters.minDiscount) return false;
           }
-          // Jeans subcategory filter
-          if (filters.jeansSubcategories && filters.jeansSubcategories.length && (p.category || '').toLowerCase() === 'jeans') {
-            // Try to match fit, pattern, or title
-            const fit = (p.details && p.details.fit) ? p.details.fit.toLowerCase() : '';
-            const pattern = (p.details && p.details.pattern) ? p.details.pattern.toLowerCase() : '';
-            const title = (p.title || '').toLowerCase();
-            let matched = false;
-            filters.jeansSubcategories.forEach(subcat => {
-              const sub = subcat.toLowerCase();
-              if (fit.includes(sub) || pattern.includes(sub) || title.includes(sub)) matched = true;
-            });
-            if (!matched) return false;
-          }
           return true;
         }); // <-- FIXED: closed parenthesis here
 
@@ -894,10 +881,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // Collect all filter elements to reset
       const checkboxes = Array.from(document.querySelectorAll('.sidebar input[type="checkbox"]'));
       const selects = Array.from(document.querySelectorAll('.sidebar select'));
-      const jeansSubcats = Array.from(document.querySelectorAll('#jeans-subcategory-filter input[type="checkbox"]'));
       // Reset checkboxes
       checkboxes.forEach(cb => cb.checked = false);
-      jeansSubcats.forEach(cb => cb.checked = false);
       // Reset selects
       selects.forEach(sel => sel.selectedIndex = 0);
       // Reset price range and its display
@@ -910,7 +895,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Optionally reset any custom filter UI (e.g., custom classes, chips, etc.)
       document.querySelectorAll('.sidebar .active').forEach(el => el.classList.remove('active'));
       // Now dispatch 'change' event for all filters together (after all reset)
-      [...checkboxes, ...jeansSubcats, ...selects].forEach(el => {
+      [...checkboxes, ...selects].forEach(el => {
         el.dispatchEvent(new Event('change', { bubbles: true }));
       });
       if (priceRange) priceRange.dispatchEvent(new Event('change', { bubbles: true }));
@@ -921,7 +906,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// --- Add support for Jeans subcategory filter in getSelectedFilters ---
+// --- Remove support for Jeans subcategory filter in getSelectedFilters ---
 function getSelectedFilters() {
   // Category
   const catChecks = document.querySelectorAll('.filter-section:nth-child(1) input[type="checkbox"]:checked');
@@ -929,9 +914,6 @@ function getSelectedFilters() {
   // Sizes
   const sizeChecks = document.querySelectorAll('.filter-section:nth-child(2) input[type="checkbox"]:checked');
   const sizes = Array.from(sizeChecks).map(cb => cb.parentElement.textContent.trim());
-  // Jeans subcategory
-  const jeansSubcatChecks = document.querySelectorAll('#jeans-subcategory-filter input[type="checkbox"]:checked');
-  const jeansSubcategories = Array.from(jeansSubcatChecks).map(cb => cb.value);
   // Price
   const priceRange = document.getElementById('price-range');
   const minPrice = priceRange ? parseInt(priceRange.value) : 100;
@@ -944,43 +926,28 @@ function getSelectedFilters() {
     const val = parseInt(cb.getAttribute('data-discount'), 10);
     if (!isNaN(val)) minDiscount = Math.max(minDiscount, val);
   });
-  return { categories, sizes, jeansSubcategories, minPrice, maxPrice, minDiscount };
+  return { categories, sizes, minPrice, maxPrice, minDiscount };
 }
 
-// --- Update filtering logic to support jeans subcategory ---
-function renderAll() {
-  const filters = getSelectedFilters();
-  const sortKey = getSelectedSortValue('sort-by');
-  // Use the global renderShopAllProducts for consistent product card logic
-  if (window.renderShopAllProducts) {
-    window.renderShopAllProducts({
-      selector: '#shop-all-product-grid',
-      filters,
-      sortFn: (a, b) => {
-        const sorted = sortProducts([a, b], sortKey);
-        if (sorted[0] === a) return -1;
-        if (sorted[0] === b) return 1;
-        return 0;
-      },
-      page: currentPage,
-      perPage: PRODUCTS_PER_PAGE,
-      onRendered: ({ total }) => {
-        renderPagination(total, currentPage);
-        renderResultsText(total, currentPage);
-      }
+// --- Remove jeans subcategory filtering logic from renderProducts ---
+/* In the renderProducts/filter logic, remove this block:
+  // Jeans subcategory filter
+  if (filters.jeansSubcategories && filters.jeansSubcategories.length && (p.category || '').toLowerCase() === 'jeans') {
+    // Try to match fit, pattern, or title
+    const fit = (p.details && p.details.fit) ? p.details.fit.toLowerCase() : '';
+    const pattern = (p.details && p.details.pattern) ? p.details.pattern.toLowerCase() : '';
+    const title = (p.title || '').toLowerCase();
+    let matched = false;
+    filters.jeansSubcategories.forEach(subcat => {
+      const sub = subcat.toLowerCase();
+      if (fit.includes(sub) || pattern.includes(sub) || title.includes(sub)) matched = true;
     });
+    if (!matched) return false;
   }
-  // Listen for sort select changes
-  const sortSelect = document.querySelector('select[name="sort-by"]');
-  if (sortSelect) {
-    sortSelect.addEventListener('change', () => {
-      currentPage = 1;
-      renderAll();
-    });
-  }
-}
+*/
 
-// --- Add event listeners for jeans subcategory checkboxes ---
+// --- Remove event listeners for jeans subcategory checkboxes ---
+/* Remove this block:
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('#jeans-subcategory-filter input[type="checkbox"]').forEach(cb => {
     cb.addEventListener('change', function() {
@@ -988,48 +955,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+*/
 
-// Fix: Prevent double product grid update when clicking clear-all-filters-btn
-document.addEventListener('DOMContentLoaded', function() {
-  // Listen for filter checkbox changes to update products immediately
-  document.querySelectorAll('.sidebar .filter-checkbox').forEach(cb => {
-    cb.addEventListener('change', function() {
-      if (typeof updateProducts === 'function') updateProducts();
-      else if (typeof renderAll === 'function') renderAll();
-    });
+// --- Remove jeans subcategory reset logic from clear-all-filters-btn ---
+/* Remove these lines from all clear-all-filters-btn click handlers:
+  // Uncheck all jeans subcategory checkboxes
+  document.querySelectorAll('#jeans-subcategory-filter input[type="checkbox"]').forEach(cb => {
+    cb.checked = false;
   });
-
-  // Ensure #clear-all-filters-btn resets all filter checkboxes, price range, sort, and updates products
-  const clearAllBtn = document.getElementById('clear-all-filters-btn');
-  if (clearAllBtn) {
-    clearAllBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      // Uncheck all checkboxes in sidebar (including those not visible)
-      document.querySelectorAll('.sidebar input[type="checkbox"]').forEach(cb => {
-        cb.checked = false;
-      });
-      // Reset price range and its display
-      const priceRange = document.getElementById('price-range');
-      const priceText = document.getElementById('price-range-text');
-      if (priceRange) {
-        priceRange.value = 100;
-        if (priceText) priceText.textContent = `₹100 - ₹5000`;
-      }
-      // Reset all <select> in sidebar (sort, etc.)
-      document.querySelectorAll('.sidebar select').forEach(sel => {
-        sel.selectedIndex = 0;
-      });
-      // Uncheck all jeans subcategory checkboxes
-      document.querySelectorAll('#jeans-subcategory-filter input[type="checkbox"]').forEach(cb => {
-        cb.checked = false;
-      });
-      // Optionally reset any custom filter UI (e.g., custom classes, chips, etc.)
-      document.querySelectorAll('.sidebar .active').forEach(el => el.classList.remove('active'));
-      // Reset currentPage and update products (call renderAll only once)
-      currentPage = 1;
-      renderAll();
-    });
-  }
-});
+*/
 
 
