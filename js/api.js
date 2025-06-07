@@ -218,8 +218,9 @@ function showToast(message, duration = 2000) {
     toast = document.createElement('div');
     toast.id = 'global-toast';
     toast.style.position = 'fixed';
-    toast.style.top = '32px';
-    toast.style.right = '32px';
+    toast.style.left = '50%';
+    toast.style.bottom = '40px';
+    toast.style.transform = 'translateX(-50%)';
     toast.style.zIndex = '9999';
     toast.style.background = '#222';
     toast.style.color = '#fff';
@@ -270,31 +271,33 @@ function setupWishlistButtons(context=document) {
       if(svg) svg.setAttribute('fill', 'transparent');
     }
     btn.onclick = function(e) {
-      e.stopPropagation();
-      if (isInWishlist(productId)) {
-        removeFromWishlist(productId);
-        btn.classList.remove('wishlisted');
-        const svg = btn.querySelector('svg path');
-        if(svg) svg.setAttribute('fill', 'transparent');
-      } else {
-        addToWishlist(productId);
-        btn.classList.add('wishlisted');
-        const svg = btn.querySelector('svg path');
-        if(svg) svg.setAttribute('fill', '#e74c3c');
-      }
-      // Update all other wishlist buttons for this productId everywhere on the page
-      document.querySelectorAll('.product-card[data-product-id="' + productId + '"] .add-to-wishlist').forEach(otherBtn => {
-        if (isInWishlist(productId)) {
-          otherBtn.classList.add('wishlisted');
-          const svg = otherBtn.querySelector('svg path');
-          if(svg) svg.setAttribute('fill', '#e74c3c');
-        } else {
-          otherBtn.classList.remove('wishlisted');
-          const svg = otherBtn.querySelector('svg path');
-          if(svg) svg.setAttribute('fill', 'transparent');
-        }
-      });
-    };
+  e.stopPropagation();
+  if (isInWishlist(productId)) {
+    removeFromWishlist(productId);
+    btn.classList.remove('wishlisted');
+    const svg = btn.querySelector('svg path');
+    if(svg) svg.setAttribute('fill', 'transparent');
+    showToast('Removed from wishlist!');
+  } else {
+    addToWishlist(productId);
+    btn.classList.add('wishlisted');
+    const svg = btn.querySelector('svg path');
+    if(svg) svg.setAttribute('fill', '#e74c3c');
+    showToast('Added to wishlist!');
+  }
+  // Update all other wishlist buttons for this productId everywhere on the page
+  document.querySelectorAll('.product-card[data-product-id="' + productId + '"] .add-to-wishlist').forEach(otherBtn => {
+    if (isInWishlist(productId)) {
+      otherBtn.classList.add('wishlisted');
+      const svg = otherBtn.querySelector('svg path');
+      if(svg) svg.setAttribute('fill', '#e74c3c');
+    } else {
+      otherBtn.classList.remove('wishlisted');
+      const svg = otherBtn.querySelector('svg path');
+      if(svg) svg.setAttribute('fill', 'transparent');
+    }
+  });
+};  
   });
 }
 

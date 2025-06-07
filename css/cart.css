@@ -86,7 +86,9 @@ input[type=number]::-webkit-inner-spin-button {
 
 /* For Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }
 
 section::after, section::before {
@@ -1061,9 +1063,14 @@ footer .logo div span {
   display: flex;
   gap: 1.1111111111rem;
 }
+@media (max-width: 600px) {
+  .info-strip {
+    flex-direction: column;
+  }
+}
 .info-strip .info-box {
   flex: 1;
-  border-radius: 6px;
+  border-radius: 0.1666666667rem;
   padding: 1.1111111111rem;
   font-size: 0.7222222222rem;
   text-align: center;
@@ -1539,21 +1546,23 @@ footer .logo div span {
     -webkit-user-select: none;
        -moz-user-select: none;
             user-select: none;
-    width: 1.1111111111rem;
-    height: 1rem;
+    width: 1.6666666667rem;
+    height: 1.5555555556rem;
     position: relative;
     gap: 6px;
   }
   .hamburger-menu span {
     display: block;
-    height: 1px;
+    height: 0.0555555556rem;
     background: #4E4E4E;
     transition: 0.1s ease-in-out;
   }
   .hamburger-menu span:nth-child(2) {
-    margin: 0.3333333333rem 0;
+    margin: 0.4444444444rem 0;
+    height: 0.1111111111rem;
   }
   .hamburger-menu.active {
+    top: 0.2222222222rem;
     display: flex;
   }
   .hamburger-menu.active span:nth-child(1) {
@@ -1590,7 +1599,7 @@ footer .logo div span {
   }
   .main-header .nav-links {
     position: absolute;
-    top: 6.9444444444rem;
+    top: 8.2222222222rem;
     justify-content: flex-start;
     flex-direction: column;
     box-shadow: 0 0.2777777778rem 1.1111111111rem rgba(0, 0, 0, 0.1);
@@ -1607,9 +1616,15 @@ footer .logo div span {
     min-height: calc(100vh - 4.4444444444rem);
     padding: 1.1111111111rem;
   }
-  .main-header .nav-links li a {
+  .main-header .nav-links > li {
     background-color: #D1EAF5;
     border-radius: 0.1666666667rem;
+  }
+  .main-header .nav-links .products-menu {
+    width: 100%;
+  }
+  .main-header .nav-links .products-menu > a {
+    display: inline-flex;
   }
   .main-header .nav-links .products-menu .mega-menu {
     grid-template-columns: repeat(1, 1fr);

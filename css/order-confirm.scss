@@ -121,7 +121,10 @@
         font-weight: 600;
         padding: px-to-rem(5) px-to-rem(10);
         & ~ span{
-          text-align: right;
+          text-align: center;
+          @media (max-width: 540px){
+            text-align: right;
+          }
           padding: px-to-rem(0) px-to-rem(10);
         }
         &  > span {
@@ -175,13 +178,13 @@
         margin-bottom: px-to-rem(12);
       }
     }
-    .info-strip {
-      flex-direction: column;
-      gap: px-to-rem(12);
-      .info-box {
-        font-size: px-to-rem(13);
-      }
-    }
+    // .info-strip {
+    //   flex-direction: column;
+    //   gap: px-to-rem(12);
+    //   .info-box {
+    //     font-size: px-to-rem(13);
+    //   }
+    // }
   }
 }
 

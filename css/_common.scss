@@ -84,7 +84,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* For Firefox */
 input[type="number"] {
-  -moz-appearance: textfield;
+ appearance : textfield;
 }
 
 section::after, section::before {
@@ -1113,10 +1113,12 @@ footer{
 .info-strip {
     display: flex;
     gap: px-to-rem(20);
-    
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
     .info-box {
       flex: 1;
-      border-radius: 6px;
+      border-radius: px-to-rem(3);
       padding: px-to-rem(20);
       font-size: px-to-rem(13);
       text-align: center;

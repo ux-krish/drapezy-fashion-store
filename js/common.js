@@ -1300,7 +1300,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const NAV_MENU = [
   {
     logo: {
-      text: `Drape<span style="color:#81B6CE">zy</span><div>FASHION</div>`,
+      text: `Drape<span style="color:#81B6CE">zy</span><div>FASHI<span>ON</span></div>`,
       href: "index.html"
     }
   },
