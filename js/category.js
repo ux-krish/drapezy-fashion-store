@@ -298,12 +298,12 @@ document.addEventListener('DOMContentLoaded', function () {
       gsap.from(banner, {
         opacity: 0,
         scale: 0.5,
-        y: 60,
+        y: -60,
         duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: banner,
-          start: 'top 80%',
+          end: 'bottom 80%',
           toggleActions: 'play none none reverse'
         }
       });
@@ -370,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Animate: Product Listing Section
-    //const productListing = document.querySelector('.product-listing');
+    const productListing = document.querySelector('.product-listing');
 
       // gsap.from(productListing, {
       //   opacity: 0,
@@ -524,20 +524,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //   });
     // }
 
-    // Animate: Newsletter Section
-    const newsletter = document.querySelector('.newsletter');
-    if (newsletter) {
-      gsap.from(newsletter, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: newsletter,
-          start: 'top 90%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    }
+ 
 
     // Animate: Footer Info Boxes
     const infoBoxes = document.querySelectorAll('.footer-top .info-box');

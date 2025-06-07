@@ -194,13 +194,12 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .from(".promo-banner .promo-content > *", {
       opacity: 0,
-      y: 40,
-      duration: 1,
-      stagger: 0.15,
+      y: 60,
+      duration: 2,
       ease: "power2.out"
     }, "<+0.2")
     .from(".promo-banner .promo-image", {
-      x: 200,
+      x: 90,
       duration: 2,
       ease: "power3.out"
     }, "<+0.1");

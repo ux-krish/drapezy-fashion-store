@@ -942,13 +942,39 @@ function renderCartSummaryTableRows(tbodySelector = '#cart-tbody', totalSelector
       }
 
       // Quantity selector
-      const qtyDiv = tr.querySelector('.quantity-selector');
-      if (qtyDiv && window.renderCartQuantitySelector) {
-        window.renderCartQuantitySelector(qtyDiv, item, function(updatedItem) {
-          renderCartSummaryTableRows(tbodySelector, totalSelector);
-          updateCartCount(); // <-- update header cart count instantly on quantity change
-        });
+     const qtyDiv = tr.querySelector('.quantity-selector');
+if (qtyDiv && window.renderCartQuantitySelector) {
+  window.renderCartQuantitySelector(qtyDiv, item, function(updatedItem) {
+    let cartArr = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+    const cartIdx = cartArr.findIndex(ci => ci.id === item.id && ci.size === item.size);
+    if (cartIdx !== -1) {
+      if (updatedItem.qty <= 0) {
+        // Remove the product from cart and DOM instantly
+        cartArr.splice(cartIdx, 1);
+        localStorage.setItem('cartProducts', JSON.stringify(cartArr));
+        tr.remove();
+      } else {
+        // Update quantity in localStorage
+        cartArr[cartIdx].qty = updatedItem.qty;
+        localStorage.setItem('cartProducts', JSON.stringify(cartArr));
+        // Update only the subtotal cell in this row
+        const offerPrice = item.price;
+        const subtotalCell = tr.querySelector('.subtotal');
+        if (subtotalCell) {
+          subtotalCell.textContent = `₹${(offerPrice * updatedItem.qty).toLocaleString()}`;
+        }
       }
+    }
+    // Update cart count in header
+    updateCartCount();
+    // Optionally, update totals summary (not the whole table)
+    updateCartTotalsCustom(
+      cartArr.reduce((sum, i) => sum + (i.original_price || i.price) * i.qty, 0),
+      cartArr.reduce((sum, i) => sum + ((i.original_price || i.price) - i.price) * i.qty, 0),
+      5 // or your platform fee logic
+    );
+  });
+}
 
       // Remove button
       const removeBtn = tr.querySelector('.remove-btn');
@@ -958,7 +984,6 @@ function renderCartSummaryTableRows(tbodySelector = '#cart-tbody', totalSelector
           cartArr = cartArr.filter(ci => !(ci.id === item.id && ci.size === item.size));
           localStorage.setItem('cartProducts', JSON.stringify(cartArr));
           tr.remove();
-          renderCartSummaryTableRows(tbodySelector, totalSelector);
           updateCartCount(); // <-- update header cart count instantly
         };
       }

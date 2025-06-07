@@ -447,9 +447,10 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   // Animate product grids (products-grid and deals-products)
   gsap.utils.toArray('.products-grid, .deals-products').forEach(grid => {
     gsap.from(grid, {
-      opacity: 0,
-      x: 200,
-      duration: 1,
+      
+      x: -200,
+      duration: 2,
+      stagger: 1,
       ease: "power3.out",
       scrollTrigger: {
         trigger: grid,

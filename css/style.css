@@ -1990,6 +1990,10 @@ footer .logo div span {
 }
 .promo-banner article.promo-content {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
 }
 .promo-banner article.promo-content h1 {

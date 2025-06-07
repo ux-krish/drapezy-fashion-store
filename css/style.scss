@@ -355,6 +355,8 @@
 
   article.promo-content {
     text-align: center;
+    @include flex-center;
+    flex-direction: column;
     width: 100%;
     h1 {
       font-size: px-to-max(42);

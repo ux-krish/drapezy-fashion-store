@@ -1532,18 +1532,20 @@
     },
     {
       "id": "winter-001",
-      "title": "Men Hooded Puffer Jacket",
+      "title": "Monte Carlo",
       "category": "Winter Collection",
       "gender": "Men",
-      "image": "images/products/winter-men-1.jpg",
+      "image": "images/products/MonteCarlo-1.jpg",
       "thumbs": [
-        "images/products/winter-men-1.jpg",
-        "images/products/winter-men-2.jpg",
-        "images/products/winter-men-3.jpg"
+        "images/products/MonteCarlo-1.jpg",
+        "images/products/MonteCarlo-2.jpg",
+        "images/products/MonteCarlo-3.jpg",
+        "images/products/MonteCarlo-4.jpg",
+        "images/products/MonteCarlo-5.jpg"
       ],
-      "price": 2199,
-      "original_price": 4999,
-      "discount": "56%",
+      "price": 4056,
+      "original_price": 5795,
+      "discount": "30%",
       "rating": 4.5,
       "ratings_count": 34,
       "sizes": ["M", "L", "XL", "XXL"],
@@ -1576,26 +1578,28 @@
       "size_fit": {
         "available_sizes": "M, L, XL, XXL",
         "fit_type": "Regular Fit",
-        "model_info": "Model (height 6') is wearing size L",
+        "model_info": "Model (height 6') is wearing size M",
         "tip": "For a looser fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Men's solid puffer jacket with hood, zip closure, and two pockets. Ideal for cold weather."
+      "description": "Men Hooded Checked Casual Lightweight Puffer Jacket"
     },
     {
       "id": "winter-002",
-      "title": "Women Faux Fur Longline Coat",
+      "title": "Kazo",
       "category": "Winter Collection",
       "gender": "Women",
-      "image": "images/products/winter-women-1.jpg",
+      "image": "images/products/kazo-1.jpg",
       "thumbs": [
-        "images/products/winter-women-1.jpg",
-        "images/products/winter-women-2.jpg",
-        "images/products/winter-women-3.jpg"
+        "images/products/kazo-1.jpg",
+        "images/products/kazo-2.jpg",
+        "images/products/kazo-3.jpg",
+        "images/products/kazo-4.jpg",
+        "images/products/kazo-5.jpg"
       ],
-      "price": 2899,
-      "original_price": 5999,
-      "discount": "52%",
+      "price": 5596,
+      "original_price": 13990,
+      "discount": "60%",
       "rating": 4.7,
       "ratings_count": 28,
       "sizes": ["S", "M", "L", "XL"],
@@ -1610,12 +1614,12 @@
       ],
       "details": {
         "fabric": "Faux Fur",
-        "fit": "Regular",
-        "neck": "Collar",
+        "fit": "Slim",
+        "neck": "Shawl Collar",
         "pattern": "Solid",
         "length": "Longline",
         "occasion": "Winter",
-        "wash_care": "Dry Clean Only",
+        "wash_care": "Machine Wash",
         "country_of_origin": "India"
       },
       "delivery_return": {
@@ -1627,30 +1631,32 @@
       },
       "size_fit": {
         "available_sizes": "S, M, L, XL",
-        "fit_type": "Regular Fit",
+        "fit_type": "Slim Fit",
         "model_info": "Model (height 5'7\") is wearing size M",
         "tip": "For a more relaxed fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Women's longline faux fur coat with button closure and side pockets. Perfect for winter outings."
+      "description": "Beige solid single-breasted overcoat, has shawl collar, long sleeves, button closure, a straight hem"
     },
     {
       "id": "winter-003",
-      "title": "Men Quilted Bomber Jacket",
+      "title": "Monte Carlo",
       "category": "Winter Collection",
       "gender": "Men",
-      "image": "images/products/winter-men-2.jpg",
+      "image": "images/products/monteCarlo2-1.jpg",
       "thumbs": [
-        "images/products/winter-men-2.jpg",
-        "images/products/winter-men-2.jpg",
-        "images/products/winter-men-3.jpg"
+        "images/products/monteCarlo2-1.jpg",
+        "images/products/monteCarlo2-2.jpg",
+        "images/products/monteCarlo2-3.jpg",
+        "images/products/monteCarlo2-4.jpg",
+        "images/products/monteCarlo2-5.jpg"
       ],
-      "price": 1799,
-      "original_price": 3999,
-      "discount": "55%",
+      "price": 4861,
+      "original_price": 6945,
+      "discount": "30%",
       "rating": 4.4,
       "ratings_count": 21,
-      "sizes": ["M", "L", "XL"],
+      "sizes": ["M", "L", "XL", "XXL", "3XL"],
       "reviews": [
         {
           "rating": 4,
@@ -1663,7 +1669,7 @@
       "details": {
         "fabric": "Polyester",
         "fit": "Regular",
-        "neck": "Stand Collar",
+        "neck": "Mock Collar",
         "pattern": "Solid",
         "length": "Waist",
         "occasion": "Winter",
@@ -1680,28 +1686,31 @@
       "size_fit": {
         "available_sizes": "M, L, XL",
         "fit_type": "Regular Fit",
-        "model_info": "Model (height 6') is wearing size L",
+        "model_info": "Model (height 6') is wearing size M",
         "tip": "For a looser fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Men's quilted bomber jacket with zip closure and ribbed cuffs. Lightweight and warm."
+      "description": "Black solid lightweight bomber jacket, has a mock collar, 2 pockets ,has a zip closure, long sleeves, straight hemline, polyester lining"
     },
     {
       "id": "winter-004",
-      "title": "Men Fleece Lined Hoodie",
+      "title": "Men Blue Solid Hooded Sporty Jacket",
       "category": "Winter Collection",
       "gender": "Men",
-      "image": "images/products/winter-men-3.jpg",
+      "image": "images/products/off-limit-1.jpg",
       "thumbs": [
-        "images/products/winter-men-3.jpg",
-        "images/products/winter-men-1.jpg"
+        "images/products/off-limit-1.jpg",
+        "images/products/off-limit-2.jpg",
+        "images/products/off-limit-3.jpg",
+        "images/products/off-limit-4.jpg",
+        "images/products/off-limit-5.jpg"
       ],
-      "price": 1299,
-      "original_price": 2999,
-      "discount": "57%",
+      "price": 741,
+      "original_price": 1399,
+      "discount": "47%",
       "rating": 4.3,
       "ratings_count": 19,
-      "sizes": ["M", "L", "XL", "XXL"],
+      "sizes": ["M", "L", "XL"],
       "reviews": [
         {
           "rating": 5,
@@ -1712,7 +1721,7 @@
         }
       ],
       "details": {
-        "fabric": "Fleece",
+        "fabric": "Unlined",
         "fit": "Regular",
         "neck": "Hooded",
         "pattern": "Solid",
@@ -1735,21 +1744,24 @@
         "tip": "For a relaxed fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Men's fleece lined hoodie with kangaroo pocket and drawstring hood. Perfect for winter layering."
+      "description": "Blue solid jacket, has a hood, 3 pockets, zip closure, long sleeves, straight hem, and unlined lining"
     },
     {
       "id": "winter-003-women",
-      "title": "Women Padded Parka Jacket",
+      "title": "Padded Parka Jacket",
       "category": "Winter Collection",
       "gender": "Women",
-      "image": "images/products/winter-women-2.jpg",
+      "image": "images/products/Duke-1.jpg",
       "thumbs": [
-        "images/products/winter-women-2.jpg",
-        "images/products/winter-women-3.jpg"
+        "images/products/Duke-1.jpg",
+        "images/products/Duke-2.jpg",
+        "images/products/Duke-3.jpg",
+        "images/products/Duke-4.jpg",
+        "images/products/Duke-5.jpg"
       ],
-      "price": 2199,
-      "original_price": 4499,
-      "discount": "51%",
+      "price": 1598,
+      "original_price": 3995,
+      "discount": "60%",
       "rating": 4.5,
       "ratings_count": 16,
       "sizes": ["S", "M", "L", "XL"],
@@ -1763,7 +1775,7 @@
         }
       ],
       "details": {
-        "fabric": "Polyester",
+        "fabric": "Faux Fur",
         "fit": "Regular",
         "neck": "Hooded",
         "pattern": "Solid",
@@ -1786,20 +1798,23 @@
         "tip": "For a more relaxed fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Women's padded parka jacket with hood and zip closure. Water-resistant and insulated."
+      "description": "Pink solid parka jacket, has a hood, 2 pockets ,has a snap button closure, long sleeves, straight hemline, faux fur lining"
     },
     {
       "id": "winter-004-women",
-      "title": "Women Cable Knit Sweater",
+      "title": "Women Magenta Cable Knit Acrylic Pullover",
       "category": "Winter Collection",
       "gender": "Women",
-      "image": "images/products/winter-women-3.jpg",
+      "image": "images/products/Roadster-women-1.jpg",
       "thumbs": [
-        "images/products/winter-women-3.jpg",
-        "images/products/winter-women-1.jpg"
+        "images/products/Roadster-women-1.jpg",
+        "images/products/Roadster-women-2.jpg",
+        "images/products/Roadster-women-3.jpg",
+        "images/products/Roadster-women-4.jpg",
+        "images/products/Roadster-women-5.jpg"
       ],
-      "price": 899,
-      "original_price": 1999,
+      "price": 854,
+      "original_price": 1899,
       "discount": "55%",
       "rating": 4.4,
       "ratings_count": 13,
@@ -1816,8 +1831,8 @@
       "details": {
         "fabric": "Acrylic Blend",
         "fit": "Regular",
-        "neck": "Round",
-        "pattern": "Cable Knit",
+        "neck": "Turtle Neck",
+        "pattern": "Ribbed",
         "length": "Waist",
         "occasion": "Winter",
         "wash_care": "Hand Wash",
@@ -1837,7 +1852,7 @@
         "tip": "For a relaxed fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Women's cable knit sweater, round neck, long sleeves. Soft and warm for winter."
+      "description": "Magenta self design pullover ,has a turtle neck, long sleeves, ribbed hem"
     },
     {
       "id": "summer-001",
@@ -1887,19 +1902,21 @@
     },
     {
       "id": "summer-002",
-      "title": "Men Linen Blend Short Sleeve Shirt",
+      "title": "Men Slim Fit Printed Casual Shirt",
       "category": "Summer Collection",
       "gender": "Men",
-      "image": "images/products/summer-men-1.jpg",
+      "image": "images/products/HERE&NOW-1.jpg",
       "thumbs": [
-        "images/products/summer-men-1.jpg",
-        "images/products/summer-men-2.jpg",
-        "images/products/summer-men-3.jpg"
+        "images/products/HERE&NOW-1.jpg",
+        "images/products/HERE&NOW-2.jpg",
+        "images/products/HERE&NOW-3.jpg",
+        "images/products/HERE&NOW-4.jpg",
+        "images/products/HERE&NOW-5.jpg"
       ],
-      "price": 799,
-      "original_price": 1999,
-      "discount": "60%",
-      "rating": 4.4,
+      "price": 664,
+      "original_price": 1899,
+      "discount": "65%",
+      "rating": 4.2,
       "ratings_count": 22,
       "sizes": ["M", "L", "XL"],
       "reviews": [
@@ -1913,10 +1930,10 @@
       ],
       "details": {
         "fabric": "Linen Blend",
-        "fit": "Regular",
+        "fit": "Slim",
         "neck": "Spread Collar",
         "pattern": "Solid",
-        "length": "Waist",
+        "length": "Regular",
         "occasion": "Summer",
         "wash_care": "Machine Wash",
         "country_of_origin": "India"
@@ -1930,30 +1947,32 @@
       },
       "size_fit": {
         "available_sizes": "M, L, XL",
-        "fit_type": "Regular Fit",
-        "model_info": "Model (height 6') is wearing size L",
+        "fit_type": "Slim Fit",
+        "model_info": "The model (height 6') is wearing a size XL",
         "tip": "For a looser fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Men's linen blend short sleeve shirt, lightweight and breathable, ideal for summer outings."
+      "description": "abstract printed opaque Casual shirt ,has a spread collar, button placket, short regular sleeves, curved hem"
     },
     {
       "id": "summer-003",
-      "title": "Women Floral Print Tiered Maxi Dress",
+      "title": "Printed Puff Sleeve Shirt Style Top",
       "category": "Summer Collection",
       "gender": "Women",
-      "image": "images/products/summer-women-2.jpg",
+      "image": "images/products/summer-women3-1.jpg",
       "thumbs": [
-        "images/products/summer-women-2.jpg",
-        "images/products/summer-women-3.jpg",
-        "images/products/summer-women-4.jpg"
+        "images/products/summer-women3-1.jpg",
+        "images/products/summer-women3-2.jpg",
+        "images/products/summer-women3-3.jpg",
+        "images/products/summer-women3-4.jpg",
+        "images/products/summer-women3-5.jpg"
       ],
-      "price": 1249,
-      "original_price": 3499,
-      "discount": "64%",
-      "rating": 4.6,
+      "price": 494,
+      "original_price": 1099,
+      "discount": "55%",
+      "rating": 4.8,
       "ratings_count": 31,
-      "sizes": ["S", "M", "L", "XL"],
+      "sizes": ["XS", "S", "M"],
       "reviews": [
         {
           "rating": 5,
@@ -1987,21 +2006,23 @@
         "tip": "For a more relaxed fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Women's floral print tiered maxi dress, sleeveless, with a V-neck and flared hem. Perfect for summer parties."
+      "description": "Add a burst of floral flair to your wardrobe with the Petal Pop Printed Puff Sleeve Shirt Style Top. Its playful puff sleeves and vibrant print will have you feeling effortlessly chic all season long!"
     },
     {
       "id": "summer-004",
-      "title": "Men Cotton Slim Fit Shorts",
+      "title": "SUN 'N' SUMMER",
       "category": "Summer Collection",
       "gender": "Men",
-      "image": "images/products/summer-men-2.jpg",
+      "image": "images/products/sun-n-summer-1.jpg",
       "thumbs": [
-        "images/products/summer-men-2.jpg",
-        "images/products/summer-men-3.jpg"
+        "images/products/sun-n-summer-1.jpg",
+        "images/products/sun-n-summer-2.jpg",
+        "images/products/sun-n-summer-3.jpg",
+        "images/products/sun-n-summer-4.jpg"
       ],
-      "price": 599,
-      "original_price": 1499,
-      "discount": "60%",
+      "price": 567,
+      "original_price": 799,
+      "discount": "29%",
       "rating": 4.2,
       "ratings_count": 18,
       "sizes": ["M", "L", "XL"],
@@ -2016,10 +2037,10 @@
       ],
       "details": {
         "fabric": "Cotton",
-        "fit": "Slim Fit",
-        "neck": "",
+        "fit": "Regular Fit",
+        "neck": "Round Neck",
         "pattern": "Solid",
-        "length": "Above Knee",
+        "length": "Regular",
         "occasion": "Summer",
         "wash_care": "Machine Wash",
         "country_of_origin": "India"
@@ -2033,29 +2054,32 @@
       },
       "size_fit": {
         "available_sizes": "M, L, XL",
-        "fit_type": "Slim Fit",
+        "fit_type": "Regular Fit",
         "model_info": "Model (height 5'11\") is wearing size L",
         "tip": "For a relaxed fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Men's cotton slim fit shorts, above knee length, with side pockets. Perfect for summer adventures."
+      "description": "White Tshirt for men, Typography printed, Regular length, Round neck, Short, regular sleeves, Knitted cotton fabric"
     },
     {
       "id": "summer-005",
-      "title": "Men Cotton Printed Casual Shirt",
+      "title": "Men Navy Blue Pure Cotton Abstract Printed Casual Shirt",
       "category": "Summer Collection",
       "gender": "Men",
-      "image": "images/products/summer-men-3.jpg",
+      "image": "images/products/roadstar-casual-shirt-1.jpg",
       "thumbs": [
-        "images/products/summer-men-3.jpg",
-        "images/products/summer-men-2.jpg"
+        "images/products/roadstar-casual-shirt-1.jpg",
+        "images/products/roadstar-casual-shirt-2.jpg",
+        "images/products/roadstar-casual-shirt-3.jpg",
+        "images/products/roadstar-casual-shirt-4.jpg",
+        "images/products/roadstar-casual-shirt-5.jpg"
       ],
-      "price": 699,
-      "original_price": 1799,
-      "discount": "61%",
+      "price": 539,
+      "original_price": 1499,
+      "discount": "64%",
       "rating": 4.3,
       "ratings_count": 17,
-      "sizes": ["M", "L", "XL"],
+      "sizes": ["38", "40", "42"],
       "reviews": [
         {
           "rating": 4,
@@ -2067,7 +2091,7 @@
       ],
       "details": {
         "fabric": "Cotton",
-        "fit": "Slim Fit",
+        "fit": "Regular Fit",
         "neck": "Spread Collar",
         "pattern": "Printed",
         "length": "Waist",
@@ -2084,26 +2108,29 @@
       },
       "size_fit": {
         "available_sizes": "M, L, XL",
-        "fit_type": "Slim Fit",
+        "fit_type": "Regular Fit",
         "model_info": "Model (height 5'9\") is wearing size M",
         "tip": "For a relaxed fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Men's cotton printed casual shirt, short sleeves, lightweight and breathable."
+      "description": "Navy blue abstract printed opaque Casual shirt ,has a spread collar, button placket, long roll-up sleeves, curved hem"
     },
     {
       "id": "summer-006",
-      "title": "Men Linen Blend Drawstring Shorts",
+      "title": "Men Mid-Rise Cargo Shorts",
       "category": "Summer Collection",
       "gender": "Men",
-      "image": "images/products/summer-men-4.jpg",
+      "image": "images/products/CargoShorts-1.jpg",
       "thumbs": [
-        "images/products/summer-men-4.jpg",
-        "images/products/summer-men-2.jpg"
+        "images/products/CargoShorts-1.jpg",
+        "images/products/CargoShorts-2.jpg",
+        "images/products/CargoShorts-3.jpg",
+        "images/products/CargoShorts-4.jpg",
+        "images/products/CargoShorts-5.jpg"
       ],
-      "price": 549,
-      "original_price": 1499,
-      "discount": "63%",
+      "price": 2399,
+      "original_price": 2999,
+      "discount": "20%",
       "rating": 4.2,
       "ratings_count": 14,
       "sizes": ["M", "L", "XL"],
@@ -2117,7 +2144,7 @@
         }
       ],
       "details": {
-        "fabric": "Linen Blend",
+        "fabric": "51% Linen, 49% Cotton",
         "fit": "Regular",
         "neck": "",
         "pattern": "Solid",
@@ -2140,22 +2167,25 @@
         "tip": "For a relaxed fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Men's linen blend shorts with drawstring waist, above knee length. Ideal for summer."
+      "description": "Grey solid mid-rise regular cargo shorts, has 2 pockets, drawstring closure"
     },
     {
       "id": "summer-005-women",
-      "title": "Women Sleeveless Cotton Sundress",
+      "title": "Floral Print Cotton Linen Empire Top",
       "category": "Summer Collection",
       "gender": "Women",
-      "image": "images/products/summer-women-4.jpg",
+      "image": "images/products/DressBerry-1.jpg",
       "thumbs": [
-        "images/products/summer-women-4.jpg",
-        "images/products/summer-women-2.jpg"
+        "images/products/DressBerry-1.jpg",
+        "images/products/DressBerry-2.jpg",
+        "images/products/DressBerry-3.jpg",
+        "images/products/DressBerry-4.jpg",
+        "images/products/DressBerry-5.jpg"
       ],
-      "price": 899,
-      "original_price": 2299,
-      "discount": "61%",
-      "rating": 4.4,
+      "price": 517,
+      "original_price": 1399,
+      "discount": "63%",
+      "rating": 4.6,
       "ratings_count": 15,
       "sizes": ["S", "M", "L"],
       "reviews": [
@@ -2195,20 +2225,23 @@
     },
     {
       "id": "summer-006-women",
-      "title": "Women Floral Print Ruffle Top",
+      "title": "V-Neck Floral Print Ruffle Top",
       "category": "Summer Collection",
       "gender": "Women",
-      "image": "images/products/summer-women-5.jpg",
+      "image": "images/products/Mayra-1.jpg",
       "thumbs": [
-        "images/products/summer-women-5.jpg",
-        "images/products/summer-women-3.jpg"
+        "images/products/Mayra-1.jpg",
+        "images/products/Mayra-2.jpg",
+        "images/products/Mayra-3.jpg",
+        "images/products/Mayra-4.jpg",
+        "images/products/Mayra-5.jpg"
       ],
-      "price": 499,
-      "original_price": 1299,
-      "discount": "62%",
-      "rating": 4.3,
+      "price": 438,
+      "original_price": 1095,
+      "discount": "60%",
+      "rating": 3.9,
       "ratings_count": 12,
-      "sizes": ["S", "M", "L"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
       "reviews": [
         {
           "rating": 4,
@@ -2242,7 +2275,7 @@
         "tip": "For a relaxed fit, go one size up",
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
-      "description": "Women's floral print ruffle top, V-neck, short sleeves, lightweight for summer."
+      "description": "Pink, white and green regular top, Floral print, V-neck, long, bell sleeves, Ruffles detail, Woven"
     }
   ]
 }

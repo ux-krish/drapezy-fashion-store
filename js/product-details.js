@@ -393,15 +393,15 @@ function showProduct(product) {
           relatedProducts = product.related
             .map(relId => products.find(p => p.id === relId))
             .filter(Boolean)
-            .slice(0, 5); // show 5 products
+            .slice(0, 4); // show 4 products
         }
-        if (relatedProducts.length < 5) {
+        if (relatedProducts.length < 4) {
           // Fill up with same category products (excluding current and already added)
           const alreadyIds = new Set([product.id, ...relatedProducts.map(p => p.id)]);
           const more = products.filter(
             p => p.category === product.category && !alreadyIds.has(p.id)
           );
-          relatedProducts = relatedProducts.concat(more.slice(0, 5 - relatedProducts.length));
+          relatedProducts = relatedProducts.concat(more.slice(0, 4 - relatedProducts.length));
         }
         // Render related products
         relatedGrid.innerHTML = '';
