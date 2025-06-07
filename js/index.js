@@ -74,8 +74,9 @@ document.addEventListener('DOMContentLoaded', function () {
   gsap.timeline({
     scrollTrigger: {
       trigger: ".deal-of-the-day .deal-container",
-      end: "bottom 80%",
-      toggleActions: "play none none reverse"
+      start: "top 80%", // <-- triggers when section enters viewport
+      toggleActions: "play none none reverse",
+      once: true
     }
   })
     .from(".deal-of-the-day .deal-text", {
@@ -97,8 +98,9 @@ document.addEventListener('DOMContentLoaded', function () {
   gsap.timeline({
     scrollTrigger: {
       trigger: ".shop-category",
-      end: "bottom 80%",
-      toggleActions: "play none none reverse"
+      start: "top 80%",
+      toggleActions: "play none none reverse",
+      once: true
     }
   })
     .from(".shop-category .category-card", {
@@ -179,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
   gsap.timeline({
     scrollTrigger: {
       trigger: ".promo-banner",
-      end: "bottom 80%",
+      start: "top 90%",
       toggleActions: "play none none reverse"
     }
   })
@@ -207,9 +209,9 @@ document.addEventListener('DOMContentLoaded', function () {
   gsap.timeline({
     scrollTrigger: {
       trigger: ".promo-section",
-      end: "bottom 80%",
+      start: "top 80%",
       toggleActions: "play none none reverse",
-      scrub: 1
+      once: true
     }
   })
     .from(".promo-section h2", {
@@ -321,4 +323,147 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     Object.assign(window.Swiper, origSwiper);
   })();
+
+  // --- Countdown for each section ---
+  document.querySelectorAll('.countdown').forEach(countdown => {
+    const times = countdown.querySelectorAll('.time');
+    // If 4 .time elements: days/hours/mins/secs (default 7 days)
+    if (times.length === 4) {
+      let d = parseInt(times[0].textContent, 10) || 7;
+      let h = parseInt(times[1].textContent, 10) || 0;
+      let m = parseInt(times[2].textContent, 10) || 0;
+      let s = parseInt(times[3].textContent, 10) || 0;
+      startCountdown(countdown, d, h, m, s);
+    }
+    // If 3 .time elements: hours/mins/secs (default 12 hours)
+    else if (times.length === 3) {
+      let h = parseInt(times[0].textContent, 10) || 12;
+      let m = parseInt(times[1].textContent, 10) || 0;
+      let s = parseInt(times[2].textContent, 10) || 0;
+      startCountdownHours(countdown, h, m, s);
+    }
+  });
+
+  // Countdown utility
+  function startCountdown(container, days, hours, minutes, seconds) {
+    function pad(n) { return n < 10 ? '0' + n : n; }
+    let total = days * 86400 + hours * 3600 + minutes * 60 + seconds;
+    const timeEls = container.querySelectorAll('.time');
+    function update() {
+      let d = Math.floor(total / 86400);
+      let h = Math.floor((total % 86400) / 3600);
+      let m = Math.floor((total % 3600) / 60);
+      let s = total % 60;
+      if (timeEls.length === 4) {
+        timeEls[0].textContent = pad(d);
+        timeEls[1].textContent = pad(h);
+        timeEls[2].textContent = pad(m);
+        timeEls[3].textContent = pad(s);
+      }
+      if (total > 0) {
+        total--;
+        container._timer = setTimeout(update, 1000);
+      } else {
+        showCountdownEnd(container);
+      }
+    }
+    update();
+  }
+
+  // Countdown for hours/mins/secs only
+  function startCountdownHours(container, hours, minutes, seconds) {
+    function pad(n) { return n < 10 ? '0' + n : n; }
+    let total = hours * 3600 + minutes * 60 + seconds;
+    const timeEls = container.querySelectorAll('.time');
+    function update() {
+      let h = Math.floor(total / 3600);
+      let m = Math.floor((total % 3600) / 60);
+      let s = total % 60;
+      if (timeEls.length === 3) {
+        timeEls[0].textContent = pad(h);
+        timeEls[1].textContent = pad(m);
+        timeEls[2].textContent = pad(s);
+      }
+      if (total > 0) {
+        total--;
+        container._timer = setTimeout(update, 1000);
+      } else {
+        showCountdownEnd(container);
+      }
+    }
+    update();
+  }
+
+  // Show "Sales End!" after countdown finishes
+  function showCountdownEnd(container) {
+    container.innerHTML = `<span class="countdown-ended" style="color:#e74c3c;font-weight:bold;font-size:1.2em;">Sales End!</span>`;
+  }
 });
+
+// Countdown for days/hours/mins/secs
+function startCountdown(container, days, hours, minutes, seconds) {
+  function pad(n) { return n < 10 ? '0' + n : n; }
+  let total = days * 86400 + hours * 3600 + minutes * 60 + seconds;
+  const timeEls = container.querySelectorAll('.time');
+  function update() {
+    let d = Math.floor(total / 86400);
+    let h = Math.floor((total % 86400) / 3600);
+    let m = Math.floor((total % 3600) / 60);
+    let s = total % 60;
+    if (timeEls.length === 4) {
+      timeEls[0].textContent = pad(d);
+      timeEls[1].textContent = pad(h);
+      timeEls[2].textContent = pad(m);
+      timeEls[3].textContent = pad(s);
+    }
+    if (total > 0) {
+      total--;
+      container._timer = setTimeout(update, 1000);
+    } else {
+      showCountdownEnd(container);
+    }
+  }
+  update();
+}
+
+// Countdown for hours/mins/secs only
+function startCountdownHours(container, hours, minutes, seconds) {
+  function pad(n) { return n < 10 ? '0' + n : n; }
+  let total = hours * 3600 + minutes * 60 + seconds;
+  const timeEls = container.querySelectorAll('.time');
+  function update() {
+    let h = Math.floor(total / 3600);
+    let m = Math.floor((total % 3600) / 60);
+    let s = total % 60;
+    if (timeEls.length === 3) {
+      timeEls[0].textContent = pad(h);
+      timeEls[1].textContent = pad(m);
+      timeEls[2].textContent = pad(s);
+    }
+    if (total > 0) {
+      total--;
+      container._timer = setTimeout(update, 1000);
+    } else {
+      showCountdownEnd(container);
+    }
+  }
+  update();
+}
+
+// Show "Sales End!" after countdown finishes
+function showCountdownEnd(container) {
+  container.innerHTML = `<span class="countdown-ended" style="color:#e74c3c;font-weight:bold;font-size:1.2em;">Sales End!</span>`;
+}
+
+window.addEventListener('load', function() {
+  if (window.ScrollTrigger) {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200); // Wait a bit for images/fonts to load
+  }
+});
+
+// If using Lenis for smooth scroll:
+if (window.lenis && window.ScrollTrigger) {
+  window.lenis.on('scroll', ScrollTrigger.update);
+}

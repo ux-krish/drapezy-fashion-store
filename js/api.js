@@ -183,6 +183,63 @@ function updateWishlistCount() {
   });
 }
 
+
+/**
+ * Add product to cart. If the same product (id + size) exists, increase quantity instead of duplicating.
+ * If a different size, add as a new entry (so same product with different sizes are separate).
+ * @param {Object} product - The product object to add (must include id, size, qty, etc.)
+ */
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
+  // Only merge if id and size BOTH match, otherwise add as new entry (so different sizes are separate)
+  const existing = cart.find(
+    item => item.id === product.id && item.size === product.size
+  );
+  if (existing) {
+    existing.qty += product.qty || 1;
+  } else {
+    cart.push(product);
+  }
+  localStorage.setItem('cartProducts', JSON.stringify(cart));
+  updateCartCount();
+  showToast('Added to cart!');
+}
+
+
+
+/**
+ * Show a toast message at the top right of the page.
+ * @param {string} message
+ * @param {number} duration - milliseconds to show (default 2000)
+ */
+function showToast(message, duration = 2000) {
+  let toast = document.getElementById('global-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'global-toast';
+    toast.style.position = 'fixed';
+    toast.style.top = '32px';
+    toast.style.right = '32px';
+    toast.style.zIndex = '9999';
+    toast.style.background = '#222';
+    toast.style.color = '#fff';
+    toast.style.padding = '14px 28px';
+    toast.style.borderRadius = '8px';
+    toast.style.fontSize = '16px';
+    toast.style.boxShadow = '0 2px 16px rgba(0,0,0,0.15)';
+    toast.style.opacity = '0';
+    toast.style.pointerEvents = 'none';
+    toast.style.transition = 'opacity 0.3s';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.style.opacity = '1';
+  clearTimeout(window._toastTimeout);
+  window._toastTimeout = setTimeout(() => {
+    toast.style.opacity = '0';
+  }, duration);
+}
+
 /**
  * Update the cart count in the header icon.
  */
@@ -1000,14 +1057,19 @@ function addToCart(product) {
   const existing = cart.find(
     item => item.id === product.id && item.size === product.size
   );
+  let newQty = product.qty || 1;
   if (existing) {
-    existing.qty += product.qty || 1;
+    existing.qty += newQty;
+    localStorage.setItem('cartProducts', JSON.stringify(cart));
+    updateCartCount();
+    showToast(`Added to cart! x ${existing.qty}`);
   } else {
     cart.push(product);
+    localStorage.setItem('cartProducts', JSON.stringify(cart));
+    updateCartCount();
+    showToast('Added to cart!');
   }
-  localStorage.setItem('cartProducts', JSON.stringify(cart));
 }
-
 
 /**
  * Update only the size value in localStorage for the cart item, without updating or rerendering the DOM/UI.
