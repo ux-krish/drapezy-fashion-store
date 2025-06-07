@@ -1437,52 +1437,7 @@
       },
       "description": "Blue solid A-line knee length midi skirt, has an waistband with button closure with belt loops, five pockets and front slit"
     },
-    {
-      "id": "summer-001",
-      "title": "Women Mandarin Collar Puff Sleeves Lace Inserts Solid Fit & Flare Dress",
-      "category": "Summer Collection",
-      "gender": "Women",
-      "image": "images/products/summer-1.jpg",
-      "thumbs": [
-        "images/products/summer-1.jpg",
-        "images/products/summer-2.jpg",
-        "images/products/summer-3.jpg",
-        "images/products/summer-4.jpg",
-        "images/products/summer-5.jpg"
-      ],
-      "price": 937,
-      "original_price": 3749,
-      "discount": "75%",
-      "rating": 4.5,
-      "ratings_count": 28,
-      "sizes": ["S", "M", "L"],
-      "reviews": [],
-      "details": {
-        "fabric": "Cotton",
-        "fit": "Regular",
-        "neck": "",
-        "pattern": "Floral",
-        "length": "Knee Length",
-        "occasion": "Summer",
-        "wash_care": "Dry Clean",
-        "country_of_origin": "India"
-      },
-      "delivery_return": {
-        "delivery": "Delivered within 5–7 business days.",
-        "shipping_charges": "Free on orders above ₹999.",
-        "returns": "Easy 7-day return policy.",
-        "exchange": "Available for size issues and damaged items.",
-        "cod": "Available in most locations."
-      },
-      "size_fit": {
-        "available_sizes": "S, M, L",
-        "fit_type": "True to size – choose your regular size",
-        "model_info": "The model (height 5'8) is wearing a size S",
-        "tip": "For a breezy fit, go one size up",
-        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
-      },
-      "description": "Yellow solid fit & flare dress, Mandarin Collar, Three-Quarter Sleeves, Puff Sleeves, lace inserts knee length in flared hem, Cotton fabric"
-    },
+    
     {
       "id": "newarrivals-men-001",
       "title": "Men Olive Green Slim Fit Printed Cargos",
@@ -1574,6 +1529,720 @@
         "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
       },
       "description": "Pink solid Regular-Fit Front open blazer, has a Shawl collar, long sleeves, Single Vent, curved hem with two Pockets."
+    },
+    {
+      "id": "winter-001",
+      "title": "Men Hooded Puffer Jacket",
+      "category": "Winter Collection",
+      "gender": "Men",
+      "image": "images/products/winter-men-1.jpg",
+      "thumbs": [
+        "images/products/winter-men-1.jpg",
+        "images/products/winter-men-2.jpg",
+        "images/products/winter-men-3.jpg"
+      ],
+      "price": 2199,
+      "original_price": 4999,
+      "discount": "56%",
+      "rating": 4.5,
+      "ratings_count": 34,
+      "sizes": ["M", "L", "XL", "XXL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Super warm!",
+          "name": "Rajat S.",
+          "text": "Perfect for Delhi winters. Looks stylish too.",
+          "date": "2024-01-15"
+        }
+      ],
+      "details": {
+        "fabric": "Polyester",
+        "fit": "Regular",
+        "neck": "Hooded",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Winter",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL, XXL",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 6') is wearing size L",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Men's solid puffer jacket with hood, zip closure, and two pockets. Ideal for cold weather."
+    },
+    {
+      "id": "winter-002",
+      "title": "Women Faux Fur Longline Coat",
+      "category": "Winter Collection",
+      "gender": "Women",
+      "image": "images/products/winter-women-1.jpg",
+      "thumbs": [
+        "images/products/winter-women-1.jpg",
+        "images/products/winter-women-2.jpg",
+        "images/products/winter-women-3.jpg"
+      ],
+      "price": 2899,
+      "original_price": 5999,
+      "discount": "52%",
+      "rating": 4.7,
+      "ratings_count": 28,
+      "sizes": ["S", "M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Elegant and cozy",
+          "name": "Priya Mehra",
+          "text": "Very soft and warm. Looks premium!",
+          "date": "2024-01-10"
+        }
+      ],
+      "details": {
+        "fabric": "Faux Fur",
+        "fit": "Regular",
+        "neck": "Collar",
+        "pattern": "Solid",
+        "length": "Longline",
+        "occasion": "Winter",
+        "wash_care": "Dry Clean Only",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L, XL",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 5'7\") is wearing size M",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Women's longline faux fur coat with button closure and side pockets. Perfect for winter outings."
+    },
+    {
+      "id": "winter-003",
+      "title": "Men Quilted Bomber Jacket",
+      "category": "Winter Collection",
+      "gender": "Men",
+      "image": "images/products/winter-men-2.jpg",
+      "thumbs": [
+        "images/products/winter-men-2.jpg",
+        "images/products/winter-men-2.jpg",
+        "images/products/winter-men-3.jpg"
+      ],
+      "price": 1799,
+      "original_price": 3999,
+      "discount": "55%",
+      "rating": 4.4,
+      "ratings_count": 21,
+      "sizes": ["M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Warm and stylish",
+          "name": "Aman Gupta",
+          "text": "Good for chilly evenings.",
+          "date": "2024-01-12"
+        }
+      ],
+      "details": {
+        "fabric": "Polyester",
+        "fit": "Regular",
+        "neck": "Stand Collar",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Winter",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 6') is wearing size L",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Men's quilted bomber jacket with zip closure and ribbed cuffs. Lightweight and warm."
+    },
+    {
+      "id": "winter-004",
+      "title": "Men Fleece Lined Hoodie",
+      "category": "Winter Collection",
+      "gender": "Men",
+      "image": "images/products/winter-men-3.jpg",
+      "thumbs": [
+        "images/products/winter-men-3.jpg",
+        "images/products/winter-men-1.jpg"
+      ],
+      "price": 1299,
+      "original_price": 2999,
+      "discount": "57%",
+      "rating": 4.3,
+      "ratings_count": 19,
+      "sizes": ["M", "L", "XL", "XXL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Super comfy",
+          "name": "Karan S.",
+          "text": "Soft fleece inside, keeps me warm.",
+          "date": "2024-01-09"
+        }
+      ],
+      "details": {
+        "fabric": "Fleece",
+        "fit": "Regular",
+        "neck": "Hooded",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Winter",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL, XXL",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 5'10\") is wearing size L",
+        "tip": "For a relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Men's fleece lined hoodie with kangaroo pocket and drawstring hood. Perfect for winter layering."
+    },
+    {
+      "id": "winter-003-women",
+      "title": "Women Padded Parka Jacket",
+      "category": "Winter Collection",
+      "gender": "Women",
+      "image": "images/products/winter-women-2.jpg",
+      "thumbs": [
+        "images/products/winter-women-2.jpg",
+        "images/products/winter-women-3.jpg"
+      ],
+      "price": 2199,
+      "original_price": 4499,
+      "discount": "51%",
+      "rating": 4.5,
+      "ratings_count": 16,
+      "sizes": ["S", "M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Very warm",
+          "name": "Meena Joshi",
+          "text": "Great for cold mornings.",
+          "date": "2024-01-08"
+        }
+      ],
+      "details": {
+        "fabric": "Polyester",
+        "fit": "Regular",
+        "neck": "Hooded",
+        "pattern": "Solid",
+        "length": "Longline",
+        "occasion": "Winter",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L, XL",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 5'6\") is wearing size M",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Women's padded parka jacket with hood and zip closure. Water-resistant and insulated."
+    },
+    {
+      "id": "winter-004-women",
+      "title": "Women Cable Knit Sweater",
+      "category": "Winter Collection",
+      "gender": "Women",
+      "image": "images/products/winter-women-3.jpg",
+      "thumbs": [
+        "images/products/winter-women-3.jpg",
+        "images/products/winter-women-1.jpg"
+      ],
+      "price": 899,
+      "original_price": 1999,
+      "discount": "55%",
+      "rating": 4.4,
+      "ratings_count": 13,
+      "sizes": ["S", "M", "L"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Soft and cozy",
+          "name": "Ritu Sharma",
+          "text": "Love the knit pattern.",
+          "date": "2024-01-05"
+        }
+      ],
+      "details": {
+        "fabric": "Acrylic Blend",
+        "fit": "Regular",
+        "neck": "Round",
+        "pattern": "Cable Knit",
+        "length": "Waist",
+        "occasion": "Winter",
+        "wash_care": "Hand Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 5'5\") is wearing size S",
+        "tip": "For a relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Women's cable knit sweater, round neck, long sleeves. Soft and warm for winter."
+    },
+    {
+      "id": "summer-001",
+      "title": "Women Mandarin Collar Puff Sleeves Lace Inserts Solid Fit & Flare Dress",
+      "category": "Summer Collection",
+      "gender": "Women",
+      "image": "images/products/summer-1.jpg",
+      "thumbs": [
+        "images/products/summer-1.jpg",
+        "images/products/summer-2.jpg",
+        "images/products/summer-3.jpg",
+        "images/products/summer-4.jpg",
+        "images/products/summer-5.jpg"
+      ],
+      "price": 937,
+      "original_price": 3749,
+      "discount": "75%",
+      "rating": 4.5,
+      "ratings_count": 28,
+      "sizes": ["S", "M", "L"],
+      "reviews": [],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Floral",
+        "length": "Knee Length",
+        "occasion": "Summer",
+        "wash_care": "Dry Clean",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "True to size – choose your regular size",
+        "model_info": "The model (height 5'8) is wearing a size S",
+        "tip": "For a breezy fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Yellow solid fit & flare dress, Mandarin Collar, Three-Quarter Sleeves, Puff Sleeves, lace inserts knee length in flared hem, Cotton fabric"
+    },
+    {
+      "id": "summer-002",
+      "title": "Men Linen Blend Short Sleeve Shirt",
+      "category": "Summer Collection",
+      "gender": "Men",
+      "image": "images/products/summer-men-1.jpg",
+      "thumbs": [
+        "images/products/summer-men-1.jpg",
+        "images/products/summer-men-2.jpg",
+        "images/products/summer-men-3.jpg"
+      ],
+      "price": 799,
+      "original_price": 1999,
+      "discount": "60%",
+      "rating": 4.4,
+      "ratings_count": 22,
+      "sizes": ["M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Cool and comfy",
+          "name": "Aakash Jain",
+          "text": "Perfect for hot days. Breathable and stylish.",
+          "date": "2024-05-20"
+        }
+      ],
+      "details": {
+        "fabric": "Linen Blend",
+        "fit": "Regular",
+        "neck": "Spread Collar",
+        "pattern": "Solid",
+        "length": "Waist",
+        "occasion": "Summer",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 6') is wearing size L",
+        "tip": "For a looser fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Men's linen blend short sleeve shirt, lightweight and breathable, ideal for summer outings."
+    },
+    {
+      "id": "summer-003",
+      "title": "Women Floral Print Tiered Maxi Dress",
+      "category": "Summer Collection",
+      "gender": "Women",
+      "image": "images/products/summer-women-2.jpg",
+      "thumbs": [
+        "images/products/summer-women-2.jpg",
+        "images/products/summer-women-3.jpg",
+        "images/products/summer-women-4.jpg"
+      ],
+      "price": 1249,
+      "original_price": 3499,
+      "discount": "64%",
+      "rating": 4.6,
+      "ratings_count": 31,
+      "sizes": ["S", "M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Beautiful summer dress",
+          "name": "Riya Kapoor",
+          "text": "Very flowy and comfortable. Got lots of compliments!",
+          "date": "2024-05-28"
+        }
+      ],
+      "details": {
+        "fabric": "Rayon",
+        "fit": "Regular",
+        "neck": "V-Neck",
+        "pattern": "Floral",
+        "length": "Maxi",
+        "occasion": "Summer",
+        "wash_care": "Hand Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L, XL",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 5'7\") is wearing size M",
+        "tip": "For a more relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Women's floral print tiered maxi dress, sleeveless, with a V-neck and flared hem. Perfect for summer parties."
+    },
+    {
+      "id": "summer-004",
+      "title": "Men Cotton Slim Fit Shorts",
+      "category": "Summer Collection",
+      "gender": "Men",
+      "image": "images/products/summer-men-2.jpg",
+      "thumbs": [
+        "images/products/summer-men-2.jpg",
+        "images/products/summer-men-3.jpg"
+      ],
+      "price": 599,
+      "original_price": 1499,
+      "discount": "60%",
+      "rating": 4.2,
+      "ratings_count": 18,
+      "sizes": ["M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Great for travel",
+          "name": "Sahil Patel",
+          "text": "Lightweight and dries quickly. Good for beach trips.",
+          "date": "2024-05-18"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Slim Fit",
+        "neck": "",
+        "pattern": "Solid",
+        "length": "Above Knee",
+        "occasion": "Summer",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL",
+        "fit_type": "Slim Fit",
+        "model_info": "Model (height 5'11\") is wearing size L",
+        "tip": "For a relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Men's cotton slim fit shorts, above knee length, with side pockets. Perfect for summer adventures."
+    },
+    {
+      "id": "summer-005",
+      "title": "Men Cotton Printed Casual Shirt",
+      "category": "Summer Collection",
+      "gender": "Men",
+      "image": "images/products/summer-men-3.jpg",
+      "thumbs": [
+        "images/products/summer-men-3.jpg",
+        "images/products/summer-men-2.jpg"
+      ],
+      "price": 699,
+      "original_price": 1799,
+      "discount": "61%",
+      "rating": 4.3,
+      "ratings_count": 17,
+      "sizes": ["M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Light and breezy",
+          "name": "Dev Mehta",
+          "text": "Perfect for hot days.",
+          "date": "2024-05-10"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Slim Fit",
+        "neck": "Spread Collar",
+        "pattern": "Printed",
+        "length": "Waist",
+        "occasion": "Summer",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL",
+        "fit_type": "Slim Fit",
+        "model_info": "Model (height 5'9\") is wearing size M",
+        "tip": "For a relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Men's cotton printed casual shirt, short sleeves, lightweight and breathable."
+    },
+    {
+      "id": "summer-006",
+      "title": "Men Linen Blend Drawstring Shorts",
+      "category": "Summer Collection",
+      "gender": "Men",
+      "image": "images/products/summer-men-4.jpg",
+      "thumbs": [
+        "images/products/summer-men-4.jpg",
+        "images/products/summer-men-2.jpg"
+      ],
+      "price": 549,
+      "original_price": 1499,
+      "discount": "63%",
+      "rating": 4.2,
+      "ratings_count": 14,
+      "sizes": ["M", "L", "XL"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Very comfortable",
+          "name": "Suresh Kumar",
+          "text": "Good for beach and travel.",
+          "date": "2024-05-08"
+        }
+      ],
+      "details": {
+        "fabric": "Linen Blend",
+        "fit": "Regular",
+        "neck": "",
+        "pattern": "Solid",
+        "length": "Above Knee",
+        "occasion": "Summer",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "M, L, XL",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 5'10\") is wearing size L",
+        "tip": "For a relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Men's linen blend shorts with drawstring waist, above knee length. Ideal for summer."
+    },
+    {
+      "id": "summer-005-women",
+      "title": "Women Sleeveless Cotton Sundress",
+      "category": "Summer Collection",
+      "gender": "Women",
+      "image": "images/products/summer-women-4.jpg",
+      "thumbs": [
+        "images/products/summer-women-4.jpg",
+        "images/products/summer-women-2.jpg"
+      ],
+      "price": 899,
+      "original_price": 2299,
+      "discount": "61%",
+      "rating": 4.4,
+      "ratings_count": 15,
+      "sizes": ["S", "M", "L"],
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "Perfect for summer",
+          "name": "Ayesha Khan",
+          "text": "Very light and airy.",
+          "date": "2024-05-12"
+        }
+      ],
+      "details": {
+        "fabric": "Cotton",
+        "fit": "Regular",
+        "neck": "Square",
+        "pattern": "Solid",
+        "length": "Knee Length",
+        "occasion": "Summer",
+        "wash_care": "Machine Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 5'6\") is wearing size S",
+        "tip": "For a breezy fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Women's sleeveless cotton sundress, knee length, perfect for hot summer days."
+    },
+    {
+      "id": "summer-006-women",
+      "title": "Women Floral Print Ruffle Top",
+      "category": "Summer Collection",
+      "gender": "Women",
+      "image": "images/products/summer-women-5.jpg",
+      "thumbs": [
+        "images/products/summer-women-5.jpg",
+        "images/products/summer-women-3.jpg"
+      ],
+      "price": 499,
+      "original_price": 1299,
+      "discount": "62%",
+      "rating": 4.3,
+      "ratings_count": 12,
+      "sizes": ["S", "M", "L"],
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "Cute and comfy",
+          "name": "Nisha Patel",
+          "text": "Nice floral print, good for outings.",
+          "date": "2024-05-07"
+        }
+      ],
+      "details": {
+        "fabric": "Rayon",
+        "fit": "Regular",
+        "neck": "V-Neck",
+        "pattern": "Floral",
+        "length": "Waist",
+        "occasion": "Summer",
+        "wash_care": "Hand Wash",
+        "country_of_origin": "India"
+      },
+      "delivery_return": {
+        "delivery": "Delivered within 5–7 business days.",
+        "shipping_charges": "Free on orders above ₹999.",
+        "returns": "Easy 7-day return policy.",
+        "exchange": "Available for size issues and damaged items.",
+        "cod": "Available in most locations."
+      },
+      "size_fit": {
+        "available_sizes": "S, M, L",
+        "fit_type": "Regular Fit",
+        "model_info": "Model (height 5'5\") is wearing size M",
+        "tip": "For a relaxed fit, go one size up",
+        "size_chart_help": "Refer to our [Size Chart] for detailed measurements"
+      },
+      "description": "Women's floral print ruffle top, V-neck, short sleeves, lightweight for summer."
     }
   ]
 }

@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
   gsap.timeline({
     scrollTrigger: {
       trigger: ".promo-section",
-      start: "top 80%",
+      end: "top 85%",
       toggleActions: "play none none reverse",
       once: true
     }
@@ -217,15 +217,15 @@ document.addEventListener('DOMContentLoaded', function () {
     .from(".promo-section h2", {
       opacity: 0,
       y: 40,
-      duration: 1,
+      duration: 0.8,
       ease: "power3.out"
     })
     .from(".promo-section .promo-grid .promo-card", {
       opacity: 0,
       scale: 0.3,
       y: 100,
-      duration: 2,
-      stagger: 2,
+      duration: 0.5,
+      stagger: 0.5,
       ease: "power3.out"
     });
 
