@@ -70,28 +70,28 @@ function renderCheckoutSummary() {
   });
 
   // --- Quantity update handler (input beside product title) ---
-  summaryDiv.querySelectorAll('.order-qty-input').forEach(function(input) {
-    input.addEventListener('change', function() {
-      let idx = parseInt(this.getAttribute('data-idx'), 10);
-      let val = parseInt(this.value, 10);
-      if (isNaN(val) || val < 1) {
-        this.value = 1;
-        val = 1;
-      }
-      let summary = JSON.parse(localStorage.getItem('checkoutSummary') || '{}');
-      if (!summary || !summary.items || !summary.items[idx]) return;
-      summary.items[idx].qty = val;
-      summary.items[idx].subtotal = summary.items[idx].price * val;
-      // Recalculate totals
-      summary.subtotal = summary.items.reduce((sum, item) => sum + (item.original_price * item.qty), 0);
-      summary.totalDiscount = summary.items.reduce((sum, item) => sum + ((item.original_price - item.price) * item.qty), 0);
-      summary.total = summary.items.reduce((sum, item) => sum + (item.price * item.qty), 0) + (summary.platformFees || 5);
-      localStorage.setItem('checkoutSummary', JSON.stringify(summary));
-      renderCheckoutSummary();
-      // Update sidebar summary
-      if (typeof window.renderCheckoutSummaryBox === 'function') window.renderCheckoutSummaryBox();
-    });
-  });
+  // summaryDiv.querySelectorAll('.order-qty-input').forEach(function(input) {
+  //   input.addEventListener('change', function() {
+  //     let idx = parseInt(this.getAttribute('data-idx'), 10);
+  //     let val = parseInt(this.value, 10);
+  //     if (isNaN(val) || val < 1) {
+  //       this.value = 1;
+  //       val = 1;
+  //     }
+  //     let summary = JSON.parse(localStorage.getItem('checkoutSummary') || '{}');
+  //     if (!summary || !summary.items || !summary.items[idx]) return;
+  //     summary.items[idx].qty = val;
+  //     summary.items[idx].subtotal = summary.items[idx].price * val;
+  //     // Recalculate totals
+  //     summary.subtotal = summary.items.reduce((sum, item) => sum + (item.original_price * item.qty), 0);
+  //     summary.totalDiscount = summary.items.reduce((sum, item) => sum + ((item.original_price - item.price) * item.qty), 0);
+  //     summary.total = summary.items.reduce((sum, item) => sum + (item.price * item.qty), 0) + (summary.platformFees || 5);
+  //     localStorage.setItem('checkoutSummary', JSON.stringify(summary));
+  //     renderCheckoutSummary();
+  //     // Update sidebar summary
+  //     if (typeof window.renderCheckoutSummaryBox === 'function') window.renderCheckoutSummaryBox();
+  //   });
+  // });
 
   // --- Size update handler ---
   summaryDiv.querySelectorAll('.order-size-select').forEach(function(select) {

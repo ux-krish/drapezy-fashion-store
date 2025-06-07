@@ -387,12 +387,12 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   gsap.utils.toArray('section').forEach(section => {
     gsap.from(section, {
       opacity: 0,
-      scale: 2,
-      duration: 0.8,
+      scale: 0.5,
+      duration: 0.7,
       ease: "power3.out",
       scrollTrigger: {
         trigger: section,
-        strat: "top top",
+        end: "top top",
         toggleActions: "play none none reverse"
       }
     });
@@ -1000,29 +1000,29 @@ document.addEventListener('DOMContentLoaded', function () {
 // function someUtility() { ... }
 
 // Animate product cards in related products section with ScrollTrigger
-function animateRelatedProductsSection() {
-  const relatedSection = document.querySelector('.related-products');
-  if (relatedSection && window.gsap && window.ScrollTrigger) {
-    const cards = relatedSection.querySelectorAll('.product-card');
-    if (cards.length) {
-      gsap.fromTo(
-        cards,
-        { y: 60 },
-        {
-          y: 0,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: relatedSection,
-            start: "top 85%",
-            once: true
-          }
-        }
-      );
-    }
-  }
-}
+// function animateRelatedProductsSection() {
+//   const relatedSection = document.querySelector('.related-products');
+//   if (relatedSection && window.gsap && window.ScrollTrigger) {
+//     const cards = relatedSection.querySelectorAll('.product-card');
+//     if (cards.length) {
+//       gsap.fromTo(
+//         cards,
+//         { y: 60 },
+//         {
+//           y: 0,
+//           duration: 0.7,
+//           stagger: 0.12,
+//           ease: "power3.out",
+//           scrollTrigger: {
+//             trigger: relatedSection,
+//             start: "top 85%",
+//             once: true
+//           }
+//         }
+//       );
+//     }
+//   }
+// }
 
 // Animate product cards in product deal section with ScrollTrigger
 // function animateProductDealSection() {

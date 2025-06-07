@@ -387,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (gridHeader) {
         gsap.from(gridHeader, {
           opacity: 0,
-          y: 30,
+          y: -30,
           duration: 0.6,
           delay: 0.1,
           scrollTrigger: {
@@ -500,7 +500,7 @@ document.addEventListener('DOMContentLoaded', function () {
             duration: 0.5,
             scrollTrigger: {
               trigger: productHighlight,
-              start: 'top 80%',
+              end: 'top top',
               toggleActions: 'play none none reverse'
             }
           }
