@@ -384,8 +384,8 @@
       gap: px-to-max(16);
       justify-content: center;
       margin: 0 auto px-to-rem(24);
-
-      .time-box {
+      flex-wrap: wrap;
+      .time-box { 
         background: white;
         box-shadow: 0 px-to-max(2) px-to-max(10) rgba(0, 0, 0, 0.1);
         padding: px-to-max(15) px-to-max(20);

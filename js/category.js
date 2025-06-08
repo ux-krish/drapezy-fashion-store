@@ -383,6 +383,7 @@ document.addEventListener('DOMContentLoaded', function () {
       //     toggleActions: 'play none none reverse'
       //   }
       // });
+      if (productListing) {
       const gridHeader = productListing.querySelector('.grid-header');
       if (gridHeader) {
         gsap.from(gridHeader, {
@@ -397,68 +398,8 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
       }
-      // const grid = productListing.querySelector('.product-grid');
-      // if (grid) {
-      //   gsap.from(grid, {
-      //     opacity: 0,
-      //     y: 40,
-      //     duration: 0.7,
-      //     delay: 0.2,
-      //     scrollTrigger: {
-      //       trigger: grid,
-      //       start: 'top 85%',
-      //       toggleActions: 'play none none reverse'
-      //     }
-      //   });
-      // }
-    
-
-    // Animate: Best Selling Section
-    // const bestSelling = document.querySelector('.best-selling');
-    // if (bestSelling) {
-    //   gsap.from(bestSelling, {
-    //     opacity: 0,
-    //     y: 60,
-    //     duration: 0.8,
-    //     ease: 'power2.out',
-    //     scrollTrigger: {
-    //       trigger: bestSelling,
-    //       start: 'top 80%',
-    //       toggleActions: 'play none none reverse'
-    //     }
-    //   });
-    //   const tabs = bestSelling.querySelectorAll('.tab');
-    //   if (tabs.length) {
-    //     gsap.from(tabs, {
-    //       opacity: 0,
-    //       y: 20,
-    //       stagger: 0.1,
-    //       duration: 0.4,
-    //       delay: 0.2,
-    //       scrollTrigger: {
-    //         trigger: bestSelling,
-    //         start: 'top 90%',
-    //         toggleActions: 'play none none reverse'
-    //       }
-    //     });
-    //   }
-    //   const grids = bestSelling.querySelectorAll('.products-grid');
-    //   grids.forEach(grid => {
-    //     gsap.from(grid, {
-    //       opacity: 0,
-    //       y: 40,
-    //       duration: 0.7,
-    //       delay: 0.2,
-    //       scrollTrigger: {
-    //         trigger: grid,
-    //         start: 'top 85%',
-    //         toggleActions: 'play none none reverse'
-    //       }
-    //     });
-    //   });
-    // }
-
-    // Animate: Offer Day Section
+    }
+     
     const offerSection = document.querySelector('.offer-day-section');
     if (offerSection) {
       const offerBanner = offerSection.querySelector('.offer-banner');

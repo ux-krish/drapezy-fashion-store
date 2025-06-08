@@ -237,5 +237,13 @@
   }
 }
 
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(max(8rem, 9.375vw), 1fr));
+        .product-card {
+          grid-column: span 1;
+      }
+    }
+}
 
 @import "footer";

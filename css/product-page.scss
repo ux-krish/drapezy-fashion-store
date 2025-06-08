@@ -125,9 +125,7 @@
         margin-top: px-to-rem(24);
         flex-wrap: wrap;
         margin-top: 0;
-        margin-bottom: px-to-rem(30);
-        padding-top: px-to-rem(30);
-        overflow: visible;
+        overflow: hidden;
         @media (max-width: 600px) {
          display: none;
         }
@@ -141,7 +139,7 @@
           margin: auto;
           overflow: visible;
           .swiper-button-prev, .swiper-button-next{
-            top: px-to-rem(0);
+            top: px-to-rem(20);
             left: 0;
             right: 0;
             margin: auto;
@@ -149,19 +147,20 @@
             border-radius: px-to-rem(50);
             width: px-to-rem(25);
             height: px-to-rem(25);
-            background-color: $secondary-color;
+            background-color: $text-color;
             font-size: px-to-rem(12);
+            color: $text-white;
           }
           .swiper-button-next{
-            bottom: px-to-rem(-20);
+            bottom: px-to-rem(20);
             top: auto;
           }
         }
         .swiper-wrapper {
           width: 90px;
-          overflow: hidden;
-          height: px-to-rem(520) !important;
           
+          height: px-to-rem(520) !important;
+
           @media (max-width: 600px) {
             width: 18vw;
             height: px-to-rem(280);

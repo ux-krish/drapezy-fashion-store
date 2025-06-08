@@ -40,11 +40,16 @@ function showProduct(product) {
 
   window.thumbSwiper = new Swiper('.thumbnail-slider.swiper', {
     slidesPerView: 4,
-    spaceBetween: 24,
+    spaceBetween: 55,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    watchOverflow: true,
+    watchSlidesVisibility: true,
     watchSlidesProgress: true,
-    loop: true,
+    //loop: true,
+    
     direction: "vertical",
-    autoHeight: true,
+    // autoHeight: true,
     navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -56,22 +61,45 @@ function showProduct(product) {
   });
 
   window.mainSwiper = new Swiper('.main-slider.swiper', {
+    watchOverflow: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    preventInteractionOnTransition: true,
     slidesPerView: 1,
     spaceBetween: 20,
     loop: true,
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
+    effect: 'fade',
+      fadeEffect: {
+      crossFade: true
     },
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
     },
-    
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
     thumbs: {
       swiper: window.thumbSwiper,
     },
   });
+
+let isSyncingSwipers = false;
+
+window.mainSwiper.on('slideChangeTransitionStart', function() {
+  if (isSyncingSwipers) return;
+  isSyncingSwipers = true;
+  window.thumbSwiper.slideTo(mainSwiper.activeIndex);
+  isSyncingSwipers = false;
+});
+
+window.thumbSwiper.on('transitionStart', function(){
+  if (isSyncingSwipers) return;
+  isSyncingSwipers = true;
+  window.mainSwiper.slideTo(thumbSwiper.activeIndex);
+  isSyncingSwipers = false;
+});
 
   // Info
   document.querySelector('.product-info .tag').textContent = product.gender == "Women" ? 'For Her' : 'For Him';

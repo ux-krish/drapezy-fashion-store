@@ -38,12 +38,18 @@
         left: px-to-rem(32);
         background-color: $primary-color-dark;
         color: $text-dark;
+        @media (max-width: 600px) {
+          left: px-to-rem(16);
+        }
       }
 
       &.limited {
         right: px-to-rem(32);
         background-color: $text-secondary-color;
         color: $text-white;
+        @media (max-width: 600px) {
+          right: px-to-rem(16);
+        }
       }
     }
 
@@ -346,7 +352,11 @@
   }
 }
 
-
+@media (max-width: 600px) {
+    .product-grid .product-card {
+        grid-column: span 1;
+    }
+}
 
 @import "footer";
 

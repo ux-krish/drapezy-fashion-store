@@ -543,8 +543,9 @@
       transition: all 0.5s ease;
       gap: px-to-rem(12);
       &.open{
-        min-height: calc(100vh - px-to-rem(80));
+        min-height: calc(100vh - px-to-rem(145));
         padding: px-to-rem(20);
+        overflow-y: auto;
       }
       & > li {
         background-color: $secondary-color;
@@ -588,6 +589,7 @@
           .mega-menu {
             max-height: 500vw;
             padding: px-to-rem(24);
+            overflow-y: auto;
           }
         } 
       }

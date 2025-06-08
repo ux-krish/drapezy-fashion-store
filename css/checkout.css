@@ -410,6 +410,11 @@ footer .logo div span {
     grid-template-columns: repeat(auto-fit, minmax(max(10rem, 9.375vw), 1fr));
   }
 }
+@media (max-width: 380px) {
+  .new-arrivals .products-grid, .best-selling .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(max(6.6666666667rem, 6.25vw), 1fr));
+  }
+}
 
 .best-selling {
   margin: 0 auto 0;
@@ -1621,8 +1626,9 @@ footer .logo div span {
     gap: 0.6666666667rem;
   }
   .main-header .nav-links.open {
-    min-height: calc(100vh - 4.4444444444rem);
+    min-height: calc(100vh - 8.0555555556rem);
     padding: 1.1111111111rem;
+    overflow-y: auto;
   }
   .main-header .nav-links > li {
     background-color: #D1EAF5;
@@ -1666,6 +1672,7 @@ footer .logo div span {
   .main-header .nav-links .products-menu:hover .mega-menu {
     max-height: 500vw;
     padding: 1.3333333333rem;
+    overflow-y: auto;
   }
 }
 /* Responsive adjustments */
@@ -2186,6 +2193,40 @@ footer .logo div span {
 .site-footer .footer-main .footer-columns nav:nth-child(3) {
   grid-column: 7/span 3;
 }
+@media (max-width: 991px) {
+  .site-footer .footer-main .footer-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .site-footer .footer-main .footer-columns nav {
+    grid-column: auto/span 3;
+  }
+  .site-footer .footer-main .footer-columns nav:nth-child(1) {
+    grid-column: 1/span 3;
+  }
+  .site-footer .footer-main .footer-columns nav:nth-child(2) {
+    grid-column: 5/span 3;
+  }
+  .site-footer .footer-main .footer-columns nav:nth-child(3) {
+    grid-column: 9/span 3;
+  }
+}
+@media (max-width: 600px) {
+  .site-footer .footer-main .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .site-footer .footer-main .footer-columns nav {
+    grid-column: auto/span 3;
+  }
+  .site-footer .footer-main .footer-columns nav:nth-child(1) {
+    grid-column: span 1;
+  }
+  .site-footer .footer-main .footer-columns nav:nth-child(2) {
+    grid-column: span 1;
+  }
+  .site-footer .footer-main .footer-columns nav:nth-child(3) {
+    grid-column: span 1;
+  }
+}
 .site-footer .footer-main .footer-columns h3,
 .site-footer .footer-main .footer-columns h4 {
   font-weight: 700;
@@ -2208,7 +2249,8 @@ footer .logo div span {
   text-decoration: underline;
 }
 .site-footer .footer-main .footer-columns .footer-about {
-  width: 25rem;
+  max-width: 25rem;
+  grid-column: span 3;
 }
 .site-footer .footer-main .footer-columns .footer-about h3 {
   font-size: 1.5555555556rem;
