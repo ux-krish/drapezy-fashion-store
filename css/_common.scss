@@ -433,7 +433,7 @@ footer{
       display: none;
     }
     @media (max-width: 1023px) {
-      grid-template-columns: repeat(auto-fit, minmax(px-to-max(150), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(px-to-max(180), 1fr));
     }
     
   }
@@ -992,6 +992,12 @@ footer{
       transition: all 0.4s ease;
       max-width: px-to-rem(220);
       margin: auto;
+      @media (max-width:540px){
+        bottom: px-to-rem(-30);
+        left: px-to-rem(5);
+        right: px-to-rem(10);
+        width: 100%;
+      }
       button {
         flex: 1;
         background: white;
@@ -1003,6 +1009,9 @@ footer{
         display: flex;
         align-items: center;
         justify-content: center;
+        svg{
+          height: auto;
+        }
         &.cirle-icon-btn {
           width: px-to-rem(55);
           height: px-to-rem(55);
@@ -1105,7 +1114,7 @@ footer{
     gap: px-to-rem(10);
     padding: px-to-rem(20);
     .product-card{
-      grid-column: span 1;
+      grid-column: span 4;
     }
   }
 }

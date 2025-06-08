@@ -407,7 +407,7 @@ footer .logo div span {
 }
 @media (max-width: 1023px) {
   .new-arrivals .products-grid, .best-selling .products-grid {
-    grid-template-columns: repeat(auto-fit, minmax(max(8.3333333333rem, 7.8125vw), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(max(10rem, 9.375vw), 1fr));
   }
 }
 
@@ -938,6 +938,14 @@ footer .logo div span {
   max-width: 12.2222222222rem;
   margin: auto;
 }
+@media (max-width: 540px) {
+  .product-card .card-image .actions {
+    bottom: -1.6666666667rem;
+    left: 0.2777777778rem;
+    right: 0.5555555556rem;
+    width: 100%;
+  }
+}
 .product-card .card-image .actions button {
   flex: 1;
   background: white;
@@ -949,6 +957,9 @@ footer .logo div span {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.product-card .card-image .actions button svg {
+  height: auto;
 }
 .product-card .card-image .actions button.cirle-icon-btn {
   width: 3.0555555556rem;
@@ -1057,7 +1068,7 @@ footer .logo div span {
     padding: 1.1111111111rem;
   }
   .product-grid .product-card {
-    grid-column: span 1;
+    grid-column: span 4;
   }
 }
 .custom-tooltip {
@@ -1353,6 +1364,12 @@ footer .logo div span {
   z-index: 99;
   gap: 0.6666666667rem;
 }
+@media (max-width: 767px) {
+  .main-header .nav-links .products-menu .mega-menu {
+    max-height: 12.5pxrem;
+    overflow-y: auto;
+  }
+}
 .main-header .nav-links .products-menu .mega-menu .mega-columns {
   display: flex;
   flex-direction: column;
@@ -1570,24 +1587,6 @@ footer .logo div span {
     margin: 0.4444444444rem 0;
     height: 0.1111111111rem;
   }
-  .hamburger-menu.active {
-    top: 0.2222222222rem;
-    display: flex;
-  }
-  .hamburger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translate(0rem, 0rem);
-    top: 0.4444444444rem;
-    position: relative;
-  }
-  .hamburger-menu.active span:nth-child(2) {
-    opacity: 0;
-    margin: 0;
-  }
-  .hamburger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(0rem, 0rem);
-    bottom: 0.4444444444rem;
-    position: relative;
-  }
   .main-header .container {
     flex-wrap: wrap;
     gap: 0.6666666667rem;
@@ -1645,6 +1644,7 @@ footer .logo div span {
     overflow: hidden;
     padding: 0;
     transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    overflow-y: auto;
   }
   .main-header .nav-links .products-menu .mega-menu .mega-columns {
     width: 100%;
