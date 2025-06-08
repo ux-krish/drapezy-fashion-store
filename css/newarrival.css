@@ -939,6 +939,7 @@ footer .logo div span {
   margin: auto;
 }
 .product-card .card-image .actions button {
+  flex: 1;
   background: white;
   border: none;
   padding: 0.3333333333rem;
@@ -1056,7 +1057,7 @@ footer .logo div span {
     padding: 1.1111111111rem;
   }
   .product-grid .product-card {
-    grid-column: span 4;
+    grid-column: span 1;
   }
 }
 .custom-tooltip {

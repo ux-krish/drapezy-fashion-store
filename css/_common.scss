@@ -993,6 +993,7 @@ footer{
       max-width: px-to-rem(220);
       margin: auto;
       button {
+        flex: 1;
         background: white;
         border: none;
         padding: px-to-rem(6);
@@ -1104,7 +1105,7 @@ footer{
     gap: px-to-rem(10);
     padding: px-to-rem(20);
     .product-card{
-      grid-column: span 4;
+      grid-column: span 1;
     }
   }
 }

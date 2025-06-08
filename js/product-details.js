@@ -45,6 +45,7 @@ function showProduct(product) {
     loop: true,
     direction: "vertical",
     autoHeight: true,
+    
   });
 
   window.mainSwiper = new Swiper('.main-slider.swiper', {
@@ -52,6 +53,10 @@ function showProduct(product) {
     spaceBetween: 20,
     loop: true,
     effect: "fade",
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
     thumbs: {
       swiper: window.thumbSwiper,
     },

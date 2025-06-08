@@ -192,12 +192,8 @@ document.addEventListener('DOMContentLoaded', function () {
       stagger: 0.4,
       ease: "power3.out"
     })
-    .from(".promo-banner .promo-content > *", {
-      opacity: 0,
-      y: 60,
-      duration: 2,
-      ease: "power2.out"
-    }, "<+0.2")
+   
+   
     .from(".promo-banner .promo-image", {
       x: 90,
       duration: 2,
@@ -224,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
       scale: 0.3,
       y: 100,
       duration: 0.5,
-      stagger: 0.5,
+      stagger: 0.2,
       ease: "power3.out"
     });
 
