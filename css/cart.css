@@ -1720,7 +1720,7 @@ footer .logo div span {
   border-collapse: separate;
   border-spacing: 0;
   background: #fff;
-  border-radius: 0.4444444444rem;
+  border-radius: 0.1666666667rem;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   display: table;
@@ -1760,7 +1760,7 @@ footer .logo div span {
   height: 3.3333333333rem;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 0.3333333333rem;
+  border-radius: 0.1666666667rem;
   border: 1px solid #E4E4E4;
   background: #F5F5F5;
 }
@@ -1819,7 +1819,7 @@ footer .logo div span {
   height: 1.6666666667rem;
   border: 1px solid #E4E4E4;
   background: #F5F5F5;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s;
@@ -1863,7 +1863,7 @@ footer .logo div span {
     flex-direction: column;
     align-items: stretch;
     margin-bottom: 1rem;
-    border-radius: 0.4444444444rem;
+    border-radius: 0.1666666667rem;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
     border: 1px solid #E4E4E4;
     background: #fff;
@@ -1899,7 +1899,7 @@ footer .logo div span {
   }
   .cart-summary-section .cart-summary__table .product-details img {
     width: 2.6666666667rem;
-    height: 2.6666666667rem;
+    height: auto;
   }
   .cart-summary-section .cart-summary__table .product-details .product-info .product-title {
     font-size: 0.7777777778rem;
@@ -1946,6 +1946,12 @@ footer .logo div span {
   display: flex;
   justify-content: space-between;
   padding: 0rem 0.5555555556rem;
+}
+@media (max-width: 700px) {
+  .cart-summary-section .cart-summary__actions {
+    padding: 0.5555555556rem;
+    margin-top: 0;
+  }
 }
 .cart-summary-section .cart-summary__actions .back-btn,
 .cart-summary-section .cart-summary__actions .wishlist-btn {
@@ -2038,6 +2044,11 @@ footer .logo div span {
   padding-bottom: 0.4444444444rem;
   padding: 0.6666666667rem 1.3333333333rem;
 }
+@media (max-width: 700px) {
+  .cart-summary-section .cart-totals h2 {
+    padding: 0.6666666667rem 0.6666666667rem 0.6666666667rem;
+  }
+}
 .cart-summary-section .cart-totals .totals-row {
   display: flex;
   justify-content: space-between;
@@ -2046,12 +2057,22 @@ footer .logo div span {
   font-size: 0.8888888889rem;
   padding: 0rem 1.3333333333rem;
 }
+@media (max-width: 700px) {
+  .cart-summary-section .cart-totals .totals-row {
+    padding: 0rem 0.6666666667rem;
+  }
+}
 .cart-summary-section .cart-totals .totals-row.total {
   font-weight: 600;
   font-size: 1rem;
 }
 .cart-summary-section .cart-totals .shipping {
   padding: 0.6666666667rem 1.3333333333rem;
+}
+@media (max-width: 700px) {
+  .cart-summary-section .cart-totals .shipping {
+    padding: 0.6666666667rem 0.6666666667rem;
+  }
 }
 .cart-summary-section .cart-totals .shipping h4 {
   font-weight: 600;
@@ -2078,13 +2099,18 @@ footer .logo div span {
   background-color: #4E4E4E;
   color: #fff;
   border: none;
-  border-radius: 0.3333333333rem;
+  border-radius: 0.1666666667rem;
   width: calc(100% - 2.6666666667rem);
   font-size: 0.8888888889rem;
   cursor: pointer;
   font-weight: 600;
   margin: auto;
   display: block;
+}
+@media (max-width: 700px) {
+  .cart-summary-section .cart-totals .checkout-btn {
+    width: calc(100% - 1.3333333333rem);
+  }
 }
 .cart-summary-section .cart-totals .checkout-note {
   text-align: center;
@@ -2107,7 +2133,7 @@ footer .logo div span {
 }
 @media (max-width: 700px) {
   .cart-summary-section .cart-totals {
-    padding: 0.7777777778rem;
+    padding: 0rem;
   }
   .cart-summary-section .cart-totals h2 {
     font-size: 1rem;
@@ -2156,13 +2182,14 @@ footer .logo div span {
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 0.6666666667rem;
   }
   .cart-summary-section .cart-summary__table tr {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     margin-bottom: 1rem;
-    border-radius: 0.4444444444rem;
+    border-radius: 0.1666666667rem;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
     border: 1px solid #E4E4E4;
     background: #fff;
@@ -2198,7 +2225,7 @@ footer .logo div span {
   }
   .cart-summary-section .cart-summary__table .product-details img {
     width: 2.6666666667rem;
-    height: 2.6666666667rem;
+    height: auto;
   }
   .cart-summary-section .cart-summary__table .product-details .product-info .product-title {
     font-size: 0.7777777778rem;

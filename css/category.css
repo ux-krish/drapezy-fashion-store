@@ -1866,7 +1866,7 @@ footer .logo div span {
 }
 @media (max-width: 600px) {
   .offer-day-section .offer-wrapper .product-highlight {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 .offer-day-section .offer-wrapper .product-highlight .product-card {

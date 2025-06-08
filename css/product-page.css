@@ -1908,6 +1908,12 @@ footer .logo div span {
   margin: 0.5rem 0;
   font-weight: 900;
 }
+@media (max-width: 600px) {
+  .product-details .product-wrapper .product-info h2 {
+    font-size: 1.3333333333rem;
+    font-weight: 700;
+  }
+}
 .product-details .product-wrapper .product-info .ratings {
   font-size: 1rem;
   margin-bottom: 0.5555555556rem;
@@ -1964,6 +1970,11 @@ footer .logo div span {
   margin: 0.5555555556rem 0 1.1111111111rem;
   font-size: 0.8888888889rem;
   color: #4E4E4E;
+}
+@media (max-width: 600px) {
+  .product-details .product-wrapper .product-info .desc {
+    font-size: 0.7777777778rem;
+  }
 }
 .product-details .product-wrapper .product-info .selector-group {
   margin: 0.5555555556rem 0;

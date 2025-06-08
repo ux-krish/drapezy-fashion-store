@@ -130,11 +130,32 @@
     justify-content: center;
     align-items: center;
     text-align: left;
-    background: #fff url('../images/gaspar-zaldo-aF16a27gNVs-unsplash.png') no-repeat center center;
+    position: relative;
     background-size: cover;
     padding: px-to-rem(40) px-to-rem(20);
     border-radius: px-to-rem(3);
-
+    background-color: #fff;
+    &::after{
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: #fff url('../images/products/summer-4.jpg') no-repeat center center;
+      z-index: -2;
+      background-size: cover;
+    }
+     &::before{
+       content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #ffffffa8;
+      z-index: -1;
+     }
     .limited {
       font-size: px-to-max(24);
       font-weight: 400;
@@ -212,14 +233,15 @@
     background-color: #D1EAF5;
     border-radius: px-to-max(3);
     margin: 0;
-
+    aspect-ratio: 6 / 5;
     img {
       width: 100%;
       height: 100%;
-      max-width: px-to-max(600);
-      border-radius: px-to-max(12);
+      //max-width: px-to-max(600);
+      border-radius: px-to-max(3);
       margin: auto;
       object-fit: cover;
+      object-position: top;
     }
   }
 }

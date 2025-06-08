@@ -178,7 +178,7 @@
       gap: px-to-rem(20);
       flex-wrap: wrap;
       @media (max-width: 600px) {
-        flex-direction: column;
+        flex-direction: row;
       }
       .product-card {
         background: #fff;

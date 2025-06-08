@@ -29,7 +29,7 @@
       border-collapse: separate;
       border-spacing: 0;
       background: #fff;
-      border-radius: px-to-rem(8);
+      border-radius: px-to-rem(3);
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       display: table;
@@ -74,7 +74,7 @@
           width: px-to-rem(60);
           height: px-to-rem(60);
           object-fit: cover;
-          border-radius: px-to-rem(6);
+          border-radius: px-to-rem(3);
           border: 1px solid $light-gray-stroke;
           background: $light-gray;
         }
@@ -144,7 +144,7 @@
           height: px-to-rem(30);
           border: 1px solid $light-gray-stroke;
           background: $light-gray;
-          border-radius: px-to-rem(4);
+          border-radius: px-to-rem(3);
           font-size: px-to-rem(18);
           cursor: pointer;
           transition: background 0.2s;
@@ -184,7 +184,7 @@
           flex-direction: column;
           align-items: stretch;
           margin-bottom: px-to-rem(18);
-          border-radius: px-to-rem(8);
+          border-radius: px-to-rem(3);
           box-shadow: 0 1px 4px rgba(0,0,0,0.04);
           border: 1px solid $light-gray-stroke;
           background: #fff;
@@ -217,7 +217,7 @@
         .product-details {
           flex-direction: row;
           align-items: flex-start;
-          img { width: px-to-rem(48); height: px-to-rem(48); }
+          img { width: px-to-rem(48); height: auto; }
           .product-info .product-title { font-size: px-to-rem(14); }
         }
         .quantity-selector{
@@ -261,6 +261,7 @@
       display: flex;
       justify-content: space-between;
       padding: px-to-rem(0) px-to-rem(10);
+      @media (max-width:700px){padding:px-to-rem(10);margin-top:0}
       .back-btn,
       .wishlist-btn {
         padding: px-to-rem(0) px-to-rem(16);
@@ -350,6 +351,9 @@
       margin-bottom: px-to-rem(16);
       padding-bottom: px-to-rem(8);
       padding: px-to-rem(12) px-to-rem(24);
+      @media (max-width:700px){
+        padding: px-to-rem(12) px-to-rem(12) px-to-rem(12);
+      }
     }
 
     .totals-row {
@@ -357,7 +361,9 @@
       margin: px-to-rem(12) 0;
       font-size: px-to-rem(16);
        padding: px-to-rem(0) px-to-rem(24);
-
+      @media (max-width:700px){
+        padding: px-to-rem(0) px-to-rem(12);
+      }
       &.total {
         font-weight: 600;
         font-size: px-to-rem(18);
@@ -366,6 +372,9 @@
 
     .shipping {
        padding: px-to-rem(12) px-to-rem(24);
+       @media (max-width:700px){
+        padding: px-to-rem(12) px-to-rem(12);
+       }
       h4 {
         font-weight: 600;
         margin-bottom: px-to-rem(8);
@@ -396,13 +405,16 @@
       background-color: $text-color;
       color: $text-white;
       border: none;
-      border-radius: px-to-rem(6);
+      border-radius: px-to-rem(3);
       width: calc(100% - px-to-rem(48));
       font-size: px-to-rem(16);
       cursor: pointer;
       font-weight: 600;
       margin: auto;
       display: block;
+      @media (max-width:700px){
+        width:calc(100% - px-to-rem(24));
+      }
     }
 
     .checkout-note {
@@ -421,7 +433,7 @@
       @include flex-center;
     }
     @media (max-width: 700px) {
-      padding: px-to-rem(14);
+      padding: px-to-rem(0);
       h2 {
         font-size: px-to-rem(18);
       }
@@ -471,13 +483,14 @@
           display: flex;
           flex-direction: column;
           width: 100%;
+          padding: px-to-rem(12);
         }
         tr {
           display: flex;
           flex-direction: column;
           align-items: stretch;
           margin-bottom: px-to-rem(18);
-          border-radius: px-to-rem(8);
+          border-radius: px-to-rem(3);
           box-shadow: 0 1px 4px rgba(0,0,0,0.04);
           border: 1px solid $light-gray-stroke;
           background: #fff;
@@ -510,7 +523,7 @@
         .product-details {
           flex-direction: row;
           align-items: flex-start;
-          img { width: px-to-rem(48); height: px-to-rem(48); }
+          img { width: px-to-rem(48); height: auto; }
           .product-info .product-title { font-size: px-to-rem(14); }
         }
         .quantity-selector button { width: px-to-rem(24); height: px-to-rem(24); font-size: px-to-rem(15); }

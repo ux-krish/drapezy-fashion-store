@@ -217,6 +217,10 @@
         font-size: px-to-rem(32);
         margin: 0.5rem 0;
         font-weight: 900;
+        @media (max-width:600px){
+          font-size: px-to-rem(24);
+          font-weight: 700;
+        }
       }
 
       .ratings {
@@ -282,6 +286,9 @@
         margin: px-to-rem(10) 0 px-to-rem(20);
         font-size: px-to-rem(16);
         color: $text-color;
+        @media (max-width:600px){
+          font-size: px-to-rem(14);
+        }
       }
 
       .selector-group {
