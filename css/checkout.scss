@@ -83,13 +83,11 @@
       }
 
       .ship-diff {
-        display: block;
+        display: flex;
         margin-top: px-to-rem(20);
         font-size: px-to-rem(14);
         padding:0 px-to-rem(30) px-to-rem(20);
-        input {
-          margin-right: px-to-rem(8);
-        }
+        
       }
 
       .back-btn {
@@ -273,9 +271,9 @@
   appearance: none;
   width: 18px;
   height: 18px;
-  border: 2px solid #bbb;
+  border: 1px solid $light-gray-stroke;
   border-radius: px-to-rem(3);
-  background: #fff;
+  background: $secondary-color;
   outline: none;
   cursor: pointer;
   position: relative;
@@ -285,17 +283,16 @@
   display: inline-block;
 }
 .styled-checkbox:checked {
-  border-color: #222;
-  background: #222;
+  background: $secondary-color;
 }
 .styled-checkbox:checked::after {
   content: '';
   position: absolute;
-  left: 4px;
-  top: 0px;
+  left: 5px;
+  top: 1px;
   width: 6px;
   height: 12px;
-  border: solid #fff;
+  border: solid $text-color;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   display: block;
@@ -306,6 +303,7 @@
   user-select: none;
 }
 .ship-diff {
+  display: flex; align-items: center; gap: 8px;
   margin-top: 16px;
   margin-bottom: 0;
   cursor: pointer;
@@ -330,7 +328,6 @@
   color: #000;
 }
 
-/* Responsive styles */
 @media (max-width: 1024px) {
   .checkout-section {
     .checkout-wrapper {

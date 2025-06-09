@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drapez - Fashion Store</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <meta property="og:image" content="images/favicon.png" />
-  <meta property="og:image:width" content="72">
-<meta property="og:image:height" content="72">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -211,22 +208,7 @@
             </li>
           </ul>
         </div>
-        <!-- Remove Jeans subcategory filter below Sizes filter -->
-        <!-- <div class="filter-section" id="jeans-subcategory-filter">
-          <h4>Jeans Category</h4>
-          <ul>
-            <li><label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" data-jeans-subcat value="Skinny" /> Skinny</label></li>
-            <li><label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" data-jeans-subcat value="Slim" /> Slim</label></li>
-            <li><label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" data-jeans-subcat value="Regular" /> Regular</label></li>
-            <li><label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" data-jeans-subcat value="Straight" /> Straight</label></li>
-            <li><label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" data-jeans-subcat value="Tapered" /> Tapered</label></li>
-            <li><label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" data-jeans-subcat value="Bootcut" /> Bootcut</label></li>
-            <li><label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" data-jeans-subcat value="Relaxed" /> Relaxed</label></li>
-            <li><label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" data-jeans-subcat value="High Waist" /> High Waist</label></li>
-            <li><label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" data-jeans-subcat value="Low Rise" /> Low Rise</label></li>
-            <li><label class="filter-checkbox-label"><input type="checkbox" class="filter-checkbox" data-jeans-subcat value="Distressed" /> Distressed</label></li>
-          </ul>
-        </div> -->
+        
       </aside>
       <div class="grid-section">
         <div class="grid-header">
@@ -243,7 +225,6 @@
           <div class="pagination pagination-top"></div>
         </div>
         <div class="product-grid" id="shop-all-product-grid">
-          <!-- Product cards will be rendered here by JS -->
         </div>
         <div class="product-grid-footer">
           <div class="results">Showing 1–9 of 18 results</div><div class="pagination"></div>
@@ -254,7 +235,6 @@
   </main>
 
   <footer class="site-footer">
-    <!-- 1. Footer Top (Info Boxes) -->
     <aside class="footer-top">
       <div class="info-box">
         <svg width="47" height="37" viewBox="0 0 47 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -291,7 +271,6 @@
       </div>
     </aside>
 
-    <!-- 2. Newsletter -->
     <section class="newsletter">
       <div class="newsletter-content">
         <div class="newsletter-text">
@@ -312,7 +291,6 @@
       </div>
     </section>
 
-    <!-- 3. Main Footer -->
     <section class="footer-main">
       <div class="footer-columns">
         <div class="footer-about">
@@ -348,7 +326,6 @@
       </div>
     </section>
 
-    <!-- 4. Copyright -->
     <div class="footer-bottom">
       <p>© 2025 Drapezy. All rights reserved.</p>
       <div class="payment-icons">
@@ -394,32 +371,25 @@
   <script src="js/api.js"></script>
   <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // ...existing code...
 
-  // Fix: Clear all filters button resets all filters and updates products
   const clearAllBtn = document.getElementById('clear-all-filters-btn');
   if (clearAllBtn) {
     clearAllBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      // Uncheck all checkboxes in sidebar
       document.querySelectorAll('.sidebar .filter-checkbox').forEach(cb => cb.checked = false);
-      // Reset price range
       const priceRange = document.getElementById('price-range');
       if (priceRange) {
         priceRange.value = 100;
         const priceText = document.getElementById('price-range-text');
         if (priceText) priceText.textContent = `₹100 - ₹5000`;
       }
-      // Optionally reset sort select
       const sortSelect = document.querySelector('select[name="sort-by"]');
       if (sortSelect) sortSelect.selectedIndex = 0;
-      // Re-render products
       if (typeof updateProducts === 'function') updateProducts();
       else if (typeof renderAll === 'function') renderAll();
     });
   }
 
-  // ...existing code...
 });
 </script>
 </body>

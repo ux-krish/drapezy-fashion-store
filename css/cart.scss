@@ -470,7 +470,6 @@
     }
   }
 
-  // Responsive layout for cart-summary-section
   @media (max-width: 900px) {
     flex-direction: column;
     gap: px-to-rem(20);
@@ -483,7 +482,7 @@
     }
   }
 
-  // Responsive padding for cart-summary__table
+
   .cart-summary__table {
     @media (max-width: 700px) {
       border-radius: 0;

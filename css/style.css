@@ -2254,6 +2254,7 @@ footer .logo div span {
   text-align: left;
   transform: translateY(max(2.7777777778rem, 2.6041666667vw));
   font-weight: 400;
+  opacity: 1 !important;
 }
 .promo-card figcaption article h2 span {
   font-weight: 900;

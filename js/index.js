@@ -1,10 +1,7 @@
-// Home page GSAP animations for index.html
-
 document.addEventListener('DOMContentLoaded', function () {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animate hero-swiper slides and progress
   if (document.querySelector('.hero-swiper')) {
     const progressCircle = document.querySelector('.autoplay-progress svg circle');
     const progressContent = document.querySelector('.autoplay-progress span');
@@ -54,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Text carousel animation
   gsap.timeline({
     scrollTrigger: {
       trigger: ".text-carousel",
@@ -63,18 +59,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
     .from(".text-carousel .carousel-texts", {
-      //opacity: 0,
       x: -500,
       duration: 3,
       stagger: 0.5,
       ease: "power4.out"
     });
 
-  // Deal of the day animation
   gsap.timeline({
     scrollTrigger: {
       trigger: ".deal-of-the-day .deal-container",
-      start: "top 80%", // <-- triggers when section enters viewport
+      start: "top 80%", 
       toggleActions: "play none none reverse",
       once: true
     }
@@ -94,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
       ease: "power2.out"
     }, "<");
 
-  // Shop category animation
   gsap.timeline({
     scrollTrigger: {
       trigger: ".shop-category",
@@ -127,22 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
       ease: "power3.out"
     });
 
-  //New arrivals animation
-//   gsap.timeline({
-//     scrollTrigger: {
-//       trigger: ".new-arrivals",
-//       start: "top 80%",
-//       toggleActions: "play none none reverse"
-//     }
-//   })
-//     .from(".new-arrivals .products-grid", {
-//       opacity: 0,
-//       y: -200,
-//       duration: 2,
-//       ease: "power3.out"
-//     });
-
-  // Deal banner animation
   gsap.timeline({
     scrollTrigger: {
       trigger: ".deal-banner",
@@ -160,7 +137,6 @@ document.addEventListener('DOMContentLoaded', function () {
       ease: "power3.out"
     });
 
-  // Best selling section animation
   gsap.timeline({
     scrollTrigger: {
       trigger: ".best-selling",
@@ -177,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
       ease: "power2.out"
     });
 
-  // Promo banner animation
   gsap.timeline({
     scrollTrigger: {
       trigger: ".promo-banner",
@@ -200,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function () {
       ease: "power3.out"
     }, "<+0.1");
 
-  // Promo section animation
   gsap.timeline({
     scrollTrigger: {
       trigger: ".promo-section",
@@ -224,10 +198,6 @@ document.addEventListener('DOMContentLoaded', function () {
       stagger: 0.1,
       ease: "power3.inOut"
     });
-
-  // Reviews section animation
-  
-  // Animate section-newarrival-deals banners
   const himBanner = document.querySelector('.section-newarrival-deals .newarrival-banner--him');
   const herBanner = document.querySelector('.section-newarrival-deals .newarrival-banner--her');
   if (himBanner) {
@@ -257,7 +227,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Animate deals-banner (not newarrival banners)
   gsap.utils.toArray('.deals-banner:not(.newarrival-banner--him):not(.newarrival-banner--her)').forEach(banner => {
     gsap.from(banner, {
       x: -200,
@@ -271,10 +240,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Also call once on DOMContentLoaded for initial render
   if (window.animateProductCards) window.animateProductCards();
 
-  // Animate main-slider images (for home page hero product gallery, if present)
   function animateMainSliderImages() {
     const mainSlider = document.querySelector('.main-slider.swiper');
     if (mainSlider && window.mainSwiper) {
@@ -295,7 +262,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Patch Swiper for main-slider to animate slides on init/slideChange
   (function patchMainSliderSwiper() {
     if (!window.Swiper) return;
     const origSwiper = window.Swiper;
@@ -320,10 +286,8 @@ document.addEventListener('DOMContentLoaded', function () {
     Object.assign(window.Swiper, origSwiper);
   })();
 
-  // --- Countdown for each section ---
   document.querySelectorAll('.countdown').forEach(countdown => {
     const times = countdown.querySelectorAll('.time');
-    // If 4 .time elements: days/hours/mins/secs (default 7 days)
     if (times.length === 4) {
       let d = parseInt(times[0].textContent, 10) || 7;
       let h = parseInt(times[1].textContent, 10) || 0;
@@ -331,7 +295,6 @@ document.addEventListener('DOMContentLoaded', function () {
       let s = parseInt(times[3].textContent, 10) || 0;
       startCountdown(countdown, d, h, m, s);
     }
-    // If 3 .time elements: hours/mins/secs (default 12 hours)
     else if (times.length === 3) {
       let h = parseInt(times[0].textContent, 10) || 12;
       let m = parseInt(times[1].textContent, 10) || 0;
@@ -340,7 +303,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Countdown utility
   function startCountdown(container, days, hours, minutes, seconds) {
     function pad(n) { return n < 10 ? '0' + n : n; }
     let total = days * 86400 + hours * 3600 + minutes * 60 + seconds;
@@ -366,7 +328,6 @@ document.addEventListener('DOMContentLoaded', function () {
     update();
   }
 
-  // Countdown for hours/mins/secs only
   function startCountdownHours(container, hours, minutes, seconds) {
     function pad(n) { return n < 10 ? '0' + n : n; }
     let total = hours * 3600 + minutes * 60 + seconds;
@@ -390,13 +351,11 @@ document.addEventListener('DOMContentLoaded', function () {
     update();
   }
 
-  // Show "Sales End!" after countdown finishes
   function showCountdownEnd(container) {
     container.innerHTML = `<span class="countdown-ended" style="color:#e74c3c;font-weight:bold;font-size:1.2em;">Sales End!</span>`;
   }
 });
 
-// Countdown for days/hours/mins/secs
 function startCountdown(container, days, hours, minutes, seconds) {
   function pad(n) { return n < 10 ? '0' + n : n; }
   let total = days * 86400 + hours * 3600 + minutes * 60 + seconds;
@@ -422,7 +381,6 @@ function startCountdown(container, days, hours, minutes, seconds) {
   update();
 }
 
-// Countdown for hours/mins/secs only
 function startCountdownHours(container, hours, minutes, seconds) {
   function pad(n) { return n < 10 ? '0' + n : n; }
   let total = hours * 3600 + minutes * 60 + seconds;
@@ -446,7 +404,6 @@ function startCountdownHours(container, hours, minutes, seconds) {
   update();
 }
 
-// Show "Sales End!" after countdown finishes
 function showCountdownEnd(container) {
   container.innerHTML = `<span class="countdown-ended" style="color:#e74c3c;font-weight:bold;font-size:1.2em;">Sales End!</span>`;
 }
@@ -455,11 +412,10 @@ window.addEventListener('load', function() {
   if (window.ScrollTrigger) {
     setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 200); // Wait a bit for images/fonts to load
+    }, 200);
   }
 });
 
-// If using Lenis for smooth scroll:
 if (window.lenis && window.ScrollTrigger) {
   window.lenis.on('scroll', ScrollTrigger.update);
 }

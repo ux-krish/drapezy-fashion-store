@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drapez - Fashion Store</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <meta property="og:image" content="images/favicon.png" />
-  <meta property="og:image:width" content="72">
-<meta property="og:image:height" content="72">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -89,7 +86,6 @@
       </div>
     </div>
     <ul class="nav-links">
-      <!-- dynamic menu from common js -->
     </ul>
   </nav>
 <main>
@@ -102,12 +98,11 @@
   <section class="order-history-section">
     <div class="container">
       <div id="order-history-list">
-        <!-- Orders will be rendered here by JS -->
+       
       </div>
     </div>
   </section>
 
-  <!-- Order Delivered Table Section (dynamic data) -->
   <section class="order-delivered-section" style="margin: 40px 0;">
     <div class="container">
       <h2 style="font-size:1.4rem;margin-bottom:18px;">Order Delivered Table</h2>
@@ -250,14 +245,11 @@
   <script src="js/common.js"></script>
   <script src="js/api.js"></script>
   <script>
-    // Render order history
     function renderOrderHistory() {
       let orderHistory = [];
       try {
         orderHistory = JSON.parse(localStorage.getItem('orderHistory') || '[]');
       } catch (e) {}
-      // Remove fallback to lastOrder if orderHistory is empty
-      // (so clear always works, and no phantom order remains)
       const listDiv = document.getElementById('order-history-list');
       if (!listDiv) return;
       if (!orderHistory.length) {
@@ -267,7 +259,6 @@
       let html = '';
       orderHistory.slice().reverse().forEach(order => {
         const summary = order.summary || {};
-        // --- Product Table (like order-confirm) ---
         let tableHtml = `
           <div class="product-table" style="margin-bottom:16px;">
             <div class="table-head" style="display:flex;gap:8px;">
@@ -305,7 +296,6 @@
             </div>
           `;
         });
-        // Totals row
         tableHtml += `
           <div class="table-row" style="display:flex;gap:8px;align-items:center;">
             <div class="product-info" style="flex:2;">Platform Fees</div>
@@ -326,7 +316,6 @@
           </div>
         `;
 
-        // Format order date/time in IST
         function formatISTDate(dateStr) {
           if (!dateStr) return '';
           const date = new Date(dateStr);
@@ -354,7 +343,6 @@
       });
       listDiv.innerHTML = html;
 
-      // Attach clear button handlers
       listDiv.querySelectorAll('.clear-order-btn').forEach(btn => {
         btn.onclick = function() {
           const orderId = this.getAttribute('data-order-id');
@@ -369,7 +357,6 @@
       });
     }
 
-    // Render delivered order table if 3 minutes have passed since order date
     function renderDeliveredOrderTable() {
       const tableDiv = document.getElementById('delivered-product-table');
       if (!tableDiv) return;
@@ -381,14 +368,12 @@
         tableDiv.innerHTML = '<div style="padding:24px; text-align:center; width:100%;">No delivered orders yet.</div>';
         return;
       }
-      // Find the most recent order (by orderDate)
       const latestOrder = orderHistory.slice().sort((a, b) => new Date(b.orderDate) - new Date(a.orderDate))[0];
       if (!latestOrder || !latestOrder.orderDate) {
         tableDiv.innerHTML = '<div style="padding:24px; text-align:center; width:100%;">No delivered orders yet.</div>';
         return;
       }
       const orderDate = new Date(latestOrder.orderDate);
-      // Delivery after 30 minutes
       const deliveryDate = new Date(orderDate.getTime() + 30 * 60 * 1000);
       const now = new Date();
       const delivered = now >= deliveryDate;

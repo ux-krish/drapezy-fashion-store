@@ -23,7 +23,6 @@
     gap: px-to-rem(10);
     flex-wrap: wrap;
 
-    // Responsive: stack on mobile
     @media (max-width: 700px) {
       flex-direction: column;
       align-items: flex-start;
@@ -164,7 +163,6 @@
         }
       }
     }
-    /* Responsive styles */
 @media (max-width: 1024px) {
   .thank-you-section {
     padding: px-to-rem(24) 0;
@@ -226,7 +224,6 @@
 }
 
 
-    // Responsive: horizontal scroll for small screens, side-by-side th/td for very small screens
     @media (max-width: 900px) {
       .table-head, .table-row {
         grid-template-columns: 2.5fr 1.2fr 1fr 1.2fr 1.2fr 1.2fr;
@@ -300,7 +297,6 @@
         background: #fff;
         padding: px-to-rem(4) px-to-rem(5);
         min-width: unset;
-        // Each cell as flex row: th (from data-label) + td value
         > [data-label] {
           display: flex;
           align-items: center;
@@ -311,7 +307,6 @@
           text-align: left;
           font-size: px-to-rem(13);
           justify-content: space-between;
-          // Show the th value from data-label
           &::before {
             content: attr(data-label);
             display: inline-block;

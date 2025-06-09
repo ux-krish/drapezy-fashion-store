@@ -18,13 +18,11 @@ let selectedSize = null;
 let selectedQty = 1;
 
 function showProduct(product) {
-  // --- Fix main/thumbnail images ---
   const mainSlider = document.querySelector('.main-slider .swiper-wrapper');
   const thumbSlider = document.querySelector('.thumbnail-slider .swiper-wrapper');
   if (mainSlider && thumbSlider) {
     mainSlider.innerHTML = '';
     thumbSlider.innerHTML = '';
-    // Use product.thumbs if available, else fallback to [product.image]
     const images = Array.isArray(product.thumbs) && product.thumbs.length > 0
       ? product.thumbs
       : [product.image];
@@ -34,7 +32,6 @@ function showProduct(product) {
     });
   }
 
-  // Swiper re-init
   if (window.thumbSwiper && typeof window.thumbSwiper.destroy === 'function') window.thumbSwiper.destroy(true, true);
   if (window.mainSwiper && typeof window.mainSwiper.destroy === 'function') window.mainSwiper.destroy(true, true);
 
@@ -45,19 +42,12 @@ function showProduct(product) {
     centeredSlidesBounds: true,
     watchOverflow: true,
     watchSlidesVisibility: true,
-    watchSlidesProgress: true,
-    //loop: true,
-    
+    watchSlidesProgress: true,    
     direction: "vertical",
-    // autoHeight: true,
     navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-    // scrollbar: {
-    //   el: '.swiper-scrollbar',
-    //   draggable: true,
-    // },
   });
 
   window.mainSwiper = new Swiper('.main-slider.swiper', {
@@ -101,7 +91,6 @@ window.thumbSwiper.on('transitionStart', function(){
   isSyncingSwipers = false;
 });
 
-  // Info
   document.querySelector('.product-info .tag').textContent = product.gender == "Women" ? 'For Her' : 'For Him';
   document.querySelector('.product-info h2').textContent = product.title || '';
   document.querySelector('.product-info .ratings span').innerHTML = `${product.rating || ''} <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.825 19L5.45 11.975L0 7.25L7.2 6.625L10 0L12.8 6.625L20 7.25L14.55 11.975L16.175 19L10 15.275L3.825 19Z" fill="#FABB05" /></svg>`;
@@ -111,7 +100,6 @@ window.thumbSwiper.on('transitionStart', function(){
   document.querySelector('.product-info .price .discount').textContent = product.discount ? `${product.discount} OFF` : '';
   document.querySelector('.product-info .desc').textContent = product.description || '';
 
-  // Sizes
   const sizesDiv = document.querySelector('.product-info .sizes');
   if (sizesDiv && product.sizes && window.renderProductSizes) {
     window.renderProductSizes(
@@ -120,7 +108,6 @@ window.thumbSwiper.on('transitionStart', function(){
       product.available_size,
       function(selected) {
         selectedSize = selected;
-        // Update active class on label
         sizesDiv.querySelectorAll('label').forEach(label => {
           if (label.querySelector('input[type="radio"]')?.value === selected) {
             label.classList.add('active');
@@ -128,12 +115,10 @@ window.thumbSwiper.on('transitionStart', function(){
             label.classList.remove('active');
           }
         });
-        // --- NEW: Update quantity field from localStorage when size changes ---
         updateQtyFromCart(product.id, selected);
       },
       'size'
     );
-    // Ensure first radio is checked and label has active class
     const radios = sizesDiv.querySelectorAll('input[type="radio"]');
     let checked = false;
     radios.forEach(radio => {
@@ -147,22 +132,18 @@ window.thumbSwiper.on('transitionStart', function(){
       if (radios[0].parentElement) radios[0].parentElement.classList.add('active');
       selectedSize = radios[0].value;
     }
-    // Listen for change to update active class and quantity
     radios.forEach(radio => {
       radio.addEventListener('change', function() {
         radios.forEach(r => r.parentElement && r.parentElement.classList.remove('active'));
         if (this.parentElement) this.parentElement.classList.add('active');
         selectedSize = this.value;
-        // --- NEW: Update quantity field from localStorage when size changes ---
         updateQtyFromCart(product.id, selectedSize);
       });
     });
   }
 
-  // Quantity
   const qtyDiv = document.querySelector('.product-info .quantity');
   if (qtyDiv && window.renderQuantitySelector) {
-    // --- NEW: Set initial quantity from localStorage if present ---
     let initialQty = 1;
     try {
       const cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
@@ -171,12 +152,10 @@ window.thumbSwiper.on('transitionStart', function(){
     } catch {}
     window.renderQuantitySelector(qtyDiv, initialQty, function(qty) {
       selectedQty = qty;
-      // --- NEW: Optionally update localStorage here if you want live sync ---
     });
     selectedQty = initialQty;
   }
 
-  // --- Helper: Update quantity field from cartProducts for current id+size ---
   function updateQtyFromCart(productId, size) {
     const qtyDiv = document.querySelector('.product-info .quantity');
     if (!qtyDiv || !window.renderQuantitySelector) return;
@@ -192,26 +171,20 @@ window.thumbSwiper.on('transitionStart', function(){
     selectedQty = qty;
   }
 
-  // Add to Cart button logic
   const addToCartBtn = document.querySelector('.product-info .actions .btn.dark');
   if (addToCartBtn) {
     addToCartBtn.onclick = function(e) {
       e.preventDefault();
-      // Validate size selection
       if (!selectedSize) {
         alert('Please select a size.');
         return;
       }
-      // Validate quantity
       if (!selectedQty || selectedQty < 1) {
         alert('Please select a valid quantity.');
         return;
       }
-      // Clean size string
       const cleanSize = (selectedSize || '').trim();
-      // Do not add if size is empty or only whitespace or matches unwanted value
       if (!cleanSize || cleanSize === 'XXS') return;
-      // Prepare cart item
       const cartItem = {
         id: product.id,
         title: product.title,
@@ -223,7 +196,6 @@ window.thumbSwiper.on('transitionStart', function(){
         qty: selectedQty,
         total: product.price * selectedQty
       };
-      // Save to localStorage cart (merge if exists)
       let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
       const existing = cart.find(
         item => item.id === cartItem.id && item.size === cartItem.size
@@ -234,7 +206,6 @@ window.thumbSwiper.on('transitionStart', function(){
       } else {
         cart.push(cartItem);
       }
-      // Deduplicate for safety
       cart = cart.reduce((acc, item) => {
         const found = acc.find(i => i.id === item.id && i.size === item.size);
         if (found) {
@@ -246,31 +217,24 @@ window.thumbSwiper.on('transitionStart', function(){
         return acc;
       }, []);
       localStorage.setItem('cartProducts', JSON.stringify(cart));
-      // Redirect to cart page after short delay
       setTimeout(() => { window.location.href = 'cart.html'; }, 600);
     };
   }
 
-  // Buy Now button logic: add to cart (merge), then go to checkout
   const buyNowBtn = document.querySelector('.product-info .actions .buy-now');
   if (buyNowBtn) {
     buyNowBtn.onclick = function(e) {
       e.preventDefault();
-      // Validate size selection
       if (!selectedSize) {
         alert('Please select a size.');
         return;
       }
-      // Validate quantity
       if (!selectedQty || selectedQty < 1) {
         alert('Please select a valid quantity.');
         return;
       }
-      // Clean size string
       const cleanSize = (selectedSize || '').trim();
-      // Do not add if size is empty or only whitespace or matches unwanted value
       if (!cleanSize || cleanSize === 'XXS') return;
-      // Prepare cart item
       const cartItem = {
         id: product.id,
         title: product.title,
@@ -282,32 +246,25 @@ window.thumbSwiper.on('transitionStart', function(){
         qty: selectedQty,
         total: product.price * selectedQty
       };
-      // --- FIX: Only add/merge ONCE, and remove any duplicate buggy entries ---
       let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
-      // Remove any buggy/duplicate entries for this product+size (e.g. with whitespace or missing fields)
       cart = cart.filter(item =>
         !(item.id === cartItem.id &&
-          (item.size || '').trim() === '' // Remove empty size
+          (item.size || '').trim() === '' 
         ) &&
         !(item.id === cartItem.id &&
           (item.size || '').replace(/\s+/g, '') === cleanSize.replace(/\s+/g, '') &&
-          (!item.price || !item.original_price || !item.title || !item.image) // Remove incomplete/buggy
+          (!item.price || !item.original_price || !item.title || !item.image) 
         )
       );
-      // Now merge/add the correct entry
-      // --- FIX: Only update if id and size BOTH match, do not add if id is different ---
       let foundIdx = cart.findIndex(
         item => item.id === cartItem.id && item.size === cartItem.size
       );
       if (foundIdx !== -1) {
-        // Update the existing entry's qty and total, do NOT add a new item
         cart[foundIdx].qty += cartItem.qty;
         cart[foundIdx].total = cart[foundIdx].price * cart[foundIdx].qty;
       } else {
-        // Only add if this exact id+size is not present
         cart.push(cartItem);
       }
-      // Remove any further duplicates for safety (by id+size only)
       cart = cart.reduce((acc, item) => {
         const found = acc.find(i => i.id === item.id && i.size === item.size);
         if (found && found !== item) {
@@ -320,7 +277,6 @@ window.thumbSwiper.on('transitionStart', function(){
       }, []);
       localStorage.setItem('cartProducts', JSON.stringify(cart));
 
-      // Prepare checkout summary from all cart items (de-duplicate by id+size)
       const items = cart
         .filter(item => !!item.size && item.size.trim() && item.size.trim() !== 'XXS')
         .map(item => ({
@@ -343,11 +299,9 @@ window.thumbSwiper.on('transitionStart', function(){
     };
   }
 
-  // Category
   document.querySelector('.product-info .category').innerHTML =
     `<strong>Category:</strong> ${product.gender || ''}${product.category ? ', ' + product.category : ''}${product.color ? ', ' + product.color : ''}`;
 
-  // Features
   const featuresUl = document.querySelector('.product-info .features');
   if (featuresUl && product.features && product.features.length) {
     featuresUl.innerHTML = '';
@@ -356,10 +310,8 @@ window.thumbSwiper.on('transitionStart', function(){
     });
   }
 
-  // Handle wishlist button beside Buy Now
   const wishlistBtn = document.querySelector('.product-info .actions .btn.light');
   if (wishlistBtn) {
-    // Set initial state: not wishlisted (no fill)
     let isWishlisted = false;
     if (typeof isInWishlist === 'function') {
       isWishlisted = isInWishlist(product.id);
@@ -401,7 +353,6 @@ window.thumbSwiper.on('transitionStart', function(){
         }
         localStorage.setItem(key, JSON.stringify(arr));
       }
-      // Update button state and SVG fill
       if (wishlistedNow) {
         wishlistBtn.classList.add('wishlisted');
         const svg = wishlistBtn.querySelector('svg path');
@@ -414,17 +365,13 @@ window.thumbSwiper.on('transitionStart', function(){
     };
   }
 
-  // GSAP animation for product info and sliders moved to common.js
-
-  // Remember this product page as last visited product page for "Back" button
+  
   if (window.rememberProductPage) window.rememberProductPage();
 
-  // --- Dynamic Reviews ---
   if (window.renderProductReviews) {
     window.renderProductReviews(product.id, '.review-summary__grid');
   }
 
-  // Render related products using the product's 'related' field if available, else fallback to same category
   const relatedGrid = document.querySelector('#related-products');
   if (relatedGrid) {
     fetch('./products.json')
@@ -433,21 +380,18 @@ window.thumbSwiper.on('transitionStart', function(){
         const products = data.products || [];
         let relatedProducts = [];
         if (Array.isArray(product.related) && product.related.length > 0) {
-          // Use related ids from product.related
           relatedProducts = product.related
             .map(relId => products.find(p => p.id === relId))
             .filter(Boolean)
-            .slice(0, 4); // show 4 products
+            .slice(0, 4);
         }
         if (relatedProducts.length < 4) {
-          // Fill up with same category products (excluding current and already added)
           const alreadyIds = new Set([product.id, ...relatedProducts.map(p => p.id)]);
           const more = products.filter(
             p => p.category === product.category && !alreadyIds.has(p.id)
           );
           relatedProducts = relatedProducts.concat(more.slice(0, 4 - relatedProducts.length));
         }
-        // Render related products
         relatedGrid.innerHTML = '';
         relatedProducts.forEach(prod => {
           const isWishlisted = typeof isInWishlist === 'function' ? isInWishlist(prod.id) : false;
@@ -509,7 +453,6 @@ window.thumbSwiper.on('transitionStart', function(){
             </div>
           `;
         });
-        // Attach event listeners for view, cart, wishlist
         relatedGrid.querySelectorAll('.product-card').forEach(card => {
           const id = card.getAttribute('data-product-id');
           const prod = relatedProducts.find(p => p.id === id);
@@ -521,7 +464,6 @@ window.thumbSwiper.on('transitionStart', function(){
               window.location.href = `product.html?id=${prod.id}`;
             });
           }
-          // Add to Cart button logic
           const addToCartBtn = card.querySelector('.add-to-cart');
           if (addToCartBtn && prod) {
             addToCartBtn.addEventListener('click', function (e) {
@@ -542,19 +484,12 @@ window.thumbSwiper.on('transitionStart', function(){
             });
           }
         });
-        // Attach wishlist button logic after rendering cards
         if (typeof setupWishlistButtons === 'function') setupWishlistButtons(relatedGrid);
       });
   }
 }
 
-/**
- * Render customer reviews for the product page using real product review data.
- * @param {string} productId
- * @param {string} selector - CSS selector for the review grid container
- */
 function renderProductReviews(productId, selector = '.review-summary__grid') {
-  // Always use the global API function if available
   if (window.getProductReviews) {
     window.getProductReviews(productId).then(reviews => {
       const grid = document.querySelector(selector);
@@ -593,31 +528,25 @@ function renderProductReviews(productId, selector = '.review-summary__grid') {
 document.addEventListener('DOMContentLoaded', function() {
   loadProductDetail();
 
-  // Find the Add to Cart button (adjust selector if needed)
   const addToCartBtn = document.querySelector('.actions .btn.dark');
   if (addToCartBtn) {
     addToCartBtn.addEventListener('click', function (e) {
       e.preventDefault();
 
-      // Get product info from the page or localStorage
       const prod = JSON.parse(localStorage.getItem('selectedProduct') || '{}');
-      // Get selected size and quantity from the page
       let selectedSize = '';
       const sizeInput = document.querySelector('.sizes input[type="radio"]:checked');
       if (sizeInput) selectedSize = sizeInput.value;
-      // Fallback: try to get from .sizes .active or similar if you use custom UI
       if (!selectedSize) {
         const activeSize = document.querySelector('.sizes .active');
         if (activeSize) selectedSize = activeSize.textContent.trim();
       }
-      // Get quantity
       let qty = 1;
       const qtyInput = document.getElementById('qty');
       if (qtyInput && !isNaN(parseInt(qtyInput.value))) {
         qty = parseInt(qtyInput.value);
       }
 
-      // Prepare cart item
       const cartItem = {
         id: prod.id,
         title: prod.title,
@@ -628,33 +557,26 @@ document.addEventListener('DOMContentLoaded', function() {
         qty: qty
       };
 
-      // Check if already in cart (id + size)
       let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
       const existing = cart.find(item => item.id === cartItem.id && item.size === cartItem.size);
 
       if (existing) {
-        // If already in cart, just redirect to cart page (do not add again)
         window.location.href = 'cart.html';
         return;
       } else {
-        // Add to cart and redirect
         cart.push(cartItem);
         localStorage.setItem('cartProducts', JSON.stringify(cart));
-        // Optionally update cart count in header if needed
         if (typeof updateCartCount === 'function') updateCartCount();
         window.location.href = 'cart.html';
       }
     });
   }
 
-  // Size selection logic (prevent page jump and update only the changed element, not the whole cart-tbody)
   document.querySelectorAll('.sizes button, .sizes a, .sizes span').forEach(function(el) {
     el.addEventListener('click', function(e) {
-      // Only preventDefault if the element is a link or button
       if (el.tagName === 'A' || el.tagName === 'BUTTON') {
         e.preventDefault();
       }
-      // Remove active from all siblings
       var parent = el.parentElement;
       if (parent) {
         parent.querySelectorAll('.active').forEach(function(activeEl) {
@@ -662,18 +584,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
       el.classList.add('active');
-      // ...any other logic for size selection...
 
-      // If on cart page, update only the relevant row/element, not the whole cart-tbody
       if (window.location.pathname.includes('cart.html')) {
-        // Example: update the size in localStorage for this cart item
-        // Find the cart row and get product id (assumes data-id or similar is set)
+       
         var cartRow = el.closest('tr.cart-summary__item');
         if (cartRow) {
           var productTitle = cartRow.querySelector('.product-title')?.textContent?.trim();
           var newSize = el.textContent.trim();
           let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
-          // Find by title and update size (adjust if you have id/size in DOM)
           let updated = false;
           cart.forEach(item => {
             if (item.title === productTitle) {
@@ -684,22 +602,15 @@ document.addEventListener('DOMContentLoaded', function() {
           if (updated) {
             localStorage.setItem('cartProducts', JSON.stringify(cart));
           }
-          // Optionally update the size display in the row (if needed)
-          // No need to rerender the whole tbody
         }
       }
     });
   });
 
-  // Buy Now button logic (moved from product.html)
   var buyNowBtn = document.querySelector('.buy-now');
   if (buyNowBtn) {
     buyNowBtn.addEventListener('click', function(e) {
       e.preventDefault();
-
-      // Get product info from the page (adjust selectors as needed)
-      // You must have a variable 'loadedProduct' or similar with the current product info
-      // and functions to get selected size and qty
       const selectedSize = (() => {
         const sizeBtn = document.querySelector('.sizes input[type="radio"]:checked');
         if (sizeBtn) return sizeBtn.value;
@@ -713,11 +624,9 @@ document.addEventListener('DOMContentLoaded', function() {
         return isNaN(val) || val < 1 ? 1 : val;
       })();
 
-      // Get loadedProduct from your product detail logic
       const product = window.loadedProduct || window.selectedProduct || null;
       if (!product) return;
 
-      // Build product object for cart
       const buyNowProduct = {
         id: product.id,
         title: product.title,
@@ -728,18 +637,16 @@ document.addEventListener('DOMContentLoaded', function() {
         qty: selectedQty
       };
 
-      // --- FIX: Update cart with selectedQty for this product/size ---
       let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
       const existing = cart.find(item => item.id === buyNowProduct.id && item.size === buyNowProduct.size);
       if (existing) {
-        existing.qty = selectedQty; // set to selectedQty, not add
+        existing.qty = selectedQty; 
         existing.subtotal = existing.price * existing.qty;
       } else {
         cart.push({ ...buyNowProduct, subtotal: buyNowProduct.price * buyNowProduct.qty });
       }
       localStorage.setItem('cartProducts', JSON.stringify(cart));
 
-      // Prepare checkout summary from all cart items
       const items = cart.map(item => ({
         ...item,
         subtotal: item.price * item.qty
@@ -749,7 +656,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const platformFees = 5;
       const total = items.reduce((sum, item) => sum + (item.price * item.qty), 0) + platformFees;
 
-      // Prepare checkout summary
       var checkoutSummary = {
         items: items,
         subtotal: subtotalAll,
@@ -758,15 +664,12 @@ document.addEventListener('DOMContentLoaded', function() {
         total: total
       };
 
-      // Store checkout summary for buy-now
       localStorage.setItem('checkoutSummary', JSON.stringify(checkoutSummary));
 
-      // Redirect to checkout
       window.location.href = 'checkout.html';
     });
   }
 
-  // --- Product Details ---
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
   if (!productId) return;
@@ -777,7 +680,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const product = (data.products || []).find(p => p.id === productId);
       if (!product) return;
 
-      // --- Product Details ---
       const details = product.details || {};
       const detailsCard = document.getElementById('product-details-card');
       if (detailsCard) {
@@ -796,7 +698,6 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
       }
 
-      // --- Delivery & Return ---
       const delivery = product.delivery_return || {};
       const deliveryCard = document.getElementById('delivery-return-card');
       if (deliveryCard) {
@@ -812,7 +713,6 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
       }
 
-      // --- Size & Fit ---
       const sizeFit = product.size_fit || {};
       const sizeFitCard = document.getElementById('size-fit-card');
       if (sizeFitCard) {
@@ -830,23 +730,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Utility to get productId from URL (e.g. product.html?id=xxx)
 function getProductIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
   return params.get('id');
 }
 
-// After DOMContentLoaded, render related products if productId is present
 document.addEventListener('DOMContentLoaded', function () {
   const productId = getProductIdFromUrl();
   if (productId && window.renderRelatedProducts) {
-    // Ensure the related products grid exists, or create it if missing
     let grid = document.querySelector('#related-products');
     if (!grid) {
-      // Try to find a container to append to (e.g. .related-products section)
       let section = document.querySelector('.related-products');
       if (!section) {
-        // If not found, create and append to main
         section = document.createElement('section');
         section.className = 'related-products';
         document.querySelector('main')?.appendChild(section);
@@ -856,7 +751,6 @@ document.addEventListener('DOMContentLoaded', function () {
       grid.className = 'product-grid';
       section.appendChild(grid);
     }
-    // Render 4 related products
     window.renderRelatedProducts({
       productId: productId,
       selector: '#related-products',
@@ -866,13 +760,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  // ...existing code to fetch and render product details...
-
-  // After rendering product details and sizes:
   const productData = window.currentProduct || window.selectedProduct || null;
   const sizesContainer = document.querySelector('.product-sizes, .sizes, #product-sizes');
   if (productData && Array.isArray(productData.sizes) && productData.sizes.length && sizesContainer && typeof renderProductSizes === 'function') {
-    // Preselect the first size and ensure radio is checked
     const defaultSize = productData.sizes[0];
     renderProductSizes(
       sizesContainer,
@@ -880,7 +770,6 @@ document.addEventListener('DOMContentLoaded', function () {
       defaultSize,
       function (selectedSize) {
         window.selectedProductSize = selectedSize;
-        // Update active class on label
         sizesContainer.querySelectorAll('label').forEach(label => {
           if (label.querySelector('input[type="radio"]')?.value === selectedSize) {
             label.classList.add('active');
@@ -892,14 +781,12 @@ document.addEventListener('DOMContentLoaded', function () {
     );
     window.selectedProductSize = defaultSize;
 
-    // Ensure the first radio is checked and label has active class
     const radios = sizesContainer.querySelectorAll('input[type="radio"]');
     let checked = false;
     radios.forEach(radio => {
       if (radio.value === defaultSize) {
         radio.checked = true;
         checked = true;
-        // Add active class to label
         if (radio.parentElement) radio.parentElement.classList.add('active');
       } else {
         if (radio.parentElement) radio.parentElement.classList.remove('active');
@@ -911,14 +798,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Add to Cart/Buy Now button logic
   const addToCartBtn = document.querySelector('.add-to-cart-btn');
   if (addToCartBtn) {
     addToCartBtn.addEventListener('click', function () {
       const size = window.selectedProductSize ||
         (productData && productData.sizes && productData.sizes[0]) ||
         '';
-      // ...existing add to cart logic, using 'size' variable...
     });
   }
   const buyNowBtn = document.querySelector('.buy-now-btn');
@@ -927,28 +812,17 @@ document.addEventListener('DOMContentLoaded', function () {
       const size = window.selectedProductSize ||
         (productData && productData.sizes && productData.sizes[0]) ||
         '';
-      // ...existing buy now logic, using 'size' variable...
     });
   }
-  // ...existing code...
 });
 
-// Ensure this runs after product info is loaded/rendered
 document.addEventListener('DOMContentLoaded', function () {
-  // ...existing code to load product...
-
-  // Find the Buy Now button
   const buyNowBtn = document.querySelector('.buy-now');
   if (buyNowBtn) {
-    // Remove any inline onclick to avoid double action
     buyNowBtn.onclick = null;
 
     buyNowBtn.addEventListener('click', function (e) {
       e.preventDefault();
-
-      // Get product info from the page (adjust selectors as needed)
-      // You must have a variable 'loadedProduct' or similar with the current product info
-      // and functions to get selected size and qty
       const selectedSize = (() => {
         const sizeBtn = document.querySelector('.sizes input[type="radio"]:checked');
         if (sizeBtn) return sizeBtn.value;
@@ -961,12 +835,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let val = qtyInput ? parseInt(qtyInput.value, 10) : 1;
         return isNaN(val) || val < 1 ? 1 : val;
       })();
-
-      // Get loadedProduct from your product detail logic
       const product = window.loadedProduct || window.selectedProduct || null;
       if (!product) return;
 
-      // Build product object for cart
       const buyNowProduct = {
         id: product.id,
         title: product.title,
@@ -976,19 +847,15 @@ document.addEventListener('DOMContentLoaded', function () {
         size: selectedSize,
         qty: selectedQty
       };
-
-      // --- FIX: Update cart with selectedQty for this product/size ---
       let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
       const existing = cart.find(item => item.id === buyNowProduct.id && item.size === buyNowProduct.size);
       if (existing) {
-        existing.qty = selectedQty; // set to selectedQty, not add
+        existing.qty = selectedQty; 
         existing.subtotal = existing.price * existing.qty;
       } else {
         cart.push({ ...buyNowProduct, subtotal: buyNowProduct.price * buyNowProduct.qty });
       }
       localStorage.setItem('cartProducts', JSON.stringify(cart));
-
-      // Prepare checkout summary from all cart items
       const items = cart.map(item => ({
         ...item,
         subtotal: item.price * item.qty
@@ -998,7 +865,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const platformFees = 5;
       const total = items.reduce((sum, item) => sum + (item.price * item.qty), 0) + platformFees;
 
-      // Prepare checkout summary
       var checkoutSummary = {
         items: items,
         subtotal: subtotalAll,
@@ -1007,13 +873,9 @@ document.addEventListener('DOMContentLoaded', function () {
         total: total
       };
 
-      // Store checkout summary for buy-now
       localStorage.setItem('checkoutSummary', JSON.stringify(checkoutSummary));
 
-      // Redirect to checkout
       window.location.href = 'checkout.html';
     });
   }
-
-  // ...existing code...
 });

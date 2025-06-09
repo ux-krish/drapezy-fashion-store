@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drapez - Fashion Store</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <meta property="og:image" content="images/favicon.png" />
-  <meta property="og:image:width" content="72">
-<meta property="og:image:height" content="72">
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -127,10 +125,8 @@
   <main>
   <section class="thank-you-section">
     <div class="container">
-      <!-- Order Summary Header -->
       <div id="order-summary-header">
       </div>
-      <!-- Product Table -->
       <div id="order-summary-table">
       <div class="product-table">
       <div class="table-head">
@@ -143,13 +139,10 @@
       </div>
     </div>
       </div>
-      <!-- Shipping & Billing Details -->
       <div id="order-details-grid"></div>
-      <!-- Continue Shopping Button -->
       <div class="continue-shop-wrapper">
         <button class="cta-button" onclick="window.location.href='shop-all.html'">Continue shopping</button>
       </div>
-      <!-- Info Strip -->
       <div class="info-strip">
         <div class="info-box yellow">
           <i class="icon">
@@ -191,7 +184,6 @@
 </main>
 
   <footer class="site-footer">
-    <!-- 1. Footer Top (Info Boxes) -->
     <aside class="footer-top">
       <div class="info-box">
         <svg width="47" height="37" viewBox="0 0 47 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -228,7 +220,6 @@
       </div>
     </aside>
 
-    <!-- 2. Newsletter -->
     <section class="newsletter">
       <div class="newsletter-content">
         <div class="newsletter-text">
@@ -249,7 +240,6 @@
       </div>
     </section>
 
-    <!-- 3. Main Footer -->
     <section class="footer-main">
       <div class="footer-columns">
         <div class="footer-about">
@@ -285,7 +275,6 @@
       </div>
     </section>
 
-    <!-- 4. Copyright -->
     <div class="footer-bottom">
       <p>© 2025 Drapezy. All rights reserved.</p>
       <div class="payment-icons">
@@ -330,31 +319,26 @@
   <script src="js/api.js"></script>
   <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Get orderData from localStorage
   var orderData = JSON.parse(localStorage.getItem('orderData') || '{}');
   var summary = orderData.summary || {};
   var billing = orderData.billing || {};
   var shipping = orderData.shipping || {};
   var orderId = orderData.orderId || 'ORD-UNKNOWN';
 
-  // Always store orderDate as ISO string in IST if not present
   if (!orderData.orderDate) {
-    // Get current time in IST (Indian Standard Time)
     var now = new Date();
-    var istOffset = 5.5 * 60 * 60 * 1000; // IST is UTC+5:30
+    var istOffset = 5.5 * 60 * 60 * 1000; 
     var istDate = new Date(now.getTime() + (now.getTimezoneOffset() * 60000) + istOffset);
     orderData.orderDate = istDate.toISOString();
     localStorage.setItem('orderData', JSON.stringify(orderData));
   }
   var orderDate = new Date(orderData.orderDate);
   var paymentMethod = 'Cash on Delivery';
-  // Delivery time: 30 minutes after orderDate
   var deliveryDate = new Date(orderDate.getTime() + 30 * 60 * 1000);
   var now = new Date();
   var delivered = now >= deliveryDate;
   var orderStatus = delivered ? 'Delivered' : 'Processing';
 
-  // Helper to format date in IST with time
   function formatISTDate(date) {
     return date.toLocaleString('en-IN', {
       year: 'numeric',
@@ -367,7 +351,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Render order summary header
   var headerDiv = document.getElementById('order-summary-header');
   if (headerDiv) {
     headerDiv.innerHTML = `
@@ -379,7 +362,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
   }
 
-  // Render product table
   var tableDiv = document.getElementById('order-summary-table');
   if (tableDiv && summary.items && summary.items.length) {
     let tableHtml = `
@@ -421,7 +403,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       `;
     });
-    // Totals row
     tableHtml += `
     <div class="table-row">
         <div class="product-info">Platform Fees</div>
@@ -447,7 +428,6 @@ document.addEventListener('DOMContentLoaded', function() {
     tableDiv.innerHTML = '<div style="padding:24px;">No order found.</div>';
   }
 
-  // Render shipping & billing info
   function renderInfoBox(title, info, isBilling) {
     return `
       <div class="info-box">
@@ -475,26 +455,21 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
   }
 
-  // Store order in orderHistory array if not already present
   if (orderData && orderData.orderId) {
     let orderHistory = [];
     try {
       orderHistory = JSON.parse(localStorage.getItem('orderHistory') || '[]');
     } catch (e) {}
-    // Prevent duplicate orderId in history
     if (!orderHistory.some(o => o.orderId === orderData.orderId)) {
       orderHistory.push(orderData);
       localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
     }
   }
-  // Only remove purchased items from cartProducts
   try {
     let cartProducts = JSON.parse(localStorage.getItem('cartProducts') || '[]');
     if (Array.isArray(cartProducts) && summary.items && Array.isArray(summary.items)) {
-      // Remove items from cartProducts that match purchased items (by id and size)
       summary.items.forEach(purchased => {
         cartProducts = cartProducts.filter(cartItem => {
-          // Remove if id and size both match
           return !(cartItem.id === purchased.id && cartItem.size === purchased.size);
         });
       });

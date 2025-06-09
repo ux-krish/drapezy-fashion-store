@@ -1,7 +1,3 @@
-/**
- * Fetch all products from products.json
- * @returns {Promise<Array>} products array
- */
 function fetchAllProducts() {
   return fetch('./products.json')
     .then(res => res.json())
@@ -90,12 +86,10 @@ function showProducts({ selector, filterFn, sortFn, count = 4 }) {
             window.location.href = `product.html?id=${prod.id}`;
           });
         }
-        // Add to Cart button logic
         const addToCartBtn = card.querySelector('.add-to-cart');
         if (addToCartBtn && prod) {
           addToCartBtn.addEventListener('click', function (e) {
             e.stopPropagation();
-            // Default to first size if available, else undefined
             const size = Array.isArray(prod.sizes) && prod.sizes.length ? prod.sizes[0] : prod.size || '';
             addToCart({
               id: prod.id,
@@ -110,7 +104,6 @@ function showProducts({ selector, filterFn, sortFn, count = 4 }) {
           });
         }
       });
-      // Attach wishlist button logic after rendering cards
       setupWishlistButtons(grid);
     });
 }
@@ -139,9 +132,7 @@ showProducts({
   count: 4
 });
 
-/**
- * Wishlist Utility Functions
- */
+
 const WISHLIST_KEY = 'wishlistProducts';
 
 function getWishlist() {
@@ -175,7 +166,6 @@ function removeFromWishlist(productId) {
 
 function updateWishlistCount() {
   const count = getWishlist().length;
-  // Only update the .wishlist-header-icon .count span
   document.querySelectorAll('.wishlist-header-icon .count').forEach(countElem => {
     countElem.textContent = count;
     countElem.style.display = count > 0 ? 'flex' : 'none';
@@ -183,14 +173,9 @@ function updateWishlistCount() {
 }
 
 
-/**
- * Add product to cart. If the same product (id + size) exists, increase quantity instead of duplicating.
- * If a different size, add as a new entry (so same product with different sizes are separate).
- * @param {Object} product - The product object to add (must include id, size, qty, etc.)
- */
+
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
-  // Only merge if id and size BOTH match, otherwise add as new entry (so different sizes are separate)
   const existing = cart.find(
     item => item.id === product.id && item.size === product.size
   );
@@ -206,11 +191,7 @@ function addToCart(product) {
 
 
 
-/**
- * Show a toast message at the top right of the page.
- * @param {string} message
- * @param {number} duration - milliseconds to show (default 2000)
- */
+
 function showToast(message, duration = 2000) {
   let toast = document.getElementById('global-toast');
   if (!toast) {
@@ -241,9 +222,7 @@ function showToast(message, duration = 2000) {
   }, duration);
 }
 
-/**
- * Update the cart count in the header icon.
- */
+
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
   const count = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
@@ -259,7 +238,6 @@ function setupWishlistButtons(context=document) {
     if (!card) return;
     const productId = card.getAttribute('data-product-id');
     if (!productId) return;
-    // Always check the current state from localStorage for this productId
     const wishlisted = isInWishlist(productId);
     if (wishlisted) {
       btn.classList.add('wishlisted');
@@ -285,7 +263,6 @@ function setupWishlistButtons(context=document) {
     if(svg) svg.setAttribute('fill', '#e74c3c');
     showToast('Added to wishlist!');
   }
-  // Update all other wishlist buttons for this productId everywhere on the page
   document.querySelectorAll('.product-card[data-product-id="' + productId + '"] .add-to-wishlist').forEach(otherBtn => {
     if (isInWishlist(productId)) {
       otherBtn.classList.add('wishlisted');
@@ -371,7 +348,6 @@ function showWishlistProducts({ selector }) {
         </div>
       `;
     });
-    // Custom wishlist button logic for wishlist page
     grid.querySelectorAll('.add-to-wishlist').forEach(btn => {
       const card = btn.closest('.product-card');
       if (!card) return;
@@ -380,29 +356,20 @@ function showWishlistProducts({ selector }) {
         e.stopPropagation();
         removeFromWishlist(productId);
         card.remove();
-        // If no more wishlisted products, show empty message
         if (grid.querySelectorAll('.product-card').length === 0) {
           grid.innerHTML = '<p class="empty-wishlist">Your wishlist is empty.</p>';
         }
       };
-      // Fill SVG heart color (already set fill="#e74c3c" above)
     });
   });
 }
 
-/**
- * General filter function for products (category, size, price, discount, etc.)
- * @param {Array} products
- * @param {Object} filters
- * @returns {Array}
- */
+
 function filterProducts(products, filters) {
   return products.filter(p => {
-    // Gender filter (for category-page.html grids)
     if (filters.gender && Array.isArray(filters.gender) && filters.gender.length) {
       if (!filters.gender.includes(p.gender)) return false;
     }
-    // Category
     if (filters.categories && filters.categories.length) {
       const cat = (p.category || '').toLowerCase();
       let matched = false;
@@ -411,14 +378,11 @@ function filterProducts(products, filters) {
       });
       if (!matched) return false;
     }
-    // Sizes
     if (filters.sizes && filters.sizes.length) {
       if (!p.sizes.some(size => filters.sizes.includes(size))) return false;
     }
-    // Price
     if (filters.minPrice && p.price < filters.minPrice) return false;
     if (filters.maxPrice && p.price > filters.maxPrice) return false;
-    // Discount
     if (filters.minDiscount) {
       const disc = parseInt((p.discount || '').replace('%', '')) || 0;
       if (disc < filters.minDiscount) return false;
@@ -427,22 +391,17 @@ function filterProducts(products, filters) {
   });
 }
 
-/**
- * Extracts selected filters from the shop-all page DOM
- * (Can be called from any page with the same filter structure)
- */
 function getSelectedFilters() {
-  // Category
+
   const catChecks = document.querySelectorAll('.filter-section:nth-child(1) input[type="checkbox"]:checked');
   const categories = Array.from(catChecks).map(cb => cb.parentElement.textContent.trim().toLowerCase());
-  // Sizes
+
   const sizeChecks = document.querySelectorAll('.filter-section:nth-child(2) input[type="checkbox"]:checked');
   const sizes = Array.from(sizeChecks).map(cb => cb.parentElement.textContent.trim());
-  // Price
+
   const priceRange = document.getElementById('price-range');
   const minPrice = priceRange ? parseInt(priceRange.value) : 100;
   const maxPrice = 10000;
-  // Discount
   const discountChecks = document.querySelectorAll('.filter-section:nth-child(4) input[type="checkbox"]:checked');
   let minDiscount = 0;
   discountChecks.forEach(cb => {
@@ -454,16 +413,7 @@ function getSelectedFilters() {
   return { categories, sizes, minPrice, maxPrice, minDiscount };
 }
 
-/**
- * Shared paginated product rendering for all pages (shop-all, index, etc.)
- * @param {Object} options
- *   selector: CSS selector for grid
- *   filters: filter object (see getSelectedFilters)
- *   sortFn: optional sort function
- *   page: page number (1-based)
- *   perPage: products per page
- *   onRendered: callback after rendering
- */
+
 function showProductsPaginated({ selector, filters = {}, sortFn, page = 1, perPage = 9, onRendered }) {
   fetchAllProducts().then(products => {
     let filtered = filterProducts(products, filters);
@@ -540,7 +490,6 @@ function showProductsPaginated({ selector, filters = {}, sortFn, page = 1, perPa
         </div>
       `;
     });
-    // Attach event listeners to the correct product objects (pageProducts)
     grid.querySelectorAll('.product-card').forEach(card => {
       const id = card.getAttribute('data-product-id');
       const prod = pageProducts.find(p => p.id === id);
@@ -552,12 +501,10 @@ function showProductsPaginated({ selector, filters = {}, sortFn, page = 1, perPa
           window.location.href = `product.html?id=${prod.id}`;
         });
       }
-      // Add to Cart button logic
       const addToCartBtn = card.querySelector('.add-to-cart');
       if (addToCartBtn && prod) {
         addToCartBtn.addEventListener('click', function (e) {
           e.stopPropagation();
-          // Default to first size if available, else undefined
           const size = Array.isArray(prod.sizes) && prod.sizes.length ? prod.sizes[0] : prod.size || '';
           addToCart({
             id: prod.id,
@@ -572,18 +519,12 @@ function showProductsPaginated({ selector, filters = {}, sortFn, page = 1, perPa
         });
       }
     });
-    // Attach wishlist button logic after rendering cards
     setupWishlistButtons(grid);
     if (typeof onRendered === 'function') onRendered({ total });
   });
 }
 
-/**
- * Sort products array by a given sort key
- * @param {Array} products
- * @param {string} sortKey - 'newest', 'price-asc', 'price-desc'
- * @returns {Array}
- */
+
 function sortProducts(products, sortKey) {
   if (!Array.isArray(products)) return [];
   if (sortKey === 'price-asc') {
@@ -598,11 +539,7 @@ function sortProducts(products, sortKey) {
   return products;
 }
 
-/**
- * Get selected sort value from a select element by name
- * @param {string} name
- * @returns {string}
- */
+
 function getSelectedSortValue(name = 'sort-by') {
   const select = document.querySelector(`select[name="${name}"]`);
   return select ? select.value : 'newest';
@@ -612,12 +549,10 @@ document.addEventListener('DOMContentLoaded', function() {
   updateWishlistCount();
   updateCartCount();
   setupWishlistButtons();
-  // Dynamically render wishlist products if on wishlist page
   if (document.querySelector('.wishlist-products .product-grid, #wishlist-products')) {
     showWishlistProducts({ selector: '.wishlist-products .product-grid' });
     showWishlistProducts({ selector: '#wishlist-products' });
   }
-  // Render top 2 best products in product-highlight section on category page
   if (document.getElementById('product-highlight')) {
     showProducts({
       selector: '#product-highlight',
@@ -627,7 +562,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- Render gender-specific product grids for category-page.html ---
   function renderCategoryPageGrid({ gender, gridId, paginationTopId, paginationBottomId, resultsId, sortSelectName }) {
     let currentPage = 1;
     let currentSort = 'newest';
@@ -641,7 +575,6 @@ document.addEventListener('DOMContentLoaded', function() {
           if (sort === 'price-asc') return (a.price || 0) - (b.price || 0);
           if (sort === 'price-desc') return (b.price || 0) - (a.price || 0);
           if (sort === 'oldest') return (a.created_at || 0) - (b.created_at || 0);
-          // Default: newest
           return (b.created_at || 0) - (a.created_at || 0);
         },
         page,
@@ -666,7 +599,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       document.getElementById(paginationTopId).innerHTML = pagHtml.join('');
       document.getElementById(paginationBottomId).innerHTML = pagHtml.join('');
-      // Add event listeners
       [paginationTopId, paginationBottomId].forEach(pid => {
         document.getElementById(pid).querySelectorAll('.page-btn').forEach(btn => {
           btn.onclick = () => {
@@ -686,7 +618,6 @@ document.addEventListener('DOMContentLoaded', function() {
         : 'No products found.';
     }
 
-    // Sorting
     const sortSelect = document.querySelector(`select[name="${sortSelectName}"]`);
     if (sortSelect) {
       sortSelect.onchange = function () {
@@ -696,11 +627,9 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     }
 
-    // Initial render
     render(currentPage, currentSort);
   }
 
-  // Render paginated Men and Women grids for category-page.html
   if (document.getElementById('shop-all-product-grid-men')) {
     renderCategoryPageGrid({
       gender: 'Men',
@@ -722,9 +651,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Unified filter + grid for category-page.html
   if (document.getElementById('category-product-grid')) {
-    // Helper to get current filter values
     function getCategoryFilters() {
       const gender = document.getElementById('filter-gender').value;
       const category = document.getElementById('filter-category').value;
@@ -741,7 +668,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     let currentPage = 1;
-    const perPage = 12; // Show 12 products per page
+    const perPage = 12; 
 
     function renderCategoryGrid(page = 1) {
       const filters = getCategoryFilters();
@@ -752,7 +679,6 @@ document.addEventListener('DOMContentLoaded', function() {
           if (filters.sort === 'price-asc') return (a.price || 0) - (b.price || 0);
           if (filters.sort === 'price-desc') return (b.price || 0) - (a.price || 0);
           if (filters.sort === 'oldest') return (a.created_at || 0) - (b.created_at || 0);
-          // Default: newest
           return (b.created_at || 0) - (a.created_at || 0);
         },
         page,
@@ -777,7 +703,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       document.getElementById('pagination-category').innerHTML = pagHtml.join('');
       document.getElementById('pagination-category-bottom').innerHTML = pagHtml.join('');
-      // Add event listeners
       ['pagination-category', 'pagination-category-bottom'].forEach(pid => {
         document.getElementById(pid).querySelectorAll('.page-btn').forEach(btn => {
           btn.onclick = () => {
@@ -797,7 +722,6 @@ document.addEventListener('DOMContentLoaded', function() {
         : 'No products found.';
     }
 
-    // Listen to filter/sort changes
     ['filter-gender', 'filter-category', 'filter-size', 'filter-discount', 'filter-sort'].forEach(id => {
       const el = document.getElementById(id);
       if (el) {
@@ -808,7 +732,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Initial render
     renderCategoryGrid(currentPage);
   }
 });
@@ -819,18 +742,7 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
-// If shop-all.js or shop-all.html uses a custom product rendering, ensure after rendering:
-// setupWishlistButtons(document);
-// Or, if using showProducts, it will work automatically.
-// No further code changes needed here if shop-all uses showProducts and setupWishlist.
 
-/**
- * Render all available sizes as radio buttons and allow changing size in cart.
- * This version allows changing size for a cart item without removing it if the new size already exists.
- * If the new size exists in cart, just update the size of the current item and merge quantities.
- * If not, just update the size.
- * If there are multiple cart items for the same product (different sizes), all sizes are available for each.
- */
 function renderProductSizes(sizesDiv, allSizes, selectedSize, onChange) {
   sizesDiv.innerHTML = '';
   allSizes.forEach(size => {
@@ -848,13 +760,7 @@ function renderProductSizes(sizesDiv, allSizes, selectedSize, onChange) {
   });
 }
 
-/**
- * Render cart summary table rows as <tr class="cart-summary__item"> from localStorage.
- * Calculates subtotal, discount, platform fees, and total using offer and regular price.
- * Updates the cart totals inside the .totals-row and .shipping HTML structure.
- * @param {string} tbodySelector - Selector for the cart table tbody.
- * @param {string} totalSelector - Selector for the cart total element.
- */
+
 function renderCartSummaryTableRows(tbodySelector = '#cart-tbody', totalSelector = '#cart-total') {
   const cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
   const tbody = document.querySelector(tbodySelector);
@@ -871,27 +777,22 @@ function renderCartSummaryTableRows(tbodySelector = '#cart-tbody', totalSelector
       const allSizes = prod && prod.sizes ? prod.sizes : (item.sizes || [item.size]);
       const qty = item.qty;
 
-      // Use regular price and offer price from product data if available
       const regularPrice = prod && prod.original_price ? prod.original_price : item.original_price || item.price;
       const offerPrice = prod && prod.price ? prod.price : item.price;
 
-      // Discount calculation based on regular and offer price
       const discountAmount = (regularPrice - offerPrice) * qty;
       const itemSubtotal = offerPrice * qty;
 
       subtotal += regularPrice * qty;
       totalDiscount += discountAmount;
 
-      // Platform fee: 2% of discounted subtotal per item
       const itemPlatformFee = Math.round(itemSubtotal * 0.02);
-      //platformFees += itemPlatformFee;
       platformFees = 5;
       const tr = document.createElement('tr');
       tr.className = 'cart-summary__item';
       tr.setAttribute('data-product-id', item.id);
       tr.setAttribute('data-size', item.size || '');
 
-      // Only show regular price and subtotal, not discounted price in the table
       tr.innerHTML = `
         <td data-label="Product">
           <div class="product-details">
@@ -921,22 +822,16 @@ function renderCartSummaryTableRows(tbodySelector = '#cart-tbody', totalSelector
       `;
       tbody.appendChild(tr);
 
-      // Render all available sizes as radio buttons, allow changing size in cart
       const sizesDiv = tr.querySelector('.sizes');
       if (sizesDiv && window.renderProductSizes) {
-        // For this product, show all sizes available for this product (not just the ones in cart)
         window.renderProductSizes(sizesDiv, allSizes, item.size, function(newSize) {
           let cartArr = JSON.parse(localStorage.getItem('cartProducts') || '[]');
-          // Only update if the size is actually changed
           if (cartArr[idx].size === newSize) return;
-          // Check if another cart item with same id and newSize exists
           const existingIdx = cartArr.findIndex((ci, i) => ci.id === item.id && ci.size === newSize && i !== idx);
           if (existingIdx !== -1) {
-            // Merge quantities and remove the current item
             cartArr[existingIdx].qty += cartArr[idx].qty;
             cartArr.splice(idx, 1);
           } else {
-            // Just update the size
             cartArr[idx].size = newSize;
           }
           localStorage.setItem('cartProducts', JSON.stringify(cartArr));
@@ -944,7 +839,6 @@ function renderCartSummaryTableRows(tbodySelector = '#cart-tbody', totalSelector
         });
       }
 
-      // Quantity selector
      const qtyDiv = tr.querySelector('.quantity-selector');
 if (qtyDiv && window.renderCartQuantitySelector) {
   window.renderCartQuantitySelector(qtyDiv, item, function(updatedItem) {
@@ -952,15 +846,12 @@ if (qtyDiv && window.renderCartQuantitySelector) {
     const cartIdx = cartArr.findIndex(ci => ci.id === item.id && ci.size === item.size);
     if (cartIdx !== -1) {
       if (updatedItem.qty <= 0) {
-        // Remove the product from cart and DOM instantly
         cartArr.splice(cartIdx, 1);
         localStorage.setItem('cartProducts', JSON.stringify(cartArr));
         tr.remove();
       } else {
-        // Update quantity in localStorage
         cartArr[cartIdx].qty = updatedItem.qty;
         localStorage.setItem('cartProducts', JSON.stringify(cartArr));
-        // Update only the subtotal cell in this row
         const offerPrice = item.price;
         const subtotalCell = tr.querySelector('.subtotal');
         if (subtotalCell) {
@@ -968,18 +859,15 @@ if (qtyDiv && window.renderCartQuantitySelector) {
         }
       }
     }
-    // Update cart count in header
     updateCartCount();
-    // Optionally, update totals summary (not the whole table)
     updateCartTotalsCustom(
       cartArr.reduce((sum, i) => sum + (i.original_price || i.price) * i.qty, 0),
       cartArr.reduce((sum, i) => sum + ((i.original_price || i.price) - i.price) * i.qty, 0),
-      5 // or your platform fee logic
+      5 
     );
   });
 }
 
-      // Remove button
       const removeBtn = tr.querySelector('.remove-btn');
       if (removeBtn) {
         removeBtn.onclick = function() {
@@ -987,23 +875,16 @@ if (qtyDiv && window.renderCartQuantitySelector) {
           cartArr = cartArr.filter(ci => !(ci.id === item.id && ci.size === item.size));
           localStorage.setItem('cartProducts', JSON.stringify(cartArr));
           tr.remove();
-          updateCartCount(); // <-- update header cart count instantly
+          updateCartCount(); 
         };
       }
     });
 
-    // Update the custom cart totals markup
     updateCartTotalsCustom(subtotal, totalDiscount, platformFees);
   });
 }
 
-/**
- * Update the cart totals summary using the custom HTML structure.
- * Looks for .totals-row, .shipping, and .totals-row.total in the DOM and updates their values.
- * @param {number} subtotal
- * @param {number} totalDiscount
- * @param {number} platformFees
- */
+
 function updateCartTotalsCustom(subtotal, totalDiscount, platformFees) {
   // Subtotal
   const subtotalRow = document.querySelector('.totals-row:not(.total) span:nth-child(2)');
@@ -1028,10 +909,7 @@ function updateCartTotalsCustom(subtotal, totalDiscount, platformFees) {
   }
 }
 
-/**
- * Store cart summary and details in localStorage for checkout.
- * Call this before redirecting to checkout.html.
- */
+
 function storeCheckoutSummary() {
   const cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
   fetchAllProducts().then(products => {
@@ -1048,7 +926,7 @@ function storeCheckoutSummary() {
       const itemSubtotal = offerPrice * qty;
       subtotal += regularPrice * qty;
       totalDiscount += discountAmount;
-      platformFees = 5; //Math.round(itemSubtotal * 0.02);
+      platformFees = 5; 
       items.push({
         id: item.id,
         title: item.title,
@@ -1069,19 +947,13 @@ function storeCheckoutSummary() {
       total
     };
     localStorage.setItem('checkoutSummary', JSON.stringify(summary));
-    // After storing, you can redirect to checkout.html
     window.location.href = 'checkout.html';
   });
 }
 
-/**
- * Add product to cart. If the same product (id + size) exists, increase quantity instead of duplicating.
- * If a different size, add as a new entry (so same product with different sizes are separate).
- * @param {Object} product - The product object to add (must include id, size, qty, etc.)
- */
+
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
-  // Only merge if id and size BOTH match, otherwise add as new entry (so different sizes are separate)
   const existing = cart.find(
     item => item.id === product.id && item.size === product.size
   );
@@ -1099,20 +971,14 @@ function addToCart(product) {
   }
 }
 
-/**
- * Update only the size value in localStorage for the cart item, without updating or rerendering the DOM/UI.
- * This ensures the selected size is stored and used in checkout and order-confirm pages.
- * @param {HTMLElement} sizeEl - The clicked size element.
- */
+
 window.updateCartItemSize = function(sizeEl) {
   var cartRow = sizeEl.closest('tr.cart-summary__item');
   if (!cartRow) return;
 
-  // Get product id or title (adjust selector as per your markup)
   var productTitle = cartRow.querySelector('.product-title')?.textContent?.trim();
   var newSize = sizeEl.textContent.trim();
 
-  // Update localStorage cartProducts only (do not update UI or rerender cart-tbody)
   let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
   let updated = false;
   cart.forEach(item => {
@@ -1124,20 +990,15 @@ window.updateCartItemSize = function(sizeEl) {
   if (updated) {
     localStorage.setItem('cartProducts', JSON.stringify(cart));
   }
-  // No UI update or rerender here!
 };
 
-/**
- * Attach event listeners for size changes in cart rows.
- * This will only update the active state and localStorage, not rerender the cart-tbody.
- */
+
 window.attachCartSizeListeners = function() {
   document.querySelectorAll('#cart-tbody .sizes button, #cart-tbody .sizes a, #cart-tbody .sizes span').forEach(function(el) {
     el.addEventListener('click', function(e) {
       if (el.tagName === 'A' || el.tagName === 'BUTTON') {
         e.preventDefault();
       }
-      // Remove active from all siblings
       var parent = el.parentElement;
       if (parent) {
         parent.querySelectorAll('.active').forEach(function(activeEl) {
@@ -1145,16 +1006,12 @@ window.attachCartSizeListeners = function() {
         });
       }
       el.classList.add('active');
-      // Update only the size for this cart item in localStorage
       window.updateCartItemSize(el);
     });
   });
 };
 
-/**
- * Store the cart products as checkout summary for the checkout page.
- * This will include the selected sizes from localStorage.
- */
+
 window.storeCheckoutSummary = function() {
   let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
   if (!cart.length) return;
@@ -1162,7 +1019,6 @@ window.storeCheckoutSummary = function() {
   let totalDiscount = cart.reduce((sum, item) => sum + ((item.original_price - item.price) * item.qty), 0);
   let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0) + 5;
   let platformFees = 5;
-  // Ensure each item has size
   cart.forEach(item => {
     if (!item.size) item.size = '-';
   });
@@ -1177,23 +1033,14 @@ window.storeCheckoutSummary = function() {
   window.location.href = 'checkout.html';
 };
 
-/**
- * Render related products for the product page.
- * Shows other products from the same category, excluding the current product.
- * @param {Object} options
- *   - productId: the current product id
- *   - selector: CSS selector for the grid container (e.g. '#related-products')
- *   - count: number of related products to show (default 4)
- */
+
 function renderRelatedProducts({ productId, selector, count = 4 }) {
   fetchAllProducts().then(products => {
     const currentProduct = products.find(p => p.id === productId);
     if (!currentProduct) return;
-    // Get other products from the same category, excluding the current product
     let related = products.filter(
       p => p.id !== currentProduct.id && p.category === currentProduct.category
     );
-    // If not enough, fill with other products (excluding current)
     if (related.length < count) {
       related = related.concat(
         products.filter(
@@ -1206,50 +1053,7 @@ function renderRelatedProducts({ productId, selector, count = 4 }) {
     const grid = document.querySelector(selector);
     if (!grid) return;
     grid.innerHTML = '';
-    // if (related && related.length) {
-    //   related.forEach(prod => {
-    //   const isWishlisted = isInWishlist(prod.id);
-    //   grid.innerHTML += `
-    //     <div class="product-card" data-product-id="${prod.id}">
-    //       <div class="card-image">
-    //         <img src="${prod.image}" alt="${prod.title}">
-    //         <div class="badges">
-    //           <span class="discount">${prod.discount || ''} OFF</span>
-    //           <span class="new">NEW</span>
-    //         </div>
-    //         <div class="actions">
-    //           <button class="cirle-icon-btn add-to-cart" type="button" tabindex="-1">
-    //             <!-- Add to Cart SVG -->
-                
-    //           </button>
-    //           <button class="cirle-icon-btn add-to-wishlist${isWishlisted ? ' wishlisted' : ''}" type="button" tabindex="-1">
-                
-    //           </button>
-    //           <button class="icon-text-btn view-product" type="button" data-view-btn>
-    //             <!-- View SVG -->
-                
-    //           </button>
-    //         </div>
-    //       </div>
-    //       <div class="card-content">
-    //         <h3>${product.title}</h3>
-    //         <div class="rating-price">
-    //           <div class="rating">
-    //             <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    //               <path d="M3.1875 15.5207L4.54167 9.95921L0 6.21859L6 5.7238L8.33333 0.479004L10.6667 5.7238L16.6667 6.21859L12.125 9.95921L13.4792 15.5207L8.33333 12.5717L3.1875 15.5207Z" fill="#FABB05" />
-    //             </svg>
-    //             <span>${product.rating || ''}</span>
-    //           </div>
-    //           <div class="price">
-    //             <del>₹${product.original_price ? product.original_price.toLocaleString() : ''}</del>
-    //             <strong>₹${product.price ? product.price.toLocaleString() : ''}</strong>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   `;
-    // });
-    // }
+  
 
     if (related && related.length) {
   related.forEach(prod => {
@@ -1315,7 +1119,6 @@ function renderRelatedProducts({ productId, selector, count = 4 }) {
   });
 }
     
-    // Attach event listeners to the correct product objects (related)
     grid.querySelectorAll('.product-card').forEach(card => {
       const id = card.getAttribute('data-product-id');
       const prod = related.find(p => p.id === id);
@@ -1327,7 +1130,6 @@ function renderRelatedProducts({ productId, selector, count = 4 }) {
           window.location.href = `product.html?id=${prod.id}`;
         });
       }
-      // Add to Cart button logic
       const addToCartBtn = card.querySelector('.add-to-cart');
       if (addToCartBtn && prod) {
         addToCartBtn.addEventListener('click', function (e) {
@@ -1346,23 +1148,16 @@ function renderRelatedProducts({ productId, selector, count = 4 }) {
         });
       }
     });
-    // Attach wishlist button logic after rendering cards
     setupWishlistButtons(grid);
   });
 }
 
-// Quick test: fetchAllProducts and log to console to verify products.json is loading
 fetchAllProducts().then(products => {
-  //console.log('[api.js] fetchAllProducts loaded:', products && products.length ? products.length : 0, 'products');
 }).catch(err => {
   console.error('[api.js] fetchAllProducts error:', err);
 });
 
-/**
- * Get reviews for a product by productId.
- * @param {string} productId
- * @returns {Promise<Array>} Array of review objects or empty array
- */
+
 function getProductReviews(productId) {
   return fetchAllProducts().then(products => {
     const product = products.find(p => p.id === productId);
@@ -1370,15 +1165,9 @@ function getProductReviews(productId) {
   });
 }
 
-// Expose globally
 window.getProductReviews = getProductReviews;
 
-/**
- * Render customer reviews for the product page using real product review data.
- * Shows review title, author name, and comment.
- * @param {string} productId
- * @param {string} selector - CSS selector for the review grid container
- */
+
 function renderProductReviews(productId, selector = '.review-summary__grid') {
   getProductReviews(productId).then(reviews => {
     const grid = document.querySelector(selector);
@@ -1404,17 +1193,13 @@ function renderProductReviews(productId, selector = '.review-summary__grid') {
   });
 }
 
-// Expose globally
+
 window.renderProductReviews = renderProductReviews;
 
-/**
- * Render random reviews from all products for the index page Swiper.
- * @param {string} selector - CSS selector for the Swiper wrapper (e.g. '#review-swiper-wrapper')
- * Renders up to  6 random reviews, showing title, comment, author, and rating.
- */
+
 function renderRandomReviewsSwiper(selector = '#review-swiper-wrapper') {
   fetchAllProducts().then(products => {
-    // Collect all reviews with product title
+  
     let allReviews = [];
     products.forEach(product => {
       if (Array.isArray(product.reviews)) {
@@ -1426,7 +1211,7 @@ function renderRandomReviewsSwiper(selector = '#review-swiper-wrapper') {
         });
       }
     });
-    // Shuffle and pick up to 6
+ 
     allReviews = allReviews.sort(() => Math.random() -  0.5).slice(0, 6);
 
     const colorClasses = ['#fff4cd', '#d6efff', '#ffe0ea'];
@@ -1438,13 +1223,13 @@ function renderRandomReviewsSwiper(selector = '#review-swiper-wrapper') {
 </svg>${review.rating ? review.rating.toFixed(1) : ''}
 `;
       const color = colorClasses[i % colorClasses.length];
-      // Use review.title or first 5 words of comment as heading
+     
       const title = review.title
         ? review.title
         : (review.text || '').split(' ').slice(0, 5).join(' ') + ((review.text || '').split(' ').length > 5 ? '...' : '');
-      // Author
+   
       const author = review.name ? `— ${review.name}` : '';
-      // Comment
+  
       const comment = review.text || '';
       return `
         <article class="swiper-slide review-card" style="background-color: ${color}">
@@ -1463,7 +1248,7 @@ function renderRandomReviewsSwiper(selector = '#review-swiper-wrapper') {
         </article>
       `;
     }).join('');
-    // Re-init Swiper if needed
+  
     if (window.reviewSwiperInstance && window.reviewSwiperInstance.destroy) {
       window.reviewSwiperInstance.destroy(true, true);
     }
@@ -1489,45 +1274,13 @@ function renderRandomReviewsSwiper(selector = '#review-swiper-wrapper') {
 }
 
 
-
-
-// Only initialize Swiper if the container exists and not already initialized
-// const swiperContainer = document.querySelector('.reviewSwiper');
-// if (swiperContainer) {
-//   if (window.reviewSwiperInstance && window.reviewSwiperInstance.destroy) {
-//     window.reviewSwiperInstance.destroy(true, true);
-//   }
-//   // Use setTimeout to ensure DOM is updated before Swiper init
-//   setTimeout(() => {
-//     window.reviewSwiperInstance = new Swiper('.reviewSwiper', {
-//       slidesPerView: 1.3,
-//       spaceBetween: 24,
-//       autoHeight: true,
-//       navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev'
-//       },
-//       breakpoints: {
-//         768: { slidesPerView: 2.2 },
-//         1024: { slidesPerView: 4.3 }
-//       }
-//     });
-//   }, 0);
-// }
-
-
-// Expose globally
 window.renderRandomReviewsSwiper = renderRandomReviewsSwiper;
 
 if (window.renderRandomReviewsSwiper) {
       window.renderRandomReviewsSwiper('#review-swiper-wrapper');
 }
 
-/**
- * Format a date string as "DD MMM YYYY" (e.g., "12 Jun 2024").
- * @param {string} dateStr
- * @returns {string}
- */
+
 function formatReviewDate(dateStr) {
   if (!dateStr) return '';
   const date = new Date(dateStr);
@@ -1539,57 +1292,3 @@ function formatReviewDate(dateStr) {
 }
 
 
-// function attachCustomTooltips(context = document) {
-//   context.querySelectorAll('.product-card .actions button').forEach(btn => {
-//     // Remove any existing tooltip
-//     let tooltip = btn._customTooltip;
-//     if (tooltip) tooltip.remove();
-
-//     // Set tooltip text based on button type
-//     let text = '';
-//     if (btn.classList.contains('add-to-cart')) text = 'Add to Cart';
-//     else if (btn.classList.contains('add-to-wishlist')) text = btn.classList.contains('wishlisted') ? 'Remove from Wishlist' : 'Add to Wishlist';
-//     else if (btn.classList.contains('view-product')) text = 'View Product';
-//     if (!text) return;
-
-//     // Create tooltip element
-//     tooltip = document.createElement('span');
-//     tooltip.className = 'custom-tooltip';
-//     tooltip.textContent = text;
-//     tooltip.style.position = 'absolute';
-//     tooltip.style.left = '50%';
-//     tooltip.style.bottom = '110%';
-//     tooltip.style.transform = 'translateX(-50%)';
-//     tooltip.style.background = '#222';
-//     tooltip.style.color = '#fff';
-//     tooltip.style.padding = '5px 12px';
-//     tooltip.style.borderRadius = '5px';
-//     tooltip.style.fontSize = '13px';
-//     tooltip.style.whiteSpace = 'nowrap';
-//     tooltip.style.opacity = '0';
-//     tooltip.style.pointerEvents = 'none';
-//     tooltip.style.transition = 'opacity 0.2s';
-//     tooltip.style.zIndex = '1000';
-
-//     btn.style.position = 'relative';
-//     btn.appendChild(tooltip);
-//     btn._customTooltip = tooltip;
-
-//     btn.addEventListener('mouseenter', () => {
-//       tooltip.style.opacity = '1';
-//     });
-//     btn.addEventListener('mouseleave', () => {
-//       tooltip.style.opacity = '0';
-//     });
-//     btn.addEventListener('focus', () => {
-//       tooltip.style.opacity = '1';
-//     });
-//     btn.addEventListener('blur', () => {
-//       tooltip.style.opacity = '0';
-//     });
-//   });
-// }
-
-// // --- Call this after rendering product cards in showProducts, showProductsPaginated, showWishlistProducts, renderRelatedProducts, etc. ---
-// // For example, after setupWishlistButtons(grid); add:
-// attachCustomTooltips(grid);

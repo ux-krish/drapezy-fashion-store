@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', async function () {
-  // Price range display setup
   const priceRange = document.getElementById('price-range');
   const priceText = document.getElementById('price-range-text');
   if (priceRange && priceText) {
@@ -10,11 +9,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
   }
 
-  // Use the global renderShopAllProducts for consistent product card logic
   currentPage = 1;
   renderAll();
   setupFilterListeners();
-  // GSAP animation for page-header moved to common.js
 });
 
 let currentPage = 1;
@@ -22,7 +19,6 @@ const PRODUCTS_PER_PAGE = 9;
 
 function renderPagination(total, page) {
   const totalPages = Math.ceil(total / PRODUCTS_PER_PAGE);
-  // Update both .pagination-top and .pagination-bottom .pagination
   const paginations = [
     document.querySelector('.pagination-top'),
     document.querySelector('.product-grid-footer .pagination')
@@ -54,7 +50,6 @@ function renderPagination(total, page) {
 function renderResultsText(total, page) {
   const start = total === 0 ? 0 : (page - 1) * PRODUCTS_PER_PAGE + 1;
   const end = Math.min(page * PRODUCTS_PER_PAGE, total);
-  // Update both header and footer results
   const resultsDivs = [
     document.querySelector('.grid-header .results'),
     document.querySelector('.product-grid-footer .results')
@@ -69,7 +64,6 @@ function renderResultsText(total, page) {
 function renderAll() {
   const filters = getSelectedFilters();
   const sortKey = getSelectedSortValue('sort-by');
-  // Use the global renderShopAllProducts for consistent product card logic
   if (window.renderShopAllProducts) {
     window.renderShopAllProducts({
       selector: '#shop-all-product-grid',
@@ -88,7 +82,6 @@ function renderAll() {
       }
     });
   }
-  // Listen for sort select changes
   const sortSelect = document.querySelector('select[name="sort-by"]');
   if (sortSelect) {
     sortSelect.addEventListener('change', () => {
@@ -147,7 +140,6 @@ function setupFilterListeners() {
   }
 }
 
-// --- Wishlist Page Filtering & Pagination ---
 if (document.querySelector('.wishlist-section')) {
   const WISHLIST_PRODUCTS_PER_PAGE = 6;
   let wishlistCurrentPage = 1;
@@ -214,7 +206,6 @@ if (document.querySelector('.wishlist-section')) {
       const end = start + WISHLIST_PRODUCTS_PER_PAGE;
       const pageProducts = wishlistProducts.slice(start, end);
 
-      // Results text
       const startNum = total === 0 ? 0 : start + 1;
       const endNum = Math.min(end, total);
       const resultsText = document.getElementById('wishlist-results-text');
@@ -222,7 +213,6 @@ if (document.querySelector('.wishlist-section')) {
       if (resultsText) resultsText.textContent = `Showing ${startNum}–${endNum} of ${total} results`;
       if (resultsTextBottom) resultsTextBottom.textContent = `Showing ${startNum}–${endNum} of ${total} results`;
 
-      // Product grid
       const grid = document.getElementById('wishlist-product-grid');
       grid.innerHTML = '';
       if (!pageProducts.length) {
@@ -289,7 +279,6 @@ if (document.querySelector('.wishlist-section')) {
         `;
       });
 
-      // Attach wishlist, cart, and view logic
       grid.querySelectorAll('.add-to-wishlist').forEach(btn => {
         const card = btn.closest('.product-card');
         if (!card) return;
@@ -421,34 +410,26 @@ if (document.querySelector('.wishlist-section')) {
   });
 }
 
-// Ensure shop-all page renders products using api.js logic
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Only run on shop-all.html
   if (!document.getElementById('shop-all-product-grid')) return;
 
-  // Helper: get filters from sidebar
   function getFilters() {
-    // Use getSelectedFilters from api.js if available, else fallback
     if (typeof getSelectedFilters === 'function') {
       return getSelectedFilters();
     }
-    // fallback: no filters
     return {};
   }
 
-  // Helper: get sort function from api.js
   function getSortFn(sortKey) {
     if (typeof sortProducts === 'function') {
       return function (a, b) {
         return sortProducts([a, b], sortKey)[0] === a ? -1 : 1;
       };
     }
-    // fallback: no sort
     return null;
   }
 
-  // Render a product card (minimal, can be improved)
   function renderProductCard(product) {
     const isWishlisted = (typeof isInWishlist === 'function') ? isInWishlist(product.id) : false;
     return `
@@ -511,7 +492,6 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
   }
 
-  // Pagination helpers
   let currentPage = 1;
   let perPage = 9;
   let totalProducts = 0;
@@ -543,12 +523,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const filters = getFilters();
         const sortKey = document.querySelector('select[name="sort-by"]')?.value || 'newest';
         let filtered = products.filter(p => {
-          // Category
           if (filters.categories && filters.categories.length) {
             const cat = (p.category || '').toLowerCase();
             let matched = false;
             filters.categories.forEach(fcat => {
-              // Special handling for "jeans & trousers"
               if (fcat === 'jeans & trousers') {
                 if (cat.includes('jeans') || cat.includes('trousers')) matched = true;
               } else if (fcat === 'tshirts') {
@@ -570,14 +548,12 @@ document.addEventListener('DOMContentLoaded', function () {
           if (filters.maxPrice && p.price > filters.maxPrice) return false;
           // Discount
           if (filters.minDiscount) {
-            // Parse product discount as integer (e.g., "56%" => 56)
             const disc = parseInt((p.discount || '').replace('%', ''), 10) || 0;
             if (disc < filters.minDiscount) return false;
           }
           return true;
-        }); // <-- FIXED: closed parenthesis here
+        }); 
 
-        // Sort
         if (typeof sortProducts === 'function') {
           filtered = sortProducts(filtered, sortKey);
         }
@@ -587,7 +563,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const end = start + perPage;
         const pageProducts = filtered.slice(start, end);
 
-        // Render grid
         const grid = document.getElementById('shop-all-product-grid');
         grid.innerHTML = '';
         if (!pageProducts.length) {
@@ -597,24 +572,18 @@ document.addEventListener('DOMContentLoaded', function () {
             grid.innerHTML += renderProductCard(product);
           });
         }
-
-        // Results text
         const results = document.querySelector('.product-grid-footer .results');
         if (results) {
           results.textContent = `Showing ${start + 1}–${Math.min(end, totalProducts)} of ${totalProducts} results`;
         }
 
-        // Pagination
         renderPagination(totalProducts);
 
-        // Setup wishlist and cart buttons
         if (typeof setupWishlistButtons === 'function') setupWishlistButtons(grid);
 
-        // Add to cart/view events
         grid.querySelectorAll('.product-card').forEach(card => {
           const id = card.getAttribute('data-product-id');
           const prod = pageProducts.find(p => p.id === id);
-          // View
           const viewBtn = card.querySelector('[data-view-btn]');
           if (viewBtn && prod) {
             viewBtn.addEventListener('click', function (e) {
@@ -623,7 +592,6 @@ document.addEventListener('DOMContentLoaded', function () {
               window.location.href = `product.html?id=${prod.id}`;
             });
           }
-          // Add to Cart
           const addToCartBtn = card.querySelector('.add-to-cart');
           if (addToCartBtn && prod) {
             addToCartBtn.addEventListener('click', function (e) {
@@ -647,7 +615,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
-  // Listen to filter and sort changes
   document.querySelectorAll('.filter-section input, .filter-section select').forEach(el => {
     el.addEventListener('change', function () {
       currentPage = 1;
@@ -661,7 +628,6 @@ document.addEventListener('DOMContentLoaded', function () {
       renderProducts();
     });
   }
-  // Price range slider
   const priceRange = document.getElementById('price-range');
   if (priceRange) {
     priceRange.addEventListener('input', function () {
@@ -672,30 +638,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Initial render
   renderProducts();
 });
 
-// Sidebar filter toggle for mobile (works for all .sidebar-toggle-btn/.sidebar-close-btn/.sidebar in the same .product-listing)
 document.addEventListener('DOMContentLoaded', function() {
-  // Only add one outside click/resize handler for all sidebars
   function closeSidebar(sidebar, closeBtn) {
     sidebar.classList.remove('open');
     if (closeBtn) closeBtn.style.display = 'none';
     document.body.style.overflow = '';
   }
 
-  // Attach open/close for each sidebar-toggle-btn in .product-listing
   document.querySelectorAll('.product-listing').forEach(function(listing) {
     const sidebar = listing.querySelector('.sidebar');
     const openBtn = listing.querySelector('.sidebar-toggle-btn');
     const closeBtn = sidebar ? sidebar.querySelector('.sidebar-close-btn') : null;
     if (!sidebar || !openBtn || !closeBtn) return;
 
-    // Always hide closeBtn initially
     closeBtn.style.display = 'none';
 
-    // Remove previous event listeners if any
     openBtn.onclick = null;
     closeBtn.onclick = null;
 
@@ -710,7 +670,6 @@ document.addEventListener('DOMContentLoaded', function() {
       closeSidebar(sidebar, closeBtn);
     });
 
-    // Hide sidebar on outside click (mobile only)
     document.addEventListener('click', function(e) {
       if (window.innerWidth <= 767 && sidebar.classList.contains('open')) {
         if (!sidebar.contains(e.target) && !openBtn.contains(e.target)) {
@@ -719,7 +678,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Hide sidebar on resize
     window.addEventListener('resize', function() {
       if (window.innerWidth > 767) {
         closeSidebar(sidebar, closeBtn);
@@ -728,34 +686,27 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Utility: Get selected filters for a specific sidebar/filter-section container
 function getSelectedFiltersFromContainer(container) {
   const filterSections = Array.from(container.querySelectorAll(':scope > .filter-section'));
-  // Category
   const catChecks = filterSections[0]
     ? filterSections[0].querySelectorAll('input[type="checkbox"]:checked')
     : [];
-  // Normalize category names
   const categories = Array.from(catChecks).map(cb => {
     let txt = cb.parentElement.textContent.trim().toLowerCase();
-    // Normalize for matching
     if (txt === 'tshirts' || txt === 't-shirt' || txt === 't-shirts') return 'tshirts';
     if (txt === 'tops & t-shirt' || txt === 'tops & t-shirts' || txt === 'tops & blouses') return 'tops & t-shirt';
     if (txt === 'jeans & trousers') return 'jeans & trousers';
     return txt;
   });
-  // Sizes
   const sizeChecks = filterSections[1]
     ? filterSections[1].querySelectorAll('input[type="checkbox"]:checked')
     : [];
   const sizes = Array.from(sizeChecks).map(cb => cb.parentElement.textContent.trim());
-  // Price
   const priceRange = filterSections[2]
     ? filterSections[2].querySelector('input[type="range"]')
     : null;
   const minPrice = priceRange ? parseInt(priceRange.value) : 100;
   const maxPrice = 10000;
-  // Discount
   const discountChecks = filterSections[3]
     ? filterSections[3].querySelectorAll('input[type="checkbox"]:checked')
     : [];
@@ -771,7 +722,6 @@ function getSelectedFiltersFromContainer(container) {
   return { categories, sizes, minPrice, maxPrice, minDiscount };
 }
 
-// Setup filter for a sidebar/grid pair with a fixed gender
 function setupGenderFilterSection({ sidebarSelector, gridSelector, gender, sortSelector = 'select[name="sort-by"]' }) {
   const sidebar = document.querySelector(sidebarSelector);
   const grid = document.querySelector(gridSelector);
@@ -802,7 +752,6 @@ function setupGenderFilterSection({ sidebarSelector, gridSelector, gender, sortS
   render();
 }
 
-// Setup filter for a single sidebar/grid (shop-all)
 function setupAllFilterSection({ sidebarSelector = '.sidebar', gridSelector = '#shop-all-product-grid', sortSelector = 'select[name="sort-by"]' } = {}) {
   const sidebar = document.querySelector(sidebarSelector);
   const grid = document.querySelector(gridSelector);
@@ -832,10 +781,7 @@ function setupAllFilterSection({ sidebarSelector = '.sidebar', gridSelector = '#
   render();
 }
 
-// --- INIT FUNCTION ---
 document.addEventListener('DOMContentLoaded', function() {
-  // For shop-all/category pages with separate men/women sidebars and grids:
-  // Add support for separate men/women filters in shop-all page
   if (document.querySelector('.sidebar-men') && document.querySelector('#shop-all-product-grid-men')) {
     setupGenderFilterSection({
       sidebarSelector: '.sidebar-men',
@@ -850,7 +796,6 @@ document.addEventListener('DOMContentLoaded', function() {
       gender: 'Women'
     });
   }
-  // Remove the single sidebar/grid setup for shop-all if both men and women sidebars/grids exist
   if (
     !(
       document.querySelector('.sidebar-men') && document.querySelector('#shop-all-product-grid-men') &&
@@ -862,9 +807,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Fix: Ensure clear-all-filters-btn resets all filters and triggers the same update as unchecking all filters
 document.addEventListener('DOMContentLoaded', function() {
-  // Listen for filter checkbox changes to update products immediately
   document.querySelectorAll('.sidebar .filter-checkbox').forEach(cb => {
     cb.addEventListener('change', function() {
       if (typeof updateProducts === 'function') updateProducts();
@@ -872,53 +815,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // --- Only ONE clear-all-filters-btn logic, dispatch 'change' event for all filters together ---
   const clearAllBtn = document.getElementById('clear-all-filters-btn');
   if (clearAllBtn) {
     clearAllBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      // Collect all filter elements to reset
       const checkboxes = Array.from(document.querySelectorAll('.sidebar input[type="checkbox"]'));
       const selects = Array.from(document.querySelectorAll('.sidebar select'));
-      // Reset checkboxes
       checkboxes.forEach(cb => cb.checked = false);
-      // Reset selects
       selects.forEach(sel => sel.selectedIndex = 0);
-      // Reset price range and its display
       const priceRange = document.getElementById('price-range');
       const priceText = document.getElementById('price-range-text');
       if (priceRange) {
         priceRange.value = 100;
         if (priceText) priceText.textContent = `₹100 - ₹5000`;
       }
-      // Optionally reset any custom filter UI (e.g., custom classes, chips, etc.)
       document.querySelectorAll('.sidebar .active').forEach(el => el.classList.remove('active'));
-      // Now dispatch 'change' event for all filters together (after all reset)
       [...checkboxes, ...selects].forEach(el => {
         el.dispatchEvent(new Event('change', { bubbles: true }));
       });
       if (priceRange) priceRange.dispatchEvent(new Event('change', { bubbles: true }));
-      // Reset currentPage and update products (call renderAll only once)
       currentPage = 1;
       renderAll();
     });
   }
 });
 
-// --- Remove support for Jeans subcategory filter in getSelectedFilters ---
 function getSelectedFilters() {
-  // Category
   const catChecks = document.querySelectorAll('.filter-section:nth-child(1) input[type="checkbox"]:checked');
   const categories = Array.from(catChecks).map(cb => cb.parentElement.textContent.trim().toLowerCase());
-  // Sizes
   const sizeChecks = document.querySelectorAll('.filter-section:nth-child(2) input[type="checkbox"]:checked');
   const sizes = Array.from(sizeChecks).map(cb => cb.parentElement.textContent.trim());
-  // Price
   const priceRange = document.getElementById('price-range');
   const minPrice = priceRange ? parseInt(priceRange.value) : 100;
   const maxPrice = 10000;
-  // Discount
-  // Use data-discount attribute for robust filtering
   const discountChecks = document.querySelectorAll('.discount-filter-list input[type="checkbox"]:checked');
   let minDiscount = 0;
   discountChecks.forEach(cb => {
@@ -927,41 +856,3 @@ function getSelectedFilters() {
   });
   return { categories, sizes, minPrice, maxPrice, minDiscount };
 }
-
-// --- Remove jeans subcategory filtering logic from renderProducts ---
-/* In the renderProducts/filter logic, remove this block:
-  // Jeans subcategory filter
-  if (filters.jeansSubcategories && filters.jeansSubcategories.length && (p.category || '').toLowerCase() === 'jeans') {
-    // Try to match fit, pattern, or title
-    const fit = (p.details && p.details.fit) ? p.details.fit.toLowerCase() : '';
-    const pattern = (p.details && p.details.pattern) ? p.details.pattern.toLowerCase() : '';
-    const title = (p.title || '').toLowerCase();
-    let matched = false;
-    filters.jeansSubcategories.forEach(subcat => {
-      const sub = subcat.toLowerCase();
-      if (fit.includes(sub) || pattern.includes(sub) || title.includes(sub)) matched = true;
-    });
-    if (!matched) return false;
-  }
-*/
-
-// --- Remove event listeners for jeans subcategory checkboxes ---
-/* Remove this block:
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('#jeans-subcategory-filter input[type="checkbox"]').forEach(cb => {
-    cb.addEventListener('change', function() {
-      updateProducts();
-    });
-  });
-});
-*/
-
-// --- Remove jeans subcategory reset logic from clear-all-filters-btn ---
-/* Remove these lines from all clear-all-filters-btn click handlers:
-  // Uncheck all jeans subcategory checkboxes
-  document.querySelectorAll('#jeans-subcategory-filter input[type="checkbox"]').forEach(cb => {
-    cb.checked = false;
-  });
-*/
-
-

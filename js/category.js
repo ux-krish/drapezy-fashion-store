@@ -1,9 +1,3 @@
-// --- Dynamic Men/Women Product Grid with Filtering ---
-
-// Fetch and render products for category page using api.js utilities
-
-// Ensure products render in shop-all-product-grid-men and shop-all-product-grid-women using api.js
-
 function getMenFilters() {
   const sidebar = document.querySelector('.sidebar-men');
   if (!sidebar) return {};
@@ -30,7 +24,6 @@ function getWomenFilters() {
   if (!sidebar) return {};
   const catChecks = sidebar.querySelectorAll('.filter-section:first-of-type input[type="checkbox"]:checked');
   let categories = Array.from(catChecks).map(cb => cb.parentElement.textContent.trim().toLowerCase());
-  // Normalize for women: remove spaces, dashes, ampersands
   categories = categories.map(cat => cat.replace(/[\s\-&]+/g, '').toLowerCase());
   const sizeChecks = sidebar.querySelectorAll('.filter-section:nth-of-type(2) input[type="checkbox"]:checked');
   const sizes = Array.from(sizeChecks).map(cb => cb.parentElement.textContent.trim());
@@ -95,7 +88,6 @@ function sortProducts(products, sortKey) {
 }
 
 function renderProductCard(product) {
-  // Expanded card for category page (matches shop-all/api.js style)
   return `
     <div class="product-card" data-product-id="${product.id}">
       <div class="card-image">
@@ -198,7 +190,6 @@ function renderCategoryWomenProducts(page = 1) {
   });
 }
 
-// Helper: Parse query params for filter
 function getCategoryPageFiltersFromURL() {
   const params = new URLSearchParams(window.location.search);
   const gender = params.get('gender');
@@ -211,9 +202,7 @@ function getCategoryPageFiltersFromURL() {
 
 function renderCategoryProducts(page = 1) {
   if (typeof showProductsPaginated !== 'function') return;
-  // Get filters from URL
   const urlFilters = getCategoryPageFiltersFromURL();
-  // Get sort key
   const sortSelect = document.querySelector('select[name="sort-by"]');
   const sortKey = sortSelect ? sortSelect.value : 'newest';
   showProductsPaginated({
@@ -262,7 +251,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (document.getElementById('shop-all-product-grid-category')) {
     setupCategoryPageFilter();
   }
-  // Smooth scroll for all .cta-button.cta-go-section elements
   document.querySelectorAll('.cta-button.cta-go-section').forEach(btn => {
     const href = btn.getAttribute('href');
     if (!href || !href.startsWith('#')) return;
@@ -270,7 +258,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!targetSection) return;
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      // Calculate total header + nav height
       let offset = 0;
       const header = document.querySelector('header.top-bar');
       const nav = document.querySelector('nav.main-header');
@@ -289,11 +276,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // --- GSAP Animations for Banner and Offer Day Section ---
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Animate: All .deals-banner (both curated and summer)
     document.querySelectorAll('.deals-banner').forEach(banner => {
       gsap.from(banner, {
         opacity: 0,
@@ -369,7 +354,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Animate: Product Listing Section
     const productListing = document.querySelector('.product-listing');
 
       // gsap.from(productListing, {
@@ -449,25 +433,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // Animate: Reviews Section
-    // const reviewsSection = document.querySelector('.reviews-section');
-    // if (reviewsSection) {
-    //   gsap.from(reviewsSection, {
-    //     opacity: 0,
-    //     y: 60,
-    //     duration: 0.8,
-    //     ease: 'power2.out',
-    //     scrollTrigger: {
-    //       trigger: reviewsSection,
-    //       start: 'top 85%',
-    //       toggleActions: 'play none none reverse'
-    //     }
-    //   });
-    // }
+
 
  
 
-    // Animate: Footer Info Boxes
     const infoBoxes = document.querySelectorAll('.footer-top .info-box');
     if (infoBoxes.length) {
       gsap.from(infoBoxes, {
@@ -485,7 +454,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// --- Preselect filters from URL query for category-page.html ---
 (function() {
   function getQueryParam(name) {
     const url = new URL(window.location.href);
@@ -493,7 +461,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   const gender = getQueryParam('gender');
   const category = getQueryParam('category');
-  // Normalize category for dropdown value
   function normalizeCategory(cat) {
     if (!cat) return '';
     cat = cat.toLowerCase();
@@ -508,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (cat === 'ethnic') return 'Ethnic Wear';
     if (cat === 'newarrivals' || cat === 'new arrivals') return 'New Arrivals';
     if (cat === 'summer' || cat === 'summer collection') return 'Summer Collection';
-    if (cat === 'winter') return ''; // No direct winter category in dropdown
+    if (cat === 'winter') return ''; 
     return '';
   }
   window.addEventListener('DOMContentLoaded', function() {

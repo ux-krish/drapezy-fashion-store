@@ -1779,7 +1779,6 @@ footer .logo div span {
   width: 100%;
   overflow-x: auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  /* Responsive styles */
 }
 @media (max-width: 540px) {
   .thank-you-section .product-table {

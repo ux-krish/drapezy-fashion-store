@@ -1,6 +1,6 @@
 const lenis = new Lenis({
   smooth: true,
-  lerp: 0.08, // Adjust this value to slow down or speed up the scroll
+  lerp: 0.08,
   wheelMultiplier: 1,
   infinite: false
 });
@@ -19,13 +19,11 @@ function showTab(tabId, group) {
   document.querySelector(`[onclick="showTab('${tabId}', '${group}')"]`).classList.add('active');
 }
 
-  // Simple search functionality for product name/category
         (function () {
           const input = document.getElementById('main-search-input');
           const suggestionBox = document.getElementById('search-suggestions');
           let products = [];
 
-          // Fetch products.json once
           fetch('products.json')
             .then(res => res.json())
             .then(data => { products = data.products || []; });
@@ -42,7 +40,6 @@ function showTab(tabId, group) {
               suggestionBox.innerHTML = '';
               return;
             }
-            // Search by title, category, gender
             const matches = products.filter(p =>
               (p.title && p.title.toLowerCase().includes(q)) ||
               (p.category && p.category.toLowerCase().includes(q)) ||
@@ -72,7 +69,6 @@ function showTab(tabId, group) {
             showSuggestions(this.value);
           });
 
-          // Hide suggestions on blur (with delay for click)
           input.addEventListener('blur', function () {
             setTimeout(() => { suggestionBox.style.display = 'none'; }, 120);
           });
@@ -80,7 +76,6 @@ function showTab(tabId, group) {
             if (this.value.trim()) showSuggestions(this.value);
           });
 
-          // Click on suggestion: go to product page
           suggestionBox.addEventListener('mousedown', function (e) {
             const li = e.target.closest('li[data-id]');
             if (!li) return;
@@ -92,7 +87,6 @@ function showTab(tabId, group) {
           });
         })();
 
-// Sticky main-header on scroll
 document.addEventListener('DOMContentLoaded', function () {
   const header = document.querySelector('.main-header');
   const navbar = document.querySelector('nav');
@@ -138,7 +132,6 @@ if (hamburger && !hamburger.innerHTML.trim()) {
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   navLinks.classList.toggle('open');
-  // Change SVG based on active state
   if (hamburger.classList.contains('active')) {
     hamburger.innerHTML = closeSvg;
   } else {
@@ -146,9 +139,7 @@ hamburger.addEventListener('click', () => {
   }
 });
 
-// Swiper slide animation for product gallery (main-slider & thumbnail-slider)
 function animateProductGallerySlides() {
-  // Animate main-slider images
   const mainSlider = document.querySelector('.main-slider.swiper');
   if (mainSlider && window.mainSwiper) {
     const mainSlides = mainSlider.querySelectorAll('.swiper-slide img');
@@ -166,7 +157,6 @@ function animateProductGallerySlides() {
       );
     }
   }
-  // Animate thumbnail-slider images
   const thumbSlider = document.querySelector('.thumbnail-slider.swiper');
   if (thumbSlider && window.thumbSwiper) {
     const thumbSlides = thumbSlider.querySelectorAll('.swiper-slide img');
@@ -187,12 +177,10 @@ function animateProductGallerySlides() {
   }
 }
 
-// Patch Swiper for product gallery to animate slides on init/slideChange
 (function patchProductGallerySwiper() {
   if (!window.Swiper) return;
   const origSwiper = window.Swiper;
   window.Swiper = function SwiperPatched(sel, opts) {
-    // Only patch for product gallery sliders
     if (
       (sel === '.main-slider.swiper' || sel === '.thumbnail-slider.swiper') &&
       opts && opts.on
@@ -213,9 +201,7 @@ function animateProductGallerySlides() {
   Object.assign(window.Swiper, origSwiper);
 })();
 
-// All page section GSAP animations (called after loader)
 function runPageAnimations() {
-  // Animate header
   const header = document.querySelector('header.top-bar');
   if (header) {
     gsap.fromTo(
@@ -232,7 +218,6 @@ function runPageAnimations() {
       );
     }
   }
-  // Animate navmain-header
   const nav = document.querySelector('nav.main-header');
   if (nav) {
     gsap.fromTo(
@@ -249,74 +234,7 @@ function runPageAnimations() {
       );
     }
   }
-  // Animate page-header
-  // const pageHeader = document.querySelector('.page-header');
-  // if (pageHeader) {
-  //   gsap.fromTo(
-  //     pageHeader,
-  //     { y: -20, opacity: 0 },
-  //     { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }
-  //   );
-  //   const headerChildren = Array.from(pageHeader.querySelectorAll('.container > *'));
-  //   if (headerChildren.length) {
-  //     gsap.fromTo(
-  //       headerChildren,
-  //       { y: 20, opacity: 0 },
-  //       { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, delay: 0.2, ease: "power2.out" }
-  //     );
-  //   }
-  // }
 
-  // Animate all all element inside filter aside
-  // const filterSections = document.querySelectorAll('.sidebar .filter-section');
-  // if (filterSections.length) {
-  //   gsap.fromTo(
-  //     filterSections,
-  //     { y: 40, opacity: 0 },
-  //     { y: 0, opacity: 1, duration: 0.6, stagger: 0.10, delay: 0.25, ease: "power2.out" }
-  //   );
-  //   filterSections.forEach(section => {
-  //     const children = Array.from(section.children).filter(
-  //       el => el.tagName !== 'H4'
-  //     );
-  //     if (children.length) {
-  //       gsap.fromTo(
-  //         children,
-  //         { y: 30, opacity: 0 },
-  //         { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 0.45, ease: "power2.out" }
-  //       );
-  //     }
-
-  //     const inputs = section.querySelectorAll('input, label, select, button, ul, li, p, .price');
-  //     if (inputs.length) {
-  //       gsap.fromTo(
-  //         inputs,
-  //         { y: 15, opacity: 0 },
-  //         { y: 0, opacity: 1, duration: 0.4, stagger: 0.04, delay: 0.55, ease: "power2.out" }
-  //       );
-  //     }
-  //   });
-  // }
-
-  // Animate grid-header for shop all page
-  // const gridHeader = document.querySelector('.grid-header');
-  // if (gridHeader) {
-  //   gsap.fromTo(
-  //     gridHeader,
-  //     { y: 30, opacity: 0 },
-  //     { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", delay: 0.3 }
-  //   );
-  //   const gridHeaderChildren = Array.from(gridHeader.children);
-  //   if (gridHeaderChildren.length) {
-  //     gsap.fromTo(
-  //       gridHeaderChildren,
-  //       { y: 20, opacity: 0 },
-  //       { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, delay: 0.4, ease: "power2.out" }
-  //     );
-  //   }
-  // }
-
-  // Animate breadcrumb and its children
   const breadcrumb = document.querySelector('.breadcrumb');
   if (breadcrumb) {
     gsap.fromTo(
@@ -334,7 +252,6 @@ function runPageAnimations() {
     }
   }
 
-  // Product page animation
   setTimeout(() => {
     const mainSliderSlides = document.querySelectorAll('.main-slider .swiper-slide img');
     if (mainSliderSlides.length) {
@@ -350,7 +267,6 @@ function runPageAnimations() {
         }
       );
     }
-    // Thumbnail slider images
     const thumbSliderSlides = document.querySelectorAll('.thumbnail-slider .swiper-slide img');
     if (thumbSliderSlides.length) {
       gsap.fromTo(
@@ -368,7 +284,6 @@ function runPageAnimations() {
     }
   }, 100);
 
-  // Animate product info section (children)
   const productInfo = document.querySelector('.product-info');
   if (productInfo && productInfo.children.length) {
     gsap.fromTo(
@@ -384,7 +299,6 @@ function runPageAnimations() {
     );
   }
 
-  // Animate Swiper slide backgrounds in .hero-swiper on window load (fade effect)
   const heroSlides = document.querySelectorAll('.hero-swiper .swiper-slide');
   if (heroSlides && heroSlides.length) {
     gsap.fromTo(
@@ -400,40 +314,7 @@ function runPageAnimations() {
   }
 }
 
-// GSAP Animations for sections and elements
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-  if (
-  typeof gsap !== 'undefined' &&
-  typeof ScrollTrigger !== 'undefined' &&
-  !window.location.pathname.endsWith('shop-all.html') // <-- Disable section GSAP on shop-all.html
-) {
-  gsap.registerPlugin(ScrollTrigger);
-
-  // const sections = gsap.utils.toArray('section');
-  // if (sections.length) {
-  //   gsap.from(sections[0], {
-  //     opacity: 0,
-  //     scale: 0.5,
-  //     duration: 1.1, // slightly longer for first fold
-  //     ease: "power3.out"
-  //   });
-  // }
-
-  // Animate each section
-  // sections.slice(1).forEach(section => {
-  //   gsap.from(section, {
-  //     opacity: 0,
-  //     scale: 0.5,
-  //     duration: 0.7,
-  //     ease: "power3.out",
-  //     scrollTrigger: {
-  //       trigger: section,
-  //       start: "top 90%",
-  //       toggleActions: "play none none reverse"
-  //     }
-  //   });
-  // });
-}
   gsap.utils.toArray('.products-grid, .deals-products').forEach(grid => {
     gsap.from(grid, {
       
@@ -449,7 +330,6 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     });
   });
 
-  // Animate product cards inside grids (after products are rendered)
   function animateProductCards() {
     gsap.utils.toArray(' .deals-products .product-card').forEach((card, i) => {
       gsap.from(card, {
@@ -498,7 +378,6 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 
 
 
-  // Animate headings
   gsap.utils.toArray('h2, h3').forEach(heading => {
     gsap.from(heading, {
       opacity: 0,
@@ -513,7 +392,6 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     });
   });
 
-  // Re-animate product cards after products are rendered/refreshed
   if (typeof showProducts === 'function') {
     const origShowProducts = showProducts;
     window.showProducts = function(opts) {
@@ -525,17 +403,13 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         }
       });
     };
-    // Initial call for first render
     setTimeout(animateProductCards, 500);
   } else {
-    // Fallback: animate on DOMContentLoaded
     setTimeout(animateProductCards, 500);
   }
 }
 
-// Ensure GSAP is loaded before running animations
 document.addEventListener('DOMContentLoaded', function () {
-  // Wait for GSAP to be available
   function waitForGSAP(cb) {
     if (window.gsap) {
       cb();
@@ -546,14 +420,7 @@ document.addEventListener('DOMContentLoaded', function () {
   waitForGSAP(runPageAnimations);
 });
 
-/**
- * Render and handle product size selection as radio buttons.
- * @param {HTMLElement} container - The element where size options will be rendered.
- * @param {Array<string>} sizes - Array of available sizes (e.g., ['S', 'M', 'L']).
- * @param {string} [selectedSize] - The size to preselect (optional).
- * @param {function} [onChange] - Callback when a size is selected (optional).
- * @param {string} [name] - The radio group name (optional, default: 'size').
- */
+
 function renderProductSizes(container, sizes, selectedSize, onChange, name = 'size') {
   if (!container || !Array.isArray(sizes) || !sizes.length) return;
   container.innerHTML = '';
@@ -574,12 +441,7 @@ function renderProductSizes(container, sizes, selectedSize, onChange, name = 'si
   });
 }
 
-/**
- * Render and handle quantity selector (with + and - buttons).
- * @param {HTMLElement} container - The element where quantity controls will be rendered.
- * @param {number} [qty] - Initial quantity.
- * @param {function} [onChange] - Callback when quantity changes.
- */
+
 function renderQuantitySelector(container, qty = 1, onChange) {
   if (!container) return;
   container.innerHTML = `
@@ -612,20 +474,13 @@ function renderQuantitySelector(container, qty = 1, onChange) {
   };
 }
 
-/**
- * Go back to product page for a given product id.
- * @param {string} productId
- */
+
 function goToProductPage(productId) {
   if (productId) {
     window.location.href = `product.html?id=${productId}`;
   }
 }
 
-/**
- * Go back to the last visited product page (before cart/checkout).
- * Stores last product page in localStorage as 'lastProductPage'.
- */
 function goToLastProductPage() {
   const lastProductPage = localStorage.getItem('lastProductPage');
   if (lastProductPage) {
@@ -635,20 +490,15 @@ function goToLastProductPage() {
   }
 }
 
-/**
- * Call this on every product page load to remember last product page.
- */
 function rememberProductPage() {
   if (window.location.pathname.endsWith('product.html')) {
     localStorage.setItem('lastProductPage', window.location.href);
   }
 }
 
-// Expose globally
 window.goToLastProductPage = goToLastProductPage;
 window.rememberProductPage = rememberProductPage;
 
-// --- Wishlist Logic ---
 function getWishlist() {
   return JSON.parse(localStorage.getItem('wishlist') || '[]');
 }
@@ -663,7 +513,6 @@ function updateWishlistCount() {
     icon.style.display = count > 0 ? 'inline-block' : 'none';
   }
 }
-// Attach wishlist button events (for dynamically loaded cards)
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.add-to-wishlist');
   if (btn) {
@@ -682,12 +531,9 @@ document.addEventListener('click', function(e) {
     e.stopPropagation();
   }
 });
-// On page load, update wishlist count in header
 window.addEventListener('DOMContentLoaded', updateWishlistCount);
 
-// --- Global GSAP animation for product cards in all product grids ---
 (function animateProductCardsOnMutation() {
-  // Wait for GSAP to be loaded before running any animation logic
   function runWhenGSAPReady(fn) {
     if (window.gsap && window.MutationObserver) {
       fn();
@@ -695,65 +541,9 @@ window.addEventListener('DOMContentLoaded', updateWishlistCount);
       setTimeout(() => runWhenGSAPReady(fn), 30);
     }
   }
-
-  // runWhenGSAPReady(function () {
-  //   const lastAnimated = new WeakMap();
-  //   const ANIMATION_DEBOUNCE_MS = 300;
-
-  //   const animateCards = (container) => {
-  //     // Only animate if container is visible and has product cards
-  //     if (!container.offsetParent) return;
-  //     const now = Date.now();
-  //     // Debounce: only animate if enough time has passed since last animation
-  //     if (lastAnimated.has(container) && now - lastAnimated.get(container) < ANIMATION_DEBOUNCE_MS) return;
-  //     lastAnimated.set(container, now);
-
-  //     const cards = container.querySelectorAll('.product-card');
-  //     if (cards.length) {
-  //       window.gsap.fromTo(cards,
-  //         { y: 100 },
-  //         {
-  //           y: 0,
-  //           duration: 0.5,
-  //           stagger: 0.3,
-  //           ease: "power3.out"
-  //         }
-  //       );
-  //     }
-  //   };
-
-  //   // Only allow one observer per grid and only one animation per render
-  //   const observeGrids = () => {
-  //     document.querySelectorAll('.product-grid').forEach(grid => {
-  //       // Only attach one observer per grid
-  //       if (grid._observerAttached) return;
-  //       grid._observerAttached = true;
-  //       // Initial animation
-  //       animateCards(grid);
-  //       const observer = new MutationObserver((mutations) => {
-  //         // Only animate if nodes were added (not just removed)
-  //         if (mutations.some(m => m.addedNodes && m.addedNodes.length)) {
-  //           animateCards(grid);
-  //         }
-  //       });
-  //       observer.observe(grid, { childList: true, subtree: false });
-  //     });
-  //   };
-
-  //   // Run on DOMContentLoaded and whenever new .product-grid appears
-  //   document.addEventListener('DOMContentLoaded', observeGrids);
-  //   // Also observe for new .product-grid containers (e.g., SPA navigation)
-  //   const bodyObserver = new MutationObserver(observeGrids);
-  //   bodyObserver.observe(document.body, { childList: true, subtree: true });
-  // });
 })();
 
-/**
- * Extract selected filters from a filter sidebar container.
- * All filter sections are merged into a single filter object with each section as a different criteria.
- * @param {HTMLElement} container - The sidebar/filter container.
- * @returns {Object} filters
- */
+
 function getSelectedFiltersFromContainer(container) {
   if (!container) return {};
   const filters = {
@@ -765,7 +555,6 @@ function getSelectedFiltersFromContainer(container) {
     minDiscount: 0
   };
 
-  // Loop through each filter-section and assign to the correct filter property
   container.querySelectorAll('.filter-section').forEach(section => {
     const title = section.querySelector('h4')?.textContent?.toLowerCase() || '';
     // Category
@@ -787,7 +576,6 @@ function getSelectedFiltersFromContainer(container) {
     else if (/price/.test(title)) {
       const priceRange = section.querySelector('input[type="range"]');
       if (priceRange) filters.minPrice = parseInt(priceRange.value) || 100;
-      // Optionally, add maxPrice if you have a max range input
       const maxRange = section.querySelector('input[type="range"].max');
       if (maxRange) filters.maxPrice = parseInt(maxRange.value) || 10000;
     }
@@ -807,19 +595,7 @@ function getSelectedFiltersFromContainer(container) {
   return filters;
 }
 
-/**
- * Filter and render products in a grid container with filters, sort, and pagination.
- * Uses unified filter object from getSelectedFiltersFromContainer.
- * @param {Object} options
- *   container: HTMLElement for grid
- *   products: Array of products
- *   filters: filter object (see getSelectedFiltersFromContainer)
- *   sortFn: optional sort function
- *   page: page number (1-based)
- *   perPage: products per page
- *   renderCard: function(product) => HTML string
- *   onRendered: callback after rendering
- */
+
 function filterAndRenderProducts({
   container,
   products,
@@ -876,13 +652,6 @@ function filterAndRenderProducts({
   if (typeof onRendered === 'function') onRendered({ total });
 }
 
-/**
- * Render and handle quantity selector (with + and - buttons) for cart items.
- * Updates cart in localStorage and price in DOM.
- * @param {HTMLElement} container - The element where quantity controls will be rendered.
- * @param {Object} cartItem - The cart item object (must have id, size, price, qty).
- * @param {function} [onUpdate] - Callback after update (optional).
- */
 function renderCartQuantitySelector(container, cartItem, onUpdate) {
   if (!container || !cartItem) return;
   container.innerHTML = `
@@ -904,7 +673,6 @@ function renderCartQuantitySelector(container, cartItem, onUpdate) {
   function updateQty(newQty) {
     if (newQty < 1) newQty = 1;
     input.value = newQty;
-    // Update cart in localStorage
     let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
     const idx = cart.findIndex(
       item => item.id === cartItem.id && item.size === cartItem.size
@@ -913,7 +681,6 @@ function renderCartQuantitySelector(container, cartItem, onUpdate) {
       cart[idx].qty = newQty;
       cart[idx].total = cart[idx].price * newQty;
       localStorage.setItem('cartProducts', JSON.stringify(cart));
-      // Update price in DOM if .cart-item-price exists
       const priceElem = container.closest('.cart-item')?.querySelector('.cart-item-price');
       if (priceElem) {
         priceElem.textContent = `₹${(cart[idx].price * newQty).toLocaleString()}`;
@@ -926,12 +693,9 @@ function renderCartQuantitySelector(container, cartItem, onUpdate) {
   input.oninput = () => updateQty(parseInt(input.value));
 }
 
-// Expose globally
 window.renderCartQuantitySelector = renderCartQuantitySelector;
 
-// --- Wishlist page: open product page from product card view button ---
 document.addEventListener('DOMContentLoaded', function () {
-  // Only run on wishlist page
   if (document.querySelector('.wishlist-products .product-grid')) {
     document.querySelector('.wishlist-products .product-grid').addEventListener('click', function (e) {
       const btn = e.target.closest('.view-product');
@@ -940,7 +704,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!card) return;
         const productId = card.getAttribute('data-product-id');
         if (!productId) return;
-        // Find the product data from all loaded products (if available)
         if (window.fetchAllProducts) {
           window.fetchAllProducts().then(products => {
             const prod = products.find(p => p.id === productId);
@@ -957,7 +720,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// Add hover event for menu-menu-open class on products-menu itself
 document.addEventListener('DOMContentLoaded', function () {
   const productsMenu = document.querySelector('.products-menu');
   if (productsMenu) {
@@ -970,101 +732,12 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// All GSAP animation logic has been removed from this file.
-// Only non-GSAP helper functions or logic should be placed here.
-
-// Example: You can define utility functions here if needed
-// function someUtility() { ... }
-
-// Animate product cards in related products section with ScrollTrigger
-// function animateRelatedProductsSection() {
-//   const relatedSection = document.querySelector('.related-products');
-//   if (relatedSection && window.gsap && window.ScrollTrigger) {
-//     const cards = relatedSection.querySelectorAll('.product-card');
-//     if (cards.length) {
-//       gsap.fromTo(
-//         cards,
-//         { y: 60 },
-//         {
-//           y: 0,
-//           duration: 0.7,
-//           stagger: 0.12,
-//           ease: "power3.out",
-//           scrollTrigger: {
-//             trigger: relatedSection,
-//             start: "top 85%",
-//             once: true
-//           }
-//         }
-//       );
-//     }
-//   }
-// }
-
-// Animate product cards in product deal section with ScrollTrigger
-// function animateProductDealSection() {
-//   const dealSection = document.querySelector('.product-deal');
-//   if (dealSection && window.gsap && window.ScrollTrigger) {
-//     const cards = dealSection.querySelectorAll('.product-card');
-//     if (cards.length) {
-//       gsap.fromTo(
-//         cards,
-//         { y: 60, opacity: 0 },
-//         {
-//           y: 0,
-//           opacity: 1,
-//           duration: 0.7,
-//           stagger: 0.12,
-//           ease: "power2.out",
-//           scrollTrigger: {
-//             trigger: dealSection,
-//             start: "top 85%",
-//             once: true
-//           }
-//         }
-//       );
-//     }
-//   }
-// }
-
-// Observe related-products grid for new product cards and animate them
-// (function observeRelatedProductsGrid() {
-//   if (!window.MutationObserver) return;
-//   const relatedSection = document.querySelector('.related-products');
-//   if (!relatedSection) return;
-//   const grid = relatedSection.querySelector('.product-grid');
-//   if (!grid) return;
-//   const observer = new MutationObserver(() => {
-//     animateRelatedProductsSection();
-//   });
-//   observer.observe(grid, { childList: true });
-//   animateRelatedProductsSection();
-// })();
-
-// Observe product-deal grid for new product cards and animate them
-// (function observeProductDealGrid() {
-//   if (!window.MutationObserver) return;
-//   const dealSection = document.querySelector('.product-deal');
-//   if (!dealSection) return;
-//   const grid = dealSection.querySelector('.product-grid');
-//   if (!grid) return;
-//   const observer = new MutationObserver(() => {
-//     animateProductDealSection();
-//   });
-//   observer.observe(grid, { childList: true });
-//   animateProductDealSection();
-// })();
-
-// --- Global Search Functionality for all .search-box elements ---
-// (This also supports #main-search-input for backward compatibility)
 (function () {
-  // Helper to highlight matched text
   function highlight(text, term) {
     if (!term) return text;
     return text.replace(new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'), '<mark>$1</mark>');
   }
 
-  // Fetch products.json once and cache
   let products = [];
   let productsLoaded = false;
   function loadProducts(cb) {
@@ -1078,14 +751,11 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
-  // Attach search to all .search-box elements and #main-search-input
   function setupSearchBox(searchBox) {
     if (!searchBox) return;
-    // Only add once
     if (searchBox._searchSetup) return;
     searchBox._searchSetup = true;
 
-    // Find/create input and suggestion list
     let input = searchBox.querySelector('input[type="text"], input[type="search"]');
     if (!input) return;
     input.setAttribute('autocomplete', 'off');
@@ -1120,7 +790,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
       loadProducts(function (products) {
-        // Search by title, category, gender
         const matches = products.filter(p =>
           (p.title && p.title.toLowerCase().includes(q)) ||
           (p.category && p.category.toLowerCase().includes(q)) ||
@@ -1151,7 +820,6 @@ document.addEventListener('DOMContentLoaded', function () {
       showSuggestions(this.value);
     });
 
-    // Hide suggestions on blur (with delay for click)
     input.addEventListener('blur', function () {
       setTimeout(() => { suggestionBox.style.display = 'none'; }, 120);
     });
@@ -1159,20 +827,16 @@ document.addEventListener('DOMContentLoaded', function () {
       if (this.value.trim()) showSuggestions(this.value);
     });
 
-    // --- Fix for search-suggestions scroll on mouse wheel ---
 document.addEventListener('DOMContentLoaded', function () {
-  // Delegate for all .search-suggestions and #search-suggestions
   document.body.addEventListener('wheel', function (e) {
     const el = e.target.closest('.search-suggestions, #search-suggestions');
     if (el && el.scrollHeight > el.clientHeight) {
-      // Only scroll the suggestion box, not the page
       el.scrollTop += e.deltaY;
       e.preventDefault();
     }
   }, { passive: false });
 });
 
-    // Click on suggestion: go to product page
     suggestionBox.addEventListener('mousedown', function (e) {
       const li = e.target.closest('li[data-id]');
       if (!li) return;
@@ -1186,15 +850,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Setup all search-boxes on DOMContentLoaded
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.search-box').forEach(setupSearchBox);
 
-    // Also support legacy #main-search-input (if present, e.g. on index.html)
     const mainInput = document.getElementById('main-search-input');
     if (mainInput && !mainInput._searchSetup) {
       mainInput._searchSetup = true;
-      // Create suggestion box if not present
       let suggestionBox = document.getElementById('search-suggestions');
       if (!suggestionBox) {
         suggestionBox = document.createElement('ul');
@@ -1272,7 +933,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 
-// Menu structure object
 const NAV_MENU = [
   {
     logo: {
@@ -1321,13 +981,11 @@ const NAV_MENU = [
   { label: "ORDERED", href: "order-history.html" }
 ];
 
-// Render navigation menu and mega menu
 function renderNavMenu() {
   const navLinks = document.querySelector('.nav-links');
   const navContainer = document.querySelector('.main-header .container');
   if (!navLinks || !navContainer) return;
 
-  // Render logo dynamically if present in NAV_MENU
   const logoItem = NAV_MENU.find(item => item.logo);
   if (logoItem && !navContainer.querySelector('.logo')) {
     const logoDiv = document.createElement('div');
@@ -1336,10 +994,8 @@ function renderNavMenu() {
     navContainer.insertBefore(logoDiv, navContainer.firstChild);
   }
 
-  // Render menu items (skip logo item)
   navLinks.innerHTML = NAV_MENU.filter(item => !item.logo).map(item => {
     if (item.type === "mega") {
-      // Mega menu
       return `
         <li class="products-menu">
           <a href="shop-all.html">PRODUCTS</a>
@@ -1357,7 +1013,6 @@ function renderNavMenu() {
               `).join('')}
             </div>
             ${item.mega.images.map((img, idx) => {
-                // Example: first image links to men's new arrivals, second to women's new arrivals
                 let href = "#";
                 if (idx === 0) href = "category-page.html?gender=Men&category=newarrivals";
                 if (idx === 1) href = "category-page.html?gender=Women&category=newarrivals";
@@ -1367,23 +1022,16 @@ function renderNavMenu() {
         </li>
       `;
     } else {
-      // Regular menu item
       return `<li><a href="${item.href}">${item.label}</a></li>`;
     }
   }).join('');
 }
 
-// On DOMContentLoaded, render the nav menu
 document.addEventListener('DOMContentLoaded', renderNavMenu);
 
-/**
- * Patch add-to-cart button logic in product cards (index/shop-all/category)
- * Remove any call to window.showToast or showToast
- */
 document.addEventListener('click', function (e) {
   const btn = e.target.closest('.add-to-cart');
   if (btn) {
-    // Try to find product data from .product-card
     const card = btn.closest('.product-card');
     if (card) {
       const productId = card.getAttribute('data-product-id');
@@ -1391,20 +1039,15 @@ document.addEventListener('click', function (e) {
         window.fetchAllProducts().then(products => {
           const prod = products.find(p => p.id === productId);
           if (prod) {
-            // Add to cart logic here (simplified)
             let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
             const idx = cart.findIndex(item => item.id === prod.id);
             if (idx === -1) {
-              // New product, add to cart
               cart.push({ ...prod, qty: 1, total: prod.price });
             } else {
-              // Product already in cart, just increase qty
               cart[idx].qty += 1;
               cart[idx].total = cart[idx].price * cart[idx].qty;
             }
             localStorage.setItem('cartProducts', JSON.stringify(cart));
-            // Optionally, show a toast or update cart count in header
-            // window.showToast('Product added to cart!', 3000);
           }
         });
       }
@@ -1412,8 +1055,6 @@ document.addEventListener('click', function (e) {
   }
 });
 
-// --- Cart page logic ---
-// Render cart items from localStorage
 function renderCartItems() {
   const cartContainer = document.querySelector('.cart-items');
   if (!cartContainer) return;
@@ -1441,11 +1082,9 @@ function renderCartItems() {
         <button class="remove-from-cart">Remove</button>
       </div>
     `;
-    // Render size selection
     const sizesContainer = cartContainer.querySelector(`.cart-item[data-index="${idx}"] .cart-item-sizes`);
     if (sizesContainer) {
       renderProductSizes(sizesContainer, prod.sizes, prod.size, (selectedSize) => {
-        // Update cart in localStorage
         let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
         const item = cart.find(item => item.id === prod.id);
         if (item) {
@@ -1454,11 +1093,9 @@ function renderCartItems() {
         }
       }, 'size');
     }
-    // Render quantity selector
     const qtyContainer = cartContainer.querySelector(`.cart-item[data-index="${idx}"] .cart-item-qty`);
     if (qtyContainer) {
       renderCartQuantitySelector(qtyContainer, prod, (updatedItem) => {
-        // Update cart in localStorage
         let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
         const item = cart.find(item => item.id === updatedItem.id);
         if (item) {
@@ -1471,10 +1108,8 @@ function renderCartItems() {
   });
 }
 
-// Initial render
 renderCartItems();
 
-// Remove item from cart
 document.addEventListener('click', function (e) {
   const btn = e.target.closest('.remove-from-cart');
   if (btn) {
@@ -1484,27 +1119,22 @@ document.addEventListener('click', function (e) {
       let cart = JSON.parse(localStorage.getItem('cartProducts') || '[]');
       cart.splice(index, 1);
       localStorage.setItem('cartProducts', JSON.stringify(cart));
-      // Re-render cart items
       renderCartItems();
     }
   }
 });
 
-// --- Checkout page logic ---
-// On checkout page load, pre-fill form fields if available
+
 document.addEventListener('DOMContentLoaded', function () {
   const checkoutForm = document.querySelector('form.checkout');
   if (!checkoutForm) return;
-  // Prefill example: Name and Email
   const nameField = checkoutForm.querySelector('input[name="name"]');
   const emailField = checkoutForm.querySelector('input[name="email"]');
   if (nameField) nameField.value = localStorage.getItem('checkoutName') || '';
   if (emailField) emailField.value = localStorage.getItem('checkoutEmail') || '';
 
-  // Load saved address from localStorage (if any)
   const savedAddress = JSON.parse(localStorage.getItem('savedAddress') || 'null');
   if (savedAddress) {
-    // Prefill address fields
     for (const key in savedAddress) {
       const field = checkoutForm.querySelector(`input[name="${key}"]`);
       if (field) field.value = savedAddress[key];
@@ -1512,7 +1142,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// On form submit, save name and email to localStorage
 document.addEventListener('submit', function (e) {
   const form = e.target.closest('form.checkout');
   if (form) {
@@ -1525,15 +1154,11 @@ document.addEventListener('submit', function (e) {
   }
 });
 
-// --- Order confirmation page logic ---
-// On order confirmation page load, display order details
 document.addEventListener('DOMContentLoaded', function () {
   const orderDetails = document.querySelector('.order-details');
   if (!orderDetails) return;
-  // Example: Display order number and items
   const orderNumber = localStorage.getItem('orderNumber') || 'N/A';
   orderDetails.innerHTML = `<h3>Order Confirmation</h3><p>Order Number: ${orderNumber}</p>`;
-  // Optionally, display order items if available
   const orderItems = JSON.parse(localStorage.getItem('orderItems') || '[]');
   if (orderItems.length) {
     const itemsList = orderItems.map(item => `<li>${item.title} - ₹${item.price.toLocaleString()}</li>`).join('');
@@ -1541,7 +1166,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// Contact page GSAP animation for contact-left and contact-right
 document.addEventListener('DOMContentLoaded', function () {
   if (typeof gsap !== 'undefined' && document.querySelector('.contact-left') && document.querySelector('.contact-right')) {
     gsap.from('.contact-left', {
@@ -1561,7 +1185,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// --- Clear localStorage helper (for testing) ---
 function clearLocalStorage() {
   localStorage.removeItem('cartProducts');
   localStorage.removeItem('wishlist');
@@ -1571,23 +1194,15 @@ function clearLocalStorage() {
   localStorage.removeItem('savedAddress');
   localStorage.removeItem('orderNumber');
   localStorage.removeItem('orderItems');
-  // Clear all localStorage items (use with caution!)
-  // localStorage.clear();
 }
 
-// --- Debugging: Log all localStorage items ---
-function logLocalStorage() {
-  console.log('--- Local Storage Content ---');
-  for (const [key, value] of Object.entries(localStorage)) {
-    console.log(`${key}: ${value}`);
-  }
-  console.log('-----------------------------');
-}
-
-// Example usage: Call logLocalStorage() to see all localStorage items in console
-// logLocalStorage();
-
-// --- End of JavaScript code ---
+// function logLocalStorage() {
+//   console.log('--- Local Storage Content ---');
+//   for (const [key, value] of Object.entries(localStorage)) {
+//     console.log(`${key}: ${value}`);
+//   }
+//   console.log('-----------------------------');
+// }
 
 
 

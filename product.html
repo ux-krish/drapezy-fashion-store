@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drapez - Fashion Store</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <meta property="og:image" content="images/favicon.png" />
-  <meta property="og:image:width" content="72">
-<meta property="og:image:height" content="72">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -150,7 +147,6 @@
       <div class="container">
         <div class="product-wrapper">
           <div class="product-gallery">
-            <!-- Main image slider -->
             <div class="main-slider swiper">
               <div class="swiper-wrapper">
                 <!-- <div class="swiper-slide"><img src="images/women1.png" alt="Main Product" /></div>
@@ -163,7 +159,6 @@
               </div>
               <div class="swiper-pagination"></div>
             </div>
-            <!-- Thumbnail slider -->
             <div class="thumbnail-slider swiper">
               <div class="swiper-wrapper">
                 <!-- <div class="swiper-slide"><img src="images/women1.png" /></div>
@@ -181,7 +176,6 @@
             </div>
           </div>
           <div class="product-info">
-            <!-- Product info will be dynamically rendered by product-details.js -->
             <span class="tag"></span>
             <h2></h2>
             <div class="ratings">
@@ -332,7 +326,6 @@
             <p>Based on 1,245 reviews</p>
           </div>
 
-          <!-- Rating Breakdown -->
           <div class="review-box rating-breakdown">
             <div class="rating-row">
               <span class="star-label">
@@ -420,7 +413,6 @@
             </div>
           </div>
 
-          <!-- Recommendation -->
           <div class="review-box recommendation">
           <svg class="icon" width="63" height="43" viewBox="0 0 63 43" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M18.3463 38.8387C17.4144 39.6213 16.6079 40.0056 15.7643 39.9999C13.8263 39.9799 12.2104 37.9991 8.98147 34.0401L4.66384 28.7464C2.88549 26.5663 2.66889 23.3189 4.1366 20.8713C5.81236 18.0707 9.02992 17.288 11.535 18.6912M28.5947 11.5389C30.9398 9.07197 33.3693 6.68647 35.8791 4.3867C36.4497 3.84577 37.1392 3.44565 37.8924 3.21833C38.6455 2.99101 39.4415 2.94278 40.2166 3.0775M37.6688 33.7698C44.1096 26.313 50.3253 21.2583 58.137 14.0947C60.4739 11.9516 60.8358 8.19478 59.0005 5.53083C57.0511 2.70182 53.3491 2.13545 50.8412 4.3867C43.6878 10.8046 38.1219 16.9864 32.8439 23.5921C32.5646 23.9394 32.4278 24.113 32.2825 24.2097C32.1085 24.3297 31.9024 24.3946 31.691 24.3962C31.4796 24.3977 31.2726 24.3357 31.0969 24.2183C30.9515 24.1215 30.8119 23.9507 30.5354 23.6121L27.7226 20.1683C25.1576 17.0205 20.5522 17.3706 18.409 20.8684C16.9071 23.3189 17.1294 26.5663 18.9477 28.7464L23.3593 34.0401C26.6567 37.9991 28.3068 39.9799 30.2875 39.9999C32.2682 40.0198 34.0694 37.9364 37.6688 33.7698Z" stroke="#4E4E4E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -433,55 +425,7 @@
          </div>
       </section>
 
-<!-- <section class="review-summary">
-  <h2>Overall Rating Summary</h2>
-  <div class="review-summary__stats">
-    <div class="review-summarybox review-summaryrating">
-      <div class="review-summary__stars">★★★★★</div>
-      <div class="review-summary__score">
-        <strong>4.5</strong>
-        <p>Based on 1,245 reviews</p>
-      </div>
-    </div>
 
-    <div class="review-summarybox review-summarybreakdown">
-      <div class="review-summary__bar" data-rating="5.0">
-        <span class="review-summary__bar-label">★ 5.0</span>
-        <div class="review-summary__progress" style="width: 70%"></div>
-        <span class="review-summary__percent">70%</span>
-      </div>
-      <div class="review-summary__bar" data-rating="4.0">
-        <span class="review-summary__bar-label">★ 4.0</span>
-        <div class="review-summary__progress" style="width: 38%"></div>
-        <span class="review-summary__percent">38%</span>
-      </div>
-      <div class="review-summary__bar" data-rating="3.0">
-        <span class="review-summary__bar-label">★ 3.0</span>
-        <div class="review-summary__progress" style="width: 23%"></div>
-        <span class="review-summary__percent">23%</span>
-      </div>
-      <div class="review-summary__bar" data-rating="2.0">
-        <span class="review-summary__bar-label">★ 2.0</span>
-        <div class="review-summary__progress" style="width: 7%"></div>
-        <span class="review-summary__percent">7%</span>
-      </div>
-      <div class="review-summary__bar" data-rating="1.0">
-        <span class="review-summary__bar-label">★ 1.0</span>
-        <div class="review-summary__progress" style="width: 5%"></div>
-        <span class="review-summary__percent">5%</span>
-      </div>
-    </div>
- 
-    <div class="review-summarybox review-summaryrecommend">
-      <svg width="63" height="43" viewBox="0 0 63 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18.3463 38.8387C17.4144 39.6213 16.6079 40.0056 15.7643 39.9999C13.8263 39.9799 12.2104 37.9991 8.98147 34.0401L4.66384 28.7464C2.88549 26.5663 2.66889 23.3189 4.1366 20.8713C5.81236 18.0707 9.02992 17.288 11.535 18.6912M28.5947 11.5389C30.9398 9.07197 33.3693 6.68647 35.8791 4.3867C36.4497 3.84577 37.1392 3.44565 37.8924 3.21833C38.6455 2.99101 39.4415 2.94278 40.2166 3.0775M37.6688 33.7698C44.1096 26.313 50.3253 21.2583 58.137 14.0947C60.4739 11.9516 60.8358 8.19478 59.0005 5.53083C57.0511 2.70182 53.3491 2.13545 50.8412 4.3867C43.6878 10.8046 38.1219 16.9864 32.8439 23.5921C32.5646 23.9394 32.4278 24.113 32.2825 24.2097C32.1085 24.3297 31.9024 24.3946 31.691 24.3962C31.4796 24.3977 31.2726 24.3357 31.0969 24.2183C30.9515 24.1215 30.8119 23.9507 30.5354 23.6121L27.7226 20.1683C25.1576 17.0205 20.5522 17.3706 18.409 20.8684C16.9071 23.3189 17.1294 26.5663 18.9477 28.7464L23.3593 34.0401C26.6567 37.9991 28.3068 39.9799 30.2875 39.9999C32.2682 40.0198 34.0694 37.9364 37.6688 33.7698Z" stroke="#4E4E4E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-      <strong>90%</strong>
-      <p>Recommend Product</p>
-    </div>
-  </div>
-</section> -->
     <section class="review-summary">
       <div class="container">
         <h3>Customer reviews</h3>
@@ -604,7 +548,6 @@
       </div>
     </aside>
 
-    <!-- 2. Newsletter -->
     <section class="newsletter">
       <div class="newsletter-content">
         <div class="newsletter-text">
@@ -625,7 +568,6 @@
       </div>
     </section>
 
-    <!-- 3. Main Footer -->
     <section class="footer-main">
       <div class="footer-columns">
         <div class="footer-about">
@@ -661,7 +603,6 @@
       </div>
     </section>
 
-    <!-- 4. Copyright -->
     <div class="footer-bottom">
       <p>© 2025 Drapezy. All rights reserved.</p>
       <div class="payment-icons">
