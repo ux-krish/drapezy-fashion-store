@@ -143,7 +143,7 @@ footer .logo div span {
   background-color: #fff;
   border: none;
   padding: 0.5555555556rem 1.1111111111rem;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
   font-weight: bold;
   color: #666;
   cursor: pointer;
@@ -560,10 +560,11 @@ footer .logo div span {
   font-family: "Jost", sans-serif;
   color: #4E4E4E;
   margin: 1.3333333333rem auto;
-  border: 1px solid #F5F5F5;
+  border: 1px solid #E4E4E4;
   padding: 0 0;
   position: relative;
   overflow-x: hidden;
+  border-radius: 0.1666666667rem;
 }
 .product-listing aside.sidebar {
   flex: 0 0 16.6666666667rem;
@@ -584,6 +585,9 @@ footer .logo div span {
   list-style: none;
   padding: 2.2222222222rem 1.1111111111rem;
   border-bottom: 1px solid #E4E4E4;
+}
+.product-listing aside.sidebar .filter-section ul:last-child {
+  border-bottom: none;
 }
 .product-listing aside.sidebar .filter-section ul li {
   margin-bottom: 0.5555555556rem;
@@ -1203,13 +1207,13 @@ footer .logo div span {
   background: #fff;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-radius: 0 0 0.4444444444rem 0.4444444444rem;
+  border-radius: 0 0 0.1666666667rem 0.1666666667rem;
   max-height: 17.7777777778rem;
   overflow-y: auto;
   padding: 0;
   margin: 0;
   list-style: none;
-  border: 1px solid #f2f2f2;
+  border: 1px solid #E4E4E4;
   border-top: none;
 }
 .main-header .search-box .search-suggestions li,
@@ -1234,7 +1238,7 @@ footer .logo div span {
   height: 2.1111111111rem;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
 }
 .main-header .search-box .search-suggestions li div,
 .main-header .search-box #search-suggestions li div {
@@ -1429,7 +1433,7 @@ footer .logo div span {
 }
 .main-header .nav-links .products-menu .mega-menu .image-column a img {
   max-width: 100%;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
   -o-object-fit: cover;
      object-fit: cover;
   height: auto !important;
@@ -1559,7 +1563,7 @@ footer .logo div span {
 }
 .main-header .nav-links .products-menu .mega-menu .image-column a img {
   max-width: 100%;
-  border-radius: 0.2222222222rem;
+  border-radius: 0.1666666667rem;
   -o-object-fit: cover;
      object-fit: cover;
   height: auto !important;

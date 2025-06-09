@@ -392,6 +392,7 @@
         margin: px-to-rem(24) 0;
 
         .btn {
+          @extend %cta-button;
           padding: px-to-rem(0) px-to-rem(20);
           height: px-to-rem(50);
           display: flex;
@@ -405,10 +406,13 @@
           position: relative;
           transform: translateY(px-to-rem(-1));
           font-size: px-to-rem(18);
+          flex:1 1 auto;
+          text-align: center;
+          @include flex-center;
           &.dark {
             background: $text-color;
             color: $text-white;
-
+            
             &:hover {
               background: $secondary-color;
               color: $text-color;

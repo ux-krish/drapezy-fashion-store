@@ -8,12 +8,22 @@
 
 .cart-summary-section {
   display: flex;
+  flex-direction: column;
   padding: px-to-rem(24) 0;
+  .cart-summary-main{
+   display: flex;
+   flex-wrap: wrap;
+  }
   @include container;
   margin-top: px-to-rem(24);
   .cart-summary {
     width: 65%;
     border: 1px solid $light-gray-stroke;
+    max-width: calc(100% - px-to-rem(40));
+    @media (min-width: 701px) {
+      width: 65%;
+      border-right:0;
+    }
     &__header h2 {
       font-family: $font-family;
       font-size: px-to-rem(24);
@@ -46,7 +56,7 @@
         color: $text-dark;
         font-weight: 700;
         letter-spacing: 0.02em;
-        border-bottom: 2px solid $light-gray-stroke;
+        //border-bottom: 2px solid $light-gray-stroke;
       }
 
       // tr:last-child td {
@@ -257,22 +267,13 @@
     }
 
     &__actions {
-      margin-top: px-to-rem(16);
+      margin: px-to-rem(12) 0;
       display: flex;
       justify-content: space-between;
       padding: px-to-rem(0) px-to-rem(10);
+      gap: px-to-rem(16);
+      text-align: center;
       @media (max-width:700px){padding:px-to-rem(10);margin-top:0}
-      .back-btn,
-      .wishlist-btn {
-        padding: px-to-rem(0) px-to-rem(16);
-        min-height: px-to-rem(50);
-        border: 1px solid $light-gray-stroke;
-        font-size: px-to-rem(16);
-        border-radius: px-to-rem(3);
-        cursor: pointer;
-       
-        
-      }
       .back-btn{
         flex: 0 0 160px;
         @include flex-center;
@@ -281,10 +282,31 @@
       }
       .wishlist-btn {
         flex: 0 0 px-to-rem(180);
+        
         @include flex-center;
         gap: px-to-rem(8);
          background-color: $tertiary-color;
+         @media (max-width: 700px) {
+          flex: 1;
+          font-size: 0;
+         }
       }
+      .back-btn,
+      .wishlist-btn {
+        @extend %cta-button;
+        padding: px-to-rem(0) px-to-rem(16);
+        min-height: px-to-rem(50);
+        border: 1px solid $light-gray-stroke;
+        font-size: px-to-rem(16);
+        border-radius: px-to-rem(3);
+        cursor: pointer;
+        margin:0;
+        @media (max-width: 700px) {
+        flex: 1;
+        }
+        
+      }
+      
     }
 
     &__info {
@@ -431,6 +453,7 @@
     }
     .secure-card{
       @include flex-center;
+      margin:0 0 px-to-rem(16);
     }
     @media (max-width: 700px) {
       padding: px-to-rem(0);

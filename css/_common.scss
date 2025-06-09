@@ -141,7 +141,7 @@ footer{
   background-color: #fff;
   border: none;
   padding: px-to-rem(10) px-to-rem(20);
-  border-radius: px-to-rem(4);
+  border-radius: px-to-rem(3);
   font-weight: bold;
   color: #666;
   cursor: pointer;
@@ -597,10 +597,11 @@ footer{
     font-family: $font-family;
     color: $text-color;
     margin: px-to-rem(24) auto;
-    border: 1px solid $light-gray;
+    border: 1px solid $light-gray-stroke;
     padding: 0 0;
     position: relative;
     overflow-x: hidden;
+    border-radius: px-to-rem(3);
     aside.sidebar {
         flex: 0 0 px-to-rem(300);
         background: white;
@@ -623,7 +624,9 @@ footer{
                 list-style: none;
                 padding: px-to-rem(40) px-to-rem(20);
                 border-bottom: 1px solid $light-gray-stroke;
-
+                &:last-child {
+                    border-bottom: none;
+                }
                 li {
                     margin-bottom: px-to-rem(10);
                     &:last-child {

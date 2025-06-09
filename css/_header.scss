@@ -75,13 +75,13 @@
       background: #fff;
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      border-radius: 0 0 px-to-rem(8) px-to-rem(8);
+      border-radius: 0 0 px-to-rem(3) px-to-rem(3);
       max-height: px-to-rem(320);
       overflow-y: auto;
       padding: 0;
       margin: 0;
       list-style: none;
-      border: 1px solid #f2f2f2;
+      border: 1px solid $light-gray-stroke;
       border-top: none;
 
       li {
@@ -103,7 +103,7 @@
           width: px-to-rem(38);
           height: px-to-rem(38);
           object-fit: cover;
-          border-radius: px-to-rem(4);
+          border-radius: px-to-rem(3);
         }
 
         div {
@@ -304,7 +304,7 @@
             width: 100%;
             img {
             max-width: 100%;
-            border-radius: px-to-rem(4);
+            border-radius: px-to-rem(3);
             object-fit: cover;
             height: auto !important;
           }
@@ -453,7 +453,7 @@
             width: 100%;
             img {
             max-width: 100%;
-            border-radius: px-to-rem(4);
+            border-radius: px-to-rem(3);
             object-fit: cover;
             height: auto !important;
           }
