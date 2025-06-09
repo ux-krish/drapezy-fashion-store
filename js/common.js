@@ -1,7 +1,7 @@
 const lenis = new Lenis({
   smooth: true,
   lerp: 0.08, // Adjust this value to slow down or speed up the scroll
-  wheelMultiplier: 1.2,
+  wheelMultiplier: 1,
   infinite: false
 });
 
@@ -402,10 +402,25 @@ function runPageAnimations() {
 
 // GSAP Animations for sections and elements
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  if (
+  typeof gsap !== 'undefined' &&
+  typeof ScrollTrigger !== 'undefined' &&
+  !window.location.pathname.endsWith('shop-all.html') // <-- Disable section GSAP on shop-all.html
+) {
   gsap.registerPlugin(ScrollTrigger);
 
+  const sections = gsap.utils.toArray('section');
+  if (sections.length) {
+    gsap.from(sections[0], {
+      opacity: 0,
+      scale: 0.5,
+      duration: 1.1, // slightly longer for first fold
+      ease: "power3.out"
+    });
+  }
+
   // Animate each section
-  gsap.utils.toArray('section').forEach(section => {
+  sections.slice(1).forEach(section => {
     gsap.from(section, {
       opacity: 0,
       scale: 0.5,
@@ -413,60 +428,12 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       ease: "power3.out",
       scrollTrigger: {
         trigger: section,
-        //start: "top center",
-        end: "bottom center",
+        start: "top 90%",
         toggleActions: "play none none reverse"
       }
     });
   });
-
-  // Animate banners in section-newarrival-deals from opposite X sides
-  // const himBanner = document.querySelector('.section-newarrival-deals .newarrival-banner--him');
-  // const herBanner = document.querySelector('.section-newarrival-deals .newarrival-banner--her');
-  // if (himBanner) {
-  //   gsap.from(himBanner, {
-  //     opacity: 0,
-  //     x: -100,
-  //     duration: 0.8,
-  //     ease: "power3.out",
-  //     scrollTrigger: {
-  //       trigger: himBanner,
-  //       end: "bottom 90%",
-  //       toggleActions: "play none none reverse"
-  //     }
-  //   });
-  // }
-  // if (herBanner) {
-  //   gsap.from(herBanner, {
-  //     opacity: 0,
-  //     x: 100,
-  //     duration: 0.8,
-  //     ease: "power3.out",
-  //     scrollTrigger: {
-  //       trigger: herBanner,
-  //       end: "bottom 90%",
-  //       toggleActions: "play none none reverse"
-  //     }
-  //   });
-  // }
-
-  // Animate other banners (deals-banner, but not newarrival-banner)
-  // gsap.utils.toArray('.deals-banner:not(.newarrival-banner--him):not(.newarrival-banner--her)').forEach(banner => {
-  //   gsap.from(banner, {
-      
-  //     y: 200,
-  //     scale:0.6,
-  //     duration: 1,
-  //     ease: "power2.out",
-  //     scrollTrigger: {
-  //       trigger: banner,
-  //       end: "bottom 90%",
-  //       toggleActions: "play none none reverse"
-  //     }
-  //   });
-  // });
-
-  // Animate product grids (products-grid and deals-products)
+}
   gsap.utils.toArray('.products-grid, .deals-products').forEach(grid => {
     gsap.from(grid, {
       
@@ -529,20 +496,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       }, "<+0.1");
   }
 
-  // Animate review section
-  // gsap.utils.toArray('.reviews-section').forEach(section => {
-  //   gsap.from(section, {
-  //     opacity: 0,
-  //     y: 60,
-  //     duration: 0.8,
-  //     ease: "power2.out",
-  //     scrollTrigger: {
-  //       trigger: section,
-  //       end: "bottom 90%",
-  //       toggleActions: "play none none reverse"
-  //     }
-  //   });
-  // });
+
 
   // Animate headings
   gsap.utils.toArray('h2, h3').forEach(heading => {

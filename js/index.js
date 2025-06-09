@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
   gsap.timeline({
     scrollTrigger: {
       trigger: ".promo-section",
-      end: "top 85%",
+      end: "bottom 85%",
       toggleActions: "play none none reverse",
       once: true
     }
@@ -213,15 +213,16 @@ document.addEventListener('DOMContentLoaded', function () {
       opacity: 0,
       y: 40,
       duration: 0.8,
+      
       ease: "power3.out"
     })
     .from(".promo-section .promo-grid .promo-card", {
-      opacity: 0,
-      scale: 0.3,
-      y: 100,
+      //opacity: 0,
+      scale: 0.5,
+      x: 100,
       duration: 0.5,
       stagger: 0.2,
-      ease: "power3.out"
+      ease: "power3.inOut"
     });
 
   // Reviews section animation
