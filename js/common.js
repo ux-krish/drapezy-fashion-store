@@ -409,30 +409,30 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 ) {
   gsap.registerPlugin(ScrollTrigger);
 
-  const sections = gsap.utils.toArray('section');
-  if (sections.length) {
-    gsap.from(sections[0], {
-      opacity: 0,
-      scale: 0.5,
-      duration: 1.1, // slightly longer for first fold
-      ease: "power3.out"
-    });
-  }
+  // const sections = gsap.utils.toArray('section');
+  // if (sections.length) {
+  //   gsap.from(sections[0], {
+  //     opacity: 0,
+  //     scale: 0.5,
+  //     duration: 1.1, // slightly longer for first fold
+  //     ease: "power3.out"
+  //   });
+  // }
 
   // Animate each section
-  sections.slice(1).forEach(section => {
-    gsap.from(section, {
-      opacity: 0,
-      scale: 0.5,
-      duration: 0.7,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: section,
-        start: "top 90%",
-        toggleActions: "play none none reverse"
-      }
-    });
-  });
+  // sections.slice(1).forEach(section => {
+  //   gsap.from(section, {
+  //     opacity: 0,
+  //     scale: 0.5,
+  //     duration: 0.7,
+  //     ease: "power3.out",
+  //     scrollTrigger: {
+  //       trigger: section,
+  //       start: "top 90%",
+  //       toggleActions: "play none none reverse"
+  //     }
+  //   });
+  // });
 }
   gsap.utils.toArray('.products-grid, .deals-products').forEach(grid => {
     gsap.from(grid, {

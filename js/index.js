@@ -63,11 +63,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
     .from(".text-carousel .carousel-texts", {
-      opacity: 0,
+      //opacity: 0,
       x: -500,
       duration: 3,
       stagger: 0.5,
-      ease: "power3.out"
+      ease: "power4.out"
     });
 
   // Deal of the day animation
@@ -217,11 +217,11 @@ document.addEventListener('DOMContentLoaded', function () {
       ease: "power3.out"
     })
     .from(".promo-section .promo-grid .promo-card", {
-      //opacity: 0,
+      opacity: 0,
       scale: 0.5,
-      x: 100,
-      duration: 0.5,
-      stagger: 0.2,
+      x:-100,
+      duration: 0.8,
+      stagger: 0.1,
       ease: "power3.inOut"
     });
 
