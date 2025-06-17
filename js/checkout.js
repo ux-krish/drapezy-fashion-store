@@ -387,6 +387,9 @@ window.removeSummaryItem = function(idx) {
     summary.totalDiscount = 0;
     summary.platformFees = 5;
     summary.total = 0;
+    localStorage.setItem('checkoutSummary', JSON.stringify(summary));
+    window.location.href = 'cart.html';
+    return;
   }
   localStorage.setItem('checkoutSummary', JSON.stringify(summary));
   renderCheckoutSummary();
